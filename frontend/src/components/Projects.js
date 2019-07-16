@@ -7,14 +7,12 @@ class Projects extends React.Component {
   };
 
   componentDidMount() {
-    axios
-      .get(`https://lambdaappstore2.herokuapp.com/api/projects`)
-      .then(res => {
-        console.log(res);
-        this.setState({
-          projects: res.data
-        });
+    axios.get(`https://lambdaappstore.herokuapp.com/api/projects`).then(res => {
+      console.log(res);
+      this.setState({
+        projects: res.data
       });
+    });
   }
 
   render() {
