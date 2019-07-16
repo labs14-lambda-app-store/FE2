@@ -1,24 +1,21 @@
-import React from "react";
+import React, {useState, useEffect} from "react"
 import axios from "axios";
 
-class Projects extends React.Component {
-  state = {
-    projects: []
-  };
 
-  componentDidMount() {
-    axios.get(`https://lambdaappstore.herokuapp.com/api/projects`).then(res => {
-      console.log(res);
-      this.setState({
-        projects: res.data
-      });
-    });
-  }
+const Projects = () => {
 
-  render() {
+  const [ projects, setProjects ] = useState([])
+
+  useEffect(() => {
+    axios.get(`https://lambdaappstore2.herokuapp.com/api/projects`).then(res => {
+      setProjects(res.data)
+    })
+    .catch(err => console.log(err.message))
+  }, [])
+
     return (
       <div>
-        {this.state.projects.map(project => (
+        {projects.map(project => (
           <div>
             <p>{project.id}</p>
             <h1>{project.name}</h1>
@@ -28,7 +25,6 @@ class Projects extends React.Component {
         ))}
       </div>
     );
-  }
 }
 
 export default Projects;
