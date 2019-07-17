@@ -35,6 +35,12 @@ class Auth {
     });
   }
 
+  signOut = () => {
+    this.auth0.logout({
+      returnTo: window.location.origin,
+      clientID
+    })
+  }
   setSession(authResult) {
     this.idToken = authResult.idToken
     this.profile = authResult.idTokenPayload
