@@ -8,9 +8,9 @@ const clientID = process.env.REACT_APP_OAUTH_CLIENT_ID_DEV
 class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
-      domain: domain,
+      domain,
       audience: `https://${domain}/userinfo`,
-      clientID: clientID,
+      clientID,
       redirectUri: 'http://localhost:3000/callback',
       responseType:'id_token token',
       scope: 'openid profile'
