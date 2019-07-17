@@ -4,11 +4,12 @@ import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import ProjectForm from "./components/ProjectForm";
 
+import auth0Client from './components/Auth/Auth'
 import "./App.scss";
 
 require('dotenv').config()
 
-console.log(process.env.REACT_APP_TEST)
+
 function App() {
   return (
     <div className="App">
