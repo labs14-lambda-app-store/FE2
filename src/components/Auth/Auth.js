@@ -30,7 +30,15 @@ class Auth {
   }
 
   signIn = () => {
-    this.auth0.authorize();
+    this.auth0.authorize({
+      connection: 'google-oauth2'
+    });
+  }
+
+  setSession(authResult) {
+    this.idToken = authResult.idToken
+    this.profile = authResult.idTokenPayload
+    this.expiresAt = authResult.idTokenPayload.exp * 1000
   }
 }
 
