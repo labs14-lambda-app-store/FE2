@@ -1,0 +1,8 @@
+// Mixins
+
+@mixin box-align($justify: center, $items: center) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: $justify;
+      align-items: $items;
+  }

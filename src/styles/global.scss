@@ -1,0 +1,35 @@
+//global styling
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box !important;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	font-family: 'Lato', sans-serif;
+	background-color: $backg-light;
+}
+
+li,
+input,
+label,
+textarea {
+	font-family: 'Lato', sans-serif;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
+	width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+

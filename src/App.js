@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import ProjectForm from "./components/ProjectForm";
 
-import "./App.css";
+import "./App.scss";
 
 require('dotenv').config()
 
