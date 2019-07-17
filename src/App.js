@@ -1,5 +1,6 @@
 import React from "react";
 
+import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import ProjectForm from "./components/ProjectForm";
 
@@ -12,6 +13,7 @@ function App() {
       <div className="banana">
         <Projects />
         <ProjectForm />
+        <Footer />
       </div>
     </div>
   );
