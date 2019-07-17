@@ -15,6 +15,7 @@ class Auth {
       responseType:'id_token token',
       scope: 'openid profile'
     })
+
   }
 
   getProfile = () => {
@@ -31,7 +32,7 @@ class Auth {
 
   signIn = () => {
     this.auth0.authorize({
-      connection: 'google-oauth2'
+      connection: 'google-oauth2',
     });
   }
 
@@ -41,13 +42,14 @@ class Auth {
       clientID
     })
   }
+
   setSession(authResult) {
     this.idToken = authResult.idToken
     this.profile = authResult.idTokenPayload
     this.expiresAt = authResult.idTokenPayload.exp * 1000
   }
 
-  handleAuthentication() {
+  handleAuthentication = () => {
     return new Promise((resolve, reject) => {
       this.auth0.parseHash((err, authResult) => {
         if(err) return reject(err)
@@ -55,8 +57,10 @@ class Auth {
           return reject(err)
         }
 
-        this.setSession(authResult)
-
+        this.idToken = authResult.idToken
+        this.profile = authResult.idTokenPayload
+        this.expiresAt = authResult.idTokenPayload.exp * 1000
+        console.log('Auth result', this.profile)
         resolve()
       })
     })
