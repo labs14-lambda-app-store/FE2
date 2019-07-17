@@ -40,6 +40,21 @@ class Auth {
     this.profile = authResult.idTokenPayload
     this.expiresAt = authResult.idTokenPayload.exp * 1000
   }
+
+  handleAuthentication() {
+    return new Promise((resolve, reject) => {
+      this.auth0.parseHash((err, authResult) => {
+        if(err) return reject(err)
+        if(!authResult || !authResult.idToken) {
+          return reject(err)
+        }
+
+        this.setSession(authResult)
+
+        resolve()
+      })
+    })
+  }
 }
 
 const auth0Client = new Auth()
