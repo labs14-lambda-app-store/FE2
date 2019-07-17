@@ -35,7 +35,7 @@ export default function Footer() {
 				<NavLink exact to="/">
 					<img
 						className="Footer-lambda-app-store-logo"
-						src={whiteLambdaLogo}
+						// src={whiteLambdaLogo}
 						alt="white lambda logo"
 					/>
 				</NavLink>
