@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-// import whiteLambdaLogo from '../assets/Hire-lambda-logo-white.png';
-//we need to create and add our own logo
+import redLambdaLogo from '../assets/Lambda_Logo.png';
 
 export default function Footer() {
 	return (
@@ -13,8 +12,8 @@ export default function Footer() {
 					<a href="https://lambdaschool.com/blog/">BLOG</a>
 					<a href="https://lambdaschool.com/apply/">APPLY</a>
 					<a href="https://lambdaschool.com/careers/">CAREERS</a>
-					{/* <Link to="/privacy">PRIVACY</Link>
-					<Link to="/terms">TERMS</Link> */}
+					<Link to="/privacy">PRIVACY</Link>
+					<Link to="/terms">TERMS</Link>
 					<a href="https://lambdaschool.com/contact/">CONTACT</a>
 					<a href="https://lambdaschool.com/courses/cs/web/bootcamp/">
 						FREE CODE BOOTCAMP
@@ -32,13 +31,13 @@ export default function Footer() {
 						</a>
 					</div>
 				</nav>
-				{/* <NavLink exact to="/">
+				<NavLink exact to="/">
 					<img
-						className="Footer-lambda-app-store-logo"
-						// src={whiteLambdaLogo}
-						alt="white lambda logo"
+						className="Footer-lambda-logo"
+						 src={redLambdaLogo}
+						alt="red lambda logo"
 					/>
-				</NavLink> */}
+				</NavLink>
 			</footer>
 		</>
 	);
