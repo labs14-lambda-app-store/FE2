@@ -4,18 +4,18 @@ import auth0Client from './Auth';
 
 const Callback = props => {
 
-  const { handleAuthentication } = auth0Client
+
+  async function handleAuthentication() {
+    await auth0Client.handleAuthentication();
+    props.history.replace('/')
+
+  }
 
   useEffect(() => {
-    handleAuth()
-
+    handleAuthentication()
 
   }, [])
 
-  const handleAuth = async () => {
-    await handleAuthentication()
-    props.history.replace('/')
-  }
 
   return (
     <p>Loading profile...</p>
