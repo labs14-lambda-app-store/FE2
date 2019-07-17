@@ -5,6 +5,9 @@ import ProjectForm from "./components/ProjectForm";
 
 import "./App.css";
 
+require('dotenv').config()
+
+console.log(process.env.REACT_APP_TEST)
 function App() {
   return (
     <div className="App">
