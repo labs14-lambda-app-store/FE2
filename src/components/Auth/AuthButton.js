@@ -11,7 +11,14 @@ const AuthButton = props => {
   } = auth0Client
 
   return (
-    { }
+    {
+      !isAuthenticated() &&
+      <button onClick={signIn}>Sign In</button>
+    }
+    {
+      isAuthenticated() &&
+      <button onClick={signOut}>Sign Out</button>
+    }
   )
 }
 
