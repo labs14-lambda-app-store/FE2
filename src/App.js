@@ -7,18 +7,12 @@ import ProjectForm from "./components/ProjectForm";
 import {Callback, AuthButton} from './components/Auth'
 import { Route } from 'react-router-dom'
 
-import auth0Client from './components/Auth/Auth'
 import "./App.scss";
 
 require("dotenv").config();
 
 
 const App = () => {
-
-  useEffect(() => {
-    console.log(auth0Client.isAuthenticated())
-    console.log(auth0Client.getProfile())
-  }, [])
 
   return (
     <Router>
