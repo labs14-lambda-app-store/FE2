@@ -44,6 +44,20 @@ export const Auth0Provider = ({
     //eslint-disable-next-line
   }, [])
 
+  const loginWithPopup = async (params = {}) => {
+    setPopupOpen(true)
+    try {
+      await auth0Client.loginWithPopup(params)
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setPopupOpen(false)
+    }
+    const user = await auth0Client.getUser()
+    setUser(user)
+    setIsAuthenticated(true)
+  }
+
   const handleRedirectCallback = async () => {
     setLoading(true)
     await auth0Client.handleRedirectCallback()
