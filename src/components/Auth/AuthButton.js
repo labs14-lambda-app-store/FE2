@@ -10,15 +10,24 @@ const AuthButton = props => {
     getProfile,
   } = auth0Client
 
+  useEffect(() => {
+     console.log(getProfile())
+  })
   return (
     <>
     {
       !isAuthenticated() &&
-      <button onClick={signIn}>Sign In</button>
+      <button onClick={() => signIn()}>Sign In</button>
+
     }
     {
-      isAuthenticated() &&
-      <button onClick={signOut}>Sign Out</button>
+      auth0Client.isAuthenticated() &&
+      <div>
+         <label>
+            {getProfile().name}
+         </label>
+         <button className="btn btn-dark" onClick={() => {signOut()}}>Sign Out</button>
+       </div>
     }
     </>
   )

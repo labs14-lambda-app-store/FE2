@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Footer from "./components/Footer";
@@ -10,8 +10,8 @@ import { Route } from 'react-router-dom'
 import auth0Client from './components/Auth/Auth'
 import "./App.scss";
 
-
 require("dotenv").config();
+
 
 const App = () => {
 
@@ -19,7 +19,7 @@ const App = () => {
     console.log(auth0Client.isAuthenticated())
     console.log(auth0Client.getProfile())
   }, [])
-  
+
   return (
     <Router>
       <div className="App">
