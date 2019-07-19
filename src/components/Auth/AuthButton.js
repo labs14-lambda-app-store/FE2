@@ -25,7 +25,7 @@ const AuthButton = props => {
       isAuthenticated && (
         <>
         <button onClick={() => logoutWithRedirect()}> Sign out </button>
-        <h2>Hello {user.name}</h2>
+        <h2>Hello {user.given_name}</h2>
         </>
       )
 
