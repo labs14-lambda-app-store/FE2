@@ -6,14 +6,16 @@ import Projects from "./components/Projects";
 import ProjectForm from "./components/ProjectForm";
 import {Callback, AuthButton} from './components/Auth'
 import { Route } from 'react-router-dom'
-
+import { useAuth0 } from './components/Auth/react-auth0-spa'
 import "./App.scss";
 
 require("dotenv").config();
 
 
 const App = () => {
+  const { loading } = useAuth0()
 
+  if(loading) return "Loading..."
   return (
     <Router>
       <div className="App">
