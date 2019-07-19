@@ -16,7 +16,7 @@ const AuthButton = props => {
     {
       !isAuthenticated && (
         <>
-        <button onClick={() => loginWithRedirect({ redirect_uri: 'http://localhost:3000/callback'})}> Sign In </button>
+        <button onClick={() => loginWithRedirect({})}> Sign In </button>
         {console.log(user)}
         </>
       )
