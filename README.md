@@ -1,6 +1,6 @@
 # Lambda App Store
 
-<div align="center"><img src="" alt="logo"></div>
+<div align="center"><img src="./src/assets/Lambda-Logo.png" alt="logo"></div>
 
 ### Contributors:
 
@@ -25,18 +25,19 @@
 
  [UX Design files](https://sketch.cloud/s/GzQob)(https://docs.google.com/presentation/d/1upSlMfvh0DpfZR6eyFzHYUU6q_TCFpPPNxIYr8qJbzU/edit?usp=sharing) 
  
- [Feature Canvases]
+ [Feature Canvases] (https://www.notion.so/App-Gallery-Feature-Canvas-7a6638a26940490f908506fee1c35fdf)(https://www.notion.so/The-Landing-Page-Feature-Canvas-3f33be139cf94a799ba4440cccc4341e)(https://www.notion.so/User-Dashboard-Feature-Canvas-1d7dff49af804a8783f47aa8f0ec4418)(https://www.notion.so/The-Subscription-Feature-Canvas-1d7bb594fade4606a3de09abbdf31ed6)
 
 
 "Lambda App Store" is a Lambda Labs project built for Lambda School to create a central place to view and use the apps that our awesome students create.
 
 ### 4️⃣ Key Features
 
--    Students can create a profile and show off their completed/deployed apps
+-    Students can create a profile to submit their completed/deployed apps
 -    Admins can approve or deny student app submissions
--    feature three
--    feature four
--    feature five
+-    Visitors can browse Lambda apps by featured/category/trending/new/key word
+-    Visitors can access free student apps/free versions of student apps
+-    Visitors can purchase a subscription for full access to premium apps
+
 
 ##  Tech Stack
 
