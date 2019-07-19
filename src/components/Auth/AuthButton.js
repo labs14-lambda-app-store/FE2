@@ -25,7 +25,7 @@ const AuthButton = props => {
       isAuthenticated && (
         <>
         <button onClick={() => logoutWithRedirect()}> Sign out </button>
-        <img src={user.picture} alt="Profile"/>
+        <h2>Hello {user.name}</h2>
         </>
       )
 
