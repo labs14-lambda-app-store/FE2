@@ -5,6 +5,8 @@ const ProjectForm = props => {
   const [ name, setName ] = useState('')
   const [ description, setDescription ] = useState('')
   const [ url, setUrl ] = useState('')
+  const [ hostedUrl, setHostedUrl ] = useState('')
+  const [ category, setCategory ] = useState('')
 
   const handlePost = e => {
     e.preventDefault()
@@ -22,8 +24,14 @@ const ProjectForm = props => {
             <input
               type="text"
               value={name} /*???*/
-              placeholder="add new project..."
+              placeholder="project name..."
               onChange={e => setName(e.target.value)}
+            />
+                                    <input
+              type="text"
+              value={category} /*???*/
+              placeholder="category..."
+              onChange={e => setCategory(e.target.value)}
             />
             <input
               type="text"
@@ -35,6 +43,25 @@ const ProjectForm = props => {
               type="text"
               value={url} /*???*/
               placeholder="add new project..."
+              onChange={e => setUrl(e.target.value)}
+            />
+            <input
+              type="text"
+              value={url} /*???*/
+              placeholder="hosted url..."
+              onChange={e => setUrl(e.target.value)}
+            />
+            <input
+              type="text"
+              value={url} /*???*/
+              placeholder="frontend url..."
+              onChange={e => setUrl(e.target.value)}
+            />
+
+            <input
+              type="text"
+              value={url} /*???*/
+              placeholder="backend url..."
               onChange={e => setUrl(e.target.value)}
             />
             <button type='submit' onClick={e => handlePost(e)}>
