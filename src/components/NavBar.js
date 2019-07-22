@@ -1,20 +1,29 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+// import Typography from '@material-ui/core/Typography';
+import { MemoryRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Route, Link, withRouter } from "react-router-dom";
 
-const NavBar = () => {
+// I've imported Material UI packages above, 
+// and set them in a functional component below
+const NavBar = (props) => {
+
     return (
-        <div>
-            <AppBar position="static">
-                <Toolbar>
-                    <Typography variant="title" color="inherit">
-                        React @ Material-UI Sample Application
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        </div>
+        <Router>
+            <div>
+                {console.log(props)}
+                <AppBar position="static">
+                    <Toolbar>
+                        <Button onClick={() => props.history.push('/')}>Home</Button>
+                        <Button onClick={() => props.history.push('/projects')}>Projects</Button>
+                        <Button onClick={() => props.history.push('/project-form')}>Submit Project</Button>
+                    </Toolbar>
+                </AppBar>
+            </div>
+        </Router>
     )
 }
 
-export default NavBar;
+export default withRouter(NavBar);
