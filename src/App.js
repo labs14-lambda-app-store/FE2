@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
+import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import ProjectForm from "./components/ProjectForm";
@@ -19,6 +20,7 @@ const App = () => {
   return (
     <Router>
       <div className="App">
+        <NavBar />
         <h1>Lambda App Store!</h1>
         <AuthButton />
         <div className="banana">
