@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
+import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import ProjectForm from "./components/ProjectForm";
@@ -13,21 +14,23 @@ require("dotenv").config();
 
 
 const App = () => {
-  const { loading } = useAuth0()
+  // const { loading } = useAuth0()
 
-  if(loading) return "Loading..."
+  // if(loading) return "Loading..."
   return (
     <Router>
       <div className="App">
+        <NavBar />
         <h1>Lambda App Store!</h1>
-        <AuthButton />
+        {/* <AuthButton /> */}
         <div className="banana">
           <Projects />
-          <ProjectForm />
           <Footer />
         </div>
 
         <Route exact path='/callback' component={Callback} />
+        <Route exact path='/project-form' component={ProjectForm} />
+        <Route path="/projects" exact component={Projects} />
       </div>
     </Router>
   );
