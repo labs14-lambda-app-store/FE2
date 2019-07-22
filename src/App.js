@@ -10,8 +10,6 @@ import { Route } from "react-router-dom";
 import { useAuth0 } from "./components/Auth/react-auth0-spa";
 import "./App.scss";
 
-require("dotenv").config();
-
 const App = () => {
   const { loading } = useAuth0();
 
