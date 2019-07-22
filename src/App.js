@@ -4,9 +4,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import ProjectForm from "./components/ProjectForm";
-import {Callback, AuthButton} from './components/Auth'
-import { Route } from 'react-router-dom'
-import { useAuth0 } from './components/Auth/react-auth0-spa'
+import ProjectSearch from './components/ProjectSearch';
+import {Callback, AuthButton} from './components/Auth';
+import { Route } from 'react-router-dom';
+import { useAuth0 } from './components/Auth/react-auth0-spa';
 import "./App.scss";
 
 require("dotenv").config();
@@ -22,6 +23,7 @@ const App = () => {
         <h1>Lambda App Store!</h1>
         <AuthButton />
         <div className="banana">
+          <ProjectSearch />
           <Projects />
           <ProjectForm />
           <Footer />
