@@ -4,9 +4,14 @@ import axios from 'axios'
 const ProjectForm = props => {
   const [ name, setName ] = useState('')
   const [ description, setDescription ] = useState('')
-  const [ url, setUrl ] = useState('')
-  const [ hostedUrl, setHostedUrl ] = useState('')
-  const [ category, setCategory ] = useState('')
+  // const [ url, setUrl ] = useState('')
+  const [ hosted_url, setHostedUrl ] = useState('')
+  const [ frontend_url, setFrontendUrl ] = useState('')
+  const [ backend_url, setBackendUrl] = useState('')
+  const [ category_id, setCategory ] = useState('')
+  const [ submitted_at, setSubmit] = useState('')
+  const [ display_image, setImage] = useState('')
+  const [ tags, setTags] = useState('')
 
   const handlePost = e => {
     e.preventDefault()
@@ -29,40 +34,53 @@ const ProjectForm = props => {
             />
                                     <input
               type="text"
-              value={category} /*???*/
+              value={category_id} /*???*/
               placeholder="category..."
               onChange={e => setCategory(e.target.value)}
             />
             <input
               type="text"
               value={description} /*???*/
-              placeholder="add new project..."
+              placeholder="project description..."
               onChange={e => setDescription(e.target.value)}
             />
             <input
               type="text"
-              value={url} /*???*/
-              placeholder="add new project..."
-              onChange={e => setUrl(e.target.value)}
-            />
-            <input
-              type="text"
-              value={url} /*???*/
+              value={hosted_url} /*???*/
               placeholder="hosted url..."
-              onChange={e => setUrl(e.target.value)}
+              onChange={e => setHostedUrl(e.target.value)}
             />
             <input
               type="text"
-              value={url} /*???*/
+              value={frontend_url} /*???*/
               placeholder="frontend url..."
-              onChange={e => setUrl(e.target.value)}
+              onChange={e => setFrontendUrl(e.target.value)}
             />
 
             <input
               type="text"
-              value={url} /*???*/
+              value={backend_url} /*???*/
               placeholder="backend url..."
-              onChange={e => setUrl(e.target.value)}
+              onChange={e => setBackendUrl(e.target.value)}
+            />
+            
+            <input
+              type="text"
+              value={submitted_at} /*???*/
+              placeholder="backend url..."
+              onChange={e => setSubmit(e.target.value)}
+            />
+             <input
+              type="text"
+              value={display_image} /*???*/
+              placeholder="backend url..."
+              onChange={e => setImage(e.target.value)}
+            />
+                         <input
+              type="text"
+              value={tags} /*???*/
+              placeholder="backend url..."
+              onChange={e => setTags(e.target.value)}
             />
             <button type='submit' onClick={e => handlePost(e)}>
               Submit Post
