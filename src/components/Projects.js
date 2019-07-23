@@ -7,23 +7,17 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    isMounted = true;
-    axios
-      .get(`https://lambdaappstore2.herokuapp.com/api/projects`)
-      .then(res => {
-        if (isMounted === true) {
-
-          setProjects(res.data);
-        } else {
-        }
-      })
-      .catch(err => console.log(err.message));
-    // isMounted = false;
+    getProjects()
   }, []);
+
+  const getProjects = async () => {
+    const response = await axios.get(`https://lambdaappstore2.herokuapp.com/api/projects`)
+    let projects = await response.data
+    setProjects(projects)
+  }
 
   return (
     <div>
-      <h1>Hi</h1>
       {projects.map(project => (
         <div key={project.id}>
           <h1>Projects Test</h1>
