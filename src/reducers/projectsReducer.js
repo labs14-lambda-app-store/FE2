@@ -7,7 +7,7 @@ import {
 const initialState = {
   projects: [],
   isFetching: false,
-  isAdding: true
+  isAdding: false
 }
 
 const projectsReducer = (state = initialState, action) => {

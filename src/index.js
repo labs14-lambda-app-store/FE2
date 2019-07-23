@@ -5,7 +5,6 @@ import App from './App';
 import { Auth0Provider } from './components/Auth/react-auth0-spa'
 import { Provider } from 'react-redux';
 import { store } from './utils/store'
-import rootReducer from './reducers'
 
 const onRedirectCallback = appState => {
   window.history.replaceState(
