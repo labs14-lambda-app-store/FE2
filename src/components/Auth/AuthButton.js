@@ -17,7 +17,6 @@ const AuthButton = props => {
       !isAuthenticated && (
         <>
         <button onClick={() => loginWithRedirect({})}> Sign In </button>
-        {console.log(user)}
         </>
       )
     }
