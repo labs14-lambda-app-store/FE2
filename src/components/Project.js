@@ -7,25 +7,26 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const Project = (props) => {
+      const { display_image, name, description, hosted_url } = props.project;
       return (
             <div>
                   { props.project ? (
                         <Card>
                               <CardMedia style={{height: 0, paddingTop: '56.25%'}}
-                                    image={props.project.display_image}
-                                    title={props.project.name}
+                                    image={display_image}
+                                    title={name}
                               />
                               <CardContent>
                                     <Typography gutterBottom varient='heading' component='h3'>
-                                          {props.project.name}
+                                          {name}
                                     </Typography>
                                     <Typography component="p">
-                                          {props.project.description}
+                                          {description}
                                     </Typography>
                               </CardContent>
                               <CardActions>
                                     {/* target so when you click the button, it opens the app in a new browser tab */}
-                                    <Button size="small" color="primary" href={props.project.hosted_url} target='_blank'>
+                                    <Button size="small" color="primary" href={hosted_url} target='_blank'>
                                           Get App
                                     </Button>
                               </CardActions>
