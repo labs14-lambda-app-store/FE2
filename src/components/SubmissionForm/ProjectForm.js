@@ -8,7 +8,6 @@ const ProjectForm = props => {
   const [step, setStep] = useState(1);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-
   const [hosted_url, setHostedUrl] = useState("");
   const [frontend_url, setFrontendUrl] = useState("");
   const [backend_url, setBackendUrl] = useState("");
@@ -17,17 +16,7 @@ const ProjectForm = props => {
   const [display_image, setImage] = useState("");
   const [tags, setTags] = useState("");
 
-  //proceed to next step
-  const nextStep = () => {
-      setStep(step + 1)
-  }
-
-  //go back to previous step
-  const prevStep = () => {
-      setStep(step - 1)
-  }
-
-  const functions ={
+  const functions = {
         setName,
         setDescription,
         setHostedUrl,
@@ -49,6 +38,16 @@ const ProjectForm = props => {
         submitted_at,
         display_image,
         tags
+  }
+
+  //proceed to next step
+  const nextStep = () => {
+      setStep(step + 1)
+  }
+
+  //go back to previous step
+  const prevStep = () => {
+      setStep(step - 1)
   }
 
   //post new project to database
