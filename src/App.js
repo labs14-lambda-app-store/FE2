@@ -5,9 +5,12 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import ProjectForm from "./components/ProjectForm";
+
+import ProjectSearch from './components/ProjectSearch';
 import { Callback, AuthButton } from "./components/Auth";
 import { Route } from "react-router-dom";
 import { useAuth0 } from "./components/Auth/react-auth0-spa";
+
 import "./App.scss";
 
 const App = () => {
@@ -22,7 +25,9 @@ const App = () => {
 
         <AuthButton />
         <div className="banana">
-          <Projects />
+
+          <ProjectSearch />
+          <ProjectForm />
           <Footer />
         </div>
 
