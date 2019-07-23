@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Projects from "./components/Projects";
-import ProjectForm from "./components/ProjectForm";
+import ProjectForm from "./components/SubmissionForm/ProjectForm";
 
 import ProjectSearch from './components/ProjectSearch';
 import { Callback, AuthButton } from "./components/Auth";
