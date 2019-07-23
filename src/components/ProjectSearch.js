@@ -5,8 +5,6 @@ import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import Project from './Project.js'
 
-const results = axios.get('https://lambdaappstore2.herokuapp.com/api/projects')
-
 class ProjectSearch extends Component {
       state = {
             projects: [],
@@ -18,51 +16,48 @@ class ProjectSearch extends Component {
             this.getProjects()
       }
 
-      // method to retrieve list of projects from the backend
+      // method to retrieve list of projects from the backend, returns array of projects
       getProjects = () => {
-            axios.get('https://lambdaappstore2.herokuapp.com/api/projects', {
-                  content_type: 'project',
-                  query: this.state.searchString
-            })
+            axios.get('https://lambdaappstore2.herokuapp.com/api/projects')
             .then((res) => {
                   this.setState({projects: res.data})
-                  console.log(res.data)
+                  console.log("projects.", res.data)
             })
             .catch((err) => {
                   console.log("Error occured while fetching data")
-                  console.log(err)
+                  // console.log(err)
             })
       }
 
-      onSearchInputChange = e => {
-            if(e.target.value) {
-                  this.setState({searchString: e.target.value})
-            } else {
-                  this.setState({searchString: ''})
-            }
-            //make sure you render the project list again after the change
-            this.getProjects()
+
+      updateSearch = e => {
+            this.setState({searchString: e.target.value.substr(0, 20)});
       }
+   
+      
 
       render() {
+            let filteredProjects = this.state.projects.filter(
+                  (project) => {
+                        return project.name.toLowerCase().indexOf(this.state.searchString) !== -1 || project.description.toLowerCase().indexOf(this.state.searchString) !== -1;
+                  }
+            )
             return (
                   <div>
-                        {this.state.projects ? (
-                              <div>
-                                    <TextField style={{padding: 24}}
-                                          id='searchInput'
-                                          placeholder="search"
-                                          margin="normal"
-                                          onChange={this.onSearchInputChange} />
-                                    <Grid container spacing={24} style={{padding: 24}}
-                                          { ...this.state.projects.map(currentProject => (
-                                                <Grid item xs={12} sm={6} lg={4} xl={3}>
-                                                      <Project project={currentProject} />
-                                                </Grid> 
-                                          ))}
-                                    />
-                              </div>
-                        ) : "No projects found"}
+                        <TextField style={{padding: 24}}
+                              id='searchInput'
+                              type="search"
+                              key={this.state.id}
+                              placeholder="search for..."
+                              margin="normal"
+                              onChange={this.updateSearch} />
+                        <Grid container spacing={24} style={{padding: 24}}>
+                              { filteredProjects.map(currentProject => (
+                                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                                          <Project project={currentProject} key={currentProject.id} />
+                                    </Grid>
+                              ))}
+                        </Grid>
                   </div>
             )
       }

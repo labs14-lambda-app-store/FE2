@@ -16,7 +16,7 @@ const Project = (props) => {
                                     title={props.project.name}
                               />
                               <CardContent>
-                                    <Typography gutterBottom varient='headling' component='h3'>
+                                    <Typography gutterBottom varient='heading' component='h3'>
                                           {props.project.name}
                                     </Typography>
                                     <Typography component="p">
@@ -24,7 +24,7 @@ const Project = (props) => {
                                     </Typography>
                               </CardContent>
                               <CardActions>
-                                    //target so when you click the button, it opens the app in a new browser tab
+                                    {/* target so when you click the button, it opens the app in a new browser tab */}
                                     <Button size="small" color="primary" href={props.project.hosted_url} target='_blank'>
                                           Get App
                                     </Button>

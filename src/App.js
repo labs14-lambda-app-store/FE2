@@ -24,7 +24,6 @@ const App = () => {
         <AuthButton />
         <div className="banana">
           <ProjectSearch />
-          <Projects />
           <ProjectForm />
           <Footer />
         </div>
