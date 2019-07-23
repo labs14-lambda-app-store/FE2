@@ -50,7 +50,7 @@ const ProjectForm = props => {
         display_image,
         tags
   }
-  
+
   //post new project to database
   const handlePost = e => {
     e.preventDefault();
@@ -87,6 +87,7 @@ const ProjectForm = props => {
                   nextStep={nextStep}
                   prevStep={prevStep}
                   handlePost={handlePost}
+                  values={values}
                   />
             )
       //   case 3:
