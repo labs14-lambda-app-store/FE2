@@ -4,16 +4,12 @@ import Button from "@material-ui/core/Button";
 
 const ProjectDetails = (props) => {
   const { nextStep, values, functions } = props;
-//   const [name, setName] = useState("");
-//   const [description, setDescription] = useState("");
-//   const [hosted_url, setHostedUrl] = useState("");
-//   const [frontend_url, setFrontendUrl] = useState("");
-//   const [backend_url, setBackendUrl] = useState("");
-//   const [category_id, setCategory] = useState("");
-//   const [submitted_at, setSubmit] = useState("");
-//   const [display_image, setImage] = useState("");
-//   const [tags, setTags] = useState("");
 
+  // const getCategories = e => {
+
+  // };
+//get category list from backend to pass into category dropdown menu ? or hardcode it...
+  
   const Continue = e => {
     e.preventDefault();
     nextStep();
@@ -33,10 +29,10 @@ const ProjectDetails = (props) => {
         />
         <br />
         <TextField
-          type="text"
           value={values.category_id} /*???*/
-          placeholder="category..."
-          required="true"
+          id="standard-select-currency"
+          select
+          label="Select Category"
           onChange={e => functions.setCategory(e.target.value)}
         />
         <br />
@@ -44,7 +40,7 @@ const ProjectDetails = (props) => {
           type="text"
           value={values.description} /*???*/
           placeholder="project description..."
-          required="true"
+          required
           onChange={e => functions.setDescription(e.target.value)}
         />
         <br />
@@ -52,7 +48,7 @@ const ProjectDetails = (props) => {
           type="text"
           value={values.hosted_url} /*???*/
           placeholder="hosted url..."
-          required="true"
+          required
           onChange={e => functions.setHostedUrl(e.target.value)}
         />
         <br />

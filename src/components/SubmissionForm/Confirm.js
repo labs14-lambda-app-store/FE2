@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 
 const Confirm = props => {
@@ -19,16 +20,16 @@ const Confirm = props => {
       
       return (
             <div>
-                  <>
+                  
                   <h1> Confirm Submission Data </h1>
                   <List>
-                        <ListItem primaryText='Name' secondardText={values.name} />
-                        <ListItem primaryText='Description' secondardText={values.description} />
-                        <ListItem primaryText='Hosted URL' secondardText={values.hosted_url} />
-                        <ListItem primaryText='Front-End URL' secondardText={values.frontend_url} />
-                        <ListItem primaryText='Back-End URL' secondardText={values.backend_url} />
-                        <ListItem primaryText='Category' secondardText={values.category_id} />
-                        <ListItem primaryText='Tags' secondardText={values.tags} />
+                        <ListItem button><ListItemText primary='Name' secondary={values.name}/></ListItem> 
+                        <ListItem button><ListItemText primary='Description' secondary={values.description} /></ListItem> 
+                        <ListItem button><ListItemText primary='Hosted URL' secondary={values.hosted_url} /></ListItem>
+                        <ListItem button><ListItemText primary='Front-End URL' secondary={values.frontend_url} /></ListItem>
+                        <ListItem button><ListItemText primary='Back-End URL' secondary={values.backend_url} /></ListItem>
+                        <ListItem button><ListItemText primary='Category' secondary={values.category_id} /></ListItem>
+                        <ListItem button><ListItemText primary='Tags' secondary={values.tags} /></ListItem>
                   </List>
                   <br/>
                   <Button label="Confirm & Continue" color="primary" onClick={Continue}>
@@ -37,7 +38,7 @@ const Confirm = props => {
                   <Button label="Back" color="secondary" onClick={Back}>
                   Back
                   </Button>
-                  </>
+                  
             </div>
       )
 
