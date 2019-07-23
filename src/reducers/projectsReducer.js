@@ -19,7 +19,7 @@ const projectsReducer = (state = initialState, action) => {
       }
     case GET_PROJECTS_SUCCESS:
       return {
-        ..state,
+        ...state,
         projects: action.payload,
         isFetching: false
       }
@@ -31,3 +31,5 @@ const projectsReducer = (state = initialState, action) => {
     default: return state
   }
 }
+
+export default projectsReducer
