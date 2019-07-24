@@ -20,7 +20,7 @@ const ProjectSearch = props => {
                   console.log("Error occured while fetching data")
                   // console.log(err)
             })
-      })
+      }, [])
 
       const updateSearch = e => {
             setSearchString(e.target.value.substr(0, 20));
@@ -29,8 +29,8 @@ const ProjectSearch = props => {
       //
       if(!projects) return null;
 
-      const filteredProjects = 
-      
+      const filteredProjects =
+
       projects.filter(
             (project) => {
                   return project.name.toLowerCase().indexOf(searchString) !== -1 || project.description.toLowerCase().indexOf(searchString) !== -1;
