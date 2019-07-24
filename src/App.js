@@ -24,12 +24,7 @@ const App = () => {
         <NavBar />
         <h1>Lambda App Store!</h1>
 
-        {/* <AuthButton /> */}
-        <div className="banana">
-
-
-        
-          
+        <div className="banana">   
         </div>
         
         <Route exact path='/' component={Home} />
