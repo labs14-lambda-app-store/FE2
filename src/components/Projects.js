@@ -8,7 +8,7 @@ const Projects = props => {
     props.getProjects()
     //eslint-disable-next-line
   }, [])
-// props.projects
+
   return (
     <div>
       {projects && projects.map(project => (
