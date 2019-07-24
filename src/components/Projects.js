@@ -6,8 +6,9 @@ const Projects = props => {
   const { projects } = props
   useEffect(() => {
     props.getProjects()
+    //eslint-disable-next-line
   }, [])
-
+// props.projects
   return (
     <div>
       {projects && projects.map(project => (
