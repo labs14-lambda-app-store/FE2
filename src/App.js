@@ -29,7 +29,7 @@ const App = () => {
           
         </div>
 
-
+        <Route exact path ='/signin' component={AuthButton} />
         <Route exact path='/callback' component={Callback} />
         <Route exact path='/project-form' component={ProjectForm} />
         <Route path="/projects" exact component={Projects} />

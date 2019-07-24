@@ -1,0 +1,18 @@
+// navbar styling
+
+.MuiToolbar-root{
+      background: $lightcolor;
+      display: flex;
+      justify-content: space-between;
+
+      .Header-lambda-logo{
+            max-height: 2rem; 
+            
+       }
+
+       .butts Button{
+            padding: 20px;
+       }
+      
+}
+
