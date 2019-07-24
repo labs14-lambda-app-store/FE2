@@ -25,6 +25,7 @@ const AuthButton = props => {
     {
       isAuthenticated && (
         <>
+        <label style={{ color: '#0c3c78'}}>Hello {user.given_name}!</label>
         <Button onClick={() => logoutWithRedirect()}> Sign out </Button>
         </>
       )
