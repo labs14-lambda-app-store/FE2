@@ -30,7 +30,7 @@ const ProjectForm = props => {
       tags
     };
 
-    props.addProject(newPost).then(res => getProjects()).catch(err => console.log(err.message))
+    props.addProject(newPost).then(res => getProjects())
   };
   return (
     <div>
