@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 import Confirm from './Confirm';
@@ -50,9 +50,6 @@ const ProjectForm = props => {
   const prevStep = () => {
       setStep(step - 1)
   }
-
-  //add new app
-  
 
   //post new project to database
   const handlePost = e => {
