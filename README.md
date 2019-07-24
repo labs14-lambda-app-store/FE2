@@ -15,7 +15,9 @@
 
 ![MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)
 ![React](https://img.shields.io/badge/React-v16.8.6-blue.svg)
-![Redux](https://img.shields.io/badge/Redux-v4.0.1-orange.svg)
+![Redux](https://img.shields.io/badge/Redux-v4.0.4-orange.svg)
+![auth0](https://img.shields.io/badge/auth0-v1.1.0-red.svg)
+![Material UI](https://img.shields.io/badge/MaterialUI/core-v4.2.1-blueviolet.svg)
 
 ## Project Overview
 
@@ -25,7 +27,7 @@
 
  [UX Design files](https://sketch.cloud/s/GzQob)(https://docs.google.com/presentation/d/1upSlMfvh0DpfZR6eyFzHYUU6q_TCFpPPNxIYr8qJbzU/edit?usp=sharing) 
  
- [Feature Canvases] (https://www.notion.so/App-Gallery-Feature-Canvas-7a6638a26940490f908506fee1c35fdf)(https://www.notion.so/The-Landing-Page-Feature-Canvas-3f33be139cf94a799ba4440cccc4341e)(https://www.notion.so/User-Dashboard-Feature-Canvas-1d7dff49af804a8783f47aa8f0ec4418)(https://www.notion.so/The-Subscription-Feature-Canvas-1d7bb594fade4606a3de09abbdf31ed6)
+ [Feature Canvases] (https://www.notion.so/App-Gallery-Feature-Canvas-7a6638a26940490f908506fee1c35fdf)(https://www.notion.so/Admin-Dashboard-Feature-Canvas-1d7dff49af804a8783f47aa8f0ec4418)(https://www.notion.so/Student-Dashboard-Feature-Canvas-82a2b9b67be0472ea85786873b7f9b97)(https://www.notion.so/The-Landing-Page-Feature-Canvas-3f33be139cf94a799ba4440cccc4341e)(https://www.notion.so/The-Subscription-Feature-Canvas-1d7bb594fade4606a3de09abbdf31ed6)
 
 
 "Lambda App Store" is a Lambda Labs project built for Lambda School to create a central place to view and use the apps that our awesome students create.
