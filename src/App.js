@@ -26,7 +26,7 @@ const App = () => {
 
         <div className="banana">
         </div>
-        
+
         <Route exact path='/' component={Home} />
         <Route path='/signin' component={AuthButton} />
         <Route path='/callback' component={Callback} />
