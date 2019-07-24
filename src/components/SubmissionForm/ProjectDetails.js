@@ -68,7 +68,7 @@ const ProjectDetails = props => {
           margin="normal"
           onChange={e => functions.setCategory(e.target.value)}>
             {sortCategories.map(category => (
-              <MenuItem value={category.category_name} key={category}>
+              <MenuItem value={category.category_name} key={category.category_name}>
               {category.category_name}
             </MenuItem>
             ))}
