@@ -30,7 +30,7 @@ const ProjectDetails = props => {
     { category_name: "Weather" }
   ];
 
-  
+
 
   const Continue = e => {
     e.preventDefault();
@@ -68,12 +68,12 @@ const ProjectDetails = props => {
           margin="normal"
           onChange={e => functions.setCategory(e.target.value)}>
             {sortCategories.map(category => (
-              <MenuItem key={category.id} value={category.category_name}>
+              <MenuItem value={category.category_name} key={category.category_name}>
               {category.category_name}
             </MenuItem>
             ))}
           </TextField>
-        
+
         <br />
         <TextField
           type="text"

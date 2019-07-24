@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Home from "./components/Home";
@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import ProjectForm from "./components/SubmissionForm/ProjectForm";
 import ProjectSearch from './components/ProjectSearch';
-import { Callback, AuthButton } from "./components/Auth";
+import { AuthButton } from "./components/Auth";
 import { Route } from "react-router-dom";
 import { useAuth0 } from "./components/Auth/react-auth0-spa";
 
@@ -24,9 +24,9 @@ const App = () => {
         <NavBar />
         <h1>Lambda App Store!</h1>
 
-        <div className="banana">   
+        <div className="banana">
         </div>
-        
+
         <Route exact path='/' component={Home} />
         <Route path='/signin' component={AuthButton} />
         <Route path='/callback' component={Callback} />
@@ -34,7 +34,7 @@ const App = () => {
         <Route path="/projects" exact component={ProjectSearch} />
         <Footer />
         </div>
-      
+
     </Router>
   );
 };
