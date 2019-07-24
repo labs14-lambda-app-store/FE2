@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { connect } from 'react-redux'
+import { addProject, getProjects } from '../actions'
 
 const ProjectForm = props => {
   const [name, setName] = useState("");
@@ -28,10 +30,7 @@ const ProjectForm = props => {
       tags
     };
 
-    axios
-      .post(`https://lambdaappstore2.herokuapp.com/api/projects`, newPost)
-      .then(res => console.log(res.status))
-      .catch(err => console.log(err.message));
+    props.addProject(newPost).then(res => getProjects())
   };
   return (
     <div>
@@ -100,4 +99,10 @@ const ProjectForm = props => {
     </div>
   );
 };
-export default ProjectForm;
+
+const mapStateToProps = ({ projectsReducer }) => {
+  return ({
+    ...projectsReducer
+  })
+}
+export default connect(mapStateToProps, { getProjects, addProject })(ProjectForm);

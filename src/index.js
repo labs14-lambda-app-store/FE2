@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Auth0Provider } from './components/Auth/react-auth0-spa'
+import { Provider } from 'react-redux';
+import { store } from './utils/store'
 
 const onRedirectCallback = appState => {
   window.history.replaceState(
@@ -24,7 +26,9 @@ ReactDOM.render(
     redirect_uri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
   >
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </Auth0Provider> ,
 
   document.getElementById('root')
