@@ -15,7 +15,6 @@ const initialState = {
 }
 
 const projectsReducer = (state = initialState, action) => {
-  console.log(action.payload)
   switch(action.type) {
     case GET_PROJECTS_START:
       return {
