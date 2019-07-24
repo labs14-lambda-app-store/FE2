@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import { connect } from 'react-redux'
+import { addProject, getProjects } from '../actions'
 const ProjectForm = props => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -100,4 +101,10 @@ const ProjectForm = props => {
     </div>
   );
 };
-export default ProjectForm;
+
+const mapStateToProps = ({ projectsReducer }) => {
+  return ({
+    ...projectsReducer
+  })
+}
+export default connect(mapStateToProps, { getProjects, addProject })(ProjectForm);
