@@ -25,7 +25,7 @@ const NavBar = (props) => {
 				    </NavLink>
                         {/* Using button onClick to avoid Link bug that prevents route changes,
                         when using material-ui */}
-                       <div className="butts">
+                       <div className="buttons">
                             <Button onClick={() => props.history.push('/signin')}>Sign In</Button>
                             <Button onClick={() => props.history.push('/')}>Home</Button>
                             <Button onClick={() => props.history.push('/projects')}>Projects</Button>
