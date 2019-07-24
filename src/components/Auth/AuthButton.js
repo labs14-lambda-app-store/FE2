@@ -1,4 +1,6 @@
 import React from "react"
+import Button from '@material-ui/core/Button';
+
 import { useAuth0 } from './react-auth0-spa.js'
 
 const AuthButton = props => {
@@ -16,15 +18,14 @@ const AuthButton = props => {
     {
       !isAuthenticated && (
         <>
-        <button onClick={() => loginWithRedirect({})}> Sign In </button>
+        <Button onClick={() => loginWithRedirect({})}> Sign In </Button>
         </>
       )
     }
     {
       isAuthenticated && (
         <>
-        <button onClick={() => logoutWithRedirect()}> Sign out </button>
-        <h2>Hello {user.given_name}</h2>
+        <Button onClick={() => logoutWithRedirect()}> Sign out </Button>
         </>
       )
 
