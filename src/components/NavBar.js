@@ -2,6 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import { AuthButton } from './Auth'
 // import Typography from '@material-ui/core/Typography';
 import { MemoryRouter as Router, NavLink } from 'react-router-dom';
 import { BrowserRouter as Route, Link, withRouter } from "react-router-dom";
@@ -26,7 +27,7 @@ const NavBar = (props) => {
                         {/* Using button onClick to avoid Link bug that prevents route changes,
                         when using material-ui */}
                        <div className="buttons">
-                            <Button onClick={() => props.history.push('/signin')}>Sign In</Button>
+                            <AuthButton />
                             <Button onClick={() => props.history.push('/')}>Home</Button>
                             <Button onClick={() => props.history.push('/projects')}>Projects</Button>
                             <Button onClick={() => props.history.push('/project-form')}>Submit Project</Button>
