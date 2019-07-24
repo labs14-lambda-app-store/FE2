@@ -1,24 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
+import { connect } from 'react-redux'
+import { getProjects } from '../actions'
 
-const Projects = () => {
-  let isMounted = false;
-
-  const [projects, setProjects] = useState([]);
-
+const Projects = props => {
+  const { projects } = props
   useEffect(() => {
-    getProjects()
-  }, []);
-
-  const getProjects = async () => {
-    const response = await axios.get(`https://lambdaappstore2.herokuapp.com/api/projects`)
-    let projects = await response.data
-    setProjects(projects)
-  }
+    props.getProjects()
+  }, [])
 
   return (
     <div>
-      {projects.map(project => (
+      {projects && projects.map(project => (
         <div key={project.id}>
           <h1>Projects Test</h1>
           <p>{project.id}</p>
@@ -31,4 +24,9 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+const mapStateToProps = ({ projectsReducer }) => {
+  return ({
+    ...projectsReducer
+  })
+}
+export default connect(mapStateToProps, { getProjects })(Projects);
