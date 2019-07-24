@@ -27,6 +27,7 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false
+
       }
     default: return state
   }
