@@ -24,17 +24,16 @@ const App = () => {
         <NavBar />
         <h1>Lambda App Store!</h1>
 
-        <div className="banana">   
+        <div className="banana">
         </div>
-        
+
         <Route exact path='/' component={Home} />
         <Route path='/signin' component={AuthButton} />
-        <Route path='/callback' component={Callback} />
         <Route exact path='/project-form' component={ProjectForm} />
         <Route path="/projects" exact component={ProjectSearch} />
         <Footer />
         </div>
-      
+
     </Router>
   );
 };
