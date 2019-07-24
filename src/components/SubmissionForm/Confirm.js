@@ -3,13 +3,14 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
+//imported Material UI packages above,
+// and implemented them in a functional component below
 
 const Confirm = props => {
       const { nextStep, prevStep, handlePost, values } = props
 
       const Continue = e => {
             e.preventDefault()
-            handlePost()
             nextStep()
       };
 

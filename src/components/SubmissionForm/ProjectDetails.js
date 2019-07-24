@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from "@material-ui/core/Button";
-import axios from "axios";
+//imported Material UI packages above,
+// and implemented them in a functional component below
 
 const ProjectDetails = props => {
   const { nextStep, values, functions } = props;
