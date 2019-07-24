@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
-// import * as contentful from 'contentful';
 import Grid from '@material-ui/core/Grid';
 import Project from './Project.js'
 
