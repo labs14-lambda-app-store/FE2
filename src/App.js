@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import ProjectForm from "./components/SubmissionForm/ProjectForm";
 import ProjectSearch from './components/ProjectSearch';
-import { Callback, AuthButton } from "./components/Auth";
+import { AuthButton } from "./components/Auth";
 import { Route } from "react-router-dom";
 import { useAuth0 } from "./components/Auth/react-auth0-spa";
 
@@ -26,11 +26,10 @@ const App = () => {
         <div className="banana">
 
           <ProjectSearch />
-          
+
         </div>
 
 
-        <Route exact path='/callback' component={Callback} />
         <Route exact path='/project-form' component={ProjectForm} />
         <Route path="/projects" exact component={Projects} />
         <Footer />
