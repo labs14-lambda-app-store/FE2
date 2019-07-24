@@ -6,16 +6,17 @@ import Button from '@material-ui/core/Button';
 
 const Confirm = props => {
       const { nextStep, prevStep, handlePost, values } = props
+
       const Continue = e => {
-            e.preventDefault();
-            handlePost();
-            nextStep();
+            e.preventDefault()
+            handlePost()
+            nextStep()
       };
 
       const Back = e => {
-            e.preventDefault();
-            prevStep();
-      }
+            e.preventDefault()
+            prevStep()
+      };
 
       
       return (
@@ -32,10 +33,10 @@ const Confirm = props => {
                         <ListItem button><ListItemText primary='Tags' secondary={values.tags} /></ListItem>
                   </List>
                   <br/>
-                  <Button label="Confirm & Continue" color="primary" onClick={Continue}>
+                  <Button label="Confirm & Continue" color="primary" onClick={e => Continue(e)}>
                   Confirm & Continue
                   </Button>
-                  <Button label="Back" color="secondary" onClick={Back}>
+                  <Button label="Back" color="secondary" onClick={e => Back(e)}>
                   Back
                   </Button>
                   

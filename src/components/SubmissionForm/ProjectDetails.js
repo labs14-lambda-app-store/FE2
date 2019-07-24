@@ -7,13 +7,7 @@ import axios from "axios";
 const ProjectDetails = props => {
   const { nextStep, values, functions } = props;
 
-  // const getCategories = e => {
-  //   axios
-  //     .get(`https://lambdaappstore2.herokuapp.com/api/categories`)
-  //     .then(res => console.log(res.status))
-  //     .catch(err => console.log(err.message))
-  // };
-  //get category list from backend to pass into category dropdown menu ? or hardcode it...
+  //hardcoded because the backend end point was an empty array
   const categories = [
     { category_name: "Business" },
     { category_name: "Entertainment" },
@@ -42,31 +36,33 @@ const ProjectDetails = props => {
     nextStep();
   };
 
+  //sort categories alphabetically
   const sortCategories = categories.sort(function(a,b){
     if(a.category_name < b.category_name ) {return -1}
     if(a.category_name > b.category_name ) {return 1}
     return 0;
   })
-  // categories.sort()
-  //  console.log(categories.sort()).
 
   return (
     <div>
-      <h2>this is a form</h2>
+      <h2>App Submission Form</h2>
       <form>
         <TextField
           type="text"
           value={values.name} /*???*/
           placeholder="project name..."
-          required="true"
+          required={true}
+          id="standard-required"
+          margin="normal"
           onChange={e => functions.setName(e.target.value)}
         />
         <br />
         <TextField
           value={values.category_id} /*???*/
-          id="standard-select-currency"
+          id="standard-select standard-required"
+          required={true}
           select
-          label="app category"
+          label="categories"
           helperText="Please select primary category"
           margin="normal"
           onChange={e => functions.setCategory(e.target.value)}>
@@ -82,7 +78,9 @@ const ProjectDetails = props => {
           type="text"
           value={values.description} /*???*/
           placeholder="project description..."
-          required
+          required={true}
+          id="standard-required"
+          margin="normal"
           onChange={e => functions.setDescription(e.target.value)}
         />
         <br />
@@ -90,7 +88,9 @@ const ProjectDetails = props => {
           type="text"
           value={values.hosted_url} /*???*/
           placeholder="hosted url..."
-          required
+          required={true}
+          id="standard-required"
+          margin="normal"
           onChange={e => functions.setHostedUrl(e.target.value)}
         />
         <br />
@@ -98,6 +98,7 @@ const ProjectDetails = props => {
           type="text"
           value={values.frontend_url} /*???*/
           placeholder="frontend url..."
+          margin="normal"
           onChange={e => functions.setFrontendUrl(e.target.value)}
         />
         <br />
@@ -105,6 +106,7 @@ const ProjectDetails = props => {
           type="text"
           value={values.backend_url} /*???*/
           placeholder="backend url..."
+          margin="normal"
           onChange={e => functions.setBackendUrl(e.target.value)}
         />
         <br />
@@ -112,6 +114,7 @@ const ProjectDetails = props => {
           type="text"
           value={values.submitted_at} /*???*/
           placeholder="submitted at..."
+          margin="normal"
           onChange={e => functions.setSubmit(e.target.value)}
         />
         <br />
@@ -119,6 +122,8 @@ const ProjectDetails = props => {
           type="text"
           value={values.display_image} /*???*/
           placeholder="display image..."
+          required={true}
+          margin="normal"
           onChange={e => functions.setImage(e.target.value)}
         />
         <br />
@@ -126,6 +131,7 @@ const ProjectDetails = props => {
           type="text"
           value={values.tags} /*???*/
           placeholder="tags..."
+          margin="normal"
           onChange={e => functions.setTags(e.target.value)}
         />
         <br />

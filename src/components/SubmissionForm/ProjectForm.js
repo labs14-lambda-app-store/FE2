@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Confirm from './Confirm';
+import Success from './Success';
 import ProjectDetails from './ProjectDetails';
 
 const ProjectForm = props => {
@@ -71,6 +72,8 @@ const ProjectForm = props => {
       .then(res => console.log(res.status))
       .catch(err => console.log(err.message));
   };
+
+  //switch and steps to confirm submission details
   switch(step) {
         case 1:
             return(
@@ -89,15 +92,11 @@ const ProjectForm = props => {
                   values={values}
                   />
             )
-      //   case 3:
-      //       return(
-      //             <Confirm 
-      //             nextStep={nextStep}
-      //             prevStep={prevStep}
-      //             handlePost={handlePost}
-      //             values={newPost}
-      //             />
-      //       )
+        case 3:
+            return(
+                  <Success 
+                  />
+            )
   }
 
 
