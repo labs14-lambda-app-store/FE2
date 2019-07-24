@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import { AuthButton } from "./Auth";
 // import Typography from '@material-ui/core/Typography';
 import { MemoryRouter as Router, NavLink } from "react-router-dom";
-import { BrowserRouter as Route, Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import redLambdaLogo from "../assets/Lambda_Logo.png";
 
 // I've imported Material UI packages above,
