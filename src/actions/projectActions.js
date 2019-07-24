@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 export const GET_PROJECTS_START = 'GET_PROJECTS_START'
 export const GET_PROJECTS_SUCCESS = 'GET_PROJECTS_SUCCESS'
 export const GET_PROJECTS_FAIL = 'GET_PROJECTS_FAIL'
@@ -14,4 +15,11 @@ export const getProjects = () => async dispatch => {
     dispatch({ type: GET_PROJECTS_FAIL, payload: err})
   }
 
+export const ADD_PROJECTS_START = 'ADD_PROJECTS_START'
+export const ADD_PROJECTS_SUCCESS = 'ADD_PROJECTS_SUCCESS'
+export const ADD_PROJECTS_FAIL = 'ADD_PROJECTS_FAIL'
+
+export const addProject = () => async dispatch => {
+  dispatch({})
+}
 }
