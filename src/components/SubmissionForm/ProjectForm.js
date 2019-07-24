@@ -69,7 +69,9 @@ const ProjectForm = props => {
       tags
     };
 
-    props.addProject(newPost).then(res => getProjects())
+    props.addProject(newPost).then(res => {
+      getProjects()
+    })
 
   };
 
