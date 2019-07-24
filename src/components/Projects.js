@@ -4,47 +4,14 @@ import { connect } from 'react-redux'
 import { getProjects } from '../actions'
 
 const Projects = props => {
-  let isMounted = false;
-
-  const [projects, setProjects] = useState();
-
-
-
-  const fetchData = async () => {
-    if(!props.projects) return null
-
-    let result = await props.getProjects()
-    result = await props.projects
-    console.log(result)
-  }
-
+  const { projects } = props
   useEffect(() => {
-    fetchData()
+    props.getProjects()
+  }, [])
 
-  }, [ props.projects ])
-
-
-//   export default function Example() {
-//     const [data, dataSet] = useState(false)
-//
-//     async function fetchMyAPI() {
-//       let response = await fetch('api/data')
-//       response = await res.json()
-//       console.log(response);
-//       dataSet(response)
-//     }
-//
-//     useEffect(() => {
-//       fetchMyAPI();
-//     }, []);
-//
-//   return <div>{data}</div>
-// }
-
-  if(!projects) return null
   return (
     <div>
-      {projects.map(project => (
+      {projects && projects.map(project => (
         <div key={project.id}>
           <h1>Projects Test</h1>
           <p>{project.id}</p>
