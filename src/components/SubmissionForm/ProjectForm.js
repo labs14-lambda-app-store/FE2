@@ -51,6 +51,9 @@ const ProjectForm = props => {
       setStep(step - 1)
   }
 
+  //add new app
+  
+
   //post new project to database
   const handlePost = e => {
     e.preventDefault();

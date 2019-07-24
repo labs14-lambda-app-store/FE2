@@ -11,6 +11,7 @@ const Confirm = props => {
 
       const Continue = e => {
             e.preventDefault()
+            handlePost(e)
             nextStep()
       };
 
