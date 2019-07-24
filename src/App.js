@@ -26,14 +26,14 @@ const App = () => {
         <div className="banana">
 
           <ProjectSearch />
-          <ProjectForm />
-          <Footer />
+          
         </div>
 
 
         <Route exact path='/callback' component={Callback} />
         <Route exact path='/project-form' component={ProjectForm} />
         <Route path="/projects" exact component={Projects} />
+        <Footer />
       </div>
     </Router>
   );

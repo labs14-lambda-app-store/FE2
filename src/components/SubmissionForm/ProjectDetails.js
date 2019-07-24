@@ -51,17 +51,17 @@ const ProjectDetails = props => {
         <TextField
           type="text"
           value={values.name} /*???*/
-          placeholder="project name..."
-          required={true}
+          required
           id="standard-required"
+          placeholder="name..."
           margin="normal"
           onChange={e => functions.setName(e.target.value)}
         />
         <br />
         <TextField
-          value={values.category_id} /*???*/
+          value={values.category_name} /*???*/
           id="standard-select standard-required"
-          required={true}
+          required
           select
           label="categories"
           helperText="Please select primary category"
@@ -78,9 +78,9 @@ const ProjectDetails = props => {
         <TextField
           type="text"
           value={values.description} /*???*/
-          placeholder="project description..."
-          required={true}
+          required
           id="standard-required"
+          placeholder="description..."
           margin="normal"
           onChange={e => functions.setDescription(e.target.value)}
         />
@@ -88,9 +88,9 @@ const ProjectDetails = props => {
         <TextField
           type="text"
           value={values.hosted_url} /*???*/
-          placeholder="hosted url..."
-          required={true}
+          required
           id="standard-required"
+          placeholder="Hosted URL..."
           margin="normal"
           onChange={e => functions.setHostedUrl(e.target.value)}
         />
@@ -123,7 +123,7 @@ const ProjectDetails = props => {
           type="text"
           value={values.display_image} /*???*/
           placeholder="display image..."
-          required={true}
+          required
           margin="normal"
           onChange={e => functions.setImage(e.target.value)}
         />

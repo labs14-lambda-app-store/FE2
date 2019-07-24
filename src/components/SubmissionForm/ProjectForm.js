@@ -12,7 +12,7 @@ const ProjectForm = props => {
   const [hosted_url, setHostedUrl] = useState("");
   const [frontend_url, setFrontendUrl] = useState("");
   const [backend_url, setBackendUrl] = useState("");
-  const [category_id, setCategory] = useState("");
+  const [category_name, setCategory] = useState("");
   const [submitted_at, setSubmit] = useState("");
   const [display_image, setImage] = useState("");
   const [tags, setTags] = useState("");
@@ -35,7 +35,7 @@ const ProjectForm = props => {
         hosted_url,
         frontend_url,
         backend_url,
-        category_id,
+        category_name,
         submitted_at,
         display_image,
         tags
@@ -61,7 +61,7 @@ const ProjectForm = props => {
       hosted_url,
       frontend_url,
       backend_url,
-      category_id,
+      category_name,
       submitted_at,
       display_image,
       tags
