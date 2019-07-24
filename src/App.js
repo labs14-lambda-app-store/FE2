@@ -28,7 +28,6 @@ const App = () => {
         </div>
 
         <Route exact path='/' component={Home} />
-        <Route path='/signin' component={AuthButton} />
         <Route exact path='/project-form' component={ProjectForm} />
         <Route path="/projects" exact component={ProjectSearch} />
         <Footer />
