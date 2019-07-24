@@ -20,7 +20,7 @@ const ProjectSearch = props => {
                   console.log("Error occured while fetching data")
                   // console.log(err)
             })
-      }, [])
+      })
 
       const updateSearch = e => {
             setSearchString(e.target.value.substr(0, 20));
