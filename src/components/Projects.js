@@ -1,21 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
+import { connect } from 'react-redux'
+import { getProjects } from '../actions'
 
-const Projects = () => {
+const Projects = props => {
   let isMounted = false;
 
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState();
 
-  useEffect(() => {
-    getProjects()
-  }, []);
 
-  const getProjects = async () => {
-    const response = await axios.get(`https://lambdaappstore2.herokuapp.com/api/projects`)
-    let projects = await response.data
-    setProjects(projects)
+
+  const fetchData = async () => {
+    if(!props.projects) return null
+
+    let result = await props.getProjects()
+    result = await props.projects
+    console.log(result)
   }
 
+  useEffect(() => {
+    fetchData()
+
+  }, [ props.projects ])
+
+
+//   export default function Example() {
+//     const [data, dataSet] = useState(false)
+//
+//     async function fetchMyAPI() {
+//       let response = await fetch('api/data')
+//       response = await res.json()
+//       console.log(response);
+//       dataSet(response)
+//     }
+//
+//     useEffect(() => {
+//       fetchMyAPI();
+//     }, []);
+//
+//   return <div>{data}</div>
+// }
+
+  if(!projects) return null
   return (
     <div>
       {projects.map(project => (
@@ -31,4 +57,9 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+const mapStateToProps = ({ projectsReducer }) => {
+  return ({
+    ...projectsReducer
+  })
+}
+export default connect(mapStateToProps, { getProjects })(Projects);
