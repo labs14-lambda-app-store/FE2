@@ -1,45 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
-import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import Project from './Project.js'
-
+import { connect } from 'react-redux'
+import { getProjects } from '../actions'
 
 const ProjectSearch = props => {
-      const [ projects, setProjects ] = useState('');
       const [ searchString, setSearchString ] = useState('');
+      const { getProjects, projects } = props
 
       useEffect(() => {
-            axios.get('https://lambdaappstore2.herokuapp.com/api/projects')
-            .then((res) => {
-                  setProjects(res.data)
-                  // console.log("projects.", res.data)
-            })
-            .catch((err) => {
-                  console.log("Error occured while fetching data")
-                  // console.log(err)
-            })
-      }, [])
+        getProjects()
+        //eslint-disable-next-line
+      }, [ ])
 
       const updateSearch = e => {
             setSearchString(e.target.value.substr(0, 20));
       }
 
-      //
-      if(!projects) return null;
-
-      const filteredProjects =
-
-      projects.filter(
-            (project) => {
-                  return project.name.toLowerCase().indexOf(searchString) !== -1 || project.description.toLowerCase().indexOf(searchString) !== -1;
-            }
+      const filteredProjects = projects && projects.filter((project) =>
+        {
+          return project.name.toLowerCase().indexOf(searchString) !== -1 || project.description.toLowerCase().indexOf(searchString) !== -1;
+        }
       )
 
       return (
             <div>
                   <TextField style={{padding: 24}}
                         id='searchInput'
+                        //eslint-disable-next-line
                         type="search"
                         placeholder="search for..."
                         margin="normal"
@@ -57,4 +46,9 @@ const ProjectSearch = props => {
 }
 
 
-export default ProjectSearch;
+const mapStateToProps = ({ projectsReducer }) => {
+  return ({
+    ...projectsReducer
+  })
+}
+export default connect(mapStateToProps, { getProjects })(ProjectSearch);
