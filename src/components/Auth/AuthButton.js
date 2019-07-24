@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import { useAuth0 } from './react-auth0-spa.js'
 
 const AuthButton = props => {
 
-  const { isAuthenticated, loginWithRedirect, loginWithPopup, logout, user} = useAuth0()
+  const { isAuthenticated, loginWithRedirect, logout, user} = useAuth0()
 
   const logoutWithRedirect = () => {
     logout({

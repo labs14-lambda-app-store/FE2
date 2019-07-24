@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 // import Typography from '@material-ui/core/Typography';
 import { MemoryRouter as Router } from 'react-router-dom';
-import { BrowserRouter as Route, Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 // I've imported Material UI packages above,
 // and implemented them in a functional component below

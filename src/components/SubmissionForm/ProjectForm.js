@@ -30,7 +30,7 @@ const ProjectForm = props => {
   }
 
   const values = {
-        name, 
+        name,
         description,
         hosted_url,
         frontend_url,
@@ -77,7 +77,7 @@ const ProjectForm = props => {
   switch(step) {
         case 1:
             return(
-                  <ProjectDetails 
+                  <ProjectDetails
                   nextStep={nextStep}
                   functions={functions}
                   values={values}
@@ -85,7 +85,7 @@ const ProjectForm = props => {
             )
         case 2:
             return(
-                  <Confirm 
+                  <Confirm
                   nextStep={nextStep}
                   prevStep={prevStep}
                   handlePost={handlePost}
@@ -94,9 +94,11 @@ const ProjectForm = props => {
             )
         case 3:
             return(
-                  <Success 
+                  <Success
                   />
             )
+        default:
+          return null
   }
 
 

@@ -46,7 +46,7 @@ const ProjectSearch = props => {
                         onChange={e => updateSearch(e)} />
                   <Grid container spacing={24} style={{padding: 24}}>
                         { filteredProjects.map(currentProject => (
-                              <Grid item xs={12} sm={6} lg={4} xl={3}>
+                              <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
                                     <Project project={currentProject} key={currentProject.id} />
                               </Grid>
                         ))}
