@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import axios from "axios";
 
 import Confirm from './Confirm';
 import Success from './Success';
 import ProjectDetails from './ProjectDetails';
+
+import { connect } from 'react-redux'
+import { addProject, getProjects } from '../../actions'
 
 const ProjectForm = props => {
   const [step, setStep] = useState(1);
@@ -30,7 +32,7 @@ const ProjectForm = props => {
   }
 
   const values = {
-        name, 
+        name,
         description,
         hosted_url,
         frontend_url,
@@ -67,17 +69,17 @@ const ProjectForm = props => {
       tags
     };
 
-    axios
-      .post(`https://lambdaappstore2.herokuapp.com/api/projects`, newPost)
-      .then(res => console.log(res.status))
-      .catch(err => console.log(err.message));
+    props.addProject(newPost).then(res => {
+      getProjects()
+    })
+
   };
 
   //switch and steps to confirm submission details
   switch(step) {
         case 1:
             return(
-                  <ProjectDetails 
+                  <ProjectDetails
                   nextStep={nextStep}
                   functions={functions}
                   values={values}
@@ -85,7 +87,7 @@ const ProjectForm = props => {
             )
         case 2:
             return(
-                  <Confirm 
+                  <Confirm
                   nextStep={nextStep}
                   prevStep={prevStep}
                   handlePost={handlePost}
@@ -94,11 +96,19 @@ const ProjectForm = props => {
             )
         case 3:
             return(
-                  <Success 
+                  <Success
                   />
             )
+        default:
+          return null
   }
 
-
 };
-export default ProjectForm;
+
+const mapStateToProps = ({ projectsReducer }) => {
+  return ({
+    ...projectsReducer
+  })
+}
+
+export default connect(mapStateToProps, { getProjects, addProject })(ProjectForm);

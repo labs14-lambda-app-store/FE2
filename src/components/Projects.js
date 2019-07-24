@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { connect } from 'react-redux'
 import { getProjects } from '../actions'
 
@@ -7,6 +6,7 @@ const Projects = props => {
   const { projects } = props
   useEffect(() => {
     props.getProjects()
+    //eslint-disable-next-line
   }, [])
 
   return (
