@@ -78,14 +78,12 @@ const ProjectForm = props => {
       frontend_url,
       backend_url,
       category_name,
-      submitted_at,
+      submitted_at: submittedTime,
       display_image,
       tags,
     }
 
-    props.addProject(newPost).then(res => {
-      getProjects()
-    })
+    let submittedTime = props.addProject(newPost)
   }
 
   //switch and steps to confirm submission details
