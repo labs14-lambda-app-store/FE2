@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Project from "./Project.js";
 import { connect } from "react-redux";
+import axios from 'axios'
 import { getProjects } from "../actions";
 
 const ProjectSearch = props => {
@@ -27,6 +28,11 @@ const ProjectSearch = props => {
       );
     });
 
+  const randomUnsplashImage = async () => {
+    const image = await axios.get('https://source.unsplash.com/1600x900/?nature,water,animal')
+
+    return image
+  }
   return (
     <div>
       <TextField
@@ -41,7 +47,7 @@ const ProjectSearch = props => {
       <Grid container spacing={2} style={{ padding: 24 }}>
         {filteredProjects.map(currentProject => (
           <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
-            <Project project={currentProject} key={currentProject.id} />
+            <Project project={currentProject} randomUnsplashImage={randomUnsplashImage} key={currentProject.id} />
           </Grid>
         ))}
       </Grid>

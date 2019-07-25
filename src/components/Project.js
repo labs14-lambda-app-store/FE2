@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -8,13 +8,23 @@ import Typography from "@material-ui/core/Typography";
 
 const Project = props => {
   const { display_image, name, description, hosted_url } = props.project;
+  const [ placeHolderImg, setPlaceholder ] = useState()
+
+  useEffect(() => {
+    getPlaceholder()
+  }, [ ])
+
+  const getPlaceholder = async () => {
+    const imageUrl = await props.randomUnsplashImage().then(res => setPlaceholder(res.config.url))
+  }
+
   return (
     <div>
       {props.project ? (
         <Card>
           <CardMedia
             style={{ height: 0, paddingTop: "56.25%" }}
-            image={display_image}
+            image={placeHolderImg}
             title={name}
           />
           <CardContent>
