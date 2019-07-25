@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import { Auth0Provider } from './components/Auth/react-auth0-spa'
-import { Provider } from 'react-redux';
-import { store } from './utils/store'
+import React from "react"
+import ReactDOM from "react-dom"
+import "./index.css"
+import App from "./App"
+import { Auth0Provider } from "./components/Auth/react-auth0-spa"
+import { Provider } from "react-redux"
+import { store } from "./utils/store"
 
 const onRedirectCallback = appState => {
   window.history.replaceState(
@@ -21,15 +21,15 @@ const client_id = process.env.REACT_APP_OAUTH_CLIENT_ID
 
 ReactDOM.render(
   <Auth0Provider
-    domain = {domain}
-    client_id = {client_id}
+    domain={domain}
+    client_id={client_id}
     redirect_uri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
   >
     <Provider store={store}>
       <App />
     </Provider>
-  </Auth0Provider> ,
+  </Auth0Provider>,
 
-  document.getElementById('root')
+  document.getElementById("root")
 )

@@ -1,12 +1,12 @@
-import React from 'react';
-import TextField from "@material-ui/core/TextField";
-import MenuItem from '@material-ui/core/MenuItem';
-import Button from "@material-ui/core/Button";
+import React from "react"
+import TextField from "@material-ui/core/TextField"
+import MenuItem from "@material-ui/core/MenuItem"
+import Button from "@material-ui/core/Button"
 //imported Material UI packages above,
 // and implemented them in a functional component below
 
 const ProjectDetails = props => {
-  const { nextStep, values, functions } = props;
+  const { nextStep, values, functions } = props
 
   //hardcoded because the backend end point was an empty array
   const categories = [
@@ -27,21 +27,23 @@ const ProjectDetails = props => {
     { category_name: "Navigation" },
     { category_name: "Sports" },
     { category_name: "Travel" },
-    { category_name: "Weather" }
-  ];
-
-
+    { category_name: "Weather" },
+  ]
 
   const Continue = e => {
-    e.preventDefault();
-    nextStep();
-  };
+    e.preventDefault()
+    nextStep()
+  }
 
   //sort categories alphabetically
-  const sortCategories = categories.sort(function(a,b){
-    if(a.category_name < b.category_name ) {return -1}
-    if(a.category_name > b.category_name ) {return 1}
-    return 0;
+  const sortCategories = categories.sort(function(a, b) {
+    if (a.category_name < b.category_name) {
+      return -1
+    }
+    if (a.category_name > b.category_name) {
+      return 1
+    }
+    return 0
   })
 
   return (
@@ -66,13 +68,17 @@ const ProjectDetails = props => {
           label="categories"
           helperText="Please select primary category"
           margin="normal"
-          onChange={e => functions.setCategory(e.target.value)}>
-            {sortCategories.map(category => (
-              <MenuItem value={category.category_name} key={category.category_name}>
+          onChange={e => functions.setCategory(e.target.value)}
+        >
+          {sortCategories.map(category => (
+            <MenuItem
+              value={category.category_name}
+              key={category.category_name}
+            >
               {category.category_name}
             </MenuItem>
-            ))}
-          </TextField>
+          ))}
+        </TextField>
 
         <br />
         <TextField
@@ -146,7 +152,7 @@ const ProjectDetails = props => {
         </Button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectDetails;
+export default ProjectDetails
