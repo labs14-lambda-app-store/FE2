@@ -3,7 +3,9 @@
 @import "./styles/mixins.scss";
 
 //general
+@import "./styles/global.scss";
 
 //components
 @import "./styles/navbar.scss";
+@import "./styles/submissionform.scss";
 @import "./styles/footer.scss";
