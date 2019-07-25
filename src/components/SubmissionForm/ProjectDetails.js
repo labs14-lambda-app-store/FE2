@@ -46,8 +46,9 @@ const ProjectDetails = props => {
 
   return (
     <div>
-      <h2>App Submission Form</h2>
+      
       <form className="submission">
+      <h1>App Submission Form</h1>
         <TextField
           type="text"
           value={values.name} /*???*/
@@ -109,14 +110,6 @@ const ProjectDetails = props => {
           placeholder="backend url..."
           margin="normal"
           onChange={e => functions.setBackendUrl(e.target.value)}
-        />
-        <br />
-        <TextField
-          type="text"
-          value={values.submitted_at} /*???*/
-          placeholder="submitted at..."
-          margin="normal"
-          onChange={e => functions.setSubmit(e.target.value)}
         />
         <br />
         <TextField
