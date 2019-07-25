@@ -6,5 +6,5 @@ export {
   ADD_PROJECTS_SUCCESS,
   ADD_PROJECTS_FAIL,
   getProjects,
-  addProject
-} from './projectActions'
+  addProject,
+} from "./projectActions"
