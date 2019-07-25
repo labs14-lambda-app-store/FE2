@@ -48,14 +48,14 @@ const ProjectDetails = props => {
     <div>
       
       <form className="submission">
-      <h1>App Submission Form</h1>
+      <h1>Submit Your App</h1>
         <TextField
           className="submitInput"
           type="text"
           value={values.name} /*???*/
           required
           id="standard-required"
-          placeholder="name..."
+          placeholder="app name..."
           margin="normal"
           onChange={e => functions.setName(e.target.value)}
         />
