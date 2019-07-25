@@ -45,7 +45,6 @@ const projectsReducer = (state = initialState, action) => {
         message: action.payload.data.message,
       }
     case ADD_PROJECTS_FAIL:
-      console.log(action.payload)
       return {
         ...state,
         isAdding: false,
