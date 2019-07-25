@@ -6,7 +6,7 @@ export default function Header() {
     <header>
       <div className="home-header">
         <p>Lambda App Store</p>
-        <img src={lambdaStudent}></img>
+        <img src={lambdaStudent} alt='lambda-student-header'></img>
       </div>
     </header>
   );
