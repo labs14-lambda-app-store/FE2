@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import lambdaLandingUX from "../assets/LambdaLandingUX.png"
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
       src={lambdaLandingUX}
       alt="lambda landing page mockup"
     />
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
