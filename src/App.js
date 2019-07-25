@@ -11,6 +11,7 @@ import { useAuth0 } from "./components/Auth/react-auth0-spa";
 
 
 import "./App.scss";
+import Header from "./components/Header";
 
 const App = () => {
   const { loading } = useAuth0();
@@ -20,7 +21,7 @@ const App = () => {
     <Router>
       <div className="App">
         <NavBar />
-        <h1>Lambda App Store!</h1>
+        <Header />
 
         <div className="banana">
         </div>
