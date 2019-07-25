@@ -50,6 +50,7 @@ const ProjectDetails = props => {
       <form className="submission">
       <h1>App Submission Form</h1>
         <TextField
+          className="submitInput"
           type="text"
           value={values.name} /*???*/
           required
@@ -60,6 +61,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          className="submitInput"
           value={values.category_name} /*???*/
           id="standard-select standard-required"
           required
@@ -77,6 +79,7 @@ const ProjectDetails = props => {
 
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={values.description} /*???*/
           required
@@ -87,6 +90,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={values.hosted_url} /*???*/
           required
@@ -97,6 +101,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={values.frontend_url} /*???*/
           placeholder="frontend url..."
@@ -105,6 +110,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={values.backend_url} /*???*/
           placeholder="backend url..."
@@ -113,6 +119,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={values.display_image} /*???*/
           placeholder="display image..."
@@ -122,6 +129,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={values.tags} /*???*/
           placeholder="tags..."
