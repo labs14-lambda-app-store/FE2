@@ -22,7 +22,7 @@ const Confirm = props => {
 
       
       return (
-            <div>
+            <div className="submission">
                   
                   <h1> Confirm Submission Data </h1>
                   <List>

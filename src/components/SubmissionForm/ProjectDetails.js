@@ -47,7 +47,7 @@ const ProjectDetails = props => {
   return (
     <div>
       <h2>App Submission Form</h2>
-      <form>
+      <form className="submission">
         <TextField
           type="text"
           value={values.name} /*???*/
