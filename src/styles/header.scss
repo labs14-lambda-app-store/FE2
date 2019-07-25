@@ -1,0 +1,19 @@
+.home-header {
+    background: #0c3c78;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        margin-left: 3.4rem;
+        font-family: 'Lato', sans-serif;
+        font-size: 2rem;
+        color: white;
+    }
+
+    img {
+        height: 10rem;
+        margin-right: 14rem;
+    }
+}

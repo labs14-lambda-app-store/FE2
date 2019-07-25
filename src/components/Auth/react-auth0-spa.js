@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import createAuth0Client from "@auth0/auth0-spa-js";
+import React, { useState, useEffect, useContext } from "react"
+import createAuth0Client from "@auth0/auth0-spa-js"
 
 //https://github.com/auth0/auth0-spa-js - refer for further details on auth usage
 
@@ -13,11 +13,11 @@ export const Auth0Provider = ({
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   ...initOptions
 }) => {
-  const [ isAuthenticated, setIsAuthenticated ] = useState()
-  const [ user, setUser ] = useState()
-  const [auth0Client, setAuth0] = useState();
-  const [loading, setLoading] = useState(true);
-  const [popupOpen, setPopupOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState()
+  const [user, setUser] = useState()
+  const [auth0Client, setAuth0] = useState()
+  const [loading, setLoading] = useState(true)
+  const [popupOpen, setPopupOpen] = useState(false)
 
   useEffect(() => {
     const initAuth0 = async () => {
@@ -33,7 +33,7 @@ export const Auth0Provider = ({
 
       setIsAuthenticated(isAuthenticated)
 
-      if(isAuthenticated) {
+      if (isAuthenticated) {
         const user = await auth0FromHook.getUser()
         setUser(user)
       }
@@ -79,7 +79,7 @@ export const Auth0Provider = ({
         loginWithRedirect: (...p) => auth0Client.loginWithRedirect(...p),
         getTokenSilently: (...p) => auth0Client.getTokenSilently(...p),
         getTokenWithPopup: (...p) => auth0Client.getTokenWithPopup(...p),
-        logout: (...p) => auth0Client.logout(...p)
+        logout: (...p) => auth0Client.logout(...p),
       }}
     >
       {children}

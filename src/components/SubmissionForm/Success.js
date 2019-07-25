@@ -1,6 +1,7 @@
-import React from "react";
+import React from "react"
 
 const Success = () => {
+
 
       return (
             <div className="submission">
@@ -9,9 +10,8 @@ const Success = () => {
             </div>
       )
 
+
+
 }
 
-export default Success;
-
-
-
+export default Success

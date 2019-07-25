@@ -1,12 +1,12 @@
-import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
-import { AuthButton } from "./Auth";
+import React from "react"
+import AppBar from "@material-ui/core/AppBar"
+import Toolbar from "@material-ui/core/Toolbar"
+import Button from "@material-ui/core/Button"
+import { AuthButton } from "./Auth"
 // import Typography from '@material-ui/core/Typography';
-import { MemoryRouter as Router, NavLink } from "react-router-dom";
-import { withRouter } from "react-router-dom";
-import redLambdaLogo from "../assets/Lambda_Logo.png";
+import { MemoryRouter as Router, NavLink } from "react-router-dom"
+import { withRouter } from "react-router-dom"
+import redLambdaLogo from "../assets/Lambda_Logo.png"
 
 // I've imported Material UI packages above,
 // and implemented them in a functional component below
@@ -39,7 +39,7 @@ const NavBar = props => {
         </AppBar>
       </div>
     </Router>
-  );
-};
+  )
+}
 
-export default withRouter(NavBar);
+export default withRouter(NavBar)
