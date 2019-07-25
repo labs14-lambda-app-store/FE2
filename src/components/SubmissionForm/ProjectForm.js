@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Confirm from './Confirm';
 import Success from './Success';
 import ProjectDetails from './ProjectDetails';
-
+import axios from 'axios'
 import { connect } from 'react-redux'
 import { addProject, getProjects } from '../../actions'
 
@@ -18,6 +18,18 @@ const ProjectForm = props => {
   const [submitted_at, setSubmit] = useState("");
   const [display_image, setImage] = useState("");
   const [tags, setTags] = useState("");
+
+  //gets random image from unsplash api and sets it as the display_image
+  //for temporary placeholders
+  const getRandomPlaceholderImg = async () => {
+    await axios.get('https://source.unsplash.com/1600x900/?nature,water,animal').then(res => {
+      setImage(res.config.url)
+    })
+  }
+
+  useEffect(() => {
+    getRandomPlaceholderImg()
+  }, [])
 
   const functions = {
         setName,
