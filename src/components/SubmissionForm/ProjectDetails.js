@@ -59,21 +59,23 @@ const ProjectDetails = props => {
 
   return (
     <div>
-      <h2>App Submission Form</h2>
-      <form>
+      <form className="submission">
+        <h1>Submit Your App</h1>
         <TextField
+          className="submitInput"
           type="text"
           value={name} /*???*/
           required
           name="name"
           id="standard-required"
-          placeholder="name..."
+          placeholder="app name..."
           margin="normal"
           onChange={e => handleStateChanges(e)}
         />
         <br />
         <TextField
           value={category_name} /*???*/
+          className="submitInput"
           id="standard-select standard-required"
           required
           select
@@ -94,6 +96,7 @@ const ProjectDetails = props => {
 
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={description} /*???*/
           required
@@ -105,6 +108,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={hosted_url} /*???*/
           required
@@ -116,6 +120,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={frontend_url} /*???*/
           placeholder="frontend url..."
@@ -125,6 +130,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={backend_url} /*???*/
           placeholder="backend url..."
@@ -134,14 +140,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
-          type="text"
-          value={submitted_at} /*???*/
-          placeholder="submitted at..."
-          margin="normal"
-          onChange={e => handleStateChanges(e)}
-        />
-        <br />
-        <TextField
+          className="submitInput"
           type="text"
           value={display_image} /*???*/
           placeholder="display image..."
@@ -152,6 +151,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          className="submitInput"
           type="text"
           value={tags} /*???*/
           placeholder="tags..."

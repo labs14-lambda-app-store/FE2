@@ -7,6 +7,8 @@ import axios from "axios"
 import { connect } from "react-redux"
 import { addProject, getProjects } from "../../actions"
 
+var moment = require("moment")
+
 const ProjectForm = props => {
   const [step, setStep] = useState(1)
 
@@ -54,6 +56,8 @@ const ProjectForm = props => {
   //post new project to database
   const handlePost = e => {
     e.preventDefault()
+
+    let submittedAt = moment()
 
     let newPost = {
       ...state,
