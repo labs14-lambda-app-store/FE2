@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react"
-import TextField from "@material-ui/core/TextField"
-import Grid from "@material-ui/core/Grid"
-import Project from "./Project.js"
 import { connect } from "react-redux"
 import axios from "axios"
+
+import Pagination from "material-ui-flat-pagination"
+import TextField from "@material-ui/core/TextField"
+import Grid from "@material-ui/core/Grid"
+
+import Project from "./Project.js"
 import { getProjects } from "../actions"
+
 
 const ProjectSearch = props => {
   const [searchString, setSearchString] = useState("")
   const { getProjects, projects } = props
+  const [ offset, setOffset] = useState('0')
 
   useEffect(() => {
     getProjects()
@@ -35,6 +40,12 @@ const ProjectSearch = props => {
 
     return image
   }
+
+  const offsetSet = (offset) => {
+    setOffset(offset)
+  }
+
+  
   return (
     <div>
       <TextField
@@ -46,6 +57,13 @@ const ProjectSearch = props => {
         margin="normal"
         onChange={e => updateSearch(e)}
       />
+      <Pagination 
+        limit={4}
+        offset={offset}
+        total={30}
+        onClick={(e, offset) => offsetSet(offset)}
+      />
+
       <Grid container spacing={2} style={{ padding: 24 }}>
         {filteredProjects.map(currentProject => (
           <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
