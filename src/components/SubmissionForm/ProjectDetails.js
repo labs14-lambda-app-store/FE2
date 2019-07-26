@@ -6,7 +6,18 @@ import Button from "@material-ui/core/Button"
 // and implemented them in a functional component below
 
 const ProjectDetails = props => {
-  const { nextStep, values, functions } = props
+  const { nextStep, state, handleStateChanges } = props
+  const {
+    hosted_url,
+    frontend_url,
+    backend_url,
+    name,
+    description,
+    category_name,
+    submitted_at,
+    display_image,
+    tags,
+  } = state
 
   //hardcoded because the backend end point was an empty array
   const categories = [
@@ -52,23 +63,24 @@ const ProjectDetails = props => {
       <form>
         <TextField
           type="text"
-          value={values.name} /*???*/
+          value={name} /*???*/
           required
+          name="name"
           id="standard-required"
           placeholder="name..."
           margin="normal"
-          onChange={e => functions.setName(e.target.value)}
+          onChange={e => handleStateChanges(e)}
         />
         <br />
         <TextField
-          value={values.category_name} /*???*/
+          value={category_name} /*???*/
           id="standard-select standard-required"
           required
           select
           label="categories"
           helperText="Please select primary category"
           margin="normal"
-          onChange={e => functions.setCategory(e.target.value)}
+          onChange={e => handleStateChanges(e)}
         >
           {sortCategories.map(category => (
             <MenuItem
@@ -83,63 +95,69 @@ const ProjectDetails = props => {
         <br />
         <TextField
           type="text"
-          value={values.description} /*???*/
+          value={description} /*???*/
           required
           id="standard-required"
           placeholder="description..."
+          name="description"
           margin="normal"
-          onChange={e => functions.setDescription(e.target.value)}
+          onChange={e => handleStateChanges(e)}
         />
         <br />
         <TextField
           type="text"
-          value={values.hosted_url} /*???*/
+          value={hosted_url} /*???*/
           required
           id="standard-required"
           placeholder="Hosted URL..."
           margin="normal"
-          onChange={e => functions.setHostedUrl(e.target.value)}
+          name="hosted_url"
+          onChange={e => handleStateChanges(e)}
         />
         <br />
         <TextField
           type="text"
-          value={values.frontend_url} /*???*/
+          value={frontend_url} /*???*/
           placeholder="frontend url..."
           margin="normal"
-          onChange={e => functions.setFrontendUrl(e.target.value)}
+          name="frontend_url"
+          onChange={e => handleStateChanges(e)}
         />
         <br />
         <TextField
           type="text"
-          value={values.backend_url} /*???*/
+          value={backend_url} /*???*/
           placeholder="backend url..."
           margin="normal"
-          onChange={e => functions.setBackendUrl(e.target.value)}
+          name="backend_url"
+          onChange={e => handleStateChanges(e)}
         />
         <br />
         <TextField
           type="text"
-          value={values.submitted_at} /*???*/
+          value={submitted_at} /*???*/
           placeholder="submitted at..."
           margin="normal"
-          onChange={e => functions.setSubmit(e.target.value)}
+          onChange={e => handleStateChanges(e)}
         />
         <br />
         <TextField
           type="text"
-          value={values.display_image} /*???*/
+          value={display_image} /*???*/
           placeholder="display image..."
           required
           margin="normal"
-          onChange={e => functions.setImage(e.target.value)}
+          name="display_image"
+          onChange={e => handleStateChanges(e)}
         />
         <br />
         <TextField
           type="text"
-          value={values.tags} /*???*/
+          value={tags} /*???*/
           placeholder="tags..."
           margin="normal"
-          onChange={e => functions.setTags(e.target.value)}
+          name="tags"
+          onChange={e => handleStateChanges(e)}
         />
         <br />
         <Button
