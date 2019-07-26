@@ -48,21 +48,23 @@ const ProjectSearch = props => {
   
   return (
     <div>
-      <TextField
-        style={{ padding: 24 }}
-        id="searchInput"
-        //eslint-disable-next-line
-        type="search"
-        placeholder="search for..."
-        margin="normal"
-        onChange={e => updateSearch(e)}
-      />
-      <Pagination 
-        limit={4}
-        offset={offset}
-        total={30}
-        onClick={(e, offset) => offsetSet(offset)}
-      />
+      <div className="actionNav">
+        <TextField
+          style={{ padding: 24 }}
+          id="searchInput"
+          //eslint-disable-next-line
+          type="search"
+          placeholder="search for..."
+          margin="normal"
+          onChange={e => updateSearch(e)}
+        />
+        <Pagination 
+          limit={4}
+          offset={offset}
+          total={30}
+          onClick={(e, offset) => offsetSet(offset)}
+        />
+      </div>
 
       <Grid container spacing={2} style={{ padding: 24 }}>
         {filteredProjects.map(currentProject => (
