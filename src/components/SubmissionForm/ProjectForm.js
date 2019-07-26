@@ -7,7 +7,7 @@ import axios from "axios"
 import { connect } from "react-redux"
 import { addProject, getProjects } from "../../actions"
 
-var moment = require('moment');
+var moment = require("moment")
 
 const ProjectForm = props => {
   const [step, setStep] = useState(1)
@@ -73,6 +73,7 @@ const ProjectForm = props => {
     let submittedAt = moment().format('MMMM Do YYYY, h:mm:ss a');
     console.log(submittedAt)
 
+
     let newPost = {
       name,
       description,
@@ -86,7 +87,6 @@ const ProjectForm = props => {
 
     props.addProject(newPost).then(res => {
       getProjects()
-      
     })
   }
 
