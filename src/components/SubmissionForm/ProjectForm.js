@@ -7,6 +7,8 @@ import axios from "axios"
 import { connect } from "react-redux"
 import { addProject, getProjects } from "../../actions"
 
+var moment = require("moment")
+
 const ProjectForm = props => {
   const [step, setStep] = useState(1)
   const [name, setName] = useState("")
@@ -71,6 +73,8 @@ const ProjectForm = props => {
   const handlePost = e => {
     e.preventDefault()
 
+    let submittedAt = moment()
+
     let newPost = {
       name,
       description,
@@ -78,12 +82,14 @@ const ProjectForm = props => {
       frontend_url,
       backend_url,
       category_name,
-      submitted_at: submittedTime,
+      submitted_at: submittedAt,
       display_image,
       tags,
     }
 
-    let submittedTime = props.addProject(newPost)
+    props.addProject(newPost).then(res => {
+      getProjects()
+    })
   }
 
   //switch and steps to confirm submission details
