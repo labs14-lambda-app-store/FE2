@@ -30,6 +30,7 @@ export const addProject = newProject => async dispatch => {
       newProject
     )
     dispatch({ type: ADD_PROJECTS_SUCCESS, payload: postResult })
+    dispatch(getProjects())
   } catch (err) {
     dispatch({ type: ADD_PROJECTS_FAIL, payload: err })
   }
