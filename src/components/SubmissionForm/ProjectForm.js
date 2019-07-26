@@ -9,15 +9,22 @@ import { addProject, getProjects } from "../../actions"
 
 const ProjectForm = props => {
   const [step, setStep] = useState(1)
-  const [name, setName] = useState("")
-  const [description, setDescription] = useState("")
-  const [hosted_url, setHostedUrl] = useState("")
-  const [frontend_url, setFrontendUrl] = useState("")
-  const [backend_url, setBackendUrl] = useState("")
-  const [category_name, setCategory] = useState("")
-  const [submitted_at, setSubmit] = useState("")
-  const [display_image, setImage] = useState("")
-  const [tags, setTags] = useState("")
+
+  const [state, setStateValues] = useState({
+    hosted_url: "",
+    frontend_url: "",
+    backend_url: "",
+    name: "",
+    category_name: "",
+    description: "",
+    submitted_at: "",
+    display_image: "",
+    tags: "",
+  })
+
+  const handleStateChanges = e => {
+    setStateValues({ ...state, [e.target.name]: e.target.value })
+  }
 
   //gets random image from unsplash api and sets it as the display_image
   //for temporary placeholders
