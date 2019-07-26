@@ -19,7 +19,6 @@ const ProjectForm = props => {
   const [category_name, setCategory] = useState("")
   const [submitted_at, setSubmit] = useState("")
   const [display_image, setImage] = useState("")
-  const [tags, setTags] = useState("")
 
   //gets random image from unsplash api and sets it as the display_image
   //for temporary placeholders
@@ -44,7 +43,6 @@ const ProjectForm = props => {
     setCategory,
     setSubmit,
     setImage,
-    setTags,
   }
 
   const values = {
@@ -56,7 +54,6 @@ const ProjectForm = props => {
     category_name,
     submitted_at,
     display_image,
-    tags,
   }
 
   //proceed to next step
@@ -73,7 +70,8 @@ const ProjectForm = props => {
   const handlePost = e => {
     e.preventDefault()
 
-    let submittedAt = moment();
+    let submittedAt = moment().format('MMMM Do YYYY, h:mm:ss a');
+    console.log(submittedAt)
 
     let newPost = {
       name,
@@ -84,7 +82,6 @@ const ProjectForm = props => {
       category_name,
       submitted_at: submittedAt,
       display_image,
-      tags,
     }
 
     props.addProject(newPost).then(res => {

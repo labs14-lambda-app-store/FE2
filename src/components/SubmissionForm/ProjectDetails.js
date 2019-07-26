@@ -134,15 +134,6 @@ const ProjectDetails = props => {
           onChange={e => functions.setImage(e.target.value)}
         />
         <br />
-        <TextField
-          className="submitInput"
-          type="text"
-          value={values.tags} /*???*/
-          placeholder="tags..."
-          margin="normal"
-          onChange={e => functions.setTags(e.target.value)}
-        />
-        <br />
         <Button
           label="Continue"
           type="submit"

@@ -9,16 +9,22 @@ import Grid from "@material-ui/core/Grid"
 import Project from "./Project.js"
 import { getProjects } from "../actions"
 
-
 const ProjectSearch = props => {
   const [searchString, setSearchString] = useState("")
   const { getProjects, projects } = props
-  const [ offset, setOffset] = useState('0')
+  const [offset, setOffset] = useState(0)
+  // const [rowsPerPage, setRowsPerPage] = useState([4,8,12])
+  // const [rows, setRows ] = useState([])
+  // const [numberOfRows, setNumberOfRows] = useState(4)
+  const [page, setPage ] = useState(1)
+  // const [total, setTotal ] = useState(undefined)
 
   useEffect(() => {
     getProjects()
     //eslint-disable-next-line
   }, [])
+
+  
 
   const updateSearch = e => {
     setSearchString(e.target.value.substr(0, 20))
@@ -41,11 +47,13 @@ const ProjectSearch = props => {
     return image
   }
 
-  const offsetSet = (offset) => {
+  const offsetSet = () => {
     setOffset(offset)
+    setPage(page + 1)
   }
 
-  
+ 
+
   return (
     <div>
       <div className="actionNav">
@@ -59,14 +67,20 @@ const ProjectSearch = props => {
           onChange={e => updateSearch(e)}
         />
         <Pagination 
-          limit={4}
+          limit={3}
           offset={offset}
-          total={30}
+          total={projects.length}
           onClick={(e, offset) => offsetSet(offset)}
         />
       </div>
 
-      <Grid container spacing={2} style={{ padding: 24 }}>
+      <Grid container spacing={2} style={{ padding: 24 }} >
+        {/* <Pagination
+          limit={1}
+          offset={offset}
+          total={20}
+          onClick={(e, offset) => offsetSet(offset).setPage(page)}
+        /> */}
         {filteredProjects.map(currentProject => (
           <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
             <Project

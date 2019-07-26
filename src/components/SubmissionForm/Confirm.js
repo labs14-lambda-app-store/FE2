@@ -32,7 +32,7 @@ const Confirm = props => {
                 <ListItem button><ListItemText primary='Front-End URL' secondary={values.frontend_url} /></ListItem>
                 <ListItem button><ListItemText primary='Back-End URL' secondary={values.backend_url} /></ListItem>
                 <ListItem button><ListItemText primary='Category' secondary={values.category_name} /></ListItem>
-                <ListItem button><ListItemText primary='Tags' secondary={values.tags} /></ListItem>
+                
           </List>
           <br/>
           <Button label="Confirm & Continue" color="primary" onClick={e => Continue(e)}>
