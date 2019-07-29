@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button"
 
 const ProjectDetails = props => {
   const { nextStep, state, handleStateChanges } = props
+  
   const {
     hosted_url,
     frontend_url,
@@ -14,9 +15,8 @@ const ProjectDetails = props => {
     name,
     description,
     category_name,
-    submitted_at,
     display_image,
-    tags,
+    // tags,         take out tags til the table works
   } = state
 
   //hardcoded because the backend end point was an empty array
@@ -80,6 +80,7 @@ const ProjectDetails = props => {
           required
           select
           label="categories"
+          name="category_name"
           helperText="Please select primary category"
           margin="normal"
           onChange={e => handleStateChanges(e)}
@@ -150,15 +151,15 @@ const ProjectDetails = props => {
           onChange={e => handleStateChanges(e)}
         />
         <br />
-        <TextField
+        {/* <TextField
           className="submitInput"
           type="text"
-          value={tags} /*???*/
+          value={tags} 
           placeholder="tags..."
           margin="normal"
           name="tags"
           onChange={e => handleStateChanges(e)}
-        />
+        />  */}
         <br />
         <Button
           label="Continue"
