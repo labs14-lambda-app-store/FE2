@@ -160,14 +160,32 @@ const ProjectDetails = props => {
           onChange={e => handleStateChanges(e)}
         />
         <br />
-        <Button
-          label="Continue"
-          type="submit"
-          color="primary"
-          onClick={e => Continue(e)}
-        >
-          Continue
-        </Button>
+        {name === "" ||
+        description === "" ||
+        hosted_url === "" ||
+        frontend_url === "" ||
+        backend_url === "" ||
+        category_name === "" ||
+        display_image === "" ? (
+          <Button
+            disabled
+            label="Continue"
+            type="submit"
+            color="primary"
+            onClick={e => Continue(e)}
+          >
+            Continue
+          </Button>
+        ) : (
+          <Button
+            label="Continue"
+            type="submit"
+            color="primary"
+            onClick={e => Continue(e)}
+          >
+            Continue
+          </Button>
+        )}
       </form>
     </div>
   )
