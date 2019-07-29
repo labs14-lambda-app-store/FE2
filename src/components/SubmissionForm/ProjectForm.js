@@ -21,12 +21,8 @@ const ProjectForm = props => {
     description: "",
     submitted_at: "",
     display_image: "",
-    tags: "",
+    // tags: "",
   })
-
-  const setSubmittedAt = date => {
-    setStateValues({...state, submitted_at: date})
-  }
 
   const handleStateChanges = e => {
     setStateValues({ ...state, [e.target.name]: e.target.value })
@@ -61,11 +57,11 @@ const ProjectForm = props => {
   const handlePost = e => {
     e.preventDefault()
     
-    let submittedAt = moment().format('MMMM Do YYYY, h:mm:ss a');
-    setSubmittedAt(submittedAt)
+    let submitted_at = moment().format('MMMM Do YYYY, h:mm:ss a');
 
     let newPost = {
       ...state,
+      submitted_at,
     }
     
     props.addProject(newPost).then(res => {
