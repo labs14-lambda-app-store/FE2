@@ -80,6 +80,7 @@ const ProjectDetails = props => {
           required
           select
           label="categories"
+          name="category_name"
           helperText="Please select primary category"
           margin="normal"
           onChange={e => handleStateChanges(e)}
