@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button"
 
 const ProjectDetails = props => {
   const { nextStep, state, handleStateChanges } = props
+  console.log(state)
   const {
     hosted_url,
     frontend_url,
