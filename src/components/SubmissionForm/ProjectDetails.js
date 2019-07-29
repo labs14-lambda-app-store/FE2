@@ -165,7 +165,6 @@ const ProjectDetails = props => {
         hosted_url === "" ||
         frontend_url === "" ||
         backend_url === "" ||
-        category_name === "" ||
         display_image === "" ? (
           <Button
             disabled
