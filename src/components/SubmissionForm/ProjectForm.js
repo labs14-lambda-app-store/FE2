@@ -28,21 +28,6 @@ const ProjectForm = props => {
     setStateValues({ ...state, [e.target.name]: e.target.value })
   }
 
-  //gets random image from unsplash api and sets it as the display_image
-  //for temporary placeholders
-  const getRandomPlaceholderImg = async () => {
-    await axios
-      .get("https://source.unsplash.com/1600x900/?nature,water,animal")
-      .then(res => {
-        setStateValues({ ...state, display_image: res.config.url })
-      })
-  }
-
-  useEffect(() => {
-    getRandomPlaceholderImg()
-    //eslint-disable-next-line
-  }, [])
-
   //proceed to next step
   const nextStep = () => {
     setStep(step + 1)
