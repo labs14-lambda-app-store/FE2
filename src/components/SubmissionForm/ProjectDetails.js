@@ -14,7 +14,6 @@ const ProjectDetails = props => {
     name,
     description,
     category_name,
-    submitted_at,
     display_image,
     tags,
   } = state
