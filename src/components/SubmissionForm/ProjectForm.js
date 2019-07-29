@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 
 import Confirm from "./Confirm"
 import Success from "./Success"
 import ProjectDetails from "./ProjectDetails"
-import axios from "axios"
 import { connect } from "react-redux"
 import { addProject, getProjects } from "../../actions"
 
