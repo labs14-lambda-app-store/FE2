@@ -11,15 +11,22 @@ var moment = require("moment")
 
 const ProjectForm = props => {
   const [step, setStep] = useState(1)
-  const [name, setName] = useState("")
-  const [description, setDescription] = useState("")
-  const [hosted_url, setHostedUrl] = useState("")
-  const [frontend_url, setFrontendUrl] = useState("")
-  const [backend_url, setBackendUrl] = useState("")
-  const [category_name, setCategory] = useState("")
-  const [submitted_at, setSubmit] = useState("")
-  const [display_image, setImage] = useState("")
-  const [tags, setTags] = useState("")
+
+  const [state, setStateValues] = useState({
+    hosted_url: "",
+    frontend_url: "",
+    backend_url: "",
+    name: "",
+    category_name: "",
+    description: "",
+    submitted_at: "",
+    display_image: "",
+    tags: "",
+  })
+
+  const handleStateChanges = e => {
+    setStateValues({ ...state, [e.target.name]: e.target.value })
+  }
 
   //gets random image from unsplash api and sets it as the display_image
   //for temporary placeholders
@@ -27,37 +34,14 @@ const ProjectForm = props => {
     await axios
       .get("https://source.unsplash.com/1600x900/?nature,water,animal")
       .then(res => {
-        setImage(res.config.url)
+        setStateValues({ ...state, display_image: res.config.url })
       })
   }
 
   useEffect(() => {
     getRandomPlaceholderImg()
+    //eslint-disable-next-line
   }, [])
-
-  const functions = {
-    setName,
-    setDescription,
-    setHostedUrl,
-    setFrontendUrl,
-    setBackendUrl,
-    setCategory,
-    setSubmit,
-    setImage,
-    setTags,
-  }
-
-  const values = {
-    name,
-    description,
-    hosted_url,
-    frontend_url,
-    backend_url,
-    category_name,
-    submitted_at,
-    display_image,
-    tags,
-  }
 
   //proceed to next step
   const nextStep = () => {
@@ -76,15 +60,7 @@ const ProjectForm = props => {
     let submittedAt = moment()
 
     let newPost = {
-      name,
-      description,
-      hosted_url,
-      frontend_url,
-      backend_url,
-      category_name,
-      submitted_at: submittedAt,
-      display_image,
-      tags,
+      ...state,
     }
 
     props.addProject(newPost).then(res => {
@@ -98,8 +74,8 @@ const ProjectForm = props => {
       return (
         <ProjectDetails
           nextStep={nextStep}
-          functions={functions}
-          values={values}
+          state={state}
+          handleStateChanges={handleStateChanges}
         />
       )
     case 2:
@@ -108,7 +84,7 @@ const ProjectForm = props => {
           nextStep={nextStep}
           prevStep={prevStep}
           handlePost={handlePost}
-          values={values}
+          values={state}
         />
       )
     case 3:

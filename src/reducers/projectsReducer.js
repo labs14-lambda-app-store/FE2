@@ -36,16 +36,19 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         isAdding: true,
+        message: "",
       }
     case ADD_PROJECTS_SUCCESS:
       return {
         ...state,
         isAdding: false,
+        message: action.payload.data.message,
       }
     case ADD_PROJECTS_FAIL:
       return {
         ...state,
         isAdding: false,
+        message: "Could not add project...",
       }
     default:
       return state
