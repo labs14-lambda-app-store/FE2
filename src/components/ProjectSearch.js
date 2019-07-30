@@ -51,7 +51,7 @@ const ProjectSearch = props => {
           onChange={e => updateSearch(e)}
         />
         <Pagination    // still don't know how to plug this in to back end page numbers
-          limit={9}
+          limit={12}
           offset={offset}
           total={projects.length}
           onClick={(e, offset) => setOffset(offset) }  
