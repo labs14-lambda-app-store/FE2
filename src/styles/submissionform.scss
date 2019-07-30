@@ -4,10 +4,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 900px;
+      margin-top: 40px;
 
       .submitInput {
             width: 50%;
+      }
+
+      Button {
+            margin-bottom: 70px;
       }
       
 }
@@ -16,3 +20,10 @@
       width: 50%;
 }
 
+.dropzone {
+      margin-top: 40px;
+      padding-top: 40px;
+      width: 30%;
+}
+
+// .DropzoneArea-dropZone-142
