@@ -173,9 +173,7 @@ const ProjectDetails = props => {
         <br />
         {!name ||
           !description ||
-          !hosted_url ||
-          !frontend_url ||
-          !backend_url
+          !hosted_url
           ? (
             <Button
               disabled
