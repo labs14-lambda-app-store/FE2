@@ -9,7 +9,7 @@ const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 export const sendImageToCloudinary = e => async dispatch => {
   dispatch({ type: POST_IMAGE_START })
 
-  let file = e[0]
+  let file = e
   let formData = new FormData()
 
 

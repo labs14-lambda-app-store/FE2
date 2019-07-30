@@ -151,13 +151,13 @@ const ProjectDetails = props => {
           type="text"
           value={display_image} /*???*/
           placeholder="display image..."
-          required
+          required /* Invincible */
           margin="normal"
           name="display_image"
           onChange={e => handleStateChanges(e)}
         />
-        <DropzoneArea filesLimit={1} acceptedFiles={['image/*']} onChange={e =>
-          props.setStateValues({...state, image_dropdown: e[0]})} />
+        <DropzoneArea filesLimit={1} acceptedFiles={['image/*']} onChange={e => 
+          props.setStateValues({...state, image_dropdown: e[0]})} /> 
         <br />
         {/* <TextField
           className="submitInput"
@@ -191,8 +191,10 @@ const ProjectDetails = props => {
               color="primary"
 
               onClick={e => {
+                console.log(image_dropdown)
                 props.sendImageToCloudinary(image_dropdown)
-                Continue(e)}
+                setTimeout(function(){ Continue(e) }, 3000);
+                }
               }
             >
               Continue

@@ -47,7 +47,12 @@ const ProjectForm = props => {
       ? state.display_image
       : props.display_image
     let newPost = {
-      ...state,
+      hosted_url: state.hosted_url,
+      frontend_url: state.frontend_url,
+      backend_url: state.backend_url,
+      name: state.name,
+      category_name: state.category_name,
+      description: state.description,
       submitted_at,
       display_image,
     }
