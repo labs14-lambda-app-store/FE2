@@ -1,4 +1,5 @@
 import React from "react"
+import { connect } from "react-redux"
 import TextField from "@material-ui/core/TextField"
 import MenuItem from "@material-ui/core/MenuItem"
 import Button from "@material-ui/core/Button"
@@ -6,6 +7,8 @@ import Button from "@material-ui/core/Button"
 import ImageUpload from "./ImageUpload"
 //imported Material UI packages above,
 // and implemented them in a functional component below
+import { DropzoneArea } from 'material-ui-dropzone'
+import { sendImageToCloudinary } from "../../actions"
 
 const ProjectDetails = props => {
   const { nextStep, state, handleStateChanges } = props
@@ -18,6 +21,7 @@ const ProjectDetails = props => {
     description,
     category_name,
     display_image,
+    image_dropdown,
     // tags,         take out tags til the table works
   } = state
 
@@ -49,7 +53,7 @@ const ProjectDetails = props => {
   }
 
   //sort categories alphabetically
-  const sortCategories = categories.sort(function(a, b) {
+  const sortCategories = categories.sort(function (a, b) {
     if (a.category_name < b.category_name) {
       return -1
     }
@@ -147,12 +151,13 @@ const ProjectDetails = props => {
           type="text"
           value={display_image} /*???*/
           placeholder="display image..."
-          required
+          required /* Invincible */
           margin="normal"
           name="display_image"
           onChange={e => handleStateChanges(e)}
         />
-        <ImageUpload />
+        <DropzoneArea filesLimit={1} acceptedFiles={['image/*']} onChange={e => 
+          props.setStateValues({...state, image_dropdown: e[0]})} /> 
         <br />
         {/* <TextField
           className="submitInput"
@@ -165,33 +170,46 @@ const ProjectDetails = props => {
         />  */}
         <br />
         {!name ||
-        !description ||
-        !hosted_url ||
-        !frontend_url ||
-        !backend_url||
-        !display_image? (
-          <Button
-            disabled
-            label="Continue"
-            type="submit"
-            color="primary"
-            onClick={e => Continue(e)}
-          >
-            Continue
+          !description ||
+          !hosted_url ||
+          !frontend_url ||
+          !backend_url
+          ? (
+            <Button
+              disabled
+              label="Continue"
+              type="submit"
+              color="primary"
+              onClick={e => Continue(e)}
+            >
+              Continue
           </Button>
-        ) : (
-          <Button
-            label="Continue"
-            type="submit"
-            color="primary"
-            onClick={e => Continue(e)}
-          >
-            Continue
+          ) : (
+            <Button
+              label="Continue"
+              type="submit"
+              color="primary"
+
+              onClick={e => {
+                props.sendImageToCloudinary(image_dropdown)
+                setTimeout(function(){ Continue(e) }, 3000);
+                }
+              }
+            >
+              Continue
           </Button>
-        )}
+          )}
       </form>
     </div>
   )
 }
-
-export default ProjectDetails
+const mapStateToProps = ({ imagesReducer }) => {
+  return {
+    ...imagesReducer,
+  }
+}
+// export default ProjectDetails
+export default connect(
+  mapStateToProps,
+  { sendImageToCloudinary }
+)(ProjectDetails)
