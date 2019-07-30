@@ -33,7 +33,7 @@ const NavBar = props => {
             {/* Using button onClick to avoid Link bug that prevents route changes,
                         when using material-ui */}
             <div className="buttons">
-              <AuthButton />
+              
               <Button onClick={() => props.history.push("/")}>Home</Button>
               <Button onClick={() => props.history.push("/projects")}>
                 Projects
@@ -41,6 +41,7 @@ const NavBar = props => {
               <Button onClick={() => props.history.push("/project-form")}>
                 Submit Project
               </Button>
+              <AuthButton />
             </div>
           </Toolbar>
         </AppBar>
