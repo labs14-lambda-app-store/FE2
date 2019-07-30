@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 
 import Confirm from "./Confirm"
 import Success from "./Success"
 import ProjectDetails from "./ProjectDetails"
-import axios from "axios"
 import { connect } from "react-redux"
 import { addProject, getProjects } from "../../actions"
 
@@ -28,21 +27,6 @@ const ProjectForm = props => {
     setStateValues({ ...state, [e.target.name]: e.target.value })
   }
 
-  //gets random image from unsplash api and sets it as the display_image
-  //for temporary placeholders
-  const getRandomPlaceholderImg = async () => {
-    await axios
-      .get("https://source.unsplash.com/1600x900/?nature,water,animal")
-      .then(res => {
-        setStateValues({ ...state, display_image: res.config.url })
-      })
-  }
-
-  useEffect(() => {
-    getRandomPlaceholderImg()
-    //eslint-disable-next-line
-  }, [])
-
   //proceed to next step
   const nextStep = () => {
     setStep(step + 1)
@@ -56,14 +40,17 @@ const ProjectForm = props => {
   //post new project to database
   const handlePost = e => {
     e.preventDefault()
-    
-    let submitted_at = moment().format('MMMM Do YYYY, h:mm:ss a');
 
+    let submitted_at = moment().format("MMMM Do YYYY, h:mm:ss a")
+    let display_image = state.display_image
+      ? state.display_image
+      : props.display_image
     let newPost = {
       ...state,
       submitted_at,
+      display_image,
     }
-    
+
     props.addProject(newPost).then(res => {
       getProjects()
     })
@@ -95,9 +82,10 @@ const ProjectForm = props => {
   }
 }
 
-const mapStateToProps = ({ projectsReducer }) => {
+const mapStateToProps = ({ projectsReducer, imagesReducer }) => {
   return {
     ...projectsReducer,
+    display_image: imagesReducer.image,
   }
 }
 

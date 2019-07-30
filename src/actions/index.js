@@ -8,3 +8,10 @@ export {
   getProjects,
   addProject,
 } from "./projectActions"
+
+export {
+  POST_IMAGE_START,
+  POST_IMAGE_FAIL,
+  POST_IMAGE_SUCCESS,
+  sendImageToCloudinary,
+} from "./imageActions"

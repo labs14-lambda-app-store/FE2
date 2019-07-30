@@ -2,12 +2,14 @@ import React from "react"
 import TextField from "@material-ui/core/TextField"
 import MenuItem from "@material-ui/core/MenuItem"
 import Button from "@material-ui/core/Button"
+
+import ImageUpload from "./ImageUpload"
 //imported Material UI packages above,
 // and implemented them in a functional component below
 
 const ProjectDetails = props => {
   const { nextStep, state, handleStateChanges } = props
-  
+
   const {
     hosted_url,
     frontend_url,
@@ -150,11 +152,12 @@ const ProjectDetails = props => {
           name="display_image"
           onChange={e => handleStateChanges(e)}
         />
+        <ImageUpload />
         <br />
         {/* <TextField
           className="submitInput"
           type="text"
-          value={tags} 
+          value={tags}
           placeholder="tags..."
           margin="normal"
           name="tags"
