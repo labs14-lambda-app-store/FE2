@@ -4,7 +4,7 @@ import Confirm from "./Confirm"
 import Success from "./Success"
 import ProjectDetails from "./ProjectDetails"
 import { connect } from "react-redux"
-import { addProject, getProjects } from "../../actions"
+import { addProject, getProjects, sendImageToCloudinary } from "../../actions"
 
 var moment = require("moment")
 
@@ -20,6 +20,7 @@ const ProjectForm = props => {
     description: "",
     submitted_at: "",
     display_image: "",
+    image_dropdown: "",
     // tags: "",
   })
 
@@ -46,7 +47,12 @@ const ProjectForm = props => {
       ? state.display_image
       : props.display_image
     let newPost = {
-      ...state,
+      hosted_url: state.hosted_url,
+      frontend_url: state.frontend_url,
+      backend_url: state.backend_url,
+      name: state.name,
+      category_name: state.category_name,
+      description: state.description,
       submitted_at,
       display_image,
     }
@@ -64,6 +70,8 @@ const ProjectForm = props => {
           nextStep={nextStep}
           state={state}
           handleStateChanges={handleStateChanges}
+          setStateValues={setStateValues}
+
         />
       )
     case 2:
@@ -91,5 +99,5 @@ const mapStateToProps = ({ projectsReducer, imagesReducer }) => {
 
 export default connect(
   mapStateToProps,
-  { getProjects, addProject }
+  { getProjects, addProject, sendImageToCloudinary }
 )(ProjectForm)
