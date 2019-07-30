@@ -9,7 +9,7 @@ import ImageUpload from "./ImageUpload"
 
 const ProjectDetails = props => {
   const { nextStep, state, handleStateChanges } = props
-  
+
   const {
     hosted_url,
     frontend_url,
@@ -157,7 +157,7 @@ const ProjectDetails = props => {
         {/* <TextField
           className="submitInput"
           type="text"
-          value={tags} 
+          value={tags}
           placeholder="tags..."
           margin="normal"
           name="tags"
