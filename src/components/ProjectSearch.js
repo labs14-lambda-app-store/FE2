@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react"
+import Pagination from "material-ui-flat-pagination"
 import TextField from "@material-ui/core/TextField"
 import Grid from "@material-ui/core/Grid"
-import Project from "./Project.js"
 import { connect } from "react-redux"
 import axios from "axios"
+
+import Project from "./Project.js"
 import { getProjects } from "../actions"
 
 const ProjectSearch = props => {
   const [searchString, setSearchString] = useState("")
   const { getProjects, projects } = props
+  const [offset, setOffset] = useState(0)
 
   useEffect(() => {
-    getProjects()
+    getProjects(1)
     //eslint-disable-next-line
   }, [])
 
@@ -37,15 +40,33 @@ const ProjectSearch = props => {
   }
   return (
     <div>
-      <TextField
-        style={{ padding: 24 }}
-        id="searchInput"
-        //eslint-disable-next-line
-        type="search"
-        placeholder="search for..."
-        margin="normal"
-        onChange={e => updateSearch(e)}
-      />
+      <div className="actionNav">
+        <TextField
+          style={{ padding: 24 }}
+          id="searchInput"
+          //eslint-disable-next-line
+          type="search"
+          placeholder="search for..."
+          margin="normal"
+          onChange={e => updateSearch(e)}
+        />
+        <Pagination    // still don't know how to plug this in to back end page numbers
+
+        // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
+          limit={1}
+          innerButtonCount={0}
+          outerButtonCount={1}
+          reduced={true}
+          offset={offset}
+          // total number of pages we want to render
+          total={10}
+          onClick={(e, offset) => {
+            setOffset(offset)
+            // send the correct page query (i.e. /api/projects?page=2)
+            getProjects(offset + 1)
+           }  }
+        />
+      </div>
       <Grid container spacing={2} style={{ padding: 24 }}>
         {filteredProjects.map(currentProject => (
           <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>

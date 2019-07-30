@@ -4,11 +4,11 @@ export const GET_PROJECTS_START = "GET_PROJECTS_START"
 export const GET_PROJECTS_SUCCESS = "GET_PROJECTS_SUCCESS"
 export const GET_PROJECTS_FAIL = "GET_PROJECTS_FAIL"
 
-export const getProjects = () => async dispatch => {
+export const getProjects = page => async dispatch => {
   dispatch({ type: GET_PROJECTS_START })
 
   try {
-    const result = await axios.get(baseProjectsUrl)
+    const result = await axios.get(`${baseProjectsUrl}?page=${page}`)
     dispatch({ type: GET_PROJECTS_SUCCESS, payload: result.data })
   } catch (err) {
     dispatch({ type: GET_PROJECTS_FAIL, payload: err })
