@@ -7,7 +7,7 @@ export const POST_IMAGE_SUCCESS = "POST_IMAGE_SUCCESS"
 const cloudinaryUrl = process.env.REACT_APP_CLOUDINARY_URL
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 
-export const addImage = e => async dispatch => {
+export const sendImageToCloudinary = e => async dispatch => {
   dispatch({ type: POST_IMAGE_START })
 
   let file = e.target.files[0]
