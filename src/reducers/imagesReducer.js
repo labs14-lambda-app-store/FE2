@@ -6,7 +6,6 @@ import {
 
 const initalState = {
   isAdding: false,
-  message: "",
   image: "",
 }
 
@@ -20,7 +19,7 @@ const imagesReducer = (state = initalState, action) => {
     case POST_IMAGE_SUCCESS:
       return {
         ...state,
-        image: action.payload,
+        image: action.payload.data.secure_url,
         isAdding: false,
       }
     case POST_IMAGE_FAIL:
