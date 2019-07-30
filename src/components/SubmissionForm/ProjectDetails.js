@@ -160,12 +160,12 @@ const ProjectDetails = props => {
           onChange={e => handleStateChanges(e)}
         />
         <br />
-        {name === "" ||
-        description === "" ||
-        hosted_url === "" ||
-        frontend_url === "" ||
-        backend_url === "" ||
-        display_image === "" ? (
+        {!name ||
+        !description ||
+        !hosted_url ||
+        !frontend_url ||
+        !backend_url||
+        !display_image? (
           <Button
             disabled
             label="Continue"
