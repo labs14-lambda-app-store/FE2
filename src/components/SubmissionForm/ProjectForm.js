@@ -40,14 +40,17 @@ const ProjectForm = props => {
   //post new project to database
   const handlePost = e => {
     e.preventDefault()
-    
-    let submitted_at = moment().format('MMMM Do YYYY, h:mm:ss a');
 
+    let submitted_at = moment().format("MMMM Do YYYY, h:mm:ss a")
+    let display_image = state.display_image
+      ? state.display_image
+      : props.display_image
     let newPost = {
       ...state,
       submitted_at,
+      display_image,
     }
-    
+
     props.addProject(newPost).then(res => {
       getProjects()
     })
@@ -79,9 +82,10 @@ const ProjectForm = props => {
   }
 }
 
-const mapStateToProps = ({ projectsReducer }) => {
+const mapStateToProps = ({ projectsReducer, imagesReducer }) => {
   return {
     ...projectsReducer,
+    display_image: imagesReducer.image,
   }
 }
 
