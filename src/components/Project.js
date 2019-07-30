@@ -14,15 +14,16 @@ const Project = props => {
       {props.project ? (
         <Card>
           <CardMedia
+          // keeps the pictures all uniform size!
             style={{ height: 0, paddingTop: "56.25%" }}
             image={display_image}
             title={name}
           />
           <CardContent>
-            <Typography gutterBottom varient="heading" component="h3">
+            <Typography className="app-title" gutterBottom varient="heading" component="h3">
               {name}
             </Typography>
-            <Typography component="p">{description}</Typography>
+            <Typography className="description-box" component="p">{description}</Typography>
           </CardContent>
           <CardActions>
             {/* target so when you click the button, it opens the app in a new browser tab */}
