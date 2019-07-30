@@ -1,7 +1,15 @@
-import React from "react"
+import React, { useEffect }from "react"
+import { withRouter } from 'react-router-dom'
 
-const Success = () => {
+const Success = (props) => {
 
+      useEffect(() => {
+            const timer = setTimeout(() => {
+                  console.log('this will run after 6 seconds')
+                  props.history.push('/projects')
+            }, 6000);
+            return () => clearTimeout(timer)
+      },[props.history])
 
       return (
             <div className="submission">
@@ -14,4 +22,4 @@ const Success = () => {
 
 }
 
-export default Success
+export default withRouter(Success)
