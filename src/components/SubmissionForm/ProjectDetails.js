@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import TextField from "@material-ui/core/TextField"
 import MenuItem from "@material-ui/core/MenuItem"
 import Button from "@material-ui/core/Button"
-import { DropzoneArea } from 'material-ui-dropzone'
+import { DropzoneArea } from "material-ui-dropzone"
 
 import { sendImageToCloudinary } from "../../actions"
 import ImageUpload from "./ImageUpload"
@@ -53,7 +53,7 @@ const ProjectDetails = props => {
   }
 
   //sort categories alphabetically
-  const sortCategories = categories.sort(function (a, b) {
+  const sortCategories = categories.sort(function(a, b) {
     if (a.category_name < b.category_name) {
       return -1
     }
@@ -80,7 +80,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
-          value={category_name} /*???*/
+          value={category_name}
           className="submitInput"
           id="standard-select standard-required"
           required
@@ -105,7 +105,7 @@ const ProjectDetails = props => {
         <TextField
           className="submitInput"
           type="text"
-          value={description} /*???*/
+          value={description}
           required
           id="standard-required"
           placeholder="Description"
@@ -117,7 +117,7 @@ const ProjectDetails = props => {
         <TextField
           className="submitInput"
           type="text"
-          value={hosted_url} /*???*/
+          value={hosted_url}
           required
           id="standard-required"
           placeholder="Hosted URL"
@@ -129,7 +129,7 @@ const ProjectDetails = props => {
         <TextField
           className="submitInput"
           type="text"
-          value={frontend_url} /*???*/
+          value={frontend_url}
           placeholder="Frontend URL"
           margin="normal"
           name="frontend_url"
@@ -139,7 +139,7 @@ const ProjectDetails = props => {
         <TextField
           className="submitInput"
           type="text"
-          value={backend_url} /*???*/
+          value={backend_url}
           placeholder="Backend URL"
           margin="normal"
           name="backend_url"
@@ -149,7 +149,7 @@ const ProjectDetails = props => {
         <TextField
           className="submitInput"
           type="text"
-          value={display_image} /*???*/
+          value={display_image}
           placeholder="Image URL or... "
           required /* Invincible */
           margin="normal"
@@ -157,8 +157,13 @@ const ProjectDetails = props => {
           onChange={e => handleStateChanges(e)}
         />
         <div className="dropzone">
-          <DropzoneArea filesLimit={1} acceptedFiles={['image/*']} onChange={e => 
-            props.setStateValues({...state, image_dropdown: e[0]})} /> 
+          <DropzoneArea
+            filesLimit={1}
+            acceptedFiles={["image/*"]}
+            onChange={e =>
+              props.setStateValues({ ...state, image_dropdown: e[0] })
+            }
+          />
         </div>
         <br />
         {/* <TextField
@@ -171,34 +176,31 @@ const ProjectDetails = props => {
           onChange={e => handleStateChanges(e)}
         />  */}
         <br />
-        {!name ||
-          !description ||
-          !hosted_url
-          ? (
-            <Button
-              disabled
-              label="Continue"
-              type="submit"
-              color="primary"
-              onClick={e => Continue(e)}
-            >
-              Continue
+        {!name || !description || !hosted_url ? (
+          <Button
+            disabled
+            label="Continue"
+            type="submit"
+            color="primary"
+            onClick={e => Continue(e)}
+          >
+            Continue
           </Button>
-          ) : (
-            <Button
-              label="Continue"
-              type="submit"
-              color="primary"
-
-              onClick={e => {
-                props.sendImageToCloudinary(image_dropdown)
-                setTimeout(function(){ Continue(e) }, 3000);
-                }
-              }
-            >
-              Continue
+        ) : (
+          <Button
+            label="Continue"
+            type="submit"
+            color="primary"
+            onClick={e => {
+              props.sendImageToCloudinary(image_dropdown)
+              setTimeout(function() {
+                Continue(e)
+              }, 3000)
+            }}
+          >
+            Continue
           </Button>
-          )}
+        )}
       </form>
     </div>
   )
@@ -208,7 +210,6 @@ const mapStateToProps = ({ imagesReducer }) => {
     ...imagesReducer,
   }
 }
-// export default ProjectDetails
 export default connect(
   mapStateToProps,
   { sendImageToCloudinary }
