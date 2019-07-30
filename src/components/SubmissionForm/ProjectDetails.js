@@ -3,12 +3,12 @@ import { connect } from "react-redux"
 import TextField from "@material-ui/core/TextField"
 import MenuItem from "@material-ui/core/MenuItem"
 import Button from "@material-ui/core/Button"
+import { DropzoneArea } from 'material-ui-dropzone'
 
+import { sendImageToCloudinary } from "../../actions"
 import ImageUpload from "./ImageUpload"
 //imported Material UI packages above,
 // and implemented them in a functional component below
-import { DropzoneArea } from 'material-ui-dropzone'
-import { sendImageToCloudinary } from "../../actions"
 
 const ProjectDetails = props => {
   const { nextStep, state, handleStateChanges } = props
@@ -74,7 +74,7 @@ const ProjectDetails = props => {
           required
           name="name"
           id="standard-required"
-          placeholder="app name..."
+          placeholder="App Name"
           margin="normal"
           onChange={e => handleStateChanges(e)}
         />
@@ -85,7 +85,7 @@ const ProjectDetails = props => {
           id="standard-select standard-required"
           required
           select
-          label="categories"
+          label="Categories"
           name="category_name"
           helperText="Please select primary category"
           margin="normal"
@@ -108,7 +108,7 @@ const ProjectDetails = props => {
           value={description} /*???*/
           required
           id="standard-required"
-          placeholder="description..."
+          placeholder="Description"
           name="description"
           margin="normal"
           onChange={e => handleStateChanges(e)}
@@ -120,7 +120,7 @@ const ProjectDetails = props => {
           value={hosted_url} /*???*/
           required
           id="standard-required"
-          placeholder="Hosted URL..."
+          placeholder="Hosted URL"
           margin="normal"
           name="hosted_url"
           onChange={e => handleStateChanges(e)}
@@ -130,7 +130,7 @@ const ProjectDetails = props => {
           className="submitInput"
           type="text"
           value={frontend_url} /*???*/
-          placeholder="frontend url..."
+          placeholder="Frontend URL"
           margin="normal"
           name="frontend_url"
           onChange={e => handleStateChanges(e)}
@@ -140,7 +140,7 @@ const ProjectDetails = props => {
           className="submitInput"
           type="text"
           value={backend_url} /*???*/
-          placeholder="backend url..."
+          placeholder="Backend URL"
           margin="normal"
           name="backend_url"
           onChange={e => handleStateChanges(e)}
@@ -150,14 +150,16 @@ const ProjectDetails = props => {
           className="submitInput"
           type="text"
           value={display_image} /*???*/
-          placeholder="display image..."
+          placeholder="Image URL or... "
           required /* Invincible */
           margin="normal"
           name="display_image"
           onChange={e => handleStateChanges(e)}
         />
-        <DropzoneArea filesLimit={1} acceptedFiles={['image/*']} onChange={e => 
-          props.setStateValues({...state, image_dropdown: e[0]})} /> 
+        <div className="dropzone">
+          <DropzoneArea filesLimit={1} acceptedFiles={['image/*']} onChange={e => 
+            props.setStateValues({...state, image_dropdown: e[0]})} /> 
+        </div>
         <br />
         {/* <TextField
           className="submitInput"
@@ -171,9 +173,7 @@ const ProjectDetails = props => {
         <br />
         {!name ||
           !description ||
-          !hosted_url ||
-          !frontend_url ||
-          !backend_url
+          !hosted_url
           ? (
             <Button
               disabled
