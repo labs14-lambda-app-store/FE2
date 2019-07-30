@@ -6,7 +6,6 @@ import Button from "@material-ui/core/Button"
 import { DropzoneArea } from "material-ui-dropzone"
 
 import { sendImageToCloudinary } from "../../actions"
-import ImageUpload from "./ImageUpload"
 //imported Material UI packages above,
 // and implemented them in a functional component below
 
