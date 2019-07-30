@@ -191,7 +191,6 @@ const ProjectDetails = props => {
               color="primary"
 
               onClick={e => {
-                console.log(image_dropdown)
                 props.sendImageToCloudinary(image_dropdown)
                 setTimeout(function(){ Continue(e) }, 3000);
                 }

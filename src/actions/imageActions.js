@@ -25,7 +25,6 @@ export const sendImageToCloudinary = e => async dispatch => {
     })
     dispatch({ type: POST_IMAGE_SUCCESS, payload: image })
   } catch (err) {
-    console.log(err)
     dispatch({ type: POST_IMAGE_FAIL, payload: err })
   }
 }

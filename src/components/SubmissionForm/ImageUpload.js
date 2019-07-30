@@ -3,9 +3,6 @@ import { connect } from "react-redux"
 import { sendImageToCloudinary } from "../../actions"
 import {DropzoneArea} from 'material-ui-dropzone'
 
-// const cloudinaryUrl = process.env.REACT_APP_CLOUDINARY_URL
-// const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
-
 const ImageUpload = props => {
 
   return (
