@@ -11,10 +11,10 @@ import { getProjects } from "../actions"
 const ProjectSearch = props => {
   const [searchString, setSearchString] = useState("")
   const { getProjects, projects } = props
-  const [offset, setOffset] = useState("")
+  const [offset, setOffset] = useState(0)
 
   useEffect(() => {
-    getProjects()
+    getProjects(1)
     //eslint-disable-next-line
   }, [])
 
@@ -51,13 +51,19 @@ const ProjectSearch = props => {
           onChange={e => updateSearch(e)}
         />
         <Pagination    // still don't know how to plug this in to back end page numbers
-          limit={2}
+
+        // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
+          limit={1}
+          innerButtonCount={0}
+          outerButtonCount={1}
+          reduced={true}
           offset={offset}
-          total={projects.length}
+          // total number of pages we want to render
+          total={10}
           onClick={(e, offset) => {
             setOffset(offset)
-            getProjects(offset/offset + 1)
-            // props.history.push(`/api/projects?page=${offset/offset + 1}`)
+            // send the correct page query (i.e. /api/projects?page=2)
+            getProjects(offset + 1)
            }  }
         />
       </div>
