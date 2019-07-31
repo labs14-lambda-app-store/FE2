@@ -23,8 +23,7 @@ const ProjectSearch = props => {
   }
 
   const filteredProjects =
-
-    projects  &&
+    projects &&
     projects.filter(project => {
       return (
         project.name.toLowerCase().indexOf(searchString) !== -1 ||
@@ -51,21 +50,20 @@ const ProjectSearch = props => {
           margin="normal"
           onChange={e => updateSearch(e)}
         />
-        <Pagination    // still don't know how to plug this in to back end page numbers
-
-        // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
+        <Pagination // still don't know how to plug this in to back end page numbers
+          // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
           limit={1}
           innerButtonCount={0}
           outerButtonCount={1}
           reduced={true}
           offset={offset}
           // total number of pages we want to render; dynamic by rounding up quotient of projectLength and projects per page (12)
-          total={Math.ceil(projectLength/12)}
+          total={Math.ceil(projectLength / 12)}
           onClick={(e, offset) => {
             setOffset(offset)
             // send the correct page query (i.e. /api/projects?page=2)
             getProjects(offset + 1)
-           }  }
+          }}
         />
       </div>
       <Grid container spacing={2} style={{ padding: 24 }}>
