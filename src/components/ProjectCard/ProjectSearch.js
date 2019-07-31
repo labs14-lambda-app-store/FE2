@@ -31,13 +31,6 @@ const ProjectSearch = props => {
       )
     })
 
-  const randomUnsplashImage = async () => {
-    const image = await axios.get(
-      "https://source.unsplash.com/1600x900/?nature,water,animal"
-    )
-
-    return image
-  }
   return (
     <div>
       <div className="actionNav">
@@ -50,8 +43,7 @@ const ProjectSearch = props => {
           margin="normal"
           onChange={e => updateSearch(e)}
         />
-        <Pagination // still don't know how to plug this in to back end page numbers
-          // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
+        <Pagination
           limit={1}
           innerButtonCount={0}
           outerButtonCount={1}
@@ -69,11 +61,7 @@ const ProjectSearch = props => {
       <Grid container spacing={2} style={{ padding: 24 }}>
         {filteredProjects.map(currentProject => (
           <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
-            <Project
-              project={currentProject}
-              randomUnsplashImage={randomUnsplashImage}
-              key={currentProject.id}
-            />
+            <Project project={currentProject} key={currentProject.id} />
           </Grid>
         ))}
       </Grid>
