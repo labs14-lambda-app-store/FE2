@@ -4,7 +4,7 @@ import Toolbar from "@material-ui/core/Toolbar"
 import Button from "@material-ui/core/Button"
 import { AuthButton } from "./Auth"
 // import Typography from '@material-ui/core/Typography';
-import { MemoryRouter as Router, NavLink, Link, withRouter } from "react-router-dom"
+import { MemoryRouter as Router, withRouter } from "react-router-dom"
 import redLambdaLogo from "../assets/Lambda_Logo.png"
 
 // I've imported Material UI packages above,
@@ -15,13 +15,6 @@ const NavBar = props => {
       <div>
         <AppBar position="static">
           <Toolbar>
-            {/* <NavLink exact to="/">
-              <img 
-                className="Header-lambda-logo"
-                src={redLambdaLogo}
-                alt="red lambda logo"
-              />
-            </NavLink> */}
            
               <img 
                 className="Header-lambda-logo"
