@@ -36,6 +36,8 @@ const ProjectDetails = props => {
     // tags,         take out tags til the table works
   } = state
 
+  const charactersLeft = 255 - description.length
+
   //hardcoded because the backend end point was an empty array
   const categories = [
     { category_name: "Business" },
@@ -120,8 +122,10 @@ const ProjectDetails = props => {
           id="standard-required"
           placeholder="Description"
           name="description"
+          helperText={`${charactersLeft} characters remaining...`}
           margin="normal"
           onChange={e => handleStateChanges(e)}
+          inputProps={{ maxLength: 255 }}
         />
         <br />
         <TextField
