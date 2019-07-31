@@ -5,13 +5,12 @@ import Home from "./components/Home"
 import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
 import ProjectForm from "./components/SubmissionForm/ProjectForm"
-import ProjectSearch from "./components/ProjectSearch"
+import { ProjectSearch } from "./components/ProjectCard"
 import { Route } from "react-router-dom"
 import { useAuth0 } from "./components/Auth/react-auth0-spa"
 
-
-import "./App.scss";
-import Header from "./components/Header";
+import "./App.scss"
+import Header from "./components/Header"
 
 const App = () => {
   const { loading } = useAuth0()

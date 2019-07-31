@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
-import { getProjects } from "../actions"
+import { getProjects } from "../../actions"
 
 const Projects = props => {
   const { projects } = props

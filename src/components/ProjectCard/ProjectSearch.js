@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 import axios from "axios"
 
 import Project from "./Project.js"
-import { getProjects } from "../actions"
+import { getProjects } from "../../actions"
 
 const ProjectSearch = props => {
   const [searchString, setSearchString] = useState("")
