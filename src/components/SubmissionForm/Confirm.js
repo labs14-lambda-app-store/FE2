@@ -3,11 +3,30 @@ import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 import Button from "@material-ui/core/Button"
+import { connect } from "react-redux"
+import Loader from "react-loader-spinner"
+
 //imported Material UI packages above,
 // and implemented them in a functional component below
 
 const Confirm = props => {
-  const { nextStep, prevStep, handlePost, values } = props
+  const {
+    nextStep,
+    prevStep,
+    handlePost,
+    values,
+    isAddingImage,
+    isAddingProject,
+  } = props
+
+  const {
+    description,
+    name,
+    hosted_url,
+    frontend_url,
+    backend_url,
+    category_name,
+  } = values
 
   const Continue = e => {
     e.preventDefault()
