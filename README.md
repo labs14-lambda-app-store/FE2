@@ -25,9 +25,14 @@
 
  [Vision Doc](https://www.notion.so/Lambda-App-Store-0a5cde7e511446e6af5f66dcd3d96579)
 
- [UX Design files](https://sketch.cloud/s/GzQob)(https://docs.google.com/presentation/d/1upSlMfvh0DpfZR6eyFzHYUU6q_TCFpPPNxIYr8qJbzU/edit?usp=sharing) 
+ [UX Design files](https://docs.google.com/presentation/d/1upSlMfvh0DpfZR6eyFzHYUU6q_TCFpPPNxIYr8qJbzU/edit?usp=sharing) 
  
- [Feature Canvases] (https://www.notion.so/App-Gallery-Feature-Canvas-7a6638a26940490f908506fee1c35fdf)(https://www.notion.so/Admin-Dashboard-Feature-Canvas-1d7dff49af804a8783f47aa8f0ec4418)(https://www.notion.so/Student-Dashboard-Feature-Canvas-82a2b9b67be0472ea85786873b7f9b97)(https://www.notion.so/The-Landing-Page-Feature-Canvas-3f33be139cf94a799ba4440cccc4341e)(https://www.notion.so/The-Subscription-Feature-Canvas-1d7bb594fade4606a3de09abbdf31ed6)
+ Feature Canvases 
+ [App Gallery](https://www.notion.so/App-Gallery-Feature-Canvas-7a6638a26940490f908506fee1c35fdf)
+ [Admin Dashboard](https://www.notion.so/Admin-Dashboard-Feature-Canvas-1d7dff49af804a8783f47aa8f0ec4418)
+ [Student Dashboard](https://www.notion.so/Student-Dashboard-Feature-Canvas-82a2b9b67be0472ea85786873b7f9b97)
+ [Landing Page](https://www.notion.so/The-Landing-Page-Feature-Canvas-3f33be139cf94a799ba4440cccc4341e)
+ [Subscription](https://www.notion.so/The-Subscription-Feature-Canvas-1d7bb594fade4606a3de09abbdf31ed6)
 
 
 "Lambda App Store" is a Lambda Labs project built for Lambda School to create a central place to view and use the apps that our awesome students create.
