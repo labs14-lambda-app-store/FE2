@@ -11,11 +11,6 @@ import redLambdaLogo from "../assets/Lambda_Logo.png"
 // and implemented them in a functional component below
 const NavBar = props => {
 
-  // const style = {
-  //   'backgroundColor': '$lambdaRed',
-  //   'border': "1px solid red"
-  // }
-
   return (
     <Router>
       <div>
@@ -40,7 +35,7 @@ const NavBar = props => {
               <Button onClick={() => props.history.push("/project-form")}>
                 Submit Project
               </Button>
-              <AuthButton className='signinButton'/>
+              <AuthButton />
             </div>
           </Toolbar>
         </AppBar>
