@@ -74,7 +74,6 @@ const ProjectSearch = props => {
           <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
             <Project
               project={currentProject}
-              // randomUnsplashImage={randomUnsplashImage}
               key={currentProject.id}
             />
           </Grid>

@@ -10,9 +10,9 @@ import Loader from "react-loader-spinner"
 // and implemented them in a functional component below
 //MUI button style overwrite with INLINE STYLES
 const style = {
-  'fontSize': '1.6rem',
-  'padding': '20px'
-};
+  fontSize: "1.6rem",
+  padding: "20px",
+}
 
 const Confirm = props => {
   const {
@@ -81,7 +81,12 @@ const Confirm = props => {
           "Confirm & Continue"
         )}
       </Button>
-      <Button style={style} label="Back" color="secondary" onClick={e => Back(e)}>
+      <Button
+        style={style}
+        label="Back"
+        color="secondary"
+        onClick={e => Back(e)}
+      >
         Back
       </Button>
     </div>

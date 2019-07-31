@@ -1,9 +1,9 @@
 import React, { useState } from "react"
+import { connect } from "react-redux"
 
 import Confirm from "./Confirm"
 import Success from "./Success"
 import ProjectDetails from "./ProjectDetails"
-import { connect } from "react-redux"
 import { addProject, getProjects, sendImageToCloudinary } from "../../actions"
 
 var moment = require("moment")
