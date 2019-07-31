@@ -14,13 +14,17 @@ const ProjectSearch = props => {
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
-    getProjects(1)
+      if(searchString) {
+        handleSearch(null, 1, searchString)
+      } else {
+        getProjects(1)
+      }
     //eslint-disable-next-line
   }, [])
 
-  const handleSearch = (e, searchString) => {
+  const handleSearch = (e, offset, searchString) => {
       e.preventDefault()
-      searchProjects(1, searchString )
+      searchProjects(offset, searchString )
       console.log("searchString", searchString)
   }
 
@@ -42,7 +46,7 @@ const ProjectSearch = props => {
           label="Search"
           type="submit"
           color="primary"
-          onClick={e => handleSearch(e, searchString)}>
+          onClick={e => handleSearch(e, 1, searchString)}>
             Search
         </Button>
         <Pagination    
@@ -58,8 +62,12 @@ const ProjectSearch = props => {
           onClick={(e, offset) => {
             setOffset(offset)
             // send the correct page query (i.e. /api/projects?page=2)
-            getProjects(offset + 1)
-           }  }
+            if(searchString) {
+              searchProjects(offset + 1, searchString)
+            } else {
+              getProjects(offset + 1)
+            }  
+          }}
         />
       </div>
       <Grid container spacing={2} style={{ padding: 24 }}>

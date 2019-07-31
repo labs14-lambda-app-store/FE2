@@ -53,6 +53,7 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
+        message: action.payload,
       }
     case ADD_PROJECTS_START:
       return {
@@ -70,7 +71,7 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         isAdding: false,
-        message: "Could not add project...",
+        message: action.payload,
       }
     default:
       return state
