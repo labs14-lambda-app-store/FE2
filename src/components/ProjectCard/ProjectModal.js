@@ -5,9 +5,13 @@ import ModalContent from "./ModalContent"
 //will need react router for card contents
 //axios for getProjectById request
 const ProjectModal = props => {
+  const { project, isModalOpen } = props
+
   return (
     <main>
-      <ModalContent />
+      <Modal open={isModalOpen}>
+        <ModalContent project={project} />
+      </Modal>
     </main>
   )
 }
