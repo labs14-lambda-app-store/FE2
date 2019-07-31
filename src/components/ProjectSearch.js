@@ -61,7 +61,7 @@ const ProjectSearch = props => {
           outerButtonCount={1}
           reduced={true}
           offset={offset}
-          // total number of pages we want to render
+          // total number of pages we want to render; dynamic by rounding up quotient of projectLength and projects per page (12)
           total={Math.ceil(projectLength/12)}
           onClick={(e, offset) => {
             setOffset(offset)
