@@ -11,8 +11,6 @@ import { getProjects } from "../actions"
 const ProjectSearch = props => {
   const [searchString, setSearchString] = useState("")
   const { getProjects, projects, projectLength } = props
-  // console.log(projectLength)
-  // console.log(projects)
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
