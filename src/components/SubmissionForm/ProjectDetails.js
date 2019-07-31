@@ -79,18 +79,6 @@ const ProjectDetails = props => {
       <form className="submission">
         <h1>Submit Your App</h1>
         <TextField
-          className="submitInput"
-          type="text"
-          value={name} /*???*/
-          required
-          name="name"
-          id="standard-required"
-          placeholder="App Name*"
-          margin="normal"
-          onChange={e => handleStateChanges(e)}
-        />
-        <br />
-        <TextField
           value={category_name}
           className="submitInput"
           id="standard-select standard-required"
@@ -98,7 +86,7 @@ const ProjectDetails = props => {
           select
           label="Categories"
           name="category_name"
-          helperText="Please select primary category"
+          helperText="Please select one"
           margin="normal"
           onChange={e => handleStateChanges(e)}
         >
@@ -111,6 +99,18 @@ const ProjectDetails = props => {
             </MenuItem>
           ))}
         </TextField>
+        <br />
+        <TextField
+          className="submitInput"
+          type="text"
+          value={name} /*???*/
+          required
+          name="name"
+          id="standard-required"
+          placeholder="App Name*"
+          margin="normal"
+          onChange={e => handleStateChanges(e)}
+        />
         <br />
         <TextField
           className="submitInput"

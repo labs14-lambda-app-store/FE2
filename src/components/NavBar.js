@@ -11,10 +11,10 @@ import redLambdaLogo from "../assets/Lambda_Logo.png"
 // and implemented them in a functional component below
 const NavBar = props => {
 
-  const style = {
-    'backgroundColor': '$lambdaRed',
-    'border': "1px solid red"
-  }
+  // const style = {
+  //   'backgroundColor': '$lambdaRed',
+  //   'border': "1px solid red"
+  // }
 
   return (
     <Router>
