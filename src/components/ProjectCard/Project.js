@@ -18,14 +18,16 @@ const Project = props => {
       {props.project ? (
         <Card>
           <CardMedia
-          // keeps the pictures all uniform size!
+            // keeps the pictures all uniform size!
             style={{ height: 0, paddingTop: "56.25%" }}
             image={display_image}
             title={name}
           />
           <CardContent>
             {/* <Typography className="app-title" gutterBottom varient="heading" component="h3">{name}</Typography> */}
-            <Typography gutterBottom varient="heading" component="h3">{name}</Typography>
+            <Typography gutterBottom varient="heading" component="h3">
+              {name}
+            </Typography>
             {/* <Typography className="description-box" component="p">{description}</Typography> */}
             <Typography component="p">{description}</Typography>
             <ProjectModal project={project} isModalOpen={isOpen} />
