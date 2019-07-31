@@ -26,6 +26,7 @@ const ProjectSearch = props => {
 
     projects  &&
     projects.filter(project => {
+      // console.log(projectLength)
       return (
         project.name.toLowerCase().indexOf(searchString) !== -1 ||
         project.description.toLowerCase().indexOf(searchString) !== -1

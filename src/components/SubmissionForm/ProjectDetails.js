@@ -187,7 +187,7 @@ const ProjectDetails = props => {
         >
           Continue
         </Button>
-        )
+        
       </form>
     </div>
   )
