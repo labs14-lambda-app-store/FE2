@@ -1,13 +1,17 @@
-import React from "react"
+import React, { useState } from "react"
 import Card from "@material-ui/core/Card"
 import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import CardMedia from "@material-ui/core/CardMedia"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
+import ProjectModal from "./ProjectModal"
 
 const Project = props => {
-  const { display_image, name, description, hosted_url } = props.project
+  const { project } = props
+  const { display_image, name, description, hosted_url } = project
+
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div>
@@ -24,15 +28,16 @@ const Project = props => {
             <Typography gutterBottom varient="heading" component="h3">{name}</Typography>
             {/* <Typography className="description-box" component="p">{description}</Typography> */}
             <Typography component="p">{description}</Typography>
+            <ProjectModal project={project} isModalOpen={isOpen} />
           </CardContent>
           <CardActions>
             {/* target so when you click the button, it opens the app in a new browser tab */}
+
             <Button
               className="getAppButton"
               size="small"
               color="primary"
-              href={hosted_url}
-              target="_blank"
+              onClick={() => setIsOpen(true)}
             >
               Get The App
             </Button>
