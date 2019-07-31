@@ -6916,6 +6916,7 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
+
 material-ui-dropzone@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/material-ui-dropzone/-/material-ui-dropzone-2.4.0.tgz#69849073eac5554c21d47dfd40a2f78fa1dc4f72"
@@ -6923,12 +6924,14 @@ material-ui-dropzone@^2.4.0:
   dependencies:
     "@material-ui/icons" "^3.0.2"
     react-dropzone "^7.0.1"
+
 material-ui-flat-pagination@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/material-ui-flat-pagination/-/material-ui-flat-pagination-3.2.0.tgz#4db75c70ef740dc0621452d39d1e1469d15527ea"
   integrity sha512-ARxXVCYOYWTU5dXsz0OoNaBZ8bBMB2nCA4shpigB6yanIaoKIDoYB5/23hqzUJMysFgFNcbvkHRzacCQIZ4qpw==
   dependencies:
     classnames "^2.2.6"
+
 math-random@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.4.tgz#5dd6943c938548267016d4e34f057583080c514c"
@@ -9147,6 +9150,14 @@ react-lifecycles-compat@^3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-loader-spinner@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-loader-spinner/-/react-loader-spinner-2.3.0.tgz#0f14da82f42cdfdf6567f8ddac3d4bd150cea231"
+  integrity sha512-Nu7RXMyAnvdGoZLH5boXaHbqLkgBEIPO1u75zOZkZNp2V+Dg8RvvlZ05SU3ajtmsFNteFe8BJbFd0samH0tXcw==
+  dependencies:
+    babel-runtime "^6.26.0"
+    prop-types "^15.6.2"
 
 react-redux@^7.1.0:
   version "7.1.0"
