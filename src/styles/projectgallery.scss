@@ -11,6 +11,27 @@
       margin: 10px 0px 8px
 }
 
+//search bar
 .MuiFormControl-root {
       width: 360px;
 }
+
+//header on card in gallery view
+.MuiTypography-root{
+      font-style: bold;
+}
+
+//cards in gallery view
+.MuiCardContent-root{
+      height: 180px;
+}
+
+//button on card in gallery view
+.MuiCardActions-root {
+      display: flex;
+      justify-content: center;     
+}
+
+
+
+

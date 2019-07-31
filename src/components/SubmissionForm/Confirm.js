@@ -8,6 +8,11 @@ import Loader from "react-loader-spinner"
 
 //imported Material UI packages above,
 // and implemented them in a functional component below
+//MUI button style overwrite with INLINE STYLES
+const style = {
+  'fontSize': '1.6rem',
+  'padding': '20px'
+};
 
 const Confirm = props => {
   const {
@@ -65,6 +70,7 @@ const Confirm = props => {
       </List>
       <br />
       <Button
+        style={style}
         label="Confirm & Continue"
         color="primary"
         onClick={e => (!isAddingImage && !isAddingProject ? Continue(e) : null)}
@@ -75,7 +81,7 @@ const Confirm = props => {
           "Confirm & Continue"
         )}
       </Button>
-      <Button label="Back" color="secondary" onClick={e => Back(e)}>
+      <Button style={style} label="Back" color="secondary" onClick={e => Back(e)}>
         Back
       </Button>
     </div>

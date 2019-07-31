@@ -9,6 +9,12 @@ import { sendImageToCloudinary } from "../../actions"
 //imported Material UI packages above,
 // and implemented them in a functional component below
 
+//MUI button style overwrite with INLINE STYLES
+const style = {
+  'fontSize': '1.6rem',
+  'padding': '20px'
+};
+
 const ProjectDetails = props => {
   const {
     nextStep,
@@ -157,7 +163,6 @@ const ProjectDetails = props => {
             onChange={e => setStateValues({ ...state, display_image: e[0] })}
           />
         </div>
-        <br />
         {/* <TextField
           className="submitInput"
           type="text"
@@ -169,6 +174,7 @@ const ProjectDetails = props => {
         />  */}
         <br />
         <Button
+          style={style}
           label="Continue"
           type="submit"
           color="primary"
