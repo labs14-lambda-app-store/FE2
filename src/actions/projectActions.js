@@ -16,6 +16,21 @@ export const getProjects = page => async dispatch => {
   }
 }
 
+export const SEARCH_PROJECTS_START = "SEARCH_PROJECTS_START"
+export const SEARCH_PROJECTS_SUCCESS = "SEARCH_PROJECTS_SUCCESS"
+export const SEARCH_PROJECTS_FAIL = "SEARCH_PROJECTS_FAIL"
+
+export const searchProjects = (page, search) => async dispatch => {
+  dispatch({ type: SEARCH_PROJECTS_START })
+
+  try {
+    const result = await axios.get(`${baseProjectsUrl}?page=${page}&search=${search}`)
+    // payload = projects from backend; projectLength = project length from backend for pagination total
+    dispatch({ type: SEARCH_PROJECTS_SUCCESS, payload: result.data.projects, projectLength: result.data.projectLength })
+  } catch (err) {
+    dispatch({ type: SEARCH_PROJECTS_FAIL, payload: err })
+  }
+}
 export const ADD_PROJECTS_START = "ADD_PROJECTS_START"
 export const ADD_PROJECTS_SUCCESS = "ADD_PROJECTS_SUCCESS"
 export const ADD_PROJECTS_FAIL = "ADD_PROJECTS_FAIL"
