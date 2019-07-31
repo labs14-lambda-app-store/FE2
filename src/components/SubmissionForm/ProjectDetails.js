@@ -163,31 +163,20 @@ const ProjectDetails = props => {
           onChange={e => handleStateChanges(e)}
         />  */}
         <br />
-        {!name || !description || !hosted_url ? (
-          <Button
-            disabled
-            label="Continue"
-            type="submit"
-            color="primary"
-            onClick={e => Continue(e)}
-          >
-            Continue
-          </Button>
-        ) : (
-          <Button
-            label="Continue"
-            type="submit"
-            color="primary"
-            onClick={e => {
-              props.sendImageToCloudinary(image_dropdown)
-              setTimeout(function() {
-                Continue(e)
-              }, 3000)
-            }}
-          >
-            Continue
-          </Button>
-        )}
+        <Button
+          label="Continue"
+          type="submit"
+          color="primary"
+          disabled={!name || !description || !hosted_url ? true : false}
+          onClick={e => {
+            e.preventDefault()
+            sendImageToCloudinary(display_image)
+            Continue(e)
+          }}
+        >
+          Continue
+        </Button>
+        )
       </form>
     </div>
   )
