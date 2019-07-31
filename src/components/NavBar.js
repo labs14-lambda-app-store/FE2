@@ -10,6 +10,12 @@ import redLambdaLogo from "../assets/Lambda_Logo.png"
 // I've imported Material UI packages above,
 // and implemented them in a functional component below
 const NavBar = props => {
+
+  const style = {
+    'backgroundColor': '$lambdaRed',
+    'border': "1px solid red"
+  }
+
   return (
     <Router>
       <div>
@@ -34,7 +40,7 @@ const NavBar = props => {
               <Button onClick={() => props.history.push("/project-form")}>
                 Submit Project
               </Button>
-              <AuthButton />
+              <AuthButton className='signinButton'/>
             </div>
           </Toolbar>
         </AppBar>

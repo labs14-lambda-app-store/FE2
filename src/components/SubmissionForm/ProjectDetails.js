@@ -85,7 +85,7 @@ const ProjectDetails = props => {
           required
           name="name"
           id="standard-required"
-          placeholder="App Name"
+          placeholder="App Name*"
           margin="normal"
           onChange={e => handleStateChanges(e)}
         />
@@ -118,7 +118,7 @@ const ProjectDetails = props => {
           value={description}
           required
           id="standard-required"
-          placeholder="Description"
+          placeholder="Description*"
           name="description"
           margin="normal"
           onChange={e => handleStateChanges(e)}
@@ -130,7 +130,7 @@ const ProjectDetails = props => {
           value={hosted_url}
           required
           id="standard-required"
-          placeholder="Hosted URL"
+          placeholder="Hosted URL*"
           margin="normal"
           name="hosted_url"
           onChange={e => handleStateChanges(e)}
