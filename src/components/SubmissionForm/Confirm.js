@@ -6,6 +6,11 @@ import Button from "@material-ui/core/Button"
 //imported Material UI packages above,
 // and implemented them in a functional component below
 
+const style = {
+  'font-size': '1.6rem',
+  'padding': '20px'
+};
+
 const Confirm = props => {
   const { nextStep, prevStep, handlePost, values } = props
 
@@ -35,10 +40,10 @@ const Confirm = props => {
                 {/* <ListItem button><ListItemText primary='Tags' secondary={values.tags} /></ListItem> */}
           </List>
           <br/>
-          <Button label="Confirm & Continue" color="primary" onClick={e => Continue(e)}>
+          <Button style={style} label="Confirm & Continue" color="primary" onClick={e => Continue(e)}>
           Confirm & Continue
           </Button>
-          <Button label="Back" color="secondary" onClick={e => Back(e)}>
+          <Button style={style} label="Back" color="secondary" onClick={e => Back(e)}>
           Back
           </Button>
 

@@ -6,9 +6,14 @@ import Button from "@material-ui/core/Button"
 import { DropzoneArea } from 'material-ui-dropzone'
 
 import { sendImageToCloudinary } from "../../actions"
-import ImageUpload from "./ImageUpload"
+// import ImageUpload from "./ImageUpload"
 //imported Material UI packages above,
 // and implemented them in a functional component below
+
+const style = {
+  'fontSize': '1.6rem',
+  'padding': '20px'
+};
 
 const ProjectDetails = props => {
   const { nextStep, state, handleStateChanges } = props
@@ -160,7 +165,6 @@ const ProjectDetails = props => {
           <DropzoneArea filesLimit={1} acceptedFiles={['image/*']} onChange={e => 
             props.setStateValues({...state, image_dropdown: e[0]})} /> 
         </div>
-        <br />
         {/* <TextField
           className="submitInput"
           type="text"
@@ -170,12 +174,12 @@ const ProjectDetails = props => {
           name="tags"
           onChange={e => handleStateChanges(e)}
         />  */}
-        <br />
         {!name ||
           !description ||
           !hosted_url
           ? (
             <Button
+              style={style}
               disabled
               label="Continue"
               type="submit"
@@ -186,6 +190,7 @@ const ProjectDetails = props => {
           </Button>
           ) : (
             <Button
+              style={style}
               label="Continue"
               type="submit"
               color="primary"
