@@ -155,7 +155,7 @@ const ProjectDetails = props => {
           name="backend_url"
           onChange={e => handleStateChanges(e)}
         />
-        <br />
+        {/* <br /> */}
         <div className="dropzone">
           <DropzoneArea
             filesLimit={1}
