@@ -10,7 +10,13 @@ import { sendImageToCloudinary } from "../../actions"
 // and implemented them in a functional component below
 
 const ProjectDetails = props => {
-  const { nextStep, state, handleStateChanges } = props
+  const {
+    nextStep,
+    state,
+    handleStateChanges,
+    sendImageToCloudinary,
+    setStateValues,
+  } = props
 
   const {
     hosted_url,
@@ -99,7 +105,6 @@ const ProjectDetails = props => {
             </MenuItem>
           ))}
         </TextField>
-
         <br />
         <TextField
           className="submitInput"
@@ -181,12 +186,8 @@ const ProjectDetails = props => {
     </div>
   )
 }
-const mapStateToProps = ({ imagesReducer }) => {
-  return {
-    ...imagesReducer,
-  }
-}
+
 export default connect(
-  mapStateToProps,
+  null,
   { sendImageToCloudinary }
 )(ProjectDetails)
