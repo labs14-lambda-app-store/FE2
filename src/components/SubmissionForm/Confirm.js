@@ -82,4 +82,14 @@ const Confirm = props => {
   )
 }
 
-export default Confirm
+const mapStateToProps = ({ imagesReducer, projectsReducer }) => {
+  return {
+    isAddingImage: imagesReducer.isAdding,
+    isAddingProject: projectsReducer.isAdding,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  {}
+)(Confirm)
