@@ -9,6 +9,7 @@ import {
 
 const initialState = {
   projects: [],
+  projectLength: null,
   isFetching: false,
   isAdding: false,
   message: "",
@@ -25,6 +26,7 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         projects: action.payload,
+        projectLength: action.projectLength,
         isFetching: false,
       }
     case GET_PROJECTS_FAIL:

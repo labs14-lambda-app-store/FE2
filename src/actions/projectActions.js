@@ -9,7 +9,7 @@ export const getProjects = page => async dispatch => {
 
   try {
     const result = await axios.get(`${baseProjectsUrl}?page=${page}`)
-    dispatch({ type: GET_PROJECTS_SUCCESS, payload: result.data.projects })
+    dispatch({ type: GET_PROJECTS_SUCCESS, payload: result.data.projects, projectLength: result.data.projectLength })
   } catch (err) {
     dispatch({ type: GET_PROJECTS_FAIL, payload: err })
   }
