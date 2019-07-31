@@ -145,23 +145,11 @@ const ProjectDetails = props => {
           onChange={e => handleStateChanges(e)}
         />
         <br />
-        <TextField
-          className="submitInput"
-          type="text"
-          value={display_image}
-          placeholder="Image URL or... "
-          required /* Invincible */
-          margin="normal"
-          name="display_image"
-          onChange={e => handleStateChanges(e)}
-        />
         <div className="dropzone">
           <DropzoneArea
             filesLimit={1}
             acceptedFiles={["image/*"]}
-            onChange={e =>
-              props.setStateValues({ ...state, image_dropdown: e[0] })
-            }
+            onChange={e => setStateValues({ ...state, display_image: e[0] })}
           />
         </div>
         <br />
