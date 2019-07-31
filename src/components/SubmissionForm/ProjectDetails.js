@@ -10,6 +10,7 @@ import { sendImageToCloudinary } from "../../actions"
 //imported Material UI packages above,
 // and implemented them in a functional component below
 
+//MUI button style overwrite with INLINE STYLES
 const style = {
   'fontSize': '1.6rem',
   'padding': '20px'

@@ -5,9 +5,9 @@ import ListItemText from "@material-ui/core/ListItemText"
 import Button from "@material-ui/core/Button"
 //imported Material UI packages above,
 // and implemented them in a functional component below
-
+//MUI button style overwrite with INLINE STYLES
 const style = {
-  'font-size': '1.6rem',
+  'fontSize': '1.6rem',
   'padding': '20px'
 };
 
@@ -37,7 +37,7 @@ const Confirm = props => {
                 <ListItem button><ListItemText primary='Front-End URL' secondary={values.frontend_url} /></ListItem>
                 <ListItem button><ListItemText primary='Back-End URL' secondary={values.backend_url} /></ListItem>
                 <ListItem button><ListItemText primary='Category' secondary={values.category_name} /></ListItem>
-                {/* <ListItem button><ListItemText primary='Tags' secondary={values.tags} /></ListItem> */}
+                {/* <ListItem button><ListItemText primary='Tags' secondary={values.tags} /></ListItem> */} 
           </List>
           <br/>
           <Button style={style} label="Confirm & Continue" color="primary" onClick={e => Continue(e)}>
