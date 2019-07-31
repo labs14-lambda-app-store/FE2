@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react"
 import Pagination from "material-ui-flat-pagination"
 import TextField from "@material-ui/core/TextField"
+import Button from "@material-ui/core/Button"
 import Grid from "@material-ui/core/Grid"
 import { connect } from "react-redux"
-import axios from "axios"
 
 import Project from "./Project.js"
 import { getProjects, searchProjects } from "../actions"
 
 const ProjectSearch = props => {
   const [searchString, setSearchString] = useState("")
-  const { getProjects, projects, projectLength } = props
+  const { getProjects, projects, searchProjects, projectLength } = props
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
@@ -18,15 +18,10 @@ const ProjectSearch = props => {
     //eslint-disable-next-line
   }, [])
 
-  const handleChange = e => {
-     setSearchString(e.target.value)
-  }
-
-  const handleSearch = (searchString) => {
+  const handleSearch = (e, searchString) => {
+      e.preventDefault()
       searchProjects(1, searchString )
-      console.log("searchString")
-
-
+      console.log("searchString", searchString)
   }
 
   return (
@@ -41,9 +36,15 @@ const ProjectSearch = props => {
           type="search"
           placeholder="search for..."
           margin="normal"
-          onChange={e => handleChange(e)}
-          onSubmit={searchString => handleSearch(searchString)}
+          onChange={e => setSearchString(e.target.value)}
         />
+        <Button
+          label="Search"
+          type="submit"
+          color="primary"
+          onClick={e => handleSearch(e, searchString)}>
+            Search
+        </Button>
         <Pagination    
 
         // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
@@ -83,5 +84,5 @@ const mapStateToProps = ({ projectsReducer }) => {
 }
 export default connect(
   mapStateToProps,
-  { getProjects }
+  { getProjects, searchProjects }
 )(ProjectSearch)
