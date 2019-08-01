@@ -18,13 +18,16 @@ const ProjectSearch = props => {
       handleSearch(null, setOffset(0), searchString)
     } else {
       getProjects(1)
-
     }
     //eslint-disable-next-line
   }, [projectLength])
 
+  useEffect(() => {
+    if (searchString.length === 0) getProjects(1)
+  }, [getProjects, searchString])
+
   const handleSearch = (e, offset, searchString) => {
-    if(e) e.preventDefault()
+    if (e) e.preventDefault()
     searchProjects(offset, searchString)
   }
 
@@ -47,7 +50,7 @@ const ProjectSearch = props => {
             label="Search"
             type="submit"
             color="primary"
-            disabled={!searchString ? true : false }
+            disabled={!searchString ? true : false}
             onClick={e => handleSearch(e, 1, searchString)}
           >
             Search
