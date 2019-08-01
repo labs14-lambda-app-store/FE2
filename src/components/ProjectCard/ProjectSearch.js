@@ -18,6 +18,7 @@ const ProjectSearch = props => {
       handleSearch(null, setOffset(0), searchString)
     } else {
       getProjects(1)
+
     }
     //eslint-disable-next-line
   }, [projectLength])
@@ -31,25 +32,28 @@ const ProjectSearch = props => {
   return (
     <div>
       <div className="actionNav">
-        <TextField
-          value={searchString}
-          name="searchString"
-          style={{ padding: 24 }}
-          id="searchInput"
-          //eslint-disable-next-line
-          type="search"
-          placeholder="Find app by name or keyword"
-          margin="normal"
-          onChange={e => setSearchString(e.target.value)}
-        />
-        <Button
-          label="Search"
-          type="submit"
-          color="primary"
-          onClick={e => handleSearch(e, 1, searchString)}
-        >
-          Search
-        </Button>
+        <div className="searchNav">
+          <TextField
+            value={searchString}
+            name="searchString"
+            style={{ padding: 24 }}
+            id="searchInput"
+            //eslint-disable-next-line
+            type="search"
+            placeholder="Find app by name or keyword"
+            margin="normal"
+            onChange={e => setSearchString(e.target.value)}
+          />
+          <Button
+            label="Search"
+            type="submit"
+            color="primary"
+            disabled={!searchString ? true : false }
+            onClick={e => handleSearch(e, 1, searchString)}
+          >
+            Search
+          </Button>
+        </div>
         <Pagination
           // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
           limit={1}
