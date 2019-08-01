@@ -44,7 +44,9 @@ const ProjectSearch = props => {
             type="search"
             placeholder="Find app by name or keyword"
             margin="normal"
-            onChange={e => setSearchString(e.target.value)}
+            onChange={e => {
+              setSearchString(e.target.value)
+            }}
           />
           <Button
             label="Search"
