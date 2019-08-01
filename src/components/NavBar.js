@@ -15,18 +15,16 @@ const NavBar = props => {
       <div>
         <AppBar position="static">
           <Toolbar>
-           
-              <img 
-                className="Header-lambda-logo"
-                src={redLambdaLogo}
-                alt="red lambda logo"
-                onClick={() => props.history.push("/")}
-              />
-            
+            <img
+              className="Header-lambda-logo"
+              src={redLambdaLogo}
+              alt="red lambda logo"
+              onClick={() => props.history.push("/")}
+            />
+
             {/* Using button onClick to avoid Link bug that prevents route changes,
                         when using material-ui */}
             <div className="buttons">
-              
               <Button onClick={() => props.history.push("/")}>Home</Button>
               <Button onClick={() => props.history.push("/projects")}>
                 Projects

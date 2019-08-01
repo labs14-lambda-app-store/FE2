@@ -1,10 +1,17 @@
 // projects gallery 
 
+//
 .actionNav {
       display: flex;
       justify-content: space-between;
 }
 
+//main container
+.MuiGrid-root {
+      min-height: 500px;
+}
+
+//page buttons
 .MuiFlatPagination-root {
       height:40px;
       padding:24px;
@@ -16,17 +23,17 @@
       width: 360px;
 }
 
-//header on card in gallery view
+//header on card
 .MuiTypography-root{
       font-style: bold;
 }
 
-//cards in gallery view
+//cards
 .MuiCardContent-root{
       height: 180px;
 }
 
-//button on card in gallery view
+//button on card
 .MuiCardActions-root {
       display: flex;
       justify-content: center;     
