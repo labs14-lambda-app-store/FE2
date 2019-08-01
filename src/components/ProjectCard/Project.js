@@ -30,7 +30,11 @@ const Project = props => {
             </Typography>
             {/* <Typography className="description-box" component="p">{description}</Typography> */}
             <Typography component="p">{description}</Typography>
-            <ProjectModal project={project} isModalOpen={isOpen} />
+            <ProjectModal
+              project={project}
+              isModalOpen={isOpen}
+              setIsOpen={setIsOpen}
+            />
           </CardContent>
           <CardActions>
             {/* target so when you click the button, it opens the app in a new browser tab */}
