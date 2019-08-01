@@ -15,14 +15,12 @@ import Header from "./components/Header"
 const App = () => {
   const { loading } = useAuth0()
 
-  if (loading) return "Loading..."
+  if (loading) return null
   return (
     <Router>
       <div className="App">
         <NavBar />
         <Header />
-
-        <div className="banana"></div>
 
         <Route exact path="/" component={Home} />
         <Route exact path="/project-form" component={ProjectForm} />
