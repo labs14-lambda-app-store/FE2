@@ -8,6 +8,9 @@ const ModalContent = props => {
   return (
     <main className="modal-content">
       <h2 className="name">{project.name}</h2>
+      <a className="link" href={project.hosted_url}>
+        View Website
+      </a>
       <p className="description">{project.description}</p>
       <div className="github">
         <h4>

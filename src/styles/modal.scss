@@ -10,7 +10,8 @@
   grid-template-columns: 20% 20% 20% 20% 20%;
   padding: 15px;
   grid-template-areas:
-    ". name name name  ."
+    ". name name name ."
+    " . link link link ."
     "description description description description description"
     "description description description description description"
     "github . . . . "
@@ -24,6 +25,9 @@
     grid-area: github;
   }
 
+  .link {
+    grid-area: link
+  }
   .description {
     grid-area: description;
     padding: 10px;
