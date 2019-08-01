@@ -20,10 +20,10 @@ const ProjectSearch = props => {
       getProjects(1)
     }
     //eslint-disable-next-line
-  }, [])
+  }, [projectLength])
 
   const handleSearch = (e, offset, searchString) => {
-    e.preventDefault()
+    if(e) e.preventDefault()
     searchProjects(offset, searchString)
   }
 
