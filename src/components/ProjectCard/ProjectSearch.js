@@ -15,7 +15,7 @@ const ProjectSearch = props => {
 
   useEffect(() => {
     if (searchString) {
-      handleSearch(null, 1, searchString)
+      handleSearch(null, setOffset(0), searchString)
     } else {
       getProjects(1)
     }
@@ -25,6 +25,7 @@ const ProjectSearch = props => {
   const handleSearch = (e, offset, searchString) => {
     if(e) e.preventDefault()
     searchProjects(offset, searchString)
+    // console.log(projectLength)
   }
 
   return (
