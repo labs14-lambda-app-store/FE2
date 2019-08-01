@@ -1,0 +1,40 @@
+.modal-content {
+  margin: 10% auto;
+  background: #efeef3;
+  height: 65%;
+  width: 60%;
+  display: grid;
+  justify-items: center;
+  font-size: 1.1rem;
+  grid-template-rows: auto;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  padding: 15px;
+  grid-template-areas:
+    ". name name name  ."
+    "description description description description description"
+    "description description description description description"
+    "github . . . . "
+    "tags tags tags tags tags"
+    "tags tags tags tags tags";
+  ul {
+    list-style: none;
+    list-style-position: outside;
+  }
+  .github {
+    grid-area: github;
+  }
+
+  .description {
+    grid-area: description;
+    padding: 10px;
+  }
+
+  .name {
+    grid-area: name;
+  }
+
+  .tags {
+    grid-area: tags
+
+  }
+}
