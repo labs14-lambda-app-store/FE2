@@ -26,7 +26,6 @@ const ProjectSearch = props => {
   const handleSearch = (e, offset, searchString) => {
     if(e) e.preventDefault()
     searchProjects(offset, searchString)
-    // console.log(projectLength)
   }
 
   return (
