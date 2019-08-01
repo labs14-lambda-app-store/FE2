@@ -1,15 +1,20 @@
 import React from "react"
+import {connect} from 'react-redux';
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Button from "@material-ui/core/Button"
 import { AuthButton } from "./Auth"
 // import Typography from '@material-ui/core/Typography';
 import { MemoryRouter as Router, withRouter } from "react-router-dom"
+// import { getProjects } from "../actions";
 import redLambdaLogo from "../assets/Lambda_Logo.png"
 
 // I've imported Material UI packages above,
 // and implemented them in a functional component below
 const NavBar = props => {
+
+  // const { getProjects } = props
+
   return (
     <Router>
       <div>
@@ -26,7 +31,10 @@ const NavBar = props => {
                         when using material-ui */}
             <div className="buttons">
               <Button onClick={() => props.history.push("/")}>Home</Button>
-              <Button onClick={() => props.history.push("/projects")}>
+              <Button onClick={() => {
+                props.history.push("/projects") 
+                window.location.reload()
+              }}>  
                 Projects
               </Button>
               <Button onClick={() => props.history.push("/project-form")}>
