@@ -22,13 +22,13 @@ const ModalContent = props => {
         </h4>
         <ul>
           <li>
-            <a href={project.backend_url} target={"_blank"}>
-              Backend
+            <a href={project.frontend_url} target={"_blank"}>
+              Frontend
             </a>
           </li>
           <li>
-            <a href={project.frontend_url} target={"_blank"}>
-              Frontend
+            <a href={project.backend_url} target={"_blank"}>
+              Backend
             </a>
           </li>
         </ul>
@@ -43,7 +43,7 @@ const ModalContent = props => {
                 color="primary"
                 key={tag.tag_name}
                 label={tag.tag_name}
-                style={{ margin: "2px" }}
+                style={{ margin: "2px .5rem 2px 0" }}
               />
             )
           })}

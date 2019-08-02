@@ -18,25 +18,45 @@
     " image image github . "
     " image image tags tags"
     " image image tags tags";
-  ul {
-    list-style: none;
-    list-style-position: outside;
+
+  li a {
+    text-decoration: none;
+    color: $lambdaLightBlue;
+    padding-right: 1.5rem;
   }
 
   .image-container {
     grid-area: image;
     min-height: 100%;
     max-width: 90%;
-    border-radius: 5px 0 0 5px;
   }
 
   .image {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 5px 0 0 5px;
   }
   .github {
     grid-area: github;
+    display: flex;
+    align-items: center;
+  }
+
+  .github h4 {
+    display: flex;
+    align-items: center;
+    padding-right: 1.5rem;
+  }
+
+  .github ul {
+    list-style: none;
+    list-style-position: outside;
+    display: flex;
+  }
+
+  .fa-github {
+    padding-left: 0.5rem;
   }
 
   .link {
@@ -46,6 +66,7 @@
 
   .description {
     grid-area: description;
+    font-size: 1.2rem;
   }
 
   .name {
@@ -54,15 +75,11 @@
 
   .tags {
     grid-area: tags;
+    font-weight: bold;
   }
 
   .chip {
     background-color: $lambdaLightBlue;
     color: $newBorder;
-  }
-
-  li a {
-    text-decoration: none;
-    color: $lambdaLightBlue;
   }
 }
