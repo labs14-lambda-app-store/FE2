@@ -2,35 +2,71 @@
   margin: 10% auto;
   background: #efeef3;
   height: 65%;
-  width: 60%;
+  width: 70%;
   display: grid;
-  justify-items: center;
-  font-size: 1.1rem;
+  justify-items: left;
+  font-size: 1.4rem;
   grid-template-rows: auto;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  padding: 15px;
+  grid-template-columns: 25% 25% 25% 25%;
+  padding-right: 15px;
+  border-radius: 5px;
   grid-template-areas:
-    ". name name name ."
-    " . link link link ."
-    "description description description description description"
-    "description description description description description"
-    "github . . . . "
-    "tags tags tags tags tags"
-    "tags tags tags tags tags";
-  ul {
-    list-style: none;
-    list-style-position: outside;
+    " image image name name"
+    " image image link link"
+    " image image description description"
+    " image image description description"
+    " image image github . "
+    " image image tags tags"
+    " image image tags tags";
+
+  li a {
+    text-decoration: none;
+    color: $lambdaLightBlue;
+    padding-right: 1.5rem;
+  }
+
+  .image-container {
+    grid-area: image;
+    min-height: 100%;
+    max-width: 90%;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px 0 0 5px;
   }
   .github {
     grid-area: github;
+    display: flex;
+    align-items: center;
+  }
+
+  .github h4 {
+    display: flex;
+    align-items: center;
+    padding-right: 1.5rem;
+  }
+
+  .github ul {
+    list-style: none;
+    list-style-position: outside;
+    display: flex;
+  }
+
+  .fa-github {
+    padding-left: 0.5rem;
   }
 
   .link {
-    grid-area: link
+    grid-area: link;
+    color: $lambdaLightBlue;
   }
+
   .description {
     grid-area: description;
-    padding: 10px;
+    font-size: 1.2rem;
   }
 
   .name {
@@ -38,7 +74,12 @@
   }
 
   .tags {
-    grid-area: tags
+    grid-area: tags;
+    font-weight: bold;
+  }
 
+  .chip {
+    background-color: $lambdaLightBlue;
+    color: $newBorder;
   }
 }

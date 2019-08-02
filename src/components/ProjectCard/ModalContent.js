@@ -2,11 +2,15 @@ import React from "react"
 import Chip from "@material-ui/core/Chip"
 import Avatar from "@material-ui/core/Avatar"
 
-import "../../styles/modal.scss"
+const primary = "#1a61b0"
+
 const ModalContent = props => {
   const { project } = props
   return (
     <main className="modal-content">
+      <div className="image-container">
+        <img src={project.display_image} className="image" />
+      </div>
       <h2 className="name">{project.name}</h2>
       <a className="link" href={project.hosted_url}>
         View Website
@@ -18,13 +22,13 @@ const ModalContent = props => {
         </h4>
         <ul>
           <li>
-            <a href={project.backend_url} target={"_blank"}>
-              Backend
+            <a href={project.frontend_url} target={"_blank"}>
+              Frontend
             </a>
           </li>
           <li>
-            <a href={project.frontend_url} target={"_blank"}>
-              Frontend
+            <a href={project.backend_url} target={"_blank"}>
+              Backend
             </a>
           </li>
         </ul>
@@ -34,16 +38,12 @@ const ModalContent = props => {
           project.tags.map(tag => {
             return (
               <Chip
+                className="chip"
                 variant="outlined"
-                color="secondary"
+                color="primary"
                 key={tag.tag_name}
                 label={tag.tag_name}
-                style={{ margin: "2px" }}
-                avatar={
-                  <Avatar>
-                    <i className="fas fa-tag"></i>
-                  </Avatar>
-                }
+                style={{ margin: "2px .5rem 2px 0" }}
               />
             )
           })}
