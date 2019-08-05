@@ -47,6 +47,7 @@ const ProjectSearch = props => {
             onChange={e => {
               setSearchString(e.target.value)
             }}
+            //added on key press for enter and then e.which for return
             onKeyPress={ e => {
               if (e.key === 'Enter' || e.which === 13) {
                 handleSearch(e, 1, searchString)
