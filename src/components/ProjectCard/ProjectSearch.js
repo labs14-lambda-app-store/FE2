@@ -37,6 +37,7 @@ const ProjectSearch = props => {
         <div className="searchNav">
           <TextField
             value={searchString}
+            variant="outlined"
             name="searchString"
             style={{ padding: 24 , marginTop: 28}}
             id="searchInput"
@@ -57,8 +58,10 @@ const ProjectSearch = props => {
           />
           <Button
             label="Search"
+            variant="contained"
             type="submit"
             color="primary"
+            style={!searchString ? {background: '#c4c4c4'} : {background: '#1a61b0'}}
             disabled={!searchString ? true : false}
             onClick={e => handleSearch(e, 1, searchString)}
             
