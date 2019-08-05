@@ -47,6 +47,12 @@ const ProjectSearch = props => {
             onChange={e => {
               setSearchString(e.target.value)
             }}
+            onKeyPress={ e => {
+              if (e.key === 'Enter') {
+                handleSearch(e, 1, searchString)
+              }
+            }
+          }
           />
           <Button
             label="Search"
@@ -54,6 +60,7 @@ const ProjectSearch = props => {
             color="primary"
             disabled={!searchString ? true : false}
             onClick={e => handleSearch(e, 1, searchString)}
+            
           >
             Search
           </Button>
