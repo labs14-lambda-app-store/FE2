@@ -28,6 +28,12 @@
 //search bar
 .MuiFormControl-root {
       width: 360px;
+      .MuiInputBase-input{
+            height:2.8em;
+            border: 1px solid rgba(128, 128, 128, 0.521);
+            padding: 5px;
+            border-radius: 5px;
+      }
 }
 
 //header on card
@@ -46,6 +52,13 @@
       justify-content: center;     
 }
 
+.searchNav {
+      display: flex;
+      align-items: baseline;
+  }
 
-
-
+  .actionNav {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+  }
