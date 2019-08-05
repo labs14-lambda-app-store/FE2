@@ -58,6 +58,7 @@ const ProjectSearch = props => {
             Search
           </Button>
         </div>
+        {/* pagination for top of page */}
         <Pagination
           // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
           limit={1}
@@ -85,6 +86,7 @@ const ProjectSearch = props => {
           </Grid>
         ))}
       </Grid>
+      {/* pagination for bottom of page */}
       <Pagination
         // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
         limit={1}

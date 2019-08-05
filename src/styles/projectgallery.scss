@@ -19,7 +19,10 @@
 .MuiFlatPagination-root {
       height:40px;
       padding:24px;
-      margin: 10px 0px 8px
+      margin: 10px 0px 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 }
 
 //search bar
