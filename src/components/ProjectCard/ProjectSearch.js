@@ -85,6 +85,25 @@ const ProjectSearch = props => {
           </Grid>
         ))}
       </Grid>
+      <Pagination
+        // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
+        limit={1}
+        innerButtonCount={0}
+        outerButtonCount={1}
+        reduced={true}
+        offset={offset}
+        // total number of pages we want to render; dynamic by rounding up quotient of projectLength and projects per page (12)
+        total={Math.ceil(projectLength / 12)}
+        onClick={(e, offset) => {
+          setOffset(offset)
+          // send the correct page query (i.e. /api/projects?page=2)
+          if (searchString) {
+            searchProjects(offset + 1, searchString)
+          } else {
+            getProjects(offset + 1)
+          }
+        }}
+      />
     </div>
   )
 }
