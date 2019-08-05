@@ -1,7 +1,7 @@
 import React from "react"
 import Chip from "@material-ui/core/Chip"
 import Avatar from "@material-ui/core/Avatar"
-
+import Button from "@material-ui/core/Button"
 const primary = "#1a61b0"
 
 const PendingModalContent = props => {
@@ -33,20 +33,23 @@ const PendingModalContent = props => {
           </li>
         </ul>
       </div>
-      <div className="tags">
-        {project.tags &&
-          project.tags.map(tag => {
-            return (
-              <Chip
-                className="chip"
-                variant="outlined"
-                color="primary"
-                key={tag.tag_name}
-                label={tag.tag_name}
-                style={{ margin: "2px .5rem 2px 0" }}
-              />
-            )
-          })}
+      <div className="admin-buttons">
+        <Button
+          className="admin-button"
+          size="small"
+          color="primary"
+          onClick={() => (console.log("ello govna"))}
+        >
+          Approve
+            </Button>
+        <Button
+          className="admin-button"
+          size="small"
+          color="primary"
+          onClick={() => (console.log("ello govna"))}
+        >
+          Deny
+            </Button>
       </div>
     </main>
   )
