@@ -38,7 +38,7 @@ const ProjectSearch = props => {
           <TextField
             value={searchString}
             name="searchString"
-            style={{ padding: 24 }}
+            style={{ padding: 24 , marginTop: 28}}
             id="searchInput"
             //eslint-disable-next-line
             type="search"
@@ -48,7 +48,7 @@ const ProjectSearch = props => {
               setSearchString(e.target.value)
             }}
             onKeyPress={ e => {
-              if (e.key === 'Enter') {
+              if (e.key === 'Enter' || e.which === 13) {
                 handleSearch(e, 1, searchString)
               }
             }

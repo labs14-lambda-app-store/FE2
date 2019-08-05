@@ -25,6 +25,9 @@
 //search bar
 .MuiFormControl-root {
       width: 360px;
+      .MuiInputBase-input{
+            height:2.8em;
+      }
 }
 
 //header on card
