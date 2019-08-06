@@ -1,8 +1,7 @@
 import React from "react"
 import Chip from "@material-ui/core/Chip"
-import Avatar from "@material-ui/core/Avatar"
-
-const primary = "#1a61b0"
+import TagsList from "../reusable/TagsList"
+import AdminButtons from "../reusable/AdminButtons"
 
 const ModalContent = props => {
   const { project } = props
@@ -33,21 +32,8 @@ const ModalContent = props => {
           </li>
         </ul>
       </div>
-      <div className="tags">
-        {project.tags &&
-          project.tags.map(tag => {
-            return (
-              <Chip
-                className="chip"
-                variant="outlined"
-                color="primary"
-                key={tag.tag_name}
-                label={tag.tag_name}
-                style={{ margin: "2px .5rem 2px 0" }}
-              />
-            )
-          })}
-      </div>
+
+      {project.is_approved ? <TagsList project={project} /> : <AdminButtons />}
     </main>
   )
 }

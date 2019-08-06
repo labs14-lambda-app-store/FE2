@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button"
 import Grid from "@material-ui/core/Grid"
 import { connect } from "react-redux"
 
-import PendingProject from "./PendingProject"
+import { Project } from "../ProjectCard"
 import { getProjects, searchProjects } from "../../actions"
 
 const PendingSearch = props => {
@@ -13,9 +13,10 @@ const PendingSearch = props => {
   const { getProjects, projects, searchProjects, projectLength } = props
   const [offset, setOffset] = useState(0)
 
-  const filterArray = projects.filter(currentProject => currentProject.is_approved === false);
+  const filterArray = projects.filter(
+    currentProject => currentProject.is_approved === false
+  )
 
-  
   useEffect(() => {
     if (searchString) {
       handleSearch(null, setOffset(0), searchString)
@@ -42,7 +43,7 @@ const PendingSearch = props => {
             value={searchString}
             variant="outlined"
             name="searchString"
-            style={{ padding: 24 , marginTop: 28}}
+            style={{ padding: 24, marginTop: 28 }}
             id="searchInput"
             //eslint-disable-next-line
             type="search"
@@ -52,22 +53,24 @@ const PendingSearch = props => {
               setSearchString(e.target.value)
             }}
             //added on key press for enter and then e.which for return
-            onKeyPress={ e => {
-              if (e.key === 'Enter' || e.which === 13) {
+            onKeyPress={e => {
+              if (e.key === "Enter" || e.which === 13) {
                 handleSearch(e, 1, searchString)
               }
-            }
-          }
+            }}
           />
           <Button
             label="Search"
             variant="contained"
             type="submit"
             color="primary"
-            style={!searchString ? {background: '#c4c4c4'} : {background: '#1a61b0'}}
+            style={
+              !searchString
+                ? { background: "#c4c4c4" }
+                : { background: "#1a61b0" }
+            }
             disabled={!searchString ? true : false}
             onClick={e => handleSearch(e, 1, searchString)}
-            
           >
             Search
           </Button>
@@ -95,7 +98,7 @@ const PendingSearch = props => {
       <Grid container spacing={2} style={{ padding: 24 }}>
         {filterArray.map(currentProject => (
           <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
-            <PendingProject project={currentProject} key={currentProject.id} />
+            <Project project={currentProject} key={currentProject.id} />
           </Grid>
         ))}
       </Grid>

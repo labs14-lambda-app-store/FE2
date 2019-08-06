@@ -9,7 +9,7 @@ import ProjectModal from "./ProjectModal"
 
 const Project = props => {
   const { project } = props
-  const { display_image, name, description, hosted_url } = project
+  const { display_image, name, description, hosted_url, is_approved } = project
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -45,7 +45,7 @@ const Project = props => {
               color="primary"
               onClick={() => setIsOpen(true)}
             >
-              Get The App
+              {is_approved ? "Get The App" : "Review The App"}
             </Button>
           </CardActions>
         </Card>
