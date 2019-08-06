@@ -4,7 +4,7 @@ import { DropzoneArea } from "material-ui-dropzone"
 import TextField from "@material-ui/core/TextField"
 import MenuItem from "@material-ui/core/MenuItem"
 import Button from "@material-ui/core/Button"
-
+import validator from "validator"
 
 import { sendImageToCloudinary } from "../../actions"
 //imported Material UI packages above,
@@ -34,12 +34,23 @@ const ProjectDetails = props => {
     category_name,
     display_image,
     image_dropdown,
+    error_message,
     // tags,         take out tags til the table works
   } = state
 
   const charactersLeft = 255 - description.length
 
-  //hardcoded because the backend end point was an empty array
+  const isURLValid = (url) => {
+    console.log(state)
+    if (validator.isURL(url)) {
+      setStateValues({ ...state, error_message: '' })
+      return true
+    } else {
+      setStateValues({ ...state, error_message: 'Hosted URL is invalid, please include www or http' })
+      return false
+    }
+  }
+
   const categories = [
     { category_name: "Business" },
     { category_name: "Entertainment" },
@@ -67,7 +78,7 @@ const ProjectDetails = props => {
   }
 
   //sort categories alphabetically
-  const sortCategories = categories.sort(function(a, b) {
+  const sortCategories = categories.sort(function (a, b) {
     if (a.category_name < b.category_name) {
       return -1
     }
@@ -130,6 +141,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
+          error={ error_message ? true : false }
           className="submitInput"
           type="text"
           value={hosted_url}
@@ -139,6 +151,8 @@ const ProjectDetails = props => {
           margin="normal"
           name="hosted_url"
           onChange={e => handleStateChanges(e)}
+          onBlur={e => isURLValid(hosted_url)}
+          helperText={error_message && error_message}
         />
         <br />
         <TextField
@@ -183,7 +197,7 @@ const ProjectDetails = props => {
           label="Continue"
           type="submit"
           color="primary"
-          disabled={!name || !description || !hosted_url ? true : false}
+          disabled={!name || !description || !hosted_url || error_message ? true : false}
           onClick={e => {
             e.preventDefault()
             sendImageToCloudinary(display_image)
@@ -192,7 +206,7 @@ const ProjectDetails = props => {
         >
           Continue
         </Button>
-        
+
       </form>
     </div>
   )
