@@ -1,9 +1,9 @@
 import React, { useState } from "react"
+import { connect } from "react-redux"
 
 import Confirm from "./Confirm"
 import Success from "./Success"
 import ProjectDetails from "./ProjectDetails"
-import { connect } from "react-redux"
 import { addProject, getProjects, sendImageToCloudinary } from "../../actions"
 
 var moment = require("moment")
@@ -20,7 +20,6 @@ const ProjectForm = props => {
     description: "",
     submitted_at: "",
     display_image: "",
-    image_dropdown: "",
     // tags: "",
   })
 
@@ -43,16 +42,9 @@ const ProjectForm = props => {
     e.preventDefault()
 
     let submitted_at = moment().format("MMMM Do YYYY, h:mm:ss a")
-    let display_image = state.display_image
-      ? state.display_image
-      : props.display_image
+    let display_image = props.display_image && props.display_image
     let newPost = {
-      hosted_url: state.hosted_url,
-      frontend_url: state.frontend_url,
-      backend_url: state.backend_url,
-      name: state.name,
-      category_name: state.category_name,
-      description: state.description,
+      ...state,
       submitted_at,
       display_image,
     }
@@ -71,7 +63,6 @@ const ProjectForm = props => {
           state={state}
           handleStateChanges={handleStateChanges}
           setStateValues={setStateValues}
-
         />
       )
     case 2:

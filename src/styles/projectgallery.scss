@@ -1,10 +1,64 @@
 // projects gallery 
 
+//
 .actionNav {
       display: flex;
       justify-content: space-between;
 }
 
-.MuiFormControl-root {
-      width: 380px;
+.searchNav {
+      display:flex;
 }
+
+//main container
+.MuiGrid-root {
+      min-height: 500px;
+}
+
+//page buttons
+.MuiFlatPagination-root {
+      height:40px;
+      padding:24px;
+      margin: 10px 0px 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+//search bar
+.MuiFormControl-root {
+      width: 360px;
+      .MuiInputBase-input{
+            height:2.8em;
+            border: 1px solid rgba(128, 128, 128, 0.521);
+            padding: 5px;
+            border-radius: 5px;
+      }
+}
+
+//header on card
+.MuiTypography-root{
+      font-style: bold;
+}
+
+//cards
+.MuiCardContent-root{
+      height: 180px;
+}
+
+//button on card
+.MuiCardActions-root {
+      display: flex;
+      justify-content: center;     
+}
+
+.searchNav {
+      display: flex;
+      align-items: baseline;
+  }
+
+  .actionNav {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+  }

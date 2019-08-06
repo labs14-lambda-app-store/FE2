@@ -4,15 +4,21 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 900px;
+      margin-top: 40px;
 
       .submitInput {
             width: 50%;
-      }
-      
+      }    
 }
 
 .MuiList-root {
       width: 50%;
 }
 
+.dropzone {
+      margin-top: 30px;
+      padding-top: 40px;
+      width: 50%;
+}
+
+// .DropzoneArea-dropZone-142

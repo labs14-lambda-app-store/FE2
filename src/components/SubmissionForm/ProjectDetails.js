@@ -1,17 +1,29 @@
 import React from "react"
 import { connect } from "react-redux"
+import { DropzoneArea } from "material-ui-dropzone"
 import TextField from "@material-ui/core/TextField"
 import MenuItem from "@material-ui/core/MenuItem"
 import Button from "@material-ui/core/Button"
 
-import ImageUpload from "./ImageUpload"
+
+import { sendImageToCloudinary } from "../../actions"
 //imported Material UI packages above,
 // and implemented them in a functional component below
-import { DropzoneArea } from 'material-ui-dropzone'
-import { sendImageToCloudinary } from "../../actions"
+
+//MUI button style overwrite with INLINE STYLES
+const style = {
+  'fontSize': '1.6rem',
+  'padding': '20px'
+};
 
 const ProjectDetails = props => {
-  const { nextStep, state, handleStateChanges } = props
+  const {
+    nextStep,
+    state,
+    handleStateChanges,
+    sendImageToCloudinary,
+    setStateValues,
+  } = props
 
   const {
     hosted_url,
@@ -24,6 +36,8 @@ const ProjectDetails = props => {
     image_dropdown,
     // tags,         take out tags til the table works
   } = state
+
+  const charactersLeft = 255 - description.length
 
   //hardcoded because the backend end point was an empty array
   const categories = [
@@ -53,7 +67,7 @@ const ProjectDetails = props => {
   }
 
   //sort categories alphabetically
-  const sortCategories = categories.sort(function (a, b) {
+  const sortCategories = categories.sort(function(a, b) {
     if (a.category_name < b.category_name) {
       return -1
     }
@@ -68,26 +82,14 @@ const ProjectDetails = props => {
       <form className="submission">
         <h1>Submit Your App</h1>
         <TextField
-          className="submitInput"
-          type="text"
-          value={name} /*???*/
-          required
-          name="name"
-          id="standard-required"
-          placeholder="app name..."
-          margin="normal"
-          onChange={e => handleStateChanges(e)}
-        />
-        <br />
-        <TextField
-          value={category_name} /*???*/
+          value={category_name}
           className="submitInput"
           id="standard-select standard-required"
           required
           select
-          label="categories"
+          label="Categories"
           name="category_name"
-          helperText="Please select primary category"
+          helperText="Please select one"
           margin="normal"
           onChange={e => handleStateChanges(e)}
         >
@@ -100,16 +102,15 @@ const ProjectDetails = props => {
             </MenuItem>
           ))}
         </TextField>
-
         <br />
         <TextField
           className="submitInput"
           type="text"
-          value={description} /*???*/
+          value={name} /*???*/
           required
+          name="name"
           id="standard-required"
-          placeholder="description..."
-          name="description"
+          placeholder="App Name*"
           margin="normal"
           onChange={e => handleStateChanges(e)}
         />
@@ -117,10 +118,24 @@ const ProjectDetails = props => {
         <TextField
           className="submitInput"
           type="text"
-          value={hosted_url} /*???*/
+          value={description}
           required
           id="standard-required"
-          placeholder="Hosted URL..."
+          placeholder="Description*"
+          name="description"
+          helperText={`${charactersLeft} characters remaining...`}
+          margin="normal"
+          onChange={e => handleStateChanges(e)}
+          inputProps={{ maxLength: 255 }}
+        />
+        <br />
+        <TextField
+          className="submitInput"
+          type="text"
+          value={hosted_url}
+          required
+          id="standard-required"
+          placeholder="Hosted URL*"
           margin="normal"
           name="hosted_url"
           onChange={e => handleStateChanges(e)}
@@ -129,8 +144,8 @@ const ProjectDetails = props => {
         <TextField
           className="submitInput"
           type="text"
-          value={frontend_url} /*???*/
-          placeholder="frontend url..."
+          value={frontend_url}
+          placeholder="Frontend URL"
           margin="normal"
           name="frontend_url"
           onChange={e => handleStateChanges(e)}
@@ -139,26 +154,20 @@ const ProjectDetails = props => {
         <TextField
           className="submitInput"
           type="text"
-          value={backend_url} /*???*/
-          placeholder="backend url..."
+          value={backend_url}
+          placeholder="Backend URL"
           margin="normal"
           name="backend_url"
           onChange={e => handleStateChanges(e)}
         />
-        <br />
-        <TextField
-          className="submitInput"
-          type="text"
-          value={display_image} /*???*/
-          placeholder="display image..."
-          required /* Invincible */
-          margin="normal"
-          name="display_image"
-          onChange={e => handleStateChanges(e)}
-        />
-        <DropzoneArea filesLimit={1} acceptedFiles={['image/*']} onChange={e => 
-          props.setStateValues({...state, image_dropdown: e[0]})} /> 
-        <br />
+        {/* <br /> */}
+        <div className="dropzone">
+          <DropzoneArea
+            filesLimit={1}
+            acceptedFiles={["image/*"]}
+            onChange={e => setStateValues({ ...state, display_image: e[0] })}
+          />
+        </div>
         {/* <TextField
           className="submitInput"
           type="text"
@@ -169,48 +178,27 @@ const ProjectDetails = props => {
           onChange={e => handleStateChanges(e)}
         />  */}
         <br />
-        {!name ||
-          !description ||
-          !hosted_url ||
-          !frontend_url ||
-          !backend_url
-          ? (
-            <Button
-              disabled
-              label="Continue"
-              type="submit"
-              color="primary"
-              onClick={e => Continue(e)}
-            >
-              Continue
-          </Button>
-          ) : (
-            <Button
-              label="Continue"
-              type="submit"
-              color="primary"
-
-              onClick={e => {
-                console.log(image_dropdown)
-                props.sendImageToCloudinary(image_dropdown)
-                setTimeout(function(){ Continue(e) }, 3000);
-                }
-              }
-            >
-              Continue
-          </Button>
-          )}
+        <Button
+          style={style}
+          label="Continue"
+          type="submit"
+          color="primary"
+          disabled={!name || !description || !hosted_url ? true : false}
+          onClick={e => {
+            e.preventDefault()
+            sendImageToCloudinary(display_image)
+            Continue(e)
+          }}
+        >
+          Continue
+        </Button>
+        
       </form>
     </div>
   )
 }
-const mapStateToProps = ({ imagesReducer }) => {
-  return {
-    ...imagesReducer,
-  }
-}
-// export default ProjectDetails
+
 export default connect(
-  mapStateToProps,
+  null,
   { sendImageToCloudinary }
 )(ProjectDetails)

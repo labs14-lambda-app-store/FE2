@@ -4,14 +4,41 @@ export const GET_PROJECTS_START = "GET_PROJECTS_START"
 export const GET_PROJECTS_SUCCESS = "GET_PROJECTS_SUCCESS"
 export const GET_PROJECTS_FAIL = "GET_PROJECTS_FAIL"
 
-export const getProjects = () => async dispatch => {
+export const getProjects = page => async dispatch => {
   dispatch({ type: GET_PROJECTS_START })
 
   try {
-    const result = await axios.get(baseProjectsUrl)
-    dispatch({ type: GET_PROJECTS_SUCCESS, payload: result.data })
+    const result = await axios.get(`${baseProjectsUrl}?page=${page}`)
+    // payload = projects from backend; projectLength = project length from backend for pagination total
+    dispatch({
+      type: GET_PROJECTS_SUCCESS,
+      payload: result.data.projects,
+      projectLength: result.data.projectLength,
+    })
   } catch (err) {
     dispatch({ type: GET_PROJECTS_FAIL, payload: err })
+  }
+}
+
+export const SEARCH_PROJECTS_START = "SEARCH_PROJECTS_START"
+export const SEARCH_PROJECTS_SUCCESS = "SEARCH_PROJECTS_SUCCESS"
+export const SEARCH_PROJECTS_FAIL = "SEARCH_PROJECTS_FAIL"
+
+export const searchProjects = (page, search) => async dispatch => {
+  dispatch({ type: SEARCH_PROJECTS_START })
+
+  try {
+    const result = await axios.get(
+      `${baseProjectsUrl}?page=${page}&search=${search}`
+    )
+    // payload = projects from backend; projectLength = project length from backend for pagination total
+    dispatch({
+      type: SEARCH_PROJECTS_SUCCESS,
+      payload: result.data.projects,
+      projectLength: result.data.projectLength,
+    })
+  } catch (err) {
+    dispatch({ type: SEARCH_PROJECTS_FAIL, payload: err })
   }
 }
 
