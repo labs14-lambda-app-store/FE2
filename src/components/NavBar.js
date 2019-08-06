@@ -34,6 +34,9 @@ const NavBar = props => {
               >
                 Projects
               </Button>
+              <Button onClick={() => props.history.push("/pending-projects")}>
+                Pending Projects
+              </Button>
               <Button onClick={() => props.history.push("/project-form")}>
                 Submit Project
               </Button>

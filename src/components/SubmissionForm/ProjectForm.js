@@ -21,6 +21,7 @@ const ProjectForm = props => {
     submitted_at: "",
     display_image: "",
     // tags: "",
+    error_message: "",
   })
 
   const handleStateChanges = e => {

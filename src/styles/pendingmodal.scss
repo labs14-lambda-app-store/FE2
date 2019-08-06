@@ -1,98 +1,86 @@
-.modal-content {
-  margin: 10% auto;
-  background: #efeef3;
-  height: 65%;
-  width: 70%;
-  display: grid;
-  justify-items: left;
-  font-size: 1.4rem;
-  grid-template-rows: auto;
-  grid-template-columns: 25% 25% 25% 25%;
-  padding-right: 15px;
-  border-radius: 5px;
-  grid-template-areas:
-    " image image name exit"
+.pending-modal-content {
+margin: 10% auto;
+background: #a10909;
+height: 65%;
+width: 70%;
+display: grid;
+justify-items: left;
+font-size: 1.4rem;
+// grid-template-rows: auto;
+grid-template-columns: 25% 25% 25% 25%;
+padding-right: 15px;
+border-radius: 5px;
+grid-template-areas:
+    " image image name name"
     " image image link link"
     " image image description description"
     " image image description description"
     " image image github . "
-    " image image tags tags"
-    " image image tags tags";
-
-  li a {
+    " image image buttons buttons"
+    " image image buttons buttons";
+    
+    li a {
     text-decoration: none;
     color: $lambdaLightBlue;
     padding-right: 1.5rem;
-  }
+    }
 
-  .image-container {
+    .image-container {
     grid-area: image;
     min-height: 100%;
     max-width: 90%;
-  }
+    }
 
-  .image {
+    .image {
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 5px 0 0 5px;
-  }
-  .github {
+    }
+    .github {
     grid-area: github;
     display: flex;
     align-items: center;
-  }
+    }
 
-  .github h4 {
+    .github h4 {
     display: flex;
     align-items: center;
     padding-right: 1.5rem;
-  }
+    }
 
-  .github ul {
+    .github ul {
     list-style: none;
     list-style-position: outside;
     display: flex;
-  }
+    }
 
-  .fa-github {
+    .fa-github {
     padding-left: 0.5rem;
-  }
+    }
 
-  .link {
+    .link {
     grid-area: link;
     color: $lambdaLightBlue;
-  }
+    }
 
-  .description {
+    .description {
     grid-area: description;
     font-size: 1.2rem;
-  }
+    }
 
-  .name {
+    .name {
     grid-area: name;
-  }
+    }
 
-  .tags {
-    grid-area: tags;
+    .admin-buttons {
+    grid-area: buttons;
     font-weight: bold;
-  }
+    }
 
-  .chip {
+    .chip {
     background-color: $lambdaLightBlue;
     color: $newBorder;
-  }
-  .exit {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    margin-top: 1rem;
-
-    :hover {
-      cursor: pointer;
-      color: #c4c4c4;
     }
-  }
 }
 
