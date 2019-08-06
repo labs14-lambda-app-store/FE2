@@ -5,7 +5,7 @@ import Avatar from "@material-ui/core/Avatar"
 const primary = "#1a61b0"
 
 const ModalContent = props => {
-  const { project } = props
+  const { project, setIsOpen, isModalOpen } = props
   return (
     <main className="modal-content">
       <div className="image-container">
@@ -13,7 +13,7 @@ const ModalContent = props => {
       </div>
       <h2 className="name">{project.name}</h2>
       {/* div for in-modal close button */}
-      <div className='exit'>
+      <div className='exit' onClick={() => setIsOpen(!isModalOpen)}>
         <i class="material-icons">clear</i>
       </div>
       <a className="link" href={project.hosted_url}>
