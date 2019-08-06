@@ -87,5 +87,11 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
+    margin-top: 1rem;
+
+    :hover {
+      cursor: pointer;
+      color: #c4c4c4;
+    }
   }
 }
