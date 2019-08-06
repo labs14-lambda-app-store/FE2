@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import createAuth0Client from "@auth0/auth0-spa-js"
+import { loginUser } from "../../actions"
+import { connect } from "react-redux"
 
 //https://github.com/auth0/auth0-spa-js - refer for further details on auth usage
 
@@ -88,3 +90,19 @@ export const Auth0Provider = ({
     </Auth0Context.Provider>
   )
 }
+
+const mapStateToProps = ({ usersReducer }) => {
+  return {
+    ...usersReducer,
+  }
+}
+
+export const AuthRedux = connect(
+  mapStateToProps,
+  { loginUser }
+)(Auth0Provider)
+
+// export default connect(
+//   mapStateToProps,
+//   { loginUser }
+// )(Auth0Provider)
