@@ -4,13 +4,17 @@ import TagsList from "../reusable/TagsList"
 import AdminButtons from "../reusable/AdminButtons"
 
 const ModalContent = props => {
-  const { project } = props
+  const { project, setIsOpen, isModalOpen } = props
   return (
     <main className="modal-content">
       <div className="image-container">
         <img src={project.display_image} className="image" />
       </div>
       <h2 className="name">{project.name}</h2>
+      {/* div for in-modal close button */}
+      <div className='exit' onClick={() => setIsOpen(!isModalOpen)}>
+        <i class="material-icons">clear</i>
+      </div>
       <a className="link" href={project.hosted_url}>
         View Website
       </a>
