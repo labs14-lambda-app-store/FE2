@@ -35,6 +35,8 @@ export const Auth0Provider = ({
 
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser()
+        //post to backend  check for sub_id
+        console.log({ user })
         setUser(user)
       }
 

@@ -4,3 +4,8 @@ export const baseProjectsUrl =
   deployEnv === "production"
     ? `https://lambdaappstore.herokuapp.com/api/projects`
     : `https://lambdaappstore2.herokuapp.com/api/projects`
+
+export const baseUsersUrl =
+  deployEnv === "production"
+    ? `https://lambdaappstore.herokuapp.com/api/users`
+    : `https://lambdaappstore2.herokuapp.com/api/users`
