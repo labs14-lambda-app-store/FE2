@@ -11,6 +11,7 @@ import { useAuth0 } from "./components/Auth/react-auth0-spa"
 
 import "./App.scss"
 import Header from "./components/Header"
+import PendingSearch from "./components/Admin/PendingSearch";
 
 const App = () => {
   const { loading } = useAuth0()
@@ -25,6 +26,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/project-form" component={ProjectForm} />
         <Route path="/projects" exact component={ProjectSearch} />
+        <Route path="/pending-projects" exact component={PendingSearch} />
         <Footer />
       </div>
     </Router>
