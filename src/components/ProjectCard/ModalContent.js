@@ -12,7 +12,8 @@ const ModalContent = props => {
         <img src={project.display_image} className="image" />
       </div>
       <h2 className="name">{project.name}</h2>
-      <div>
+      {/* div for in-modal close button */}
+      <div className='exit'>
         <i class="material-icons">clear</i>
       </div>
       <a className="link" href={project.hosted_url}>

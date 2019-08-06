@@ -11,7 +11,7 @@
   padding-right: 15px;
   border-radius: 5px;
   grid-template-areas:
-    " image image name name"
+    " image image name exit"
     " image image link link"
     " image image description description"
     " image image description description"
@@ -81,5 +81,11 @@
   .chip {
     background-color: $lambdaLightBlue;
     color: $newBorder;
+  }
+  .exit {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
   }
 }
