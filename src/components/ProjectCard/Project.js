@@ -10,7 +10,7 @@ import ProjectModal from "./ProjectModal"
 const Project = props => {
   const { project } = props
   const { display_image, name, description, hosted_url, category, is_approved } = project
-
+  
   const [isOpen, setIsOpen] = useState(false)
 
   return (

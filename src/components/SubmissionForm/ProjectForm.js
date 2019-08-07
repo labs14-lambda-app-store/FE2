@@ -16,7 +16,7 @@ const ProjectForm = props => {
     frontend_url: "",
     backend_url: "",
     name: "",
-    category_name: "",
+    category_id: '',
     description: "",
     submitted_at: "",
     display_image: "",
@@ -45,7 +45,14 @@ const ProjectForm = props => {
     let submitted_at = moment().format("MMMM Do YYYY, h:mm:ss a")
     let display_image = props.display_image && props.display_image
     let newPost = {
-      ...state,
+      //send all of state to BE except category_name and error_message (will return a 500 if you include these)
+      hosted_url: state.hosted_url,
+      frontend_url: state.frontend_url,
+      backend_url: state.backend_url,
+      name: state.name,
+      category_id: state.category_id.id,
+      description: state.description,
+      // error_message: state.error_message,
       submitted_at,
       display_image,
     }
