@@ -16,7 +16,6 @@ const ProjectForm = props => {
     frontend_url: "",
     backend_url: "",
     name: "",
-    category_name: "",
     category_id: '',
     description: "",
     submitted_at: "",
@@ -57,8 +56,6 @@ const ProjectForm = props => {
       submitted_at,
       display_image,
     }
-
-    console.log(newPost)
 
     props.addProject(newPost).then(res => {
       getProjects()
