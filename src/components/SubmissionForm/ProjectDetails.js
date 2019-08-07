@@ -203,6 +203,7 @@ const ProjectDetails = props => {
             e.preventDefault()
             sendImageToCloudinary(display_image)
             Continue(e)
+            //filter through categories and set category_id state to id of category that matches
             setStateValues({ ...state, category_id: categories.find(category => category.category_name === category_name)})
           }}
         >
