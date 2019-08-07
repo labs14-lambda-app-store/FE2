@@ -32,6 +32,7 @@ const ProjectDetails = props => {
     name,
     description,
     category_name,
+    category_id,
     display_image,
     image_dropdown,
     error_message,
@@ -52,24 +53,24 @@ const ProjectDetails = props => {
   }
 
   const categories = [
-    { category_name: "Business" },
-    { category_name: "Entertainment" },
-    { category_name: "Education" },
-    { category_name: "Games" },
-    { category_name: "Music" },
-    { category_name: "Medical" },
-    { category_name: "Health & Fitness" },
-    { category_name: "Food & Drink" },
-    { category_name: "Finance" },
-    { category_name: "Books" },
-    { category_name: "Social Networking" },
-    { category_name: "Shopping" },
-    { category_name: "Photo & Video" },
-    { category_name: "News" },
-    { category_name: "Navigation" },
-    { category_name: "Sports" },
-    { category_name: "Travel" },
-    { category_name: "Weather" },
+    { id: 1, category_name: "Business" },
+    { id: 2, category_name: "Entertainment" },
+    { id: 3, category_name: "Education" },
+    { id: 4, category_name: "Games" },
+    { id: 5, category_name: "Music" },
+    { id: 6, category_name: "Medical" },
+    { id: 7, category_name: "Health & Fitness" },
+    { id: 8, category_name: "Food & Drink" },
+    { id: 9, category_name: "Finance" },
+    { id: 10, category_name: "Books" },
+    { id: 11, category_name: "Social Networking" },
+    { id: 12, category_name: "Shopping" },
+    { id: 13, category_name: "Photo & Video" },
+    { id: 14, category_name: "News" },
+    { id: 15, category_name: "Navigation" },
+    { id: 16, category_name: "Sports" },
+    { id: 17, category_name: "Travel" },
+    { id: 18, category_name: "Weather" },
   ]
 
   const Continue = e => {
@@ -202,6 +203,8 @@ const ProjectDetails = props => {
             e.preventDefault()
             sendImageToCloudinary(display_image)
             Continue(e)
+            //filter through categories and set category_id state to id of category that matches
+            setStateValues({ ...state, category_id: categories.find(category => category.category_name === category_name)})
           }}
         >
           Continue
