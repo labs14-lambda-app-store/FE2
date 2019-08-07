@@ -15,7 +15,7 @@ const ModalContent = props => {
       <div className='exit' onClick={() => setIsOpen(!isModalOpen)}>
         <i class="material-icons">clear</i>
       </div>
-      <a className="link" href={project.hosted_url}>
+      <a className="link" href={project.hosted_url} target="_blank">
         View Website
       </a>
       <p className="description">{project.description}</p>
