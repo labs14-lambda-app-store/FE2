@@ -1,6 +1,7 @@
 import React from "react"
 import Button from "@material-ui/core/Button"
-const primary = "#1a61b0"
+
+const style ={fontSize: "1.8rem", margin: "0 20px"}
 
 const AdminButtons = props => {
   return (
@@ -10,14 +11,16 @@ const AdminButtons = props => {
         size="small"
         color="primary"
         onClick={() => console.log("ello govna")}
+        style={style}
       >
         Approve
       </Button>
       <Button
         className="admin-button"
         size="small"
-        color="primary"
+        color="secondary"
         onClick={() => console.log("ello govna")}
+        style={style}
       >
         Deny
       </Button>
