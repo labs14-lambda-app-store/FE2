@@ -9,7 +9,6 @@ const AdminButtons = props => {
         size="small"
         color="primary"
         onClick={() => console.log("ello govna")}
-        style={style}
       >
         Approve
       </Button>
