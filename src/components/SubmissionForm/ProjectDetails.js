@@ -32,6 +32,7 @@ const ProjectDetails = props => {
     name,
     description,
     category_name,
+    category_id,
     display_image,
     image_dropdown,
     error_message,
@@ -202,6 +203,7 @@ const ProjectDetails = props => {
             e.preventDefault()
             sendImageToCloudinary(display_image)
             Continue(e)
+            setStateValues({ ...state, category_id: categories.find(category => category.category_name === category_name)})
           }}
         >
           Continue
