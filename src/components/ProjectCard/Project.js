@@ -11,6 +11,8 @@ const Project = props => {
   const { project } = props
   const { display_image, name, description, hosted_url, category, is_approved } = project
 
+  console.log(category)
+
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -28,7 +30,7 @@ const Project = props => {
             <Typography gutterBottom varient="heading" component="h3">
               {name}
             </Typography>
-            <Typography className='categoryName' component='h1'>{category[0].category_name.toUpperCase()}</Typography>
+            <Typography className='categoryName' component='h1'>{category === undefined ? '' : category[0].category_name.toUpperCase()}</Typography>
             {/* <Typography className="description-box" component="p">{description}</Typography> */}
             <Typography component="p">{description}</Typography>
             <ProjectModal
