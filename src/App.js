@@ -1,8 +1,7 @@
 import React from "react"
 import { useAuth0 } from "./components/Auth/react-auth0-spa"
 import { BrowserRouter as Router } from "react-router-dom"
-import { createMuiTheme } from "@material-ui/core/styles"
-import { ThemeProvider } from "@material-ui/styles"
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
 import { Route } from "react-router-dom"
 
 import ProjectForm from "./components/SubmissionForm/ProjectForm"
@@ -28,13 +27,15 @@ const theme = createMuiTheme({
   }
 })
 
+console.log(theme)
+
 const App = () => {
   const { loading } = useAuth0()
 
   if (loading) return null
   return (
     <Router>
-      <ThemeProvider theme={theme}>
+      <MuiThemeProvider theme={theme}>
         <div className="App">
           <NavBar />
           <Header />
@@ -45,7 +46,7 @@ const App = () => {
           <Route path="/pending-projects" exact component={PendingSearch} />
           <Footer />
         </div>
-      </ThemeProvider>
+      </MuiThemeProvider>
     </Router>
   )
 }
