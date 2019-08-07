@@ -9,7 +9,7 @@ import ProjectModal from "./ProjectModal"
 
 const Project = props => {
   const { project } = props
-  const { display_image, name, description, hosted_url } = project
+  const { display_image, name, description, hosted_url, category, is_approved } = project
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -28,6 +28,7 @@ const Project = props => {
             <Typography gutterBottom varient="heading" component="h3">
               {name}
             </Typography>
+            <Typography className='categoryName' component='h1'>{category[0].category_name.toUpperCase()}</Typography>
             {/* <Typography className="description-box" component="p">{description}</Typography> */}
             <Typography component="p">{description}</Typography>
             <ProjectModal
@@ -45,7 +46,7 @@ const Project = props => {
               color="primary"
               onClick={() => setIsOpen(true)}
             >
-              Get The App
+              {is_approved ? "Get The App" : "Review The App"}
             </Button>
           </CardActions>
         </Card>

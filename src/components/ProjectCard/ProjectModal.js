@@ -16,7 +16,7 @@ const ProjectModal = props => {
         open={isModalOpen}
         onClose={() => setIsOpen(!isModalOpen)}
       >
-        <ModalContent project={project} />
+        <ModalContent isModalOpen={isModalOpen} setIsOpen={setIsOpen} project={project} />
       </Modal>
     </main>
   )

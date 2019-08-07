@@ -39,6 +39,7 @@
 //header on card
 .MuiTypography-root{
       font-style: bold;
+
 }
 
 //cards
@@ -61,4 +62,9 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
+  }
+
+  .MuiTypography-root.categoryName.MuiTypography-body1 {
+        color: $lambdaPink;
+        font-size: 1rem;
   }

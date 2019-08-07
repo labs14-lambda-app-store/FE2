@@ -16,13 +16,13 @@ const AuthButton = props => {
     <>
       {!isAuthenticated && (
         <>
-          <Button onClick={() => loginWithRedirect({})}> Sign In </Button>
+          <Button onClick={() => loginWithRedirect({})} color="secondary"> Sign In </Button>
         </>
       )}
       {isAuthenticated && (
         <>
-          <label style={{ color: "#0c3c78" }}>Hello {user.given_name}!</label>
-          <Button onClick={() => logoutWithRedirect()}> Sign out </Button>
+          <label style={{ color: "#0c3c78", fontSize: "1.5rem" }}>Hello {user.given_name}!</label>
+          <Button onClick={() => logoutWithRedirect()} color="secondary"> Sign out </Button>
         </>
       )}
     </>
