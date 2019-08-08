@@ -70,29 +70,16 @@ const ProjectDetails = props => {
     }
   }
 
-
   const Continue = e => {
     e.preventDefault()
     nextStep()
   }
-
-  //sort categories alphabetically
-  const sortCategories = categories.sort(function (a, b) {
-    if (a.category_name < b.category_name) {
-      return -1
-    }
-    if (a.category_name > b.category_name) {
-      return 1
-    }
-    return 0
-  })
 
   return (
     <div>
       <form className="submission">
         <h1>Submit Your App</h1>
         <TextField
-          value={category_name}
           className="submitInput"
           id="standard-select standard-required"
           required
