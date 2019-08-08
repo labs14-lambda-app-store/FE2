@@ -27,8 +27,6 @@ const theme = createMuiTheme({
   }
 })
 
-console.log(theme)
-
 const App = () => {
   const { loading } = useAuth0()
 
