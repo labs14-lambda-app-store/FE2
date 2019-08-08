@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
 import { DropzoneArea } from "material-ui-dropzone"
 import TextField from "@material-ui/core/TextField"
 import MenuItem from "@material-ui/core/MenuItem"
 import Button from "@material-ui/core/Button"
 import validator from "validator"
+import axios from "axios"
 
 import { sendImageToCloudinary } from "../../actions"
 //imported Material UI packages above,
@@ -12,9 +13,9 @@ import { sendImageToCloudinary } from "../../actions"
 
 //MUI button style overwrite with INLINE STYLES
 const style = {
-  'fontSize': '1.6rem',
-  'padding': '20px'
-};
+  fontSize: "1.6rem",
+  padding: "20px",
+}
 
 const ProjectDetails = props => {
   const {
@@ -36,83 +37,70 @@ const ProjectDetails = props => {
     display_image,
     image_dropdown,
     error_message,
+    category,
     // tags,         take out tags til the table works
   } = state
 
-  const charactersLeft = 255 - description.length
+  const [categories, setCategories] = useState("")
 
-  const isURLValid = (url) => {
-    console.log(state)
-    if (validator.isURL(url)) {
-      setStateValues({ ...state, error_message: '' })
-      return true
-    } else {
-      setStateValues({ ...state, error_message: 'Hosted URL is invalid, please include www or http' })
-      return false
-    }
+  useEffect(() => {
+    getCategories()
+  }, [])
+
+  const getCategories = async () => {
+    const result = await axios.get(
+      "https://lambdaappstore2.herokuapp.com/api/categories"
+    )
+    const categories = result.data
+    setCategories(categories)
   }
 
-  const categories = [
-    { id: 1, category_name: "Business" },
-    { id: 2, category_name: "Entertainment" },
-    { id: 3, category_name: "Education" },
-    { id: 4, category_name: "Games" },
-    { id: 5, category_name: "Music" },
-    { id: 6, category_name: "Medical" },
-    { id: 7, category_name: "Health & Fitness" },
-    { id: 8, category_name: "Food & Drink" },
-    { id: 9, category_name: "Finance" },
-    { id: 10, category_name: "Books" },
-    { id: 11, category_name: "Social Networking" },
-    { id: 12, category_name: "Shopping" },
-    { id: 13, category_name: "Photo & Video" },
-    { id: 14, category_name: "News" },
-    { id: 15, category_name: "Navigation" },
-    { id: 16, category_name: "Sports" },
-    { id: 17, category_name: "Travel" },
-    { id: 18, category_name: "Weather" },
-  ]
+  const charactersLeft = 255 - description.length
+
+  //checks a url against the validator isUrl regex to check if url is a valid https or www location
+  const isURLValid = url => {
+    if (validator.isURL(url)) {
+      setStateValues({ ...state, error_message: "" })
+    } else {
+      setStateValues({
+        ...state,
+        error_message: "Hosted URL is invalid, please include www or http",
+      })
+    }
+  }
 
   const Continue = e => {
     e.preventDefault()
     nextStep()
   }
 
-  //sort categories alphabetically
-  const sortCategories = categories.sort(function (a, b) {
-    if (a.category_name < b.category_name) {
-      return -1
-    }
-    if (a.category_name > b.category_name) {
-      return 1
-    }
-    return 0
-  })
-
   return (
     <div>
       <form className="submission">
         <h1>Submit Your App</h1>
         <TextField
-          value={category_name}
           className="submitInput"
+          value={category}
           id="standard-select standard-required"
           required
           select
           label="Categories"
-          name="category_name"
+          name="category"
           helperText="Please select one"
           margin="normal"
-          onChange={e => handleStateChanges(e)}
+          onChange={e =>
+            setStateValues({
+              ...state,
+              category: e.target.value,
+            })
+          }
         >
-          {sortCategories.map(category => (
-            <MenuItem
-              value={category.category_name}
-              key={category.category_name}
-            >
-              {category.category_name}
-            </MenuItem>
-          ))}
+          {categories &&
+            categories.map(category => (
+              <MenuItem value={category} key={category.category_name}>
+                {category.category_name}
+              </MenuItem>
+            ))}
         </TextField>
         <br />
         <TextField
@@ -142,7 +130,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
-          error={ error_message ? true : false }
+          error={error_message ? true : false}
           className="submitInput"
           type="text"
           value={hosted_url}
@@ -198,18 +186,19 @@ const ProjectDetails = props => {
           label="Continue"
           type="submit"
           color="primary"
-          disabled={!name || !description || !hosted_url || error_message ? true : false}
+          //checks the project name, description, hosted_url: if any of those are missing, disable Button
+          //will also disable button if error_message exists
+          disabled={
+            !name || !description || !hosted_url || error_message ? true : false
+          }
           onClick={e => {
             e.preventDefault()
-            sendImageToCloudinary(display_image)
+            display_image && sendImageToCloudinary(display_image)
             Continue(e)
-            //filter through categories and set category_id state to id of category that matches
-            setStateValues({ ...state, category_id: categories.find(category => category.category_name === category_name)})
           }}
         >
           Continue
         </Button>
-
       </form>
     </div>
   )

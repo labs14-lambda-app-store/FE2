@@ -19,7 +19,7 @@ const Confirm = props => {
     nextStep,
     prevStep,
     handlePost,
-    values,
+    state,
     isAddingImage,
     isAddingProject,
   } = props
@@ -30,8 +30,8 @@ const Confirm = props => {
     hosted_url,
     frontend_url,
     backend_url,
-    category_name,
-  } = values
+    category,
+  } = state
 
   const Continue = e => {
     e.preventDefault()
@@ -57,14 +57,19 @@ const Confirm = props => {
         <ListItem button>
           <ListItemText primary="Hosted URL" secondary={hosted_url} />
         </ListItem>
+        {frontend_url && (
+          <ListItem button>
+            <ListItemText primary="Front-End URL" secondary={frontend_url} />
+          </ListItem>
+        )}
+        {backend_url && (
+          <ListItem button>
+            <ListItemText primary="Back-End URL" secondary={backend_url} />
+          </ListItem>
+        )}
+
         <ListItem button>
-          <ListItemText primary="Front-End URL" secondary={frontend_url} />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Back-End URL" secondary={backend_url} />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Category" secondary={category_name} />
+          <ListItemText primary="Category" secondary={category.category_name} />
         </ListItem>
         {/* <ListItem button><ListItemText primary='Tags' secondary={tags} /></ListItem> */}
       </List>
