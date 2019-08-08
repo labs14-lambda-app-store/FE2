@@ -25,13 +25,11 @@ const Project = props => {
             onClick={() => setIsOpen(true)}
           />
           <CardContent>
-            {/* <Typography className="app-title" gutterBottom varient="heading" component="h3">{name}</Typography> */}
             <div onClick={() => setIsOpen(true)}>
               <Typography gutterBottom varient="heading" component="h3">
                 {name}
               </Typography>
               <Typography className='categoryName' color='secondary' component='h1'>{category[0].category_name.toUpperCase()}</Typography>
-              {/* <Typography className="description-box" component="p">{description}</Typography> */}
               <Typography component="p">{description}</Typography>
             </div>
             <ProjectModal
