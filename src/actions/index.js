@@ -8,9 +8,13 @@ export {
   ADD_PROJECTS_START,
   ADD_PROJECTS_SUCCESS,
   ADD_PROJECTS_FAIL,
+  UPDATE_PROJECTS_START,
+  UPDATE_PROJECTS_SUCCESS,
+  UPDATE_PROJECTS_FAIL,
   getProjects,
   addProject,
   searchProjects,
+  updateProject
 } from "./projectActions"
 
 export {

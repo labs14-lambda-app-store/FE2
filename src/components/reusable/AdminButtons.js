@@ -5,27 +5,25 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { updateProject } from '../../actions/'
+import { connect } from "react-redux"
 
 const style ={fontSize: "1.4rem", margin: "0 10px"}
 
 const AdminButtons = props => {
-  const [open, setOpen] = React.useState(false);
-  const [confirmOpen, setConfirmOpen] = React.useState(false);
+  const [handleDenyModal, setHandleDenyModal] = React.useState(false);
+  const [handleApproveModal, setHandleApproveModal] = React.useState(false);
 
-  function handleConfirmOpen() {
-    setConfirmOpen(true);
+  function handleConfirm() {
+    setHandleApproveModal(!handleApproveModal)
   }
 
-  function handleConfirmClose() {
-    setConfirmOpen(false);
+  function handleDeny() {
+    setHandleDenyModal(!handleDenyModal)
   }
 
-  function handleDenyOpen() {
-    setOpen(true);
-  }
-
-  function handleDenyClose() {
-    setOpen(false);
+  function updateProject(project, id) {
+    props.updateProject(project, id)
   }
 
   return (
@@ -35,7 +33,7 @@ const AdminButtons = props => {
         size="small"
         color="primary"
         style={style}
-        onClick={handleConfirmOpen}
+        onClick={handleConfirm}
       >
         Approve
       </Button>
@@ -44,14 +42,14 @@ const AdminButtons = props => {
         size="small"
         color="secondary"
         style={style}
-        onClick={handleDenyOpen}
+        onClick={handleDeny}
       >
         Deny
       </Button>
 
       <Dialog
-        open={confirmOpen}
-        onClose={handleConfirmClose}
+        open={handleApproveModal}
+        onClose={handleConfirm}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -62,18 +60,19 @@ const AdminButtons = props => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleConfirmClose} color="secondary">
+          <Button onClick={handleConfirm} color="secondary">
             Cancel
           </Button>
-          <Button onClick={handleConfirmClose} color="primary" autoFocus>
+          <Button onClick={() => updateProject({...props.project, is_approved: true }, props.project.id)} color="primary" autoFocus>
             Approve
           </Button>
         </DialogActions>
       </Dialog>
+      {/* updateProject({...props.project, is_approved: true }, props.project.id) */}
 
       <Dialog
-        open={open}
-        onClose={handleDenyClose}
+        open={handleDenyModal}
+        onClose={handleDeny}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -84,10 +83,10 @@ const AdminButtons = props => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDenyClose} color="secondary">
+          <Button onClick={handleDeny} color="secondary">
             No
           </Button>
-          <Button onClick={handleDenyClose} color="primary" autoFocus>
+          <Button onClick={handleDeny} color="primary" autoFocus>
             Yes
           </Button>
         </DialogActions>
@@ -96,4 +95,13 @@ const AdminButtons = props => {
   )
 }
 
-export default AdminButtons
+const mapStateToProps = ({ projectsReducer }) => {
+  return {
+    ...projectsReducer,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { updateProject }
+)(AdminButtons)
