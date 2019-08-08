@@ -13,9 +13,9 @@ import { sendImageToCloudinary } from "../../actions"
 
 //MUI button style overwrite with INLINE STYLES
 const style = {
-  'fontSize': '1.6rem',
-  'padding': '20px'
-};
+  fontSize: "1.6rem",
+  padding: "20px",
+}
 
 const ProjectDetails = props => {
   const {
@@ -127,7 +127,7 @@ const ProjectDetails = props => {
         />
         <br />
         <TextField
-          error={ error_message ? true : false }
+          error={error_message ? true : false}
           className="submitInput"
           type="text"
           value={hosted_url}
@@ -189,7 +189,12 @@ const ProjectDetails = props => {
             sendImageToCloudinary(display_image)
             Continue(e)
             //filter through categories and set category_id state to id of category that matches
-            setStateValues({ ...state, category_id: categories.find(category => category.category_name === category_name)})
+            setStateValues({
+              ...state,
+              category_id: categories.find(
+                category => category.category_name === category_name
+              ),
+            })
           }}
         >
           Continue
