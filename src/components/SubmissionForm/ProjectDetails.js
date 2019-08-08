@@ -37,6 +37,7 @@ const ProjectDetails = props => {
     display_image,
     image_dropdown,
     error_message,
+    category,
     // tags,         take out tags til the table works
   } = state
 
@@ -79,21 +80,24 @@ const ProjectDetails = props => {
         <h1>Submit Your App</h1>
         <TextField
           className="submitInput"
+          value={category}
           id="standard-select standard-required"
           required
           select
           label="Categories"
-          name="category_name"
+          name="category"
           helperText="Please select one"
           margin="normal"
-          onChange={e => handleStateChanges(e)}
+          onChange={e =>
+            setStateValues({
+              ...state,
+              category: e.target.value,
+            })
+          }
         >
           {categories &&
             categories.map(category => (
-              <MenuItem
-                value={category.category_name}
-                key={category.category_name}
-              >
+              <MenuItem value={category} key={category.category_name}>
                 {category.category_name}
               </MenuItem>
             ))}
@@ -189,15 +193,8 @@ const ProjectDetails = props => {
           }
           onClick={e => {
             e.preventDefault()
-            sendImageToCloudinary(display_image)
+            display_image && sendImageToCloudinary(display_image)
             Continue(e)
-            //filter through categories and set category_id state to id of category that matches
-            setStateValues({
-              ...state,
-              category_id: categories.find(
-                category => category.category_name === category_name
-              ),
-            })
           }}
         >
           Continue
