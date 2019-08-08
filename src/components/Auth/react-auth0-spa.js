@@ -10,8 +10,9 @@ const DEFAULT_REDIRECT_CALLBACK = () =>
 
 export const Auth0Context = React.createContext()
 export const useAuth0 = () => useContext(Auth0Context)
-export const Auth0Provider = ({
+const Auth0Provider = ({
   children,
+  loginUser,
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   ...initOptions
 }) => {
@@ -39,6 +40,7 @@ export const Auth0Provider = ({
         const user = await auth0FromHook.getUser()
         //post to backend  check for sub_id
         console.log({ user })
+        loginUser()
         setUser(user)
       }
 
@@ -97,12 +99,17 @@ const mapStateToProps = ({ usersReducer }) => {
   }
 }
 
-export const AuthRedux = connect(
-  mapStateToProps,
-  { loginUser }
-)(Auth0Provider)
+// export const AuthRedux = connect(
+//   mapStateToProps,
+//   { loginUser }
+// )(Auth0Provider)
 
 // export default connect(
 //   mapStateToProps,
 //   { loginUser }
 // )(Auth0Provider)
+
+export default connect(
+  null,
+  { loginUser }
+)(Auth0Provider)

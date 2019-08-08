@@ -2,7 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
 import App from "./App"
-import { Auth0Provider } from "./components/Auth/react-auth0-spa"
+import Auth0Provider from "./components/Auth/react-auth0-spa"
 import { Provider } from "react-redux"
 import { store } from "./utils/store"
 
