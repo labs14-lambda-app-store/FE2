@@ -11,10 +11,14 @@ export {
   UPDATE_PROJECTS_START,
   UPDATE_PROJECTS_SUCCESS,
   UPDATE_PROJECTS_FAIL,
+  DELETE_PROJECTS_START,
+  DELETE_PROJECTS_SUCCESS,
+  DELETE_PROJECTS_FAIL,
   getProjects,
   addProject,
   searchProjects,
-  updateProject
+  updateProject,
+  deleteProject
 } from "./projectActions"
 
 export {

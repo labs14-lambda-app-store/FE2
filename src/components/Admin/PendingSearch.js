@@ -13,9 +13,16 @@ const PendingSearch = props => {
   const { getProjects, projects, searchProjects, projectLength } = props
   const [offset, setOffset] = useState(0)
 
-  const filterArray = projects.filter(
-    currentProject => currentProject.is_approved === false
-  ) //Dis broken
+  const [filterArray, setFilterArray ] = useState("")
+
+  
+  useEffect(() => {
+    console.log('filterArray')
+    const filterArray = projects.filter(
+      currentProject => currentProject.is_approved === false
+    )
+    setFilterArray(filterArray)
+  }, [projects])
 
   useEffect(() => {
     if (searchString) {
@@ -96,7 +103,7 @@ const PendingSearch = props => {
         />
       </div>
       <Grid container spacing={2} style={{ padding: 24 }}>
-        {filterArray.map(currentProject => (
+        {filterArray && filterArray.map(currentProject => (
           <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
             <Project project={currentProject} key={currentProject.id} />
           </Grid>

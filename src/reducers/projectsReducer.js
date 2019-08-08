@@ -11,6 +11,9 @@ import {
   UPDATE_PROJECTS_START,
   UPDATE_PROJECTS_SUCCESS,
   UPDATE_PROJECTS_FAIL,
+  DELETE_PROJECTS_START,
+  DELETE_PROJECTS_SUCCESS,
+  DELETE_PROJECTS_FAIL,
 } from "../actions"
 
 const initialState = {
@@ -19,6 +22,7 @@ const initialState = {
   isFetching: false,
   isAdding: false,
   isUpdating: false,
+  isDeleting: false,
   message: "",
 }
 
@@ -93,6 +97,24 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         isUpdating: false,
+        message: action.payload,
+      }
+    case DELETE_PROJECTS_START:
+      return {
+        ...state,
+        isDeleting: true,
+        message: "",
+      }
+    case DELETE_PROJECTS_SUCCESS:
+      return {
+        ...state,
+        isDeleting: false,
+        message: action.payload.data.message,
+      }
+    case DELETE_PROJECTS_FAIL:
+      return {
+        ...state,
+        isDeleting: false,
         message: action.payload,
       }
     default:

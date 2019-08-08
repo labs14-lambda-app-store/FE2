@@ -72,3 +72,18 @@ export const updateProject = (project, id) => async dispatch => {
     dispatch({ type: UPDATE_PROJECTS_FAIL, payload: err })
   }
 }
+
+export const DELETE_PROJECTS_START = "DELETE_PROJECTS_START"
+export const DELETE_PROJECTS_SUCCESS = "DELETE_PROJECTS_SUCCESS"
+export const DELETE_PROJECTS_FAIL = "DELETE_PROJECTS_FAIL"
+
+export const deleteProject = ( id) => async dispatch => {
+  dispatch({ type: DELETE_PROJECTS_START })
+
+  try {
+    const deleteResult = await axios.delete(`${baseProjectsUrl}/${id}`)
+    dispatch({ type: DELETE_PROJECTS_SUCCESS, payload: deleteResult })
+  } catch (err) {
+    dispatch({ type: DELETE_PROJECTS_FAIL, payload: err })
+  }
+}
