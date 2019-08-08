@@ -183,7 +183,11 @@ const ProjectDetails = props => {
           label="Continue"
           type="submit"
           color="primary"
-          disabled={!name || !description || !hosted_url || error_message ? true : false}
+          //checks the project name, description, hosted_url: if any of those are missing, disable Button
+          //will also disable button if error_message exists
+          disabled={
+            !name || !description || !hosted_url || error_message ? true : false
+          }
           onClick={e => {
             e.preventDefault()
             sendImageToCloudinary(display_image)
@@ -199,7 +203,6 @@ const ProjectDetails = props => {
         >
           Continue
         </Button>
-
       </form>
     </div>
   )
