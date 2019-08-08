@@ -7,6 +7,9 @@
 
   .Header-lambda-logo {
     max-height: 3rem;
+    &:hover {
+      cursor: pointer;
+    }
 
     @media (max-width: 635px) {
      margin: 5px 0;

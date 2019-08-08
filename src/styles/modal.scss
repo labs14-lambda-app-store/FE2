@@ -1,23 +1,23 @@
 .modal-content {
   margin: 10% auto;
   background: #efeef3;
-  height: 65%;
-  width: 70%;
+  height: 75%;
+  width: 75%;
   display: grid;
   justify-items: left;
   font-size: 1.4rem;
   grid-template-rows: auto;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
   padding-right: 15px;
   border-radius: 5px;
   grid-template-areas:
-    " image image name exit"
-    " image image link link"
-    " image image description description"
-    " image image description description"
-    " image image github . "
-    " image image tags tags"
-    " image image tags tags";
+    " image image image image name name . exit"
+    " image image image image link link link link"
+    " image image image image description description description description"
+    " image image image image description description description description"
+    " image image image image github github . ."
+    " image image image image tags tags tags tags"
+    " image image image image . . buttons buttons";
 
   li a {
     text-decoration: none;
@@ -83,6 +83,7 @@
     color: $newBorder;
   }
   .exit {
+    grid-area: exit;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -93,6 +94,10 @@
       cursor: pointer;
       color: #c4c4c4;
     }
+  }
+  .admin-buttons {
+    grid-area: buttons;
+    padding-bottom: 40px;
   }
 }
 

@@ -10,7 +10,7 @@ import ProjectModal from "./ProjectModal"
 const Project = props => {
   const { project } = props
   const { display_image, name, description, hosted_url, category, is_approved } = project
-
+  
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -22,15 +22,16 @@ const Project = props => {
             style={{ height: 0, paddingTop: "56.25%" }}
             image={display_image}
             title={name}
+            onClick={() => setIsOpen(true)}
           />
           <CardContent>
-            {/* <Typography className="app-title" gutterBottom varient="heading" component="h3">{name}</Typography> */}
-            <Typography gutterBottom varient="heading" component="h3">
-              {name}
-            </Typography>
-            <Typography className='categoryName' component='h1'>{category[0].category_name.toUpperCase()}</Typography>
-            {/* <Typography className="description-box" component="p">{description}</Typography> */}
-            <Typography component="p">{description}</Typography>
+            <div onClick={() => setIsOpen(true)}>
+              <Typography gutterBottom varient="heading" component="h3">
+                {name}
+              </Typography>
+              <Typography className='categoryName' color='secondary' component='h1'>{category[0].category_name.toUpperCase()}</Typography>
+              <Typography component="p">{description}</Typography>
+            </div>
             <ProjectModal
               project={project}
               isModalOpen={isOpen}

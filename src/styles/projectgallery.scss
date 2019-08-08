@@ -53,6 +53,14 @@
       justify-content: center;     
 }
 
+.MuiButton-textPrimary {
+      color: $lambdaDarkBlue;
+}
+
+.MuiButton-textSecondary {
+      color: $lambdaPink;
+}
+
 .searchNav {
       display: flex;
       align-items: baseline;
@@ -65,6 +73,5 @@
   }
 
   .MuiTypography-root.categoryName.MuiTypography-body1 {
-        color: $lambdaPink;
         font-size: 1rem;
   }
