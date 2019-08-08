@@ -8,11 +8,46 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { updateProject } from '../../actions/'
 import { connect } from "react-redux"
 
-const style ={fontSize: "1.4rem", margin: "0 10px"}
+const style = { fontSize: "1.4rem", margin: "0 10px" }
 
 const AdminButtons = props => {
   const [handleDenyModal, setHandleDenyModal] = React.useState(false);
   const [handleApproveModal, setHandleApproveModal] = React.useState(false);
+  const { project, } = props
+  const { 
+    id,
+    name, 
+    is_approved, 
+    description, 
+    hosted_url, 
+    frontend_url, 
+    backend_url, 
+    approved_at, 
+    submitted_at, 
+    display_image, 
+    in_development, 
+    is_live, 
+    is_featured, 
+    category_id 
+  } = props.project
+
+  let updatedProject = {
+    id,
+    name,
+    is_approved,
+    description,
+    hosted_url, 
+    frontend_url, 
+    backend_url, 
+    approved_at, 
+    submitted_at, 
+    display_image, 
+    in_development, 
+    is_live, 
+    is_featured, 
+    category_id
+  }
+
 
   function handleConfirm() {
     setHandleApproveModal(!handleApproveModal)
@@ -63,7 +98,7 @@ const AdminButtons = props => {
           <Button onClick={handleConfirm} color="secondary">
             Cancel
           </Button>
-          <Button onClick={() => updateProject({...props.project, is_approved: true }, props.project.id)} color="primary" autoFocus>
+          <Button onClick={() => updateProject({ ...updatedProject, is_approved: true }, id)} color="primary" autoFocus>
             Approve
           </Button>
         </DialogActions>

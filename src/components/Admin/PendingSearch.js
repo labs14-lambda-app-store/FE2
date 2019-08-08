@@ -15,7 +15,7 @@ const PendingSearch = props => {
 
   const filterArray = projects.filter(
     currentProject => currentProject.is_approved === false
-  )
+  ) //Dis broken
 
   useEffect(() => {
     if (searchString) {
