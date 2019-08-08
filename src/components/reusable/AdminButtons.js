@@ -10,12 +10,21 @@ const style ={fontSize: "1.4rem", margin: "0 10px"}
 
 const AdminButtons = props => {
   const [open, setOpen] = React.useState(false);
+  const [confirmOpen, setConfirmOpen] = React.useState(false);
 
-  function handleClickOpen() {
+  function handleConfirmOpen() {
+    setConfirmOpen(true);
+  }
+
+  function handleConfirmClose() {
+    setConfirmOpen(false);
+  }
+
+  function handleDenyOpen() {
     setOpen(true);
   }
 
-  function handleClose() {
+  function handleDenyClose() {
     setOpen(false);
   }
 
@@ -26,7 +35,7 @@ const AdminButtons = props => {
         size="small"
         color="primary"
         style={style}
-        onClick={handleClickOpen}
+        onClick={handleConfirmOpen}
       >
         Approve
       </Button>
@@ -35,14 +44,14 @@ const AdminButtons = props => {
         size="small"
         color="secondary"
         style={style}
-        onClick={() => console.log("sorry govna")}
+        onClick={handleDenyOpen}
       >
         Deny
       </Button>
 
       <Dialog
-        open={open}
-        onClose={handleClose}
+        open={confirmOpen}
+        onClose={handleConfirmClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -53,11 +62,33 @@ const AdminButtons = props => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="secondary">
+          <Button onClick={handleConfirmClose} color="secondary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
+          <Button onClick={handleConfirmClose} color="primary" autoFocus>
             Approve
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog
+        open={open}
+        onClose={handleDenyClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Deny this project?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Are you sure you want to deny this project? Denying this project will not move it into the gallery.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDenyClose} color="secondary">
+            No
+          </Button>
+          <Button onClick={handleDenyClose} color="primary" autoFocus>
+            Yes
           </Button>
         </DialogActions>
       </Dialog>
