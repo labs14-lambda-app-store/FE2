@@ -51,11 +51,9 @@ const ProjectDetails = props => {
       "https://lambdaappstore2.herokuapp.com/api/categories"
     )
     const categories = result.data
-
     setCategories(categories)
-
-    console.log(categories)
   }
+
   const charactersLeft = 255 - description.length
 
   //checks a url against the validator isUrl regex to check if url is a valid https or www location
@@ -90,14 +88,15 @@ const ProjectDetails = props => {
           margin="normal"
           onChange={e => handleStateChanges(e)}
         >
-          {sortCategories.map(category => (
-            <MenuItem
-              value={category.category_name}
-              key={category.category_name}
-            >
-              {category.category_name}
-            </MenuItem>
-          ))}
+          {categories &&
+            categories.map(category => (
+              <MenuItem
+                value={category.category_name}
+                key={category.category_name}
+              >
+                {category.category_name}
+              </MenuItem>
+            ))}
         </TextField>
         <br />
         <TextField
