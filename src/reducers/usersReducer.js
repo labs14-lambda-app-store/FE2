@@ -5,14 +5,7 @@ import {
 } from "../actions"
 
 const initialState = {
-  user: {
-    username: "",
-    email: "",
-    sub_id: "",
-    first_name: "",
-    last_name: "",
-    pictureURL: "",
-  },
+  user: null,
   message: "",
   isLoggingIn: false,
 }

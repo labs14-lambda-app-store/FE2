@@ -38,9 +38,16 @@ const Auth0Provider = ({
 
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser()
-        //post to backend  check for sub_id
-        console.log({ user })
-        loginUser()
+
+        const retrieveUser = {
+          username: user.nickname,
+          email: user.email,
+          sub_id: user.sub,
+          first_name: user.given_name,
+          last_name: user.family_name,
+          pictureURL: user.picture,
+        }
+        loginUser(retrieveUser)
         setUser(user)
       }
 
