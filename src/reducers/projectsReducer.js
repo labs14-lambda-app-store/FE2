@@ -1,7 +1,10 @@
 import {
-  GET_PROJECTS_START,
-  GET_PROJECTS_SUCCESS,
-  GET_PROJECTS_FAIL,
+  GET_APPROVED_PROJECTS_START,
+  GET_APPROVED_PROJECTS_SUCCESS,
+  GET_APPROVED_PROJECTS_FAIL,
+  GET_PENDING_PROJECTS_START,
+  GET_PENDING_PROJECTS_SUCCESS,
+  GET_PENDING_PROJECTS_FAIL,
   SEARCH_PROJECTS_START,
   SEARCH_PROJECTS_SUCCESS,
   SEARCH_PROJECTS_FAIL,
@@ -12,7 +15,8 @@ import {
 
 const initialState = {
   projects: [],
-  projectLength: null,
+  approvedProjectsLength: null,
+  pendingProjectsLength: null,
   isFetching: false,
   isAdding: false,
   message: "",
@@ -20,19 +24,36 @@ const initialState = {
 
 const projectsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_PROJECTS_START:
+    case GET_APPROVED_PROJECTS_START:
       return {
         ...state,
         isFetching: true,
       }
-    case GET_PROJECTS_SUCCESS:
+    case GET_APPROVED_PROJECTS_SUCCESS:
       return {
         ...state,
         projects: action.payload,
-        projectLength: action.projectLength,
+        approvedProjectsLength: action.projectLength,
         isFetching: false,
       }
-    case GET_PROJECTS_FAIL:
+    case GET_APPROVED_PROJECTS_FAIL:
+      return {
+        ...state,
+        isFetching: false,
+      }
+    case GET_PENDING_PROJECTS_START:
+      return {
+        ...state,
+        isFetching: true,
+      }
+    case GET_PENDING_PROJECTS_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        projects: action.payload,
+        pendingProjectsLength: action.projectLength,
+      }
+    case GET_PENDING_PROJECTS_FAIL:
       return {
         ...state,
         isFetching: false,
@@ -46,7 +67,7 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         projects: action.payload,
-        projectLength: action.projectLength,
+        approvedProjectsLength: action.projectLength,
         isFetching: false,
       }
     case SEARCH_PROJECTS_FAIL:

@@ -6,11 +6,11 @@ import Grid from "@material-ui/core/Grid"
 import { connect } from "react-redux"
 
 import { Project } from "../ProjectCard"
-import { getProjects, searchProjects } from "../../actions"
+import { getPendingProjects, searchProjects } from "../../actions"
 
 const PendingSearch = props => {
   const [searchString, setSearchString] = useState("")
-  const { getProjects, projects, searchProjects, projectLength } = props
+  const { getPendingProjects, projects, searchProjects, projectLength } = props
   const [offset, setOffset] = useState(0)
 
   const filterArray = projects.filter(
@@ -21,18 +21,18 @@ const PendingSearch = props => {
     if (searchString) {
       handleSearch(null, setOffset(0), searchString)
     } else {
-      getProjects(1)
+      getPendingProjects(1)
     }
     //eslint-disable-next-line
   }, [projectLength])
 
   useEffect(() => {
-    if (searchString.length === 0) getProjects(1)
-  }, [getProjects, searchString])
+    if (searchString.length === 0) getPendingProjects(1)
+  }, [getPendingProjects, searchString])
 
   const handleSearch = (e, offset, searchString) => {
     if (e) e.preventDefault()
-    searchProjects(offset, searchString)
+    searchProjects(offset, searchString, false)
   }
 
   return (
@@ -88,9 +88,9 @@ const PendingSearch = props => {
             setOffset(offset)
             // send the correct page query (i.e. /api/projects?page=2)
             if (searchString) {
-              searchProjects(offset + 1, searchString)
+              searchProjects(offset + 1, searchString, false)
             } else {
-              getProjects(offset + 1)
+              getPendingProjects(offset + 1)
             }
           }}
         />
@@ -102,7 +102,7 @@ const PendingSearch = props => {
           </Grid>
         ))}
       </Grid>
-            <Pagination
+      <Pagination
         // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
         limit={1}
         innerButtonCount={0}
@@ -115,9 +115,9 @@ const PendingSearch = props => {
           setOffset(offset)
           // send the correct page query (i.e. /api/projects?page=2)
           if (searchString) {
-            searchProjects(offset + 1, searchString)
+            searchProjects(offset + 1, searchString, false)
           } else {
-            getProjects(offset + 1)
+            getPendingProjects(offset + 1)
           }
         }}
       />
@@ -132,5 +132,5 @@ const mapStateToProps = ({ projectsReducer }) => {
 }
 export default connect(
   mapStateToProps,
-  { getProjects, searchProjects }
+  { getPendingProjects, searchProjects }
 )(PendingSearch)
