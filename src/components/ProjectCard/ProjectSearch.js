@@ -6,29 +6,34 @@ import Grid from "@material-ui/core/Grid"
 import { connect } from "react-redux"
 
 import Project from "./Project.js"
-import { getProjects, searchProjects } from "../../actions"
+import { getApprovedProjects, searchProjects } from "../../actions"
 
 const ProjectSearch = props => {
   const [searchString, setSearchString] = useState("")
-  const { getProjects, projects, searchProjects, projectLength } = props
+  const {
+    getApprovedProjects,
+    projects,
+    searchProjects,
+    approvedProjectsLength,
+  } = props
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
     if (searchString) {
       handleSearch(null, setOffset(0), searchString)
     } else {
-      getProjects(1)
+      getApprovedProjects(1)
     }
     //eslint-disable-next-line
-  }, [projectLength])
+  }, [approvedProjectsLength])
 
   useEffect(() => {
-    if (searchString.length === 0) getProjects(1)
-  }, [getProjects, searchString])
+    if (searchString.length === 0) getApprovedProjects(1)
+  }, [getApprovedProjects, searchString])
 
   const handleSearch = (e, offset, searchString) => {
     if (e) e.preventDefault()
-    searchProjects(offset, searchString)
+    searchProjects(offset, searchString, true)
     console.log(projects)
   }
 
@@ -40,7 +45,7 @@ const ProjectSearch = props => {
             value={searchString}
             variant="outlined"
             name="searchString"
-            style={{ padding: 24 , marginTop: 28}}
+            style={{ padding: 24, marginTop: 28 }}
             id="searchInput"
             //eslint-disable-next-line
             type="search"
@@ -50,22 +55,24 @@ const ProjectSearch = props => {
               setSearchString(e.target.value)
             }}
             //added on key press for enter and then e.which for return
-            onKeyPress={ e => {
-              if (e.key === 'Enter' || e.which === 13) {
+            onKeyPress={e => {
+              if (e.key === "Enter" || e.which === 13) {
                 handleSearch(e, 1, searchString)
               }
-            }
-          }
+            }}
           />
           <Button
             label="Search"
             variant="contained"
             type="submit"
             color="primary"
-            style={!searchString ? {background: '#c4c4c4'} : {background: '#1a61b0'}}
+            style={
+              !searchString
+                ? { background: "#c4c4c4" }
+                : { background: "#1a61b0" }
+            }
             disabled={!searchString ? true : false}
             onClick={e => handleSearch(e, 1, searchString)}
-            
           >
             Search
           </Button>
@@ -78,15 +85,15 @@ const ProjectSearch = props => {
           outerButtonCount={1}
           reduced={true}
           offset={offset}
-          // total number of pages we want to render; dynamic by rounding up quotient of projectLength and projects per page (12)
-          total={Math.ceil(projectLength / 12)}
+          // total number of pages we want to render; dynamic by rounding up quotient of approvedProjectsLength and projects per page (12)
+          total={Math.ceil(approvedProjectsLength / 12)}
           onClick={(e, offset) => {
             setOffset(offset)
             // send the correct page query (i.e. /api/projects?page=2)
             if (searchString) {
-              searchProjects(offset + 1, searchString)
+              searchProjects(offset + 1, searchString, true)
             } else {
-              getProjects(offset + 1)
+              getApprovedProjects(offset + 1)
             }
           }}
         />
@@ -106,15 +113,15 @@ const ProjectSearch = props => {
         outerButtonCount={1}
         reduced={true}
         offset={offset}
-        // total number of pages we want to render; dynamic by rounding up quotient of projectLength and projects per page (12)
-        total={Math.ceil(projectLength / 12)}
+        // total number of pages we want to render; dynamic by rounding up quotient of approvedProjectsLength and projects per page (12)
+        total={Math.ceil(approvedProjectsLength / 12)}
         onClick={(e, offset) => {
           setOffset(offset)
           // send the correct page query (i.e. /api/projects?page=2)
           if (searchString) {
-            searchProjects(offset + 1, searchString)
+            searchProjects(offset + 1, searchString, true)
           } else {
-            getProjects(offset + 1)
+            getApprovedProjects(offset + 1)
           }
         }}
       />
@@ -129,5 +136,5 @@ const mapStateToProps = ({ projectsReducer }) => {
 }
 export default connect(
   mapStateToProps,
-  { getProjects, searchProjects }
+  { getApprovedProjects, searchProjects }
 )(ProjectSearch)
