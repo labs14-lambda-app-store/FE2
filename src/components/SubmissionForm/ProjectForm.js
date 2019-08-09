@@ -4,7 +4,11 @@ import { connect } from "react-redux"
 import Confirm from "./Confirm"
 import Success from "./Success"
 import ProjectDetails from "./ProjectDetails"
-import { addProject, getProjects, sendImageToCloudinary } from "../../actions"
+import {
+  addProject,
+  getApprovedProjects,
+  sendImageToCloudinary,
+} from "../../actions"
 
 var moment = require("moment")
 
@@ -58,7 +62,7 @@ const ProjectForm = props => {
     }
 
     props.addProject(newPost).then(res => {
-      getProjects()
+      getApprovedProjects()
     })
   }
 
@@ -98,5 +102,5 @@ const mapStateToProps = ({ projectsReducer, imagesReducer }) => {
 
 export default connect(
   mapStateToProps,
-  { getProjects, addProject, sendImageToCloudinary }
+  { getApprovedProjects, addProject, sendImageToCloudinary }
 )(ProjectForm)

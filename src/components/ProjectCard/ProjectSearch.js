@@ -6,12 +6,12 @@ import Grid from "@material-ui/core/Grid"
 import { connect } from "react-redux"
 
 import Project from "./Project.js"
-import { getProjects, searchProjects } from "../../actions"
+import { getApprovedProjects, searchProjects } from "../../actions"
 
 const ProjectSearch = props => {
   const [searchString, setSearchString] = useState("")
   const {
-    getProjects,
+    getApprovedProjects,
     projects,
     searchProjects,
     approvedProjectsLength,
@@ -22,18 +22,18 @@ const ProjectSearch = props => {
     if (searchString) {
       handleSearch(null, setOffset(0), searchString)
     } else {
-      getProjects(1)
+      getApprovedProjects(1)
     }
     //eslint-disable-next-line
   }, [approvedProjectsLength])
 
   useEffect(() => {
-    if (searchString.length === 0) getProjects(1)
-  }, [getProjects, searchString])
+    if (searchString.length === 0) getApprovedProjects(1)
+  }, [getApprovedProjects, searchString])
 
   const handleSearch = (e, offset, searchString) => {
     if (e) e.preventDefault()
-    searchProjects(offset, searchString)
+    searchProjects(offset, searchString, true)
     console.log(projects)
   }
 
@@ -91,9 +91,9 @@ const ProjectSearch = props => {
             setOffset(offset)
             // send the correct page query (i.e. /api/projects?page=2)
             if (searchString) {
-              searchProjects(offset + 1, searchString)
+              searchProjects(offset + 1, searchString, true)
             } else {
-              getProjects(offset + 1)
+              getApprovedProjects(offset + 1)
             }
           }}
         />
@@ -119,9 +119,9 @@ const ProjectSearch = props => {
           setOffset(offset)
           // send the correct page query (i.e. /api/projects?page=2)
           if (searchString) {
-            searchProjects(offset + 1, searchString)
+            searchProjects(offset + 1, searchString, true)
           } else {
-            getProjects(offset + 1)
+            getApprovedProjects(offset + 1)
           }
         }}
       />
@@ -136,5 +136,5 @@ const mapStateToProps = ({ projectsReducer }) => {
 }
 export default connect(
   mapStateToProps,
-  { getProjects, searchProjects }
+  { getApprovedProjects, searchProjects }
 )(ProjectSearch)

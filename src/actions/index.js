@@ -11,7 +11,8 @@ export {
   GET_PENDING_PROJECTS_START,
   GET_PENDING_PROJECTS_SUCCESS,
   GET_PENDING_PROJECTS_FAIL,
-  getProjects,
+  getPendingProjects,
+  getApprovedProjects,
   addProject,
   searchProjects,
 } from "./projectActions"

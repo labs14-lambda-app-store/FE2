@@ -50,7 +50,7 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         projects: action.payload,
-        projectLength: action.projectLength,
+        approvedProjectsLength: action.projectLength,
         isFetching: false,
       }
     case SEARCH_PROJECTS_FAIL:
