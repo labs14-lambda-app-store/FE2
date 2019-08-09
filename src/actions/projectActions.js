@@ -1,24 +1,30 @@
 import axios from "axios"
 import { baseProjectsUrl } from "../constants"
-export const GET_PROJECTS_START = "GET_PROJECTS_START"
-export const GET_PROJECTS_SUCCESS = "GET_PROJECTS_SUCCESS"
-export const GET_PROJECTS_FAIL = "GET_PROJECTS_FAIL"
+export const GET_APPROVED_PROJECTS_START = "GET_APPROVED_PROJECTS_START"
+export const GET_APPROVED_PROJECTS_SUCCESS = "GET_APPROVED_PROJECTS_SUCCESS"
+export const GET_APPROVED_PROJECTS_FAIL = "GET_APPROVED_PROJECTS_FAIL"
 
 export const getProjects = page => async dispatch => {
-  dispatch({ type: GET_PROJECTS_START })
+  dispatch({ type: GET_APPROVED_PROJECTS_START })
 
   try {
-    const result = await axios.get(`${baseProjectsUrl}?page=${page}`)
+    const result = await axios.get(
+      `${baseProjectsUrl}?page=${page}&approved=true`
+    )
     // payload = projects from backend; projectLength = project length from backend for pagination total
     dispatch({
-      type: GET_PROJECTS_SUCCESS,
+      type: GET_APPROVED_PROJECTS_SUCCESS,
       payload: result.data.projects,
-      projectLength: result.data.projectLength,
+      projectLength: result.data.length,
     })
   } catch (err) {
-    dispatch({ type: GET_PROJECTS_FAIL, payload: err })
+    dispatch({ type: GET_APPROVED_PROJECTS_FAIL, payload: err })
   }
 }
+
+export const GET_PENDING_PROJECTS_START = "GET_PENDING_PROJECTS_START"
+export const GET_PENDING_PROJECTS_SUCCESS = "GET_PENDING_PROJECTS_SUCCESS"
+export const GET_PENDING_PROJECTS_FAIL = "GET_PENDING_PROJECTS_FAIL"
 
 export const SEARCH_PROJECTS_START = "SEARCH_PROJECTS_START"
 export const SEARCH_PROJECTS_SUCCESS = "SEARCH_PROJECTS_SUCCESS"
