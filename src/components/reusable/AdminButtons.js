@@ -1,36 +1,55 @@
 import React from "react"
-import Button from "@material-ui/core/Button"
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { updateProject, deleteProject, getProjects } from '../../actions/'
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
+
+import {
+  updateProject,
+  deleteProject,
+  getProjects,
+  addComment,
+} from "../../actions/"
+
+import Button from "@material-ui/core/Button"
+import TextField from "@material-ui/core/TextField"
+import Dialog from "@material-ui/core/Dialog"
+import DialogActions from "@material-ui/core/DialogActions"
+import DialogContent from "@material-ui/core/DialogContent"
+import DialogContentText from "@material-ui/core/DialogContentText"
+import DialogTitle from "@material-ui/core/DialogTitle"
+import { func } from "prop-types"
 
 const style = { fontSize: "1.4rem", margin: "0 10px" }
 
 const AdminButtons = props => {
-  const [handleDenyModal, setHandleDenyModal] = React.useState(false);
-  const [handleApproveModal, setHandleApproveModal] = React.useState(false);
-  const { project, history, isModalOpen, setIsOpen, getProjects } = props
+  const [handleDenyModal, setHandleDenyModal] = React.useState(false)
+  const [handleApproveModal, setHandleApproveModal] = React.useState(false)
+  const [handleCommentModal, setHandleCommentModal] = React.useState(false)
+  const [comment, setComment] = React.useState("")
+  console.log({ comment })
+  const {
+    project,
+    history,
+    isModalOpen,
+    setIsOpen,
+    getProjects,
+    addComment,
+  } = props
   console.log(props)
-  const { 
+  const {
     id,
-    name, 
-    is_approved, 
-    description, 
-    hosted_url, 
-    frontend_url, 
-    backend_url, 
-    approved_at, 
-    submitted_at, 
-    display_image, 
-    in_development, 
-    is_live, 
-    is_featured, 
-    category_id 
+    name,
+    is_approved,
+    description,
+    hosted_url,
+    frontend_url,
+    backend_url,
+    approved_at,
+    submitted_at,
+    display_image,
+    in_development,
+    is_live,
+    is_featured,
+    category_id,
   } = props.project
 
   let updatedProject = {
@@ -38,18 +57,17 @@ const AdminButtons = props => {
     name,
     is_approved,
     description,
-    hosted_url, 
-    frontend_url, 
-    backend_url, 
-    approved_at, 
-    submitted_at, 
-    display_image, 
-    in_development, 
-    is_live, 
-    is_featured, 
-    category_id
+    hosted_url,
+    frontend_url,
+    backend_url,
+    approved_at,
+    submitted_at,
+    display_image,
+    in_development,
+    is_live,
+    is_featured,
+    category_id,
   }
-
 
   function handleConfirm() {
     setHandleApproveModal(!handleApproveModal)
@@ -59,17 +77,25 @@ const AdminButtons = props => {
     setHandleDenyModal(!handleDenyModal)
   }
 
+  function handleComment() {
+    setHandleCommentModal(!handleCommentModal)
+  }
+
+  function handleAddComment(comment) {
+    props.addComment(comment).then(res => {
+      setIsOpen(!isModalOpen)
+    })
+  }
+
   function handleUpdateProject(project, id) {
-    props.updateProject(project, id)
-    .then(res => {
+    props.updateProject(project, id).then(res => {
       setIsOpen(!isModalOpen)
       getProjects()
     })
   }
 
   function handleDeleteProject(id) {
-    props.deleteProject(id)
-    .then(res => {
+    props.deleteProject(id).then(res => {
       setIsOpen(!isModalOpen)
       getProjects()
     })
@@ -95,6 +121,15 @@ const AdminButtons = props => {
       >
         Deny
       </Button>
+      <Button
+        className="admin-button"
+        size="small"
+        color="default"
+        style={style}
+        onClick={handleComment}
+      >
+        Comment
+      </Button>
 
       <Dialog
         open={handleApproveModal}
@@ -102,19 +137,26 @@ const AdminButtons = props => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Approve this project?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+          {"Approve this project?"}
+        </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you sure you want to approve this project? Approving this project will move it into the gallery.
+            Are you sure you want to approve this project? Approving this
+            project will move it into the gallery.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleConfirm} color="secondary">
             Cancel
           </Button>
-          <Button onClick={() => {
-            handleUpdateProject({ ...updatedProject, is_approved: true }, id)
-          }} color="primary" autoFocus>
+          <Button
+            onClick={() => {
+              handleUpdateProject({ ...updatedProject, is_approved: true }, id)
+            }}
+            color="primary"
+            autoFocus
+          >
             Approve
           </Button>
         </DialogActions>
@@ -127,20 +169,58 @@ const AdminButtons = props => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Deny this project?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+          {"Deny this project?"}
+        </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you sure you want to deny this project? Denying this project will delete this project.
+            Are you sure you want to deny this project? Denying this project
+            will delete this project.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleDeny} color="secondary">
             No
           </Button>
-          <Button onClick={() =>{
-            handleDeleteProject(id)
-          }} color="primary" autoFocus>
+          <Button
+            onClick={() => {
+              handleDeleteProject(id)
+            }}
+            color="primary"
+            autoFocus
+          >
             Yes
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog
+        open={handleCommentModal}
+        onClose={handleComment}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Comment</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            To leave a comment on this project, please enter your thoughts here.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            value={comment}
+            margin="dense"
+            id="name"
+            label="Comment"
+            type="text"
+            fullWidth
+            onChange={e => setComment(e)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleComment} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={() => handleAddComment(comment)} color="primary">
+            Submit
           </Button>
         </DialogActions>
       </Dialog>
@@ -148,13 +228,16 @@ const AdminButtons = props => {
   )
 }
 
-const mapStateToProps = ({ projectsReducer }) => {
+const mapStateToProps = ({ projectsReducer, commentsReducer }) => {
   return {
     ...projectsReducer,
+    commentsReducer,
   }
 }
 
-export default withRouter (connect(
-  mapStateToProps,
-  { updateProject, deleteProject, getProjects }
-)(AdminButtons))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { updateProject, deleteProject, getProjects, addComment }
+  )(AdminButtons)
+)

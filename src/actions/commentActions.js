@@ -4,7 +4,7 @@ export const ADD_COMMENT_START = "ADD_COMMENT_START"
 export const ADD_COMMENT_SUCCESS = "ADD_COMMENT_SUCCESS"
 export const ADD_COMMENT_FAIL = "ADD_COMMENT_FAIL"
 
-export const addComment = () => async dispatch => {
+export const addComment = newComment => async dispatch => {
   dispatch({ type: ADD_COMMENT_START })
 
   try {
