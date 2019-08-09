@@ -32,7 +32,7 @@ export const getPendingProjects = page => async dispatch => {
 
   try {
     const result = await axios.get(
-      `${baseProjectsUrl}?page=${page}&approved=true`
+      `${baseProjectsUrl}?page=${page}&approved=false`
     )
 
     // payload = projects from backend; projectLength = project length from backend for pagination total

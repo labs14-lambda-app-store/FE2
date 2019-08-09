@@ -41,6 +41,23 @@ const projectsReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
       }
+    case GET_PENDING_PROJECTS_START:
+      return {
+        ...state,
+        isFetching: true,
+      }
+    case GET_PENDING_PROJECTS_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        projects: action.payload,
+        pendingProjectsLength: action.projectLength,
+      }
+    case GET_PENDING_PROJECTS_FAIL:
+      return {
+        ...state,
+        isFetching: false,
+      }
     case SEARCH_PROJECTS_START:
       return {
         ...state,

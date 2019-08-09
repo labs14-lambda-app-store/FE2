@@ -6,11 +6,11 @@ import Grid from "@material-ui/core/Grid"
 import { connect } from "react-redux"
 
 import { Project } from "../ProjectCard"
-import { getApprovedProjects, searchProjects } from "../../actions"
+import { getPendingProjects, searchProjects } from "../../actions"
 
 const PendingSearch = props => {
   const [searchString, setSearchString] = useState("")
-  const { getApprovedProjects, projects, searchProjects, projectLength } = props
+  const { getPendingProjects, projects, searchProjects, projectLength } = props
   const [offset, setOffset] = useState(0)
 
   const filterArray = projects.filter(
@@ -21,14 +21,14 @@ const PendingSearch = props => {
     if (searchString) {
       handleSearch(null, setOffset(0), searchString)
     } else {
-      getApprovedProjects(1)
+      getPendingProjects(1)
     }
     //eslint-disable-next-line
   }, [projectLength])
 
   useEffect(() => {
-    if (searchString.length === 0) getApprovedProjects(1)
-  }, [getApprovedProjects, searchString])
+    if (searchString.length === 0) getPendingProjects(1)
+  }, [getPendingProjects, searchString])
 
   const handleSearch = (e, offset, searchString) => {
     if (e) e.preventDefault()
@@ -90,7 +90,7 @@ const PendingSearch = props => {
             if (searchString) {
               searchProjects(offset + 1, searchString, false)
             } else {
-              getApprovedProjects(offset + 1)
+              getPendingProjects(offset + 1)
             }
           }}
         />
@@ -117,7 +117,7 @@ const PendingSearch = props => {
           if (searchString) {
             searchProjects(offset + 1, searchString, false)
           } else {
-            getApprovedProjects(offset + 1)
+            getPendingProjects(offset + 1)
           }
         }}
       />
@@ -132,5 +132,5 @@ const mapStateToProps = ({ projectsReducer }) => {
 }
 export default connect(
   mapStateToProps,
-  { getApprovedProjects, searchProjects }
+  { getPendingProjects, searchProjects }
 )(PendingSearch)
