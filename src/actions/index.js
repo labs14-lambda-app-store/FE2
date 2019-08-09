@@ -18,7 +18,7 @@ export {
   addProject,
   searchProjects,
   updateProject,
-  deleteProject
+  deleteProject,
 } from "./projectActions"
 
 export {
@@ -34,3 +34,10 @@ export {
   LOGIN_USER_FAIL,
   loginUser,
 } from "./userActions"
+
+export {
+  ADD_COMMENT_START,
+  ADD_COMMENT_SUCCESS,
+  ADD_COMMENT_FAIL,
+  addComment,
+} from "./commentActions"
