@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom"
 import {
   updateProject,
   deleteProject,
-  getProjects,
+  getPendingProjects,
   addComment,
 } from "../../actions/"
 
@@ -24,14 +24,12 @@ const AdminButtons = props => {
   const [handleDenyModal, setHandleDenyModal] = React.useState(false)
   const [handleApproveModal, setHandleApproveModal] = React.useState(false)
   const [handleCommentModal, setHandleCommentModal] = React.useState(false)
-  const [comment, setComment] = React.useState("")
-  console.log({ comment })
   const {
     project,
     history,
     isModalOpen,
     setIsOpen,
-    getProjects,
+    getPendingProjects,
     addComment,
   } = props
   console.log(props)
@@ -69,6 +67,16 @@ const AdminButtons = props => {
     category_id,
   }
 
+  const [state, setStateValues] = React.useState({
+    comment: "",
+    project_id: id,
+  })
+  console.log({ comment: state.comment })
+
+  const handleStateChanges = e => {
+    setStateValues({ ...state, [e.target.name]: e.target.value })
+  }
+
   function handleConfirm() {
     setHandleApproveModal(!handleApproveModal)
   }
@@ -90,14 +98,14 @@ const AdminButtons = props => {
   function handleUpdateProject(project, id) {
     props.updateProject(project, id).then(res => {
       setIsOpen(!isModalOpen)
-      getProjects()
+      getPendingProjects()
     })
   }
 
   function handleDeleteProject(id) {
     props.deleteProject(id).then(res => {
       setIsOpen(!isModalOpen)
-      getProjects()
+      getPendingProjects()
     })
   }
 
@@ -206,20 +214,21 @@ const AdminButtons = props => {
           </DialogContentText>
           <TextField
             autoFocus
-            value={comment}
+            value={state.comment}
+            name="comment"
             margin="dense"
             id="name"
             label="Comment"
             type="text"
             fullWidth
-            onChange={e => setComment(e)}
+            onChange={e => handleStateChanges(e)}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleComment} color="primary">
             Cancel
           </Button>
-          <Button onClick={() => handleAddComment(comment)} color="primary">
+          <Button onClick={() => handleAddComment(state)} color="primary">
             Submit
           </Button>
         </DialogActions>
@@ -238,6 +247,6 @@ const mapStateToProps = ({ projectsReducer, commentsReducer }) => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { updateProject, deleteProject, getProjects, addComment }
+    { updateProject, deleteProject, getPendingProjects, addComment }
   )(AdminButtons)
 )

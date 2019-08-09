@@ -76,6 +76,7 @@ const projectsReducer = (state = initialState, action) => {
         ...state,
         projects: action.payload,
         approvedProjectsLength: action.projectLength,
+        pendingProjectsLength: action.projectLength,
         isFetching: false,
       }
     case SEARCH_PROJECTS_FAIL:
