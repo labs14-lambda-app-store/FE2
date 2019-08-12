@@ -106,16 +106,6 @@ const mapStateToProps = ({ usersReducer }) => {
   }
 }
 
-// export const AuthRedux = connect(
-//   mapStateToProps,
-//   { loginUser }
-// )(Auth0Provider)
-
-// export default connect(
-//   mapStateToProps,
-//   { loginUser }
-// )(Auth0Provider)
-
 export default connect(
   null,
   { loginUser }
