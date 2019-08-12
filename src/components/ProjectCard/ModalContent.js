@@ -36,7 +36,8 @@ const ModalContent = props => {
           </li>
         </ul>
       </div>
-      {project.is_approved ? <TagsList project={project} /> : <AdminButtons />}
+      {project.is_approved ? <TagsList project={project} /> : <AdminButtons project={project}
+      setIsOpen={setIsOpen} isModalOpen={isModalOpen} />}
     </main>
   )
 }

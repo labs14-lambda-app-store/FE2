@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import createAuth0Client from "@auth0/auth0-spa-js"
+import { loginUser } from "../../actions"
+import { connect } from "react-redux"
 
 //https://github.com/auth0/auth0-spa-js - refer for further details on auth usage
 
@@ -8,8 +10,9 @@ const DEFAULT_REDIRECT_CALLBACK = () =>
 
 export const Auth0Context = React.createContext()
 export const useAuth0 = () => useContext(Auth0Context)
-export const Auth0Provider = ({
+const Auth0Provider = ({
   children,
+  loginUser,
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   ...initOptions
 }) => {
@@ -17,7 +20,6 @@ export const Auth0Provider = ({
   const [user, setUser] = useState()
   const [auth0Client, setAuth0] = useState()
   const [loading, setLoading] = useState(true)
-  const [popupOpen, setPopupOpen] = useState(false)
 
   useEffect(() => {
     const initAuth0 = async () => {
@@ -35,6 +37,18 @@ export const Auth0Provider = ({
 
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser()
+
+        //sent to backend to check if user from auth0 exists in // DB and returns user
+        const retrieveUser = {
+          username: user.nickname,
+          email: user.email,
+          sub_id: user.sub,
+          first_name: user.given_name,
+          last_name: user.family_name,
+          pictureURL: user.picture,
+        }
+
+        loginUser(retrieveUser)
         setUser(user)
       }
 
@@ -43,20 +57,6 @@ export const Auth0Provider = ({
     initAuth0()
     //eslint-disable-next-line
   }, [])
-
-  const loginWithPopup = async (params = {}) => {
-    setPopupOpen(true)
-    try {
-      await auth0Client.loginWithPopup(params)
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setPopupOpen(false)
-    }
-    const user = await auth0Client.getUser()
-    setUser(user)
-    setIsAuthenticated(true)
-  }
 
   const handleRedirectCallback = async () => {
     setLoading(true)
@@ -72,8 +72,6 @@ export const Auth0Provider = ({
         isAuthenticated,
         user,
         loading,
-        popupOpen,
-        loginWithPopup,
         handleRedirectCallback,
         getIdTokenClaims: (...p) => auth0Client.getIdTokenClaims(...p),
         loginWithRedirect: (...p) => auth0Client.loginWithRedirect(...p),
@@ -86,3 +84,14 @@ export const Auth0Provider = ({
     </Auth0Context.Provider>
   )
 }
+
+const mapStateToProps = ({ usersReducer }) => {
+  return {
+    ...usersReducer,
+  }
+}
+
+export default connect(
+  null,
+  { loginUser }
+)(Auth0Provider)

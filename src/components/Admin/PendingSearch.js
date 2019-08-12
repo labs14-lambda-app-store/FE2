@@ -10,12 +10,13 @@ import { getPendingProjects, searchProjects } from "../../actions"
 
 const PendingSearch = props => {
   const [searchString, setSearchString] = useState("")
-  const { getPendingProjects, projects, searchProjects, projectLength } = props
+  const {
+    getPendingProjects,
+    projects,
+    searchProjects,
+    pendingProjectsLength,
+  } = props
   const [offset, setOffset] = useState(0)
-
-  const filterArray = projects.filter(
-    currentProject => currentProject.is_approved === false
-  )
 
   useEffect(() => {
     if (searchString) {
@@ -24,7 +25,7 @@ const PendingSearch = props => {
       getPendingProjects(1)
     }
     //eslint-disable-next-line
-  }, [projectLength])
+  }, [pendingProjectsLength])
 
   useEffect(() => {
     if (searchString.length === 0) getPendingProjects(1)
@@ -83,7 +84,7 @@ const PendingSearch = props => {
           reduced={true}
           offset={offset}
           // total number of pages we want to render; dynamic by rounding up quotient of projectLength and projects per page (12)
-          total={Math.ceil(projectLength / 12)}
+          total={Math.ceil(pendingProjectsLength / 12)}
           onClick={(e, offset) => {
             setOffset(offset)
             // send the correct page query (i.e. /api/projects?page=2)
@@ -96,11 +97,12 @@ const PendingSearch = props => {
         />
       </div>
       <Grid container spacing={2} style={{ padding: 24 }}>
-        {filterArray.map(currentProject => (
-          <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
-            <Project project={currentProject} key={currentProject.id} />
-          </Grid>
-        ))}
+        {projects &&
+          projects.map(currentProject => (
+            <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
+              <Project project={currentProject} key={currentProject.id} />
+            </Grid>
+          ))}
       </Grid>
       <Pagination
         // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
@@ -110,7 +112,7 @@ const PendingSearch = props => {
         reduced={true}
         offset={offset}
         // total number of pages we want to render; dynamic by rounding up quotient of projectLength and projects per page (12)
-        total={Math.ceil(projectLength / 12)}
+        total={Math.ceil(pendingProjectsLength / 12)}
         onClick={(e, offset) => {
           setOffset(offset)
           // send the correct page query (i.e. /api/projects?page=2)
