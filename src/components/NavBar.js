@@ -14,7 +14,6 @@ import redLambdaLogo from "../assets/Lambda_Logo.png"
 const NavBar = props => {
   const { user } = props
   console.log("user", user)
-  // console.log('user role', user.role)
 
   return (
     <Router>
@@ -39,7 +38,8 @@ const NavBar = props => {
               >
                 Projects
               </Button>
-
+              
+              {/* if there is a user, and the user's roll is admin, show pending projects nav button, else if there is a user and the user's role isn't admin, show the submit form nav button. else don't show either buttons */}
               {user ? (
                 user.role==="admin" ? (
                     <Button
