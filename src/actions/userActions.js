@@ -35,7 +35,7 @@ export const checkTokenLoginUser = async dispatch => {
   if (userID) {
     try {
       const user = await axios.get(`${baseUsersUrl}/${userID}`)
-      dispatch({ type: CHECK_COOKIE_LOGIN_SUCCESS, payload: result })
+      dispatch({ type: CHECK_COOKIE_LOGIN_SUCCESS, payload: user })
     } catch (e) {
       dispatch({ type: CHECK_COOKIE_LOGIN_FAIL, payload: e.message })
     }
