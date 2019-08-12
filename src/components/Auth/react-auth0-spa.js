@@ -47,8 +47,8 @@ const Auth0Provider = ({
           last_name: user.family_name,
           pictureURL: user.picture,
         }
+        const userData = await loginUser(retrieveUser)
 
-        loginUser(retrieveUser)
         setUser(user)
       }
 

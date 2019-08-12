@@ -11,25 +11,25 @@ import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Home from "./components/Home"
+import Cookie from "js-cookie"
 
 import "./App.scss"
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#1a61b0',
-      contrastText: '#efeef3',
+      main: "#1a61b0",
+      contrastText: "#efeef3",
     },
     secondary: {
-      main: '#f32667',
-      contrastText: '#efeef3',
-    }
-  }
+      main: "#f32667",
+      contrastText: "#efeef3",
+    },
+  },
 })
 
 const App = () => {
   const { loading } = useAuth0()
-
   if (loading) return null
   return (
     <Router>
