@@ -2,9 +2,6 @@ import {
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  CHECK_COOKIE_LOGIN_START,
-  CHECK_COOKIE_LOGIN_SUCCESS,
-  CHECK_COOKIE_LOGIN_FAIL,
 } from "../actions"
 
 const initialState = {
@@ -21,6 +18,7 @@ const usersReducer = (state = initialState, action) => {
         isLoggingIn: true,
       }
     case LOGIN_USER_SUCCESS:
+      console.log(action)
       return {
         ...state,
         user: action.payload.user,
@@ -31,24 +29,6 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         message: action.payload.message,
-        isLoggingIn: false,
-      }
-    case CHECK_COOKIE_LOGIN_START:
-      return {
-        ...state,
-        isLoggingIn: true,
-      }
-    case CHECK_COOKIE_LOGIN_SUCCESS:
-      return {
-        ...state,
-        user: action.payload,
-        message: action.payload.message,
-        isLoggingIn: false,
-      }
-    case CHECK_COOKIE_LOGIN_FAIL:
-      return {
-        ...state,
-        message: action.payload,
         isLoggingIn: false,
       }
     default:
