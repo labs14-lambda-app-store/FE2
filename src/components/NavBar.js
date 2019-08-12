@@ -41,20 +41,23 @@ const NavBar = props => {
               </Button>
 
               {user ? (
-                <Button
-                  className="pendingProjectsButton"
-                  onClick={() => props.history.push("/pending-projects")}
-                >
-                  Pending Projects
-                </Button>
-              ) : (
-                <Button
-                  className="projectFormButton"
-                  onClick={() => props.history.push("/project-form")}
-                >
-                  Submit Project
-                </Button>
-              )}
+                user.role==="admin" ? (
+                    <Button
+                      className="pendingProjectsButton"
+                      onClick={() => props.history.push("/pending-projects")}
+                    >
+                      Pending Projects
+                    </Button>
+                  ) : (
+                    <Button
+                      className="projectFormButton"
+                      onClick={() => props.history.push("/project-form")}
+                    >
+                      Submit Project
+                    </Button>
+                  
+                )
+              ) : null }
 
               <AuthButton />
             </div>
