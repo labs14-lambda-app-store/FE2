@@ -9,10 +9,10 @@ const IsAdmin = props => {
         user,
     } = props
 
-    // console.log("PROPS YO", props)
-    // console.log("REDUCER YO", loginUser)
-    // console.log("USER YO", user)
-    // console.log("USER ROLE YO", user)
+    console.log("PROPS YO", props)
+    console.log("REDUCER YO", loginUser)
+    console.log("USER YO", user)
+    console.log("USER ROLE YO", user)
     // const IsAdmin = user.role;
 
     useEffect(() => {
