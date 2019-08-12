@@ -47,7 +47,7 @@ const Auth0Provider = ({
           last_name: user.family_name,
           pictureURL: user.picture,
         }
-        const userData = await loginUser(retrieveUser)
+        loginUser(retrieveUser)
 
         setUser(user)
       }
@@ -83,12 +83,6 @@ const Auth0Provider = ({
       {children}
     </Auth0Context.Provider>
   )
-}
-
-const mapStateToProps = ({ usersReducer }) => {
-  return {
-    ...usersReducer,
-  }
 }
 
 export default connect(

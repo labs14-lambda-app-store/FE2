@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 import { useAuth0 } from "./react-auth0-spa.js"
 
 const AuthButton = ({ first_name }) => {
-  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0()
+  const { loginWithRedirect, logout } = useAuth0()
 
   const logoutWithRedirect = () => {
     Cookie.remove("user_id")

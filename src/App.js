@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { useAuth0 } from "./components/Auth/react-auth0-spa"
 import { connect } from "react-redux"
-import { checkCookieLoginUser, loginUser } from "./actions"
+import { loginUser } from "./actions"
 import { BrowserRouter as Router } from "react-router-dom"
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
 import { Route } from "react-router-dom"
@@ -13,7 +13,6 @@ import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Home from "./components/Home"
-import Cookie from "js-cookie"
 
 import "./App.scss"
 
