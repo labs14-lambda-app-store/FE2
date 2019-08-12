@@ -29,7 +29,14 @@ const Project = props => {
               <Typography gutterBottom varient="heading" component="h3">
                 {name}
               </Typography>
-              <Typography className='categoryName' color='secondary' component='h1'>{category[0].category_name.toUpperCase()}</Typography>
+              <Typography className='categoryName' color='secondary' component='h1'>{category === undefined
+                  ? ""
+                  : category[0].category_name.toUpperCase()}
+              
+              
+
+              
+              </Typography>
               <Typography component="p">{description}</Typography>
             </div>
             <ProjectModal

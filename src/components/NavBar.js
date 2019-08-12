@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useReducer } from "react"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Button from "@material-ui/core/Button"
@@ -7,10 +7,13 @@ import { AuthButton } from "./Auth"
 import { MemoryRouter as Router, withRouter } from "react-router-dom"
 import redLambdaLogo from "../assets/Lambda_Logo.png"
 
+import IsAdmin from "./Admin/IsAdmin"
+
 // I've imported Material UI packages above,
 // and implemented them in a functional component below
 
 const NavBar = props => {
+
   return (
     <Router>
       <div>
@@ -34,12 +37,16 @@ const NavBar = props => {
               >
                 Projects
               </Button>
-              <Button onClick={() => props.history.push("/pending-projects")}>
+              {/* <Button onClick={() => props.history.push("/pending-projects")}>
                 Pending Projects
               </Button>
+
               <Button onClick={() => props.history.push("/project-form")}>
                 Submit Project
-              </Button>
+              </Button> */}
+
+              <IsAdmin />,
+
               <AuthButton />
             </div>
           </Toolbar>
