@@ -1,5 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useAuth0 } from "./components/Auth/react-auth0-spa"
+import { connect } from "react-redux"
+import { checkCookieLoginUser, loginUser } from "./actions"
 import { BrowserRouter as Router } from "react-router-dom"
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
 import { Route } from "react-router-dom"
@@ -28,9 +30,13 @@ const theme = createMuiTheme({
   },
 })
 
-const App = () => {
+const App = ({ loginUser }) => {
+  useEffect(() => {
+    loginUser()
+  }, [loginUser])
   const { loading } = useAuth0()
   if (loading) return null
+
   return (
     <Router>
       <MuiThemeProvider theme={theme}>
@@ -49,4 +55,7 @@ const App = () => {
   )
 }
 
-export default App
+export default connect(
+  null,
+  { loginUser }
+)(App)
