@@ -20,7 +20,6 @@ const Auth0Provider = ({
   const [user, setUser] = useState()
   const [auth0Client, setAuth0] = useState()
   const [loading, setLoading] = useState(true)
-  const [popupOpen, setPopupOpen] = useState(false)
 
   useEffect(() => {
     const initAuth0 = async () => {
@@ -39,6 +38,7 @@ const Auth0Provider = ({
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser()
 
+        //sent to backend to check if user from auth0 exists in // DB and returns user
         const retrieveUser = {
           username: user.nickname,
           email: user.email,
@@ -47,6 +47,7 @@ const Auth0Provider = ({
           last_name: user.family_name,
           pictureURL: user.picture,
         }
+
         loginUser(retrieveUser)
         setUser(user)
       }
@@ -56,20 +57,6 @@ const Auth0Provider = ({
     initAuth0()
     //eslint-disable-next-line
   }, [])
-
-  const loginWithPopup = async (params = {}) => {
-    setPopupOpen(true)
-    try {
-      await auth0Client.loginWithPopup(params)
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setPopupOpen(false)
-    }
-    const user = await auth0Client.getUser()
-    setUser(user)
-    setIsAuthenticated(true)
-  }
 
   const handleRedirectCallback = async () => {
     setLoading(true)
@@ -85,8 +72,6 @@ const Auth0Provider = ({
         isAuthenticated,
         user,
         loading,
-        popupOpen,
-        loginWithPopup,
         handleRedirectCallback,
         getIdTokenClaims: (...p) => auth0Client.getIdTokenClaims(...p),
         loginWithRedirect: (...p) => auth0Client.loginWithRedirect(...p),
