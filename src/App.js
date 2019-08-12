@@ -32,9 +32,11 @@ const theme = createMuiTheme({
 
 const App = ({ loginUser }) => {
   const { loading } = useAuth0()
+
   useEffect(() => {
     loginUser()
   }, [loginUser])
+
   if (loading) return null
 
   return (

@@ -18,7 +18,6 @@ const usersReducer = (state = initialState, action) => {
         isLoggingIn: true,
       }
     case LOGIN_USER_SUCCESS:
-      console.log(action)
       return {
         ...state,
         user: action.payload.user,
