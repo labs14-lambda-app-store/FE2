@@ -1,5 +1,4 @@
 import React from "react"
-import Chip from "@material-ui/core/Chip"
 import TagsList from "../reusable/TagsList"
 import AdminButtons from "../reusable/AdminButtons"
 
@@ -8,11 +7,15 @@ const ModalContent = props => {
   return (
     <main className="modal-content">
       <div className="image-container">
-        <img src={project.display_image} className="image" />
+        <img
+          src={project.display_image}
+          className="image"
+          alt="Project cover"
+        />
       </div>
       <h2 className="name">{project.name}</h2>
       {/* div for in-modal close button */}
-      <div className='exit' onClick={() => setIsOpen(!isModalOpen)}>
+      <div className="exit" onClick={() => setIsOpen(!isModalOpen)}>
         <i class="material-icons">clear</i>
       </div>
       <a className="link" href={project.hosted_url}>
@@ -36,8 +39,15 @@ const ModalContent = props => {
           </li>
         </ul>
       </div>
-      {project.is_approved ? <TagsList project={project} /> : <AdminButtons project={project}
-      setIsOpen={setIsOpen} isModalOpen={isModalOpen} />}
+      {project.is_approved ? (
+        <TagsList project={project} />
+      ) : (
+        <AdminButtons
+          project={project}
+          setIsOpen={setIsOpen}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </main>
   )
 }

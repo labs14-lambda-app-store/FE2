@@ -1,6 +1,5 @@
 import React from "react"
 import Chip from "@material-ui/core/Chip"
-const primary = "#1a61b0"
 
 const TagsList = props => {
   const { project } = props

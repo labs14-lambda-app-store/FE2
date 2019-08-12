@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Modal } from "@material-ui/core"
 import ModalContent from "./ModalContent"
 
@@ -7,7 +7,6 @@ import ModalContent from "./ModalContent"
 const ProjectModal = props => {
   const { project, isModalOpen, setIsOpen } = props
 
-  const backGroundStyles = {}
   return (
     <main>
       <Modal
@@ -16,7 +15,11 @@ const ProjectModal = props => {
         open={isModalOpen}
         onClose={() => setIsOpen(!isModalOpen)}
       >
-        <ModalContent isModalOpen={isModalOpen} setIsOpen={setIsOpen} project={project} />
+        <ModalContent
+          isModalOpen={isModalOpen}
+          setIsOpen={setIsOpen}
+          project={project}
+        />
       </Modal>
     </main>
   )
