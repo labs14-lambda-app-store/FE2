@@ -26,6 +26,7 @@ export const loginUser = user => async dispatch => {
       //post request returns user data if user is already in DB or creates user then returns user
       result = await axios.post(`${baseUsersUrl}`, user)
       //sets user_id cookie when user logs in - expires in 7 days
+      console.log(result.data.user.id)
       Cookie.set("user_id", `${result.data.user.id}`, { expires: 7 })
       dispatch({
         type: LOGIN_USER_SUCCESS,
