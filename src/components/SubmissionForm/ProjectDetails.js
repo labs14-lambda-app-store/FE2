@@ -32,13 +32,9 @@ const ProjectDetails = props => {
     backend_url,
     name,
     description,
-    category_name,
-    category_id,
     display_image,
-    image_dropdown,
-    error_message,
     category,
-    // tags,         take out tags til the table works
+    error_message
   } = state
 
   const [categories, setCategories] = useState("")

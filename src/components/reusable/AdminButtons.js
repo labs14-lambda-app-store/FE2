@@ -16,7 +16,6 @@ import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
-import { func } from "prop-types"
 
 const style = { fontSize: "1.4rem", margin: "0 10px" }
 
@@ -25,12 +24,9 @@ const AdminButtons = props => {
   const [handleApproveModal, setHandleApproveModal] = React.useState(false)
   const [handleCommentModal, setHandleCommentModal] = React.useState(false)
   const {
-    project,
-    history,
     isModalOpen,
     setIsOpen,
     getPendingProjects,
-    addComment,
   } = props
   console.log(props)
   const {
@@ -136,7 +132,7 @@ const AdminButtons = props => {
         style={style}
         onClick={handleComment}
       >
-        Comment
+        +
       </Button>
 
       <Dialog

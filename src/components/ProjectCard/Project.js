@@ -9,7 +9,7 @@ import ProjectModal from "./ProjectModal"
 
 const Project = props => {
   const { project } = props
-  const { display_image, name, description, hosted_url, category, is_approved } = project
+  const { display_image, name, description, category, is_approved } = project
   
   const [isOpen, setIsOpen] = useState(false)
 
@@ -29,7 +29,7 @@ const Project = props => {
               <Typography gutterBottom varient="heading" component="h3">
                 {name}
               </Typography>
-              <Typography className='categoryName' color='secondary' component='h1'>{category[0].category_name.toUpperCase()}</Typography>
+              <Typography className='categoryName' color='secondary' component='h1'>{category === undefined ? '' : category[0].category_name.toUpperCase()}</Typography>
               <Typography component="p">{description}</Typography>
             </div>
             <ProjectModal
