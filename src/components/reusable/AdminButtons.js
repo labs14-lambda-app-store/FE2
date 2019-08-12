@@ -24,48 +24,32 @@ const AdminButtons = props => {
   const [handleApproveModal, setHandleApproveModal] = React.useState(false)
   const [handleCommentModal, setHandleCommentModal] = React.useState(false)
   const {
+    project,
     isModalOpen,
     setIsOpen,
     getPendingProjects,
   } = props
-  console.log(props)
-  const {
-    id,
-    name,
-    is_approved,
-    description,
-    hosted_url,
-    frontend_url,
-    backend_url,
-    approved_at,
-    submitted_at,
-    display_image,
-    in_development,
-    is_live,
-    is_featured,
-    category_id,
-  } = props.project
 
   let updatedProject = {
-    id,
-    name,
-    is_approved,
-    description,
-    hosted_url,
-    frontend_url,
-    backend_url,
-    approved_at,
-    submitted_at,
-    display_image,
-    in_development,
-    is_live,
-    is_featured,
-    category_id,
+    id: project.id,
+    name: project.name,
+    is_approved: project.is_approved,
+    description: project.description,
+    hosted_url: project.hosted_url,
+    frontend_url: project.frontend_url,
+    backend_url: project.backend_url,
+    approved_at: project.approved_at,
+    submitted_at: project.submitted_at,
+    display_image: project.display_image,
+    in_development: project.in_development,
+    is_live: project.is_live,
+    is_featured: project.is_featured,
+    category_id: project.category_id,
   }
 
   const [state, setStateValues] = React.useState({
     comment: "",
-    project_id: id,
+    project_id: project.id,
   })
   console.log({ comment: state.comment })
 
@@ -86,7 +70,7 @@ const AdminButtons = props => {
   }
 
   function handleAddComment(comment) {
-    props.addComment(comment).then(res => {
+    addComment(comment).then(res => {
       setIsOpen(!isModalOpen)
     })
   }
@@ -156,7 +140,10 @@ const AdminButtons = props => {
           </Button>
           <Button
             onClick={() => {
-              handleUpdateProject({ ...updatedProject, is_approved: true }, id)
+              handleUpdateProject(
+                { ...updatedProject, is_approved: true },
+                project.id
+              )
             }}
             color="primary"
             autoFocus
@@ -188,7 +175,7 @@ const AdminButtons = props => {
           </Button>
           <Button
             onClick={() => {
-              handleDeleteProject(id)
+              handleDeleteProject(project.id)
             }}
             color="primary"
             autoFocus
