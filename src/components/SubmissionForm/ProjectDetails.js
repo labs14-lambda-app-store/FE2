@@ -138,7 +138,6 @@ const ProjectDetails = props => {
           name="name"
           id="standard-required"
           label="App Name"
-          // margin="normal"
           onChange={e => handleStateChanges(e)}
         />
         <TextField
@@ -152,7 +151,6 @@ const ProjectDetails = props => {
           label="Description"
           name="description"
           helperText={`${charactersLeft} characters remaining...`}
-          margin="normal"
           onChange={e => handleStateChanges(e)}
           inputProps={{ maxLength: 255 }}
         />
@@ -165,7 +163,6 @@ const ProjectDetails = props => {
           required
           id="standard-required"
           label="Hosted URL"
-          margin="normal"
           name="hosted_url"
           onChange={e => handleStateChanges(e)}
           onBlur={e => hostedUrlValid(hosted_url)}
@@ -178,7 +175,6 @@ const ProjectDetails = props => {
           value={frontend_url}
           variant="outlined"
           label="Frontend URL"
-          margin="normal"
           name="frontend_url"
           onChange={e => handleStateChanges(e)}
           onBlur={e => frontendUrlValid(frontend_url)}
@@ -191,7 +187,6 @@ const ProjectDetails = props => {
           value={backend_url}
           variant="outlined"
           label="Backend URL"
-          margin="normal"
           name="backend_url"
           onChange={e => handleStateChanges(e)}
           onBlur={e => backendUrlValid(backend_url)}
