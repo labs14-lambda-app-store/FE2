@@ -55,12 +55,12 @@ const ProjectDetails = props => {
 
   //checks a url against the validator isUrl regex to check if url is a valid https or www location
   const isURLValid = url => {
-    if (validator.isURL(url)) {
+    if (validator.isURL(url, { protocols: ['http','https'], require_protocol: true})) {
       setStateValues({ ...state, error_message: "" })
     } else {
       setStateValues({
         ...state,
-        error_message: "Hosted URL is invalid, please include www or http",
+        error_message: "Invalid URL. Please include http:// or https://",
       })
     }
   }
