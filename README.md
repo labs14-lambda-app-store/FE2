@@ -66,7 +66,7 @@
 
 # APIs
 
-## 2️⃣ Authentication API here
+## 1️⃣ Authentication API here
 
 All accounts use [Auth0](https://auth0.com) for authentication.
 Auth0 provides us with authentication & authorization services and help keeps our app secured. 
@@ -85,7 +85,7 @@ In order for the app to function correctly, the user must set up their own envir
     * REACT_APP_OAUTH_CLIENT_ID - Is assigned to you by Auth0 upon account creation.
     * REACT_APP_OAUTH_DOMAIN - Is assigned to you by Auth0 upon account creation.
 
-# 5️⃣ Content Licenses
+# 4️⃣ Content Licenses
 
 |         Image Filename          | Source / Creator | License                                                                      |
 | ------------------------------- | ---------------- | ---------------------------------------------------------------------------- |
@@ -97,11 +97,11 @@ In order for the app to function correctly, the user must set up their own envir
 | LambdaLandingUX-Original.png    | Lambda School    | [UNCERTAIN] (url) |
 | LambdaLandingUX.png             | Lambda School    | [UNCERTAIN] (url) |
 
-# 4️⃣ Testing
+# 5️⃣ Testing
 
 🚫Document what you used for testing and why
 
-# 4️⃣ Installation Instructions
+# 6️⃣ Installation Instructions
 
 Run yarn install after cloning.
 
