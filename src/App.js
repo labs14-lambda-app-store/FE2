@@ -9,6 +9,7 @@ import { Route } from "react-router-dom"
 import ProjectForm from "./components/SubmissionForm/ProjectForm"
 import PendingSearch from "./components/Admin/PendingSearch"
 import { ProjectSearch } from "./components/ProjectCard"
+import ProtectedRoute from "./components/Auth/ProtectedRoute"
 import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
@@ -29,7 +30,7 @@ const theme = createMuiTheme({
   },
 })
 
-const App = ({ loginUser }) => {
+const App = ({ loginUser, user }) => {
   const { loading } = useAuth0()
 
   useEffect(() => {
@@ -46,9 +47,14 @@ const App = ({ loginUser }) => {
           <Header />
 
           <Route exact path="/" component={Home} />
-          <Route exact path="/project-form" component={ProjectForm} />
+          <ProtectedRoute exact path="/project-form" component={ProjectForm} />
           <Route path="/projects" exact component={ProjectSearch} />
-          <Route path="/pending-projects" exact component={PendingSearch} />
+          <ProtectedRoute
+            path="/pending-projects"
+            exact
+            adminRoute
+            component={PendingSearch}
+          />
           <Footer />
         </div>
       </MuiThemeProvider>
@@ -56,7 +62,12 @@ const App = ({ loginUser }) => {
   )
 }
 
+const mapStateToProps = ({ usersReducer }) => {
+  return {
+    user: { ...usersReducer },
+  }
+}
 export default connect(
-  null,
+  mapStateToProps,
   { loginUser }
 )(App)

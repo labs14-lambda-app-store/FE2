@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 
 import Confirm from "./Confirm"
 import Success from "./Success"
+import ProtectedRoute from "../Auth/ProtectedRoute"
 import ProjectDetails from "./ProjectDetails"
 import {
   addProject,
@@ -100,7 +101,8 @@ const mapStateToProps = ({ projectsReducer, imagesReducer }) => {
   }
 }
 
+const ProtectedComponent = () => <ProtectedRoute component={ProjectForm} />
 export default connect(
   mapStateToProps,
   { getApprovedProjects, addProject, sendImageToCloudinary }
-)(ProjectForm)
+)(ProtectedComponent)
