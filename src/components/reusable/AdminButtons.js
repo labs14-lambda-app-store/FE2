@@ -28,7 +28,6 @@ const AdminButtons = props => {
     isModalOpen,
     setIsOpen,
     getPendingProjects,
-    addComment,
   } = props
 
   let updatedProject = {
@@ -117,7 +116,7 @@ const AdminButtons = props => {
         style={style}
         onClick={handleComment}
       >
-        Comment
+        +
       </Button>
 
       <Dialog

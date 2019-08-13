@@ -33,9 +33,8 @@ const ProjectDetails = props => {
     name,
     description,
     display_image,
-    error_message,
     category,
-    // tags,         take out tags til the table works
+    error_message
   } = state
 
   const [categories, setCategories] = useState("")

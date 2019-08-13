@@ -27,6 +27,7 @@ const AuthButton = ({ first_name }) => {
       )}
       {userIDCookie && (
         <>
+
           <label style={{ color: "#0c3c78", fontSize: "1.1rem" }}>
             Hello {first_name}!
           </label>

@@ -127,12 +127,13 @@ const PendingSearch = props => {
   )
 }
 
-const mapStateToProps = ({ projectsReducer }) => {
+const mapStateToProps = ({ projectsReducer, usersReducer }) => {
   return {
     ...projectsReducer,
+    ...usersReducer
   }
 }
 export default connect(
   mapStateToProps,
-  { getPendingProjects, searchProjects }
+  { getPendingProjects, searchProjects,  }
 )(PendingSearch)
