@@ -56,12 +56,7 @@ const NavBar = props => {
                     </Button>
                   
                 )
-              ) :                     <Button
-              className="projectFormButton"
-              onClick={() => props.history.push("/project-form")}
-            >
-              Submit Project
-            </Button> }
+              ) : null }
 
               <AuthButton />
             </div>
