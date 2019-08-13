@@ -1,6 +1,6 @@
 # Lambda App Store
 
-<div align="center"><img src="./src/assets/Lambda-Logo.png" alt="logo"></div>
+<div align="center"><img src="./src/assets/Lambda_Logo.png" alt="logo"></div>
 
 ### Contributors:
 
@@ -37,7 +37,7 @@
 
 "Lambda App Store" is a Lambda Labs project built for Lambda School to create a central place to view and use the apps that our awesome students create.
 
-### 4️⃣ Key Features
+### 5️⃣ Key Features
 
 -    Students can create a profile to submit their completed/deployed apps
 -    Admins can approve or deny student app submissions
@@ -66,65 +66,51 @@
 
 # APIs
 
-## 2️⃣ Authentication API here
+## 1️⃣ Authentication API here
 
 All accounts use [Auth0](https://auth0.com) for authentication.
-
-🚫Replace text below with a description of the API
-
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+Auth0 provides us with authentication & authorization services and help keeps our app secured. 
 
 ## 2️⃣ Payment API here
 
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
-
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
+Stripe API
+We intend to implement Stripe into our app in a future product cycle. This will allow us to include the ability to subscribe and pay for access to premium apps.
 
 # 3️⃣ Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-🚫These are just examples, replace them with the specifics for your app
+    * REACT_APP_CLOUDINARY_URL - Our personal URL that we upload the images to.
+    * REACT_APP_CLOUDINARY_UPLOAD_ PRESET - Consists of upload parameters centrally managed using the Admin API.
+    * REACT_APP_OAUTH_CLIENT_ID - Is assigned to you by Auth0 upon account creation.
+    * REACT_APP_OAUTH_DOMAIN - Is assigned to you by Auth0 upon account creation.
 
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
+# 4️⃣ Content Licenses
 
-# 5️⃣ Content Licenses
+|         Image Filename          | Source / Creator | License                                                                      |
+| ------------------------------- | ---------------- | ---------------------------------------------------------------------------- |
+| Lambda_Avatar_Red.jpg           | Lambda School    | [UNCERTAIN] (url) |
+| Lambda_Avatar_White.jpg         | Lambda School    | [UNCERTAIN] (url) |
+| Lambda_Logo_white.png           | Lambda School    | [UNCERTAIN] (url) |
+| Lambda_Logo.png                 | Lambda School    | [UNCERTAIN] (url) |
+| lambda-student.png              | Lambda School    | [UNCERTAIN] (url) |
+| LambdaLandingUX-Original.png    | Lambda School    | [UNCERTAIN] (url) |
+| LambdaLandingUX.png             | Lambda School    | [UNCERTAIN] (url) |
 
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
+# 5️⃣ Testing
 
-| Image Filename | Source / Creator | License                                                                      |
-| -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
+For testing, we are using Cypress.io. Cypress.io responds and reloads in real time, automatically waits for the DOM to load before testing, the errors are easy to debug, and the documentation is clear.
 
-# 4️⃣ Testing
+# 6️⃣ Installation Instructions
 
-🚫Document what you used for testing and why
-
-# 4️⃣ Installation Instructions
-
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+Run yarn install after cloning.
 
 ## Other Scripts
 
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
     * build - creates a build of the application
     * start - starts the production server after a build is created
     * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+    * eject - moves create-react-app’s config files and start/build/test scripts into the app directory. 
 
 # Contributing
 
@@ -164,4 +150,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project.
+See [Backend Documentation](https://github.com/labs14-lambda-app-store/be2) for details on the backend of our project.
