@@ -117,7 +117,8 @@ const ProjectDetails = props => {
           value={description}
           variant='outlined'
           required
-          id="standard-required"
+          multiline
+          rows={3}
           label="Description"
           name="description"
           helperText={`${charactersLeft} characters remaining...`}
