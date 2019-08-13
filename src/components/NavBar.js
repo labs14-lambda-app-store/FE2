@@ -13,7 +13,6 @@ import redLambdaLogo from "../assets/Lambda_Logo.png"
 
 const NavBar = props => {
   const { user } = props
-  console.log("user", user)
 
   return (
     <Router>
