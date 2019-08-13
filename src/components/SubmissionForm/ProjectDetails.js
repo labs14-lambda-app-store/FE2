@@ -34,7 +34,9 @@ const ProjectDetails = props => {
     description,
     display_image,
     category,
-    error_message
+    error_message_hosted,
+    error_message_frontend,
+    error_message_backend,
   } = state
 
   const [categories, setCategories] = useState("")
@@ -54,15 +56,43 @@ const ProjectDetails = props => {
   const charactersLeft = 255 - description.length
 
   //checks a url against the validator isUrl regex to check if url is a valid https or www location
-  const isURLValid = url => {
-    if (validator.isURL(url, { protocols: ['http','https'], require_protocol: true})) {
-      setStateValues({ ...state, error_message: "" })
-    } else {
-      setStateValues({
-        ...state,
-        error_message: "Invalid URL. Please include http:// or https://",
-      })
-    }
+  const hostedUrlValid = url => {
+    validator.isURL(url, {
+      protocols: ["http", "https"],
+      require_protocol: true,
+    })
+      ? setStateValues({ ...state, error_message_hosted: "" })
+      : setStateValues({
+          ...state,
+          error_message_hosted:
+            "Invalid Hosted URL. Please enter a URL that includes http:// or https://",
+        })
+  }
+
+  const frontendUrlValid = url => {
+    validator.isURL(url, {
+      protocols: ["http", "https"],
+      require_protocol: true,
+    })
+      ? setStateValues({ ...state, error_message_frontend: "" })
+      : setStateValues({
+          ...state,
+          error_message_frontend:
+            "Invalid Frontend URL. Please enter a URL that includes http:// or https://",
+        })
+  }
+
+  const backendUrlValid = url => {
+    validator.isURL(url, {
+      protocols: ["http", "https"],
+      require_protocol: true,
+    })
+      ? setStateValues({ ...state, error_message_backend: "" })
+      : setStateValues({
+          ...state,
+          error_message_backend:
+            "Invalid Backend URL. Please enter a URL that includes http:// or https://",
+        })
   }
 
   const Continue = e => {
@@ -80,7 +110,7 @@ const ProjectDetails = props => {
           id="standard-select standard-required"
           required
           select
-          variant='outlined'
+          variant="outlined"
           label="Categories"
           name="category"
           helperText="Please select one"
@@ -101,7 +131,7 @@ const ProjectDetails = props => {
         </TextField>
         <TextField
           className="submitInput"
-          variant='outlined'
+          variant="outlined"
           type="text"
           value={name} /*???*/
           required
@@ -115,7 +145,7 @@ const ProjectDetails = props => {
           className="submitInput"
           type="text"
           value={description}
-          variant='outlined'
+          variant="outlined"
           required
           multiline
           rows={3}
@@ -127,39 +157,45 @@ const ProjectDetails = props => {
           inputProps={{ maxLength: 255 }}
         />
         <TextField
-          error={error_message ? true : false}
+          error={error_message_hosted ? true : false}
           className="submitInput"
           type="text"
           value={hosted_url}
-          variant='outlined'
+          variant="outlined"
           required
           id="standard-required"
           label="Hosted URL"
           margin="normal"
           name="hosted_url"
           onChange={e => handleStateChanges(e)}
-          onBlur={e => isURLValid(hosted_url)}
-          helperText={error_message && error_message}
+          onBlur={e => hostedUrlValid(hosted_url)}
+          helperText={error_message_hosted && error_message_hosted}
         />
         <TextField
+          error={error_message_frontend ? true : false}
           className="submitInput"
           type="text"
           value={frontend_url}
-          variant='outlined'
+          variant="outlined"
           label="Frontend URL"
           margin="normal"
           name="frontend_url"
           onChange={e => handleStateChanges(e)}
+          onBlur={e => frontendUrlValid(frontend_url)}
+          helperText={error_message_frontend && error_message_frontend}
         />
         <TextField
+          error={error_message_backend ? true : false}
           className="submitInput"
           type="text"
           value={backend_url}
-          variant='outlined'
+          variant="outlined"
           label="Backend URL"
           margin="normal"
           name="backend_url"
           onChange={e => handleStateChanges(e)}
+          onBlur={e => backendUrlValid(backend_url)}
+          helperText={error_message_backend && error_message_backend}
         />
         {/* <br /> */}
         <div className="dropzone">
@@ -186,7 +222,7 @@ const ProjectDetails = props => {
           //checks the project name, description, hosted_url: if any of those are missing, disable Button
           //will also disable button if error_message exists
           disabled={
-            !name || !description || !hosted_url || error_message ? true : false
+            !name || !description || !hosted_url || error_message_hosted || error_message_frontend || error_message_backend ? true : false
           }
           onClick={e => {
             e.preventDefault()
