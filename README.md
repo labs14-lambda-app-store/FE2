@@ -99,7 +99,7 @@ In order for the app to function correctly, the user must set up their own envir
 
 # 5️⃣ Testing
 
-🚫Document what you used for testing and why
+For testing, we are using Cypress.io. Cypress.io responds and reloads in real time, automatically waits for the DOM to load before testing, the errors are easy to debug, and the documentation is clear.
 
 # 6️⃣ Installation Instructions
 
