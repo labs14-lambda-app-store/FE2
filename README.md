@@ -1,6 +1,6 @@
 # Lambda App Store
 
-<div align="center"><img src="./src/assets/Lambda-Logo.png" alt="logo"></div>
+<div align="center"><img src="./src/assets/Lambda_Logo.png" alt="logo"></div>
 
 ### Contributors:
 
