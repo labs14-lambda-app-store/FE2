@@ -80,6 +80,7 @@ const ProjectDetails = props => {
           id="standard-select standard-required"
           required
           select
+          variant='outlined'
           label="Categories"
           name="category"
           helperText="Please select one"
@@ -98,63 +99,63 @@ const ProjectDetails = props => {
               </MenuItem>
             ))}
         </TextField>
-        <br />
         <TextField
           className="submitInput"
+          variant='outlined'
           type="text"
           value={name} /*???*/
           required
           name="name"
           id="standard-required"
-          placeholder="App Name*"
-          margin="normal"
+          label="App Name"
+          // margin="normal"
           onChange={e => handleStateChanges(e)}
         />
-        <br />
         <TextField
           className="submitInput"
           type="text"
           value={description}
+          variant='outlined'
           required
           id="standard-required"
-          placeholder="Description*"
+          label="Description"
           name="description"
           helperText={`${charactersLeft} characters remaining...`}
           margin="normal"
           onChange={e => handleStateChanges(e)}
           inputProps={{ maxLength: 255 }}
         />
-        <br />
         <TextField
           error={error_message ? true : false}
           className="submitInput"
           type="text"
           value={hosted_url}
+          variant='outlined'
           required
           id="standard-required"
-          placeholder="Hosted URL*"
+          label="Hosted URL"
           margin="normal"
           name="hosted_url"
           onChange={e => handleStateChanges(e)}
           onBlur={e => isURLValid(hosted_url)}
           helperText={error_message && error_message}
         />
-        <br />
         <TextField
           className="submitInput"
           type="text"
           value={frontend_url}
-          placeholder="Frontend URL"
+          variant='outlined'
+          label="Frontend URL"
           margin="normal"
           name="frontend_url"
           onChange={e => handleStateChanges(e)}
         />
-        <br />
         <TextField
           className="submitInput"
           type="text"
           value={backend_url}
-          placeholder="Backend URL"
+          variant='outlined'
+          label="Backend URL"
           margin="normal"
           name="backend_url"
           onChange={e => handleStateChanges(e)}
@@ -176,7 +177,6 @@ const ProjectDetails = props => {
           name="tags"
           onChange={e => handleStateChanges(e)}
         />  */}
-        <br />
         <Button
           style={style}
           label="Continue"
