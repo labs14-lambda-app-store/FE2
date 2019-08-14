@@ -88,7 +88,7 @@ const AdminButtons = props => {
 
   return (
     <div className="admin-buttons">
-      <Tooltip title="Approve">
+      <Tooltip title="Approve" placement="top">
         <Button
           className="admin-button"
           size="small"
@@ -99,7 +99,7 @@ const AdminButtons = props => {
           <i class="fas fa-check-circle fa-lg"></i>
         </Button>
       </Tooltip>
-      <Tooltip title="Deny">
+      <Tooltip title="Deny" placement="top">
         <Button
           className="admin-button"
           size="small"
@@ -110,7 +110,7 @@ const AdminButtons = props => {
           <i class="fas fa-times-circle fa-lg"></i>
         </Button>
       </Tooltip>
-      <Tooltip title="Add Feedback">
+      <Tooltip title="Add Feedback" placement="top">
         <Button
           className="admin-button"
           size="small"
@@ -136,18 +136,22 @@ const AdminButtons = props => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleConfirm} color="secondary">
-            Cancel
-          </Button>
-          <Button
-            onClick={() => {
-              handleUpdateApp({ ...updatedApp, is_approved: true }, app.id)
-            }}
-            color="primary"
-            autoFocus
-          >
-            Approve
-          </Button>
+          <Tooltip  title="No" placement="top">
+            <Button onClick={handleConfirm} color="secondary">
+            <i class="fas fa-times-circle fa-3x"></i>
+            </Button>
+          </Tooltip>
+          <Tooltip  title="Yes" placement="top">
+            <Button
+              onClick={() => {
+                handleUpdateApp({ ...updatedApp, is_approved: true }, app.id)
+              }}
+              color="primary"
+              autoFocus
+            >
+              <i class="fas fa-check-circle fa-3x"></i>
+            </Button>
+          </Tooltip>
         </DialogActions>
       </Dialog>
       {/* updateApp({...props.app, is_approved: true }, props.app.id) */}
@@ -166,18 +170,22 @@ const AdminButtons = props => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDeny} color="secondary">
-            No
-          </Button>
-          <Button
-            onClick={() => {
-              handleDeleteApp(app.id)
-            }}
-            color="primary"
-            autoFocus
-          >
-            Yes
-          </Button>
+          <Tooltip title="No" placement="top">
+            <Button onClick={handleDeny} color="secondary">
+            <i class="fas fa-times-circle fa-3x"></i>
+            </Button>
+          </Tooltip>
+          <Tooltip title="Yes" placement="top">
+            <Button
+              onClick={() => {
+                handleDeleteApp(app.id)
+              }}
+              color="primary"
+              autoFocus
+            >
+              <i class="fas fa-check-circle fa-3x"></i>
+            </Button>
+          </Tooltip>
         </DialogActions>
       </Dialog>
 
@@ -189,7 +197,7 @@ const AdminButtons = props => {
         <DialogTitle id="form-dialog-title">Comment</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To leave a comment on this app, please enter your thoughts here.
+            To give constructive feedback, please enter your thoughts here.
           </DialogContentText>
           <TextField
             autoFocus
@@ -197,19 +205,23 @@ const AdminButtons = props => {
             name="comment"
             margin="dense"
             id="name"
-            label="Comment"
+            placeholder=" start typing . . . "
             type="text"
             fullWidth
             onChange={e => handleStateChanges(e)}
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleComment} color="primary">
-            Cancel
+        <Tooltip title="Cancel" placement="top">
+          <Button onClick={handleComment} color="secondary">
+          <i class="fas fa-times-circle fa-3x"></i>
           </Button>
+          </Tooltip>
+          <Tooltip title="Submit" placement="top">
           <Button onClick={() => handleAddComment(state)} color="primary">
-            Submit
+          <i class="fas fa-check-circle fa-3x"></i>
           </Button>
+          </Tooltip>
         </DialogActions>
       </Dialog>
     </div>

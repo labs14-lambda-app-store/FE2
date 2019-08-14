@@ -29,6 +29,14 @@ const theme = createMuiTheme({
       main: "#f32667",
       contrastText: "#efeef3",
     },
+    lambdaRed: {
+      main: "#bb1333",
+      contrastText: "#efeef3",
+    },
+    lambdaTeal: {
+      main: "#3ab5e5" ,
+      contrastText: "#efeef3",
+    }
   },
 })
 
