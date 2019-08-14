@@ -21,7 +21,7 @@ const Confirm = props => {
     handlePost,
     state,
     isAddingImage,
-    isAddingProject,
+    isAddingApp,
   } = props
 
   const {
@@ -78,9 +78,9 @@ const Confirm = props => {
         style={style}
         label="Confirm & Continue"
         color="primary"
-        onClick={e => (!isAddingImage && !isAddingProject ? Continue(e) : null)}
+        onClick={e => (!isAddingImage && !isAddingApp ? Continue(e) : null)}
       >
-        {isAddingImage || isAddingProject ? (
+        {isAddingImage || isAddingApp ? (
           <Loader type="ThreeDots" color="#somecolor" height={80} width={80} />
         ) : (
           "Confirm & Continue"
@@ -98,10 +98,10 @@ const Confirm = props => {
   )
 }
 
-const mapStateToProps = ({ imagesReducer, projectsReducer }) => {
+const mapStateToProps = ({ imagesReducer, appsReducer }) => {
   return {
     isAddingImage: imagesReducer.isAdding,
-    isAddingProject: projectsReducer.isAdding,
+    isAddingApp: appsReducer.isAdding,
   }
 }
 

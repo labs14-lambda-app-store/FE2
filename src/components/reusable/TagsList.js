@@ -2,11 +2,11 @@ import React from "react"
 import Chip from "@material-ui/core/Chip"
 
 const TagsList = props => {
-  const { project } = props
+  const { app } = props
   return (
     <div className="tags">
-      {project.tags &&
-        project.tags.map(tag => {
+      {app.tags &&
+        app.tags.map(tag => {
           return (
             <Chip
               className="chip"

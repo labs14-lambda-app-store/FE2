@@ -5,16 +5,16 @@ import Button from "@material-ui/core/Button"
 import Grid from "@material-ui/core/Grid"
 import { connect } from "react-redux"
 
-import Project from "./Project.js"
-import { getApprovedProjects, searchProjects } from "../../actions"
+import App from "./App.js"
+import { getApprovedApps, searchApps } from "../../actions"
 
-const ProjectSearch = props => {
+const AppSearch = props => {
   const [searchString, setSearchString] = useState("")
   const {
-    getApprovedProjects,
-    projects,
-    searchProjects,
-    approvedProjectsLength,
+    getApprovedApps,
+    apps,
+    searchApps,
+    approvedAppsLength,
   } = props
   const [offset, setOffset] = useState(0)
 
@@ -22,19 +22,19 @@ const ProjectSearch = props => {
     if (searchString) {
       handleSearch(null, setOffset(0), searchString)
     } else {
-      getApprovedProjects(1)
+      getApprovedApps(1)
     }
     //eslint-disable-next-line
-  }, [approvedProjectsLength])
+  }, [approvedAppsLength])
 
   useEffect(() => {
-    if (searchString.length === 0) getApprovedProjects(1)
-  }, [getApprovedProjects, searchString])
+    if (searchString.length === 0) getApprovedApps(1)
+  }, [getApprovedApps, searchString])
 
   const handleSearch = (e, offset, searchString) => {
     if (e) e.preventDefault()
-    searchProjects(offset, searchString, true)
-    console.log(projects)
+    searchApps(offset, searchString, true)
+    console.log(apps)
   }
 
   return (
@@ -79,49 +79,49 @@ const ProjectSearch = props => {
         </div>
         {/* pagination for top of page */}
         <Pagination
-          // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
+          // limit of 1 array per page (in this case, one array of 12 apps being sent from the BE)
           limit={1}
           innerButtonCount={0}
           outerButtonCount={1}
           reduced={true}
           offset={offset}
-          // total number of pages we want to render; dynamic by rounding up quotient of approvedProjectsLength and projects per page (12)
-          total={Math.ceil(approvedProjectsLength / 12)}
+          // total number of pages we want to render; dynamic by rounding up quotient of approvedAppsLength and apps per page (12)
+          total={Math.ceil(approvedAppsLength / 12)}
           onClick={(e, offset) => {
             setOffset(offset)
-            // send the correct page query (i.e. /api/projects?page=2)
+            // send the correct page query (i.e. /api/apps?page=2)
             if (searchString) {
-              searchProjects(offset + 1, searchString, true)
+              searchApps(offset + 1, searchString, true)
             } else {
-              getApprovedProjects(offset + 1)
+              getApprovedApps(offset + 1)
             }
           }}
         />
       </div>
       <Grid container spacing={2} style={{ padding: 24 }}>
-        {projects.map(currentProject => (
-          <Grid key={currentProject.id} item xs={12} sm={6} lg={4} xl={3}>
-            <Project project={currentProject} key={currentProject.id} />
+        {apps.map(currentApp => (
+          <Grid key={currentApp.id} item xs={12} sm={6} lg={4} xl={3}>
+            <App app={currentApp} key={currentApp.id} />
           </Grid>
         ))}
       </Grid>
       {/* pagination for bottom of page */}
       <Pagination
-        // limit of 1 array per page (in this case, one array of 12 projects being sent from the BE)
+        // limit of 1 array per page (in this case, one array of 12 apps being sent from the BE)
         limit={1}
         innerButtonCount={0}
         outerButtonCount={1}
         reduced={true}
         offset={offset}
-        // total number of pages we want to render; dynamic by rounding up quotient of approvedProjectsLength and projects per page (12)
-        total={Math.ceil(approvedProjectsLength / 12)}
+        // total number of pages we want to render; dynamic by rounding up quotient of approvedAppsLength and apps per page (12)
+        total={Math.ceil(approvedAppsLength / 12)}
         onClick={(e, offset) => {
           setOffset(offset)
-          // send the correct page query (i.e. /api/projects?page=2)
+          // send the correct page query (i.e. /api/apps?page=2)
           if (searchString) {
-            searchProjects(offset + 1, searchString, true)
+            searchApps(offset + 1, searchString, true)
           } else {
-            getApprovedProjects(offset + 1)
+            getApprovedApps(offset + 1)
           }
         }}
       />
@@ -129,12 +129,12 @@ const ProjectSearch = props => {
   )
 }
 
-const mapStateToProps = ({ projectsReducer }) => {
+const mapStateToProps = ({ appsReducer }) => {
   return {
-    ...projectsReducer,
+    ...appsReducer,
   }
 }
 export default connect(
   mapStateToProps,
-  { getApprovedProjects, searchProjects }
-)(ProjectSearch)
+  { getApprovedApps, searchApps }
+)(AppSearch)

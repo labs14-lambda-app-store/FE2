@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom"
 const Success = props => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      props.history.push("/projects")
+      props.history.push("/apps")
     }, 4000)
     return () => clearTimeout(timer)
   }, [props.history])
