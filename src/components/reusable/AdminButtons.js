@@ -9,13 +9,15 @@ import {
   addComment,
 } from "../../actions/"
 
-import Button from "@material-ui/core/Button"
-import TextField from "@material-ui/core/TextField"
 import Dialog from "@material-ui/core/Dialog"
+import Button from "@material-ui/core/Button"
+import Tooltip from "@material-ui/core/Tooltip"
+import TextField from "@material-ui/core/TextField"
+import DialogTitle from "@material-ui/core/DialogTitle"
 import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
-import DialogTitle from "@material-ui/core/DialogTitle"
+
 
 const style = { fontSize: "1.4rem", margin: "0 10px" }
 
@@ -23,12 +25,7 @@ const AdminButtons = props => {
   const [handleDenyModal, setHandleDenyModal] = React.useState(false)
   const [handleApproveModal, setHandleApproveModal] = React.useState(false)
   const [handleCommentModal, setHandleCommentModal] = React.useState(false)
-  const {
-    app,
-    isModalOpen,
-    setIsOpen,
-    getPendingApps,
-  } = props
+  const { app, isModalOpen, setIsOpen, getPendingApps } = props
 
   let updatedApp = {
     id: app.id,
@@ -91,33 +88,39 @@ const AdminButtons = props => {
 
   return (
     <div className="admin-buttons">
-      <Button
-        className="admin-button"
-        size="small"
-        color="primary"
-        style={style}
-        onClick={handleConfirm}
-      >
-        Approve
-      </Button>
-      <Button
-        className="admin-button"
-        size="small"
-        color="secondary"
-        style={style}
-        onClick={handleDeny}
-      >
-        Deny
-      </Button>
-      <Button
-        className="admin-button"
-        size="small"
-        color="default"
-        style={style}
-        onClick={handleComment}
-      >
-        +
-      </Button>
+      <Tooltip title="Approve">
+        <Button
+          className="admin-button"
+          size="small"
+          color="primary"
+          style={style}
+          onClick={handleConfirm}
+        >
+          <i class="fas fa-check-circle fa-lg"></i>
+        </Button>
+      </Tooltip>
+      <Tooltip title="Deny">
+        <Button
+          className="admin-button"
+          size="small"
+          color="secondary"
+          style={style}
+          onClick={handleDeny}
+        >
+          <i class="fas fa-times-circle fa-lg"></i>
+        </Button>
+      </Tooltip>
+      <Tooltip title="Add Feedback">
+        <Button
+          className="admin-button"
+          size="small"
+          color="default"
+          style={style}
+          onClick={handleComment}
+        >
+          <i class="fas fa-plus-circle fa-lg"></i>
+        </Button>
+      </Tooltip>
 
       <Dialog
         open={handleApproveModal}
@@ -125,13 +128,11 @@ const AdminButtons = props => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Approve this app?"}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Approve this app?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you sure you want to approve this app? Approving this
-            app will move it into the gallery.
+            Are you sure you want to approve this app? Approving this app will
+            move it into the gallery.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -140,10 +141,7 @@ const AdminButtons = props => {
           </Button>
           <Button
             onClick={() => {
-              handleUpdateApp(
-                { ...updatedApp, is_approved: true },
-                app.id
-              )
+              handleUpdateApp({ ...updatedApp, is_approved: true }, app.id)
             }}
             color="primary"
             autoFocus
@@ -160,13 +158,11 @@ const AdminButtons = props => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Deny this app?"}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Deny this app?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you sure you want to deny this app? Denying this app
-            will delete this app.
+            Are you sure you want to deny this app? Denying this app will delete
+            this app.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
