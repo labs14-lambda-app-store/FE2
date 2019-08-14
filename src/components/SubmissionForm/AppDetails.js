@@ -17,7 +17,7 @@ const style = {
   padding: "20px",
 }
 
-const ProjectDetails = props => {
+const AppDetails = props => {
   const {
     nextStep,
     state,
@@ -214,7 +214,7 @@ const ProjectDetails = props => {
           label="Continue"
           type="submit"
           color="primary"
-          //checks the project name, description, hosted_url: if any of those are missing, disable Button
+          //checks the app name, description, hosted_url: if any of those are missing, disable Button
           //will also disable button if error_message exists
           disabled={
             !name || !description || !hosted_url || error_message_hosted || error_message_frontend || error_message_backend ? true : false
@@ -235,4 +235,4 @@ const ProjectDetails = props => {
 export default connect(
   null,
   { sendImageToCloudinary }
-)(ProjectDetails)
+)(AppDetails)

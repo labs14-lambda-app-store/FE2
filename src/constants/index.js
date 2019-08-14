@@ -1,1 +1,1 @@
-export { baseProjectsUrl, baseUsersUrl, baseCommentsUrl } from "./urls"
+export { baseAppsUrl, baseUsersUrl, baseCommentsUrl } from "./urls"

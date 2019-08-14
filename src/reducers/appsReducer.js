@@ -1,28 +1,28 @@
 import {
-  GET_APPROVED_PROJECTS_START,
-  GET_APPROVED_PROJECTS_SUCCESS,
-  GET_APPROVED_PROJECTS_FAIL,
-  GET_PENDING_PROJECTS_START,
-  GET_PENDING_PROJECTS_SUCCESS,
-  GET_PENDING_PROJECTS_FAIL,
-  SEARCH_PROJECTS_START,
-  SEARCH_PROJECTS_SUCCESS,
-  SEARCH_PROJECTS_FAIL,
-  ADD_PROJECTS_START,
-  ADD_PROJECTS_SUCCESS,
-  ADD_PROJECTS_FAIL,
-  UPDATE_PROJECTS_START,
-  UPDATE_PROJECTS_SUCCESS,
-  UPDATE_PROJECTS_FAIL,
-  DELETE_PROJECTS_START,
-  DELETE_PROJECTS_SUCCESS,
-  DELETE_PROJECTS_FAIL,
+  GET_APPROVED_APPS_START,
+  GET_APPROVED_APPS_SUCCESS,
+  GET_APPROVED_APPS_FAIL,
+  GET_PENDING_APPS_START,
+  GET_PENDING_APPS_SUCCESS,
+  GET_PENDING_APPS_FAIL,
+  SEARCH_APPS_START,
+  SEARCH_APPS_SUCCESS,
+  SEARCH_APPS_FAIL,
+  ADD_APPS_START,
+  ADD_APPS_SUCCESS,
+  ADD_APPS_FAIL,
+  UPDATE_APPS_START,
+  UPDATE_APPS_SUCCESS,
+  UPDATE_APPS_FAIL,
+  DELETE_APPS_START,
+  DELETE_APPS_SUCCESS,
+  DELETE_APPS_FAIL,
 } from "../actions"
 
 const initialState = {
-  projects: [],
-  approvedProjectsLength: null,
-  pendingProjectsLength: null,
+  apps: [],
+  approvedAppsLength: null,
+  pendingAppsLength: null,
   isFetching: false,
   isAdding: false,
   isUpdating: false,
@@ -30,110 +30,110 @@ const initialState = {
   message: "",
 }
 
-const projectsReducer = (state = initialState, action) => {
+const appsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_APPROVED_PROJECTS_START:
+    case GET_APPROVED_APPS_START:
       return {
         ...state,
         isFetching: true,
       }
-    case GET_APPROVED_PROJECTS_SUCCESS:
+    case GET_APPROVED_APPS_SUCCESS:
       return {
         ...state,
-        projects: action.payload,
-        approvedProjectsLength: action.projectLength,
+        apps: action.payload,
+        approvedAppsLength: action.appLength,
         isFetching: false,
       }
-    case GET_APPROVED_PROJECTS_FAIL:
+    case GET_APPROVED_APPS_FAIL:
       return {
         ...state,
         isFetching: false,
       }
-    case GET_PENDING_PROJECTS_START:
+    case GET_PENDING_APPS_START:
       return {
         ...state,
         isFetching: true,
       }
-    case GET_PENDING_PROJECTS_SUCCESS:
+    case GET_PENDING_APPS_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        projects: action.payload,
-        pendingProjectsLength: action.projectLength,
+        apps: action.payload,
+        pendingAppsLength: action.appLength,
       }
-    case GET_PENDING_PROJECTS_FAIL:
+    case GET_PENDING_APPS_FAIL:
       return {
         ...state,
         isFetching: false,
       }
-    case SEARCH_PROJECTS_START:
+    case SEARCH_APPS_START:
       return {
         ...state,
         isFetching: true,
       }
-    case SEARCH_PROJECTS_SUCCESS:
+    case SEARCH_APPS_SUCCESS:
       return {
         ...state,
-        projects: action.payload,
-        approvedProjectsLength: action.projectLength,
-        pendingProjectsLength: action.projectLength,
+        apps: action.payload,
+        approvedAppsLength: action.appLength,
+        pendingAppsLength: action.appLength,
         isFetching: false,
       }
-    case SEARCH_PROJECTS_FAIL:
+    case SEARCH_APPS_FAIL:
       return {
         ...state,
         isFetching: false,
         message: action.payload,
       }
-    case ADD_PROJECTS_START:
+    case ADD_APPS_START:
       return {
         ...state,
         isAdding: true,
         message: "",
       }
-    case ADD_PROJECTS_SUCCESS:
+    case ADD_APPS_SUCCESS:
       return {
         ...state,
         isAdding: false,
         message: action.payload.data.message,
       }
-    case ADD_PROJECTS_FAIL:
+    case ADD_APPS_FAIL:
       return {
         ...state,
         isAdding: false,
         message: action.payload,
       }
-    case UPDATE_PROJECTS_START:
+    case UPDATE_APPS_START:
       return {
         ...state,
         isUpdating: true,
         message: "",
       }
-    case UPDATE_PROJECTS_SUCCESS:
+    case UPDATE_APPS_SUCCESS:
       return {
         ...state,
         isUpdating: false,
         message: action.payload.data.message,
       }
-    case UPDATE_PROJECTS_FAIL:
+    case UPDATE_APPS_FAIL:
       return {
         ...state,
         isUpdating: false,
         message: action.payload,
       }
-    case DELETE_PROJECTS_START:
+    case DELETE_APPS_START:
       return {
         ...state,
         isDeleting: true,
         message: "",
       }
-    case DELETE_PROJECTS_SUCCESS:
+    case DELETE_APPS_SUCCESS:
       return {
         ...state,
         isDeleting: false,
         message: action.payload.data.message,
       }
-    case DELETE_PROJECTS_FAIL:
+    case DELETE_APPS_FAIL:
       return {
         ...state,
         isDeleting: false,
@@ -144,4 +144,4 @@ const projectsReducer = (state = initialState, action) => {
   }
 }
 
-export default projectsReducer
+export default appsReducer

@@ -4,16 +4,16 @@ import { connect } from "react-redux"
 import Confirm from "./Confirm"
 import Success from "./Success"
 import ProtectedRoute from "../Auth/ProtectedRoute"
-import ProjectDetails from "./ProjectDetails"
+import AppDetails from "./AppDetails"
 import {
-  addProject,
-  getApprovedProjects,
+  addApp,
+  getApprovedApps,
   sendImageToCloudinary,
 } from "../../actions"
 
 var moment = require("moment")
 
-const ProjectForm = props => {
+const AppForm = props => {
   const [step, setStep] = useState(1)
 
   const [state, setStateValues] = useState({
@@ -43,7 +43,7 @@ const ProjectForm = props => {
     setStep(step - 1)
   }
 
-  //post new project to database
+  //post new app to database
   const handlePost = e => {
     e.preventDefault()
 
@@ -62,8 +62,8 @@ const ProjectForm = props => {
       display_image,
     }
 
-    props.addProject(newPost).then(res => {
-      getApprovedProjects()
+    props.addApp(newPost).then(res => {
+      getApprovedApps()
     })
   }
 
@@ -71,7 +71,7 @@ const ProjectForm = props => {
   switch (step) {
     case 1:
       return (
-        <ProjectDetails
+        <AppDetails
           nextStep={nextStep}
           state={state}
           handleStateChanges={handleStateChanges}
@@ -94,15 +94,15 @@ const ProjectForm = props => {
   }
 }
 
-const mapStateToProps = ({ projectsReducer, imagesReducer }) => {
+const mapStateToProps = ({ appsReducer, imagesReducer }) => {
   return {
-    ...projectsReducer,
+    ...appsReducer,
     display_image: imagesReducer.image,
   }
 }
 
-const ProtectedComponent = () => <ProtectedRoute component={ProjectForm} />
+const ProtectedComponent = () => <ProtectedRoute component={AppForm} />
 export default connect(
   mapStateToProps,
-  { getApprovedProjects, addProject, sendImageToCloudinary }
+  { getApprovedApps, addApp, sendImageToCloudinary }
 )(ProtectedComponent)

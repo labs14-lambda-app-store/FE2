@@ -5,17 +5,17 @@ import CardContent from "@material-ui/core/CardContent"
 import CardMedia from "@material-ui/core/CardMedia"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
-import ProjectModal from "./ProjectModal"
+import AppModal from "./AppModal"
 
-const Project = props => {
-  const { project } = props
-  const { display_image, name, description, category, is_approved } = project
+const App = props => {
+  const { app } = props
+  const { display_image, name, description, category, is_approved } = app
 
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div>
-      {props.project ? (
+      {props.app ? (
         <Card>
           <CardMedia
             // keeps the pictures all uniform size!
@@ -40,8 +40,8 @@ const Project = props => {
 
               <Typography component="p">{description}</Typography>
             </div>
-            <ProjectModal
-              project={project}
+            <AppModal
+              app={app}
               isModalOpen={isOpen}
               setIsOpen={setIsOpen}
             />
@@ -64,4 +64,4 @@ const Project = props => {
   )
 }
 
-export default Project
+export default App

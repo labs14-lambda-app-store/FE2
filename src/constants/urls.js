@@ -1,9 +1,9 @@
 const deployEnv = process.env.REACT_APP_DEPLOY_ENV
 
-export const baseProjectsUrl =
+export const baseAppsUrl =
   deployEnv === "production"
-    ? `https://lambdaappstore.herokuapp.com/api/projects`
-    : `https://lambdaappstore2.herokuapp.com/api/projects`
+    ? `https://lambdaappstore.herokuapp.com/api/apps`
+    : `https://lambdaappstore2.herokuapp.com/api/apps`
 
 export const baseUsersUrl =
   deployEnv === "production"

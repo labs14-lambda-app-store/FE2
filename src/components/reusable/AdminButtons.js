@@ -3,9 +3,9 @@ import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 
 import {
-  updateProject,
-  deleteProject,
-  getPendingProjects,
+  updateApp,
+  deleteApp,
+  getPendingApps,
   addComment,
 } from "../../actions/"
 
@@ -24,32 +24,32 @@ const AdminButtons = props => {
   const [handleApproveModal, setHandleApproveModal] = React.useState(false)
   const [handleCommentModal, setHandleCommentModal] = React.useState(false)
   const {
-    project,
+    app,
     isModalOpen,
     setIsOpen,
-    getPendingProjects,
+    getPendingApps,
   } = props
 
-  let updatedProject = {
-    id: project.id,
-    name: project.name,
-    is_approved: project.is_approved,
-    description: project.description,
-    hosted_url: project.hosted_url,
-    frontend_url: project.frontend_url,
-    backend_url: project.backend_url,
-    approved_at: project.approved_at,
-    submitted_at: project.submitted_at,
-    display_image: project.display_image,
-    in_development: project.in_development,
-    is_live: project.is_live,
-    is_featured: project.is_featured,
-    category_id: project.category_id,
+  let updatedApp = {
+    id: app.id,
+    name: app.name,
+    is_approved: app.is_approved,
+    description: app.description,
+    hosted_url: app.hosted_url,
+    frontend_url: app.frontend_url,
+    backend_url: app.backend_url,
+    approved_at: app.approved_at,
+    submitted_at: app.submitted_at,
+    display_image: app.display_image,
+    in_development: app.in_development,
+    is_live: app.is_live,
+    is_featured: app.is_featured,
+    category_id: app.category_id,
   }
 
   const [state, setStateValues] = React.useState({
     comment: "",
-    project_id: project.id,
+    app_id: app.id,
   })
   console.log({ comment: state.comment })
 
@@ -75,17 +75,17 @@ const AdminButtons = props => {
     })
   }
 
-  function handleUpdateProject(project, id) {
-    props.updateProject(project, id).then(res => {
+  function handleUpdateApp(app, id) {
+    props.updateApp(app, id).then(res => {
       setIsOpen(!isModalOpen)
-      getPendingProjects()
+      getPendingApps()
     })
   }
 
-  function handleDeleteProject(id) {
-    props.deleteProject(id).then(res => {
+  function handleDeleteApp(id) {
+    props.deleteApp(id).then(res => {
       setIsOpen(!isModalOpen)
-      getPendingProjects()
+      getPendingApps()
     })
   }
 
@@ -126,12 +126,12 @@ const AdminButtons = props => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Approve this project?"}
+          {"Approve this app?"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you sure you want to approve this project? Approving this
-            project will move it into the gallery.
+            Are you sure you want to approve this app? Approving this
+            app will move it into the gallery.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -140,9 +140,9 @@ const AdminButtons = props => {
           </Button>
           <Button
             onClick={() => {
-              handleUpdateProject(
-                { ...updatedProject, is_approved: true },
-                project.id
+              handleUpdateApp(
+                { ...updatedApp, is_approved: true },
+                app.id
               )
             }}
             color="primary"
@@ -152,7 +152,7 @@ const AdminButtons = props => {
           </Button>
         </DialogActions>
       </Dialog>
-      {/* updateProject({...props.project, is_approved: true }, props.project.id) */}
+      {/* updateApp({...props.app, is_approved: true }, props.app.id) */}
 
       <Dialog
         open={handleDenyModal}
@@ -161,12 +161,12 @@ const AdminButtons = props => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Deny this project?"}
+          {"Deny this app?"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you sure you want to deny this project? Denying this project
-            will delete this project.
+            Are you sure you want to deny this app? Denying this app
+            will delete this app.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -175,7 +175,7 @@ const AdminButtons = props => {
           </Button>
           <Button
             onClick={() => {
-              handleDeleteProject(project.id)
+              handleDeleteApp(app.id)
             }}
             color="primary"
             autoFocus
@@ -193,7 +193,7 @@ const AdminButtons = props => {
         <DialogTitle id="form-dialog-title">Comment</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To leave a comment on this project, please enter your thoughts here.
+            To leave a comment on this app, please enter your thoughts here.
           </DialogContentText>
           <TextField
             autoFocus
@@ -220,9 +220,9 @@ const AdminButtons = props => {
   )
 }
 
-const mapStateToProps = ({ projectsReducer, commentsReducer }) => {
+const mapStateToProps = ({ appsReducer, commentsReducer }) => {
   return {
-    ...projectsReducer,
+    ...appsReducer,
     commentsReducer,
   }
 }
@@ -230,6 +230,6 @@ const mapStateToProps = ({ projectsReducer, commentsReducer }) => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { updateProject, deleteProject, getPendingProjects, addComment }
+    { updateApp, deleteApp, getPendingApps, addComment }
   )(AdminButtons)
 )

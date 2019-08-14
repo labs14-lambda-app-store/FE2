@@ -6,9 +6,9 @@ import { BrowserRouter as Router } from "react-router-dom"
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
 import { Route } from "react-router-dom"
 
-import ProjectForm from "./components/SubmissionForm/ProjectForm"
+import AppForm from "./components/SubmissionForm/AppForm"
 import PendingSearch from "./components/Admin/PendingSearch"
-import { ProjectSearch } from "./components/ProjectCard"
+import { AppSearch } from "./components/AppCard"
 import ProtectedRoute from "./components/Auth/ProtectedRoute"
 import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
@@ -47,10 +47,10 @@ const App = ({ loginUser, user }) => {
           <Header />
 
           <Route exact path="/" component={Home} />
-          <ProtectedRoute exact path="/project-form" component={ProjectForm} />
-          <Route path="/projects" exact component={ProjectSearch} />
+          <ProtectedRoute exact path="/app-form" component={AppForm} />
+          <Route path="/apps" exact component={AppSearch} />
           <ProtectedRoute
-            path="/pending-projects"
+            path="/pending-apps"
             exact
             adminRoute
             component={PendingSearch}

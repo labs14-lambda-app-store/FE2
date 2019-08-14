@@ -32,27 +32,27 @@ const NavBar = props => {
               <Button onClick={() => props.history.push("/")}>Home</Button>
               <Button
                 onClick={() => {
-                  props.history.push("/projects")
+                  props.history.push("/apps")
                 }}
               >
-                Projects
+                Apps
               </Button>
               
-              {/* if there is a user, and the user's roll is admin, show pending projects nav button, else if there is a user and the user's role isn't admin, show the submit form nav button. else don't show either buttons */}
+              {/* if there is a user, and the user's roll is admin, show pending apps nav button, else if there is a user and the user's role isn't admin, show the submit form nav button. else don't show either buttons */}
               {user ? (
                 user.role==="admin" ? (
                     <Button
-                      className="pendingProjectsButton"
-                      onClick={() => props.history.push("/pending-projects")}
+                      className="pendingAppsButton"
+                      onClick={() => props.history.push("/pending-apps")}
                     >
-                      Pending Projects
+                      Pending Apps
                     </Button>
                   ) : (
                     <Button
-                      className="projectFormButton"
-                      onClick={() => props.history.push("/project-form")}
+                      className="appFormButton"
+                      onClick={() => props.history.push("/app-form")}
                     >
-                      Submit Project
+                      Submit App
                     </Button>
                   
                 )
