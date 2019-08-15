@@ -19,7 +19,7 @@ import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 
 
-const style = { fontSize: "1.4rem", margin: "0 10px" }
+const style = { fontSize: "1.4rem" }
 
 const AdminButtons = props => {
   const [handleDenyModal, setHandleDenyModal] = React.useState(false)

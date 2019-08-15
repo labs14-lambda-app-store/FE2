@@ -97,7 +97,8 @@
   }
   .admin-buttons {
     grid-area: buttons;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
+    justify-self: end;
   }
 }
 
