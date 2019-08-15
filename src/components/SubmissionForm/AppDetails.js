@@ -198,6 +198,7 @@ const AppDetails = props => {
             filesLimit={1}
             acceptedFiles={["image/*"]}
             onChange={e => setStateValues({ ...state, display_image: e[0] })}
+            dropzoneText='Drag and drop or click to add a screenshot that showcases your app'
           />
         </div>
         {/* <TextField
