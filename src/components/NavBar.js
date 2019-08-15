@@ -6,13 +6,23 @@ import Button from "@material-ui/core/Button"
 import { AuthButton } from "./Auth"
 import { MemoryRouter as Router, withRouter } from "react-router-dom"
 import redLambdaLogo from "../assets/Lambda_Logo.png"
-
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 // I've imported Material UI packages above,
 // and implemented them in a functional component below
 
 const NavBar = props => {
   const { user } = props
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  function handleClick(event) {
+    setAnchorEl(event.currentTarget);
+  }
+
+  function handleClose() {
+    setAnchorEl(null);
+  }
 
   return (
     <Router>
@@ -37,29 +47,61 @@ const NavBar = props => {
               >
                 Apps
               </Button>
-              
+
               {/* if there is a user, and the user's roll is admin, show pending apps nav button, else if there is a user and the user's role isn't admin, show the submit form nav button. else don't show either buttons */}
               {user ? (
-                user.role==="admin" ? (
-                    <Button
-                      className="pendingAppsButton"
-                      onClick={() => props.history.push("/pending-apps")}
-                    >
-                      Pending Apps
+                user.role === "admin" ? (
+                  <Button
+                    className="pendingAppsButton"
+                    onClick={() => props.history.push("/pending-apps")}
+                  >
+                    Pending Apps
                     </Button>
-                  ) : (
+                ) : (
                     <Button
                       className="appFormButton"
                       onClick={() => props.history.push("/app-form")}
                     >
                       Submit App
                     </Button>
-                  
-                )
-              ) : null }
+
+                  )
+              ) : null}
 
               <AuthButton />
+
             </div>
+
+            <Button className="mobile-menu" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+              Open Menu
+            </Button>
+            <Menu
+              className="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={() => props.history.push("/")}>Home</MenuItem>
+
+              {user ? (
+                user.role === "admin" ? (
+                  <MenuItem onClick={() => props.history.push("/pending-apps")}
+                  >
+                    Pending Apps
+                  </MenuItem>
+
+                ) : (
+                    <MenuItem onClick={() => props.history.push("/app-form")}
+                    >
+                      Submit App
+                  </MenuItem>
+
+                  )
+              ) : null}
+
+              <MenuItem>{<AuthButton />}</MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
       </div>

@@ -13,8 +13,18 @@
 
     @media (max-width: 635px) {
      margin: 5px 0;
+     max-height: 2rem;
    }
   }
+
+  .mobile-menu{
+    @media (min-width: 619px) {
+      display: none;
+      
+    }
+    
+  }
+  
 
   .buttons {
     button {
@@ -31,5 +41,17 @@
         
       }
     }
+  }
+}
+.simple-menu{
+  width:100%;
+  ul{
+    width:100%;
+  }
+} 
+
+label {
+  @media (max-width: 600px) {
+    display: flex;
   }
 }
