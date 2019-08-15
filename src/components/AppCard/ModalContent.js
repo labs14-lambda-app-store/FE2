@@ -16,7 +16,7 @@ const ModalContent = props => {
       <h2 className="name">{app.name}</h2>
       {/* div for in-modal close button */}
       <div className="exit" onClick={() => setIsOpen(!isModalOpen)}>
-        <i class="material-icons">clear</i>
+        <i className="material-icons">clear</i>
       </div>
       <a className="link" href={app.hosted_url} target={"_blank"}>
         View Website
