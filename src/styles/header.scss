@@ -15,5 +15,9 @@
     img {
         height: 10rem;
         margin-right: 14rem;
+        @media screen and (max-width: 500px) {
+            object-fit: cover;
+            width: -webkit-fill-available;
+        }
     }
 }

@@ -70,7 +70,7 @@ const AdminButtons = props => {
   }
 
   function handleAddComment(comment) {
-    addComment(comment).then(res => {
+    props.addComment(comment).then(res => {
       setIsOpen(!isModalOpen)
     })
   }
