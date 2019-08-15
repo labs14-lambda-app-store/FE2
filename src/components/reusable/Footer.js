@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, NavLink } from "react-router-dom"
-import whiteLambdaLogo from "../assets/Lambda_Logo_white.png"
+import whiteLambdaLogo from "../../assets/Lambda_Logo_white.png"
 
 export default function Footer() {
   return (

@@ -1,23 +1,25 @@
 import React, { useEffect } from "react"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import { useAuth0 } from "./components/Auth/react-auth0-spa"
 import { connect } from "react-redux"
 import { loginUser } from "./actions"
-import { BrowserRouter as Router } from "react-router-dom"
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
-import { Route } from "react-router-dom"
 
-import AppForm from "./components/SubmissionForm/AppForm"
-import PendingSearch from "./components/Admin/PendingSearch"
-import { AppSearch } from "./components/AppCard"
 import ProtectedRoute from "./components/Auth/ProtectedRoute"
-import NavBar from "./components/NavBar"
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import Home from "./components/Home"
+import PendingSearch from "./components/Admin/PendingSearch"
+import AppForm from "./components/SubmissionForm/AppForm"
+import { AppSearch } from "./components/AppCard"
+import NavBar from "./components/reusable/NavBar"
+import Footer from "./components/reusable/Footer"
+import Header from "./components/reusable/Header"
+import Home from "./components/LandingPage/Home"
 
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
 import "./App.scss"
 
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: "Lato",
+  },
   palette: {
     primary: {
       main: "#1a61b0",
@@ -27,7 +29,15 @@ const theme = createMuiTheme({
       main: "#f32667",
       contrastText: "#efeef3",
     },
-  },
+    lambdaRed: {
+      main: "#bb1333",
+      contrastText: "#efeef3",
+    },
+    lambdaTeal: {
+      main: "#3ab5e5" ,
+      contrastText: "#efeef3",
+    }
+  }
 })
 
 const App = ({ loginUser, user }) => {

@@ -9,26 +9,23 @@ import {
   addComment,
 } from "../../actions/"
 
-import Button from "@material-ui/core/Button"
-import TextField from "@material-ui/core/TextField"
 import Dialog from "@material-ui/core/Dialog"
+import Button from "@material-ui/core/Button"
+import Tooltip from "@material-ui/core/Tooltip"
+import TextField from "@material-ui/core/TextField"
+import DialogTitle from "@material-ui/core/DialogTitle"
 import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
-import DialogTitle from "@material-ui/core/DialogTitle"
 
-const style = { fontSize: "1.4rem", margin: "0 10px" }
+
+const style = { fontSize: "1.4rem"}
 
 const AdminButtons = props => {
   const [handleDenyModal, setHandleDenyModal] = React.useState(false)
   const [handleApproveModal, setHandleApproveModal] = React.useState(false)
   const [handleCommentModal, setHandleCommentModal] = React.useState(false)
-  const {
-    app,
-    isModalOpen,
-    setIsOpen,
-    getPendingApps,
-  } = props
+  const { app, isModalOpen, setIsOpen, getPendingApps } = props
 
   let updatedApp = {
     id: app.id,
@@ -51,7 +48,6 @@ const AdminButtons = props => {
     comment: "",
     app_id: app.id,
   })
-  console.log({ comment: state.comment })
 
   const handleStateChanges = e => {
     setStateValues({ ...state, [e.target.name]: e.target.value })
@@ -91,33 +87,39 @@ const AdminButtons = props => {
 
   return (
     <div className="admin-buttons">
-      <Button
-        className="admin-button"
-        size="small"
-        color="primary"
-        style={style}
-        onClick={handleConfirm}
-      >
-        Approve
-      </Button>
-      <Button
-        className="admin-button"
-        size="small"
-        color="secondary"
-        style={style}
-        onClick={handleDeny}
-      >
-        Deny
-      </Button>
-      <Button
-        className="admin-button"
-        size="small"
-        color="default"
-        style={style}
-        onClick={handleComment}
-      >
-        +
-      </Button>
+      <Tooltip title="Approve" placement="top">
+        <Button
+          className="admin-button"
+          size="small"
+          color="primary"
+          style={style}
+          onClick={handleConfirm}
+        >
+          <i class="fas fa-check-circle fa-lg"></i>
+        </Button>
+      </Tooltip>
+      <Tooltip title="Deny" placement="top">
+        <Button
+          className="admin-button"
+          size="small"
+          color="secondary"
+          style={style}
+          onClick={handleDeny}
+        >
+          <i class="fas fa-times-circle fa-lg"></i>
+        </Button>
+      </Tooltip>
+      <Tooltip title="Add Feedback" placement="top">
+        <Button
+          className="admin-button"
+          size="small"
+          color="default"
+          style={style}
+          onClick={handleComment}
+        >
+          <i class="fas fa-plus-circle fa-lg"></i>
+        </Button>
+      </Tooltip>
 
       <Dialog
         open={handleApproveModal}
@@ -125,31 +127,30 @@ const AdminButtons = props => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Approve this app?"}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Approve this app?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you sure you want to approve this app? Approving this
-            app will move it into the gallery.
+            Are you sure you want to approve this app? Approving this app will
+            move it into the gallery.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleConfirm} color="secondary">
-            Cancel
-          </Button>
-          <Button
-            onClick={() => {
-              handleUpdateApp(
-                { ...updatedApp, is_approved: true },
-                app.id
-              )
-            }}
-            color="primary"
-            autoFocus
-          >
-            Approve
-          </Button>
+          <Tooltip  title="No" placement="top">
+            <Button onClick={handleConfirm} color="secondary">
+            <i class="fas fa-times-circle fa-3x"></i>
+            </Button>
+          </Tooltip>
+          <Tooltip  title="Yes" placement="top">
+            <Button
+              onClick={() => {
+                handleUpdateApp({ ...updatedApp, is_approved: true }, app.id)
+              }}
+              color="primary"
+              autoFocus
+            >
+              <i class="fas fa-check-circle fa-3x"></i>
+            </Button>
+          </Tooltip>
         </DialogActions>
       </Dialog>
       {/* updateApp({...props.app, is_approved: true }, props.app.id) */}
@@ -160,28 +161,30 @@ const AdminButtons = props => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Deny this app?"}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Deny this app?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you sure you want to deny this app? Denying this app
-            will delete this app.
+            Are you sure you want to deny this app? Denying this app will delete
+            this app.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDeny} color="secondary">
-            No
-          </Button>
-          <Button
-            onClick={() => {
-              handleDeleteApp(app.id)
-            }}
-            color="primary"
-            autoFocus
-          >
-            Yes
-          </Button>
+          <Tooltip title="No" placement="top">
+            <Button onClick={handleDeny} color="secondary">
+            <i class="fas fa-times-circle fa-3x"></i>
+            </Button>
+          </Tooltip>
+          <Tooltip title="Yes" placement="top">
+            <Button
+              onClick={() => {
+                handleDeleteApp(app.id)
+              }}
+              color="primary"
+              autoFocus
+            >
+              <i class="fas fa-check-circle fa-3x"></i>
+            </Button>
+          </Tooltip>
         </DialogActions>
       </Dialog>
 
@@ -193,7 +196,7 @@ const AdminButtons = props => {
         <DialogTitle id="form-dialog-title">Comment</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To leave a comment on this app, please enter your thoughts here.
+            To give constructive feedback, please enter your thoughts here.
           </DialogContentText>
           <TextField
             autoFocus
@@ -201,19 +204,23 @@ const AdminButtons = props => {
             name="comment"
             margin="dense"
             id="name"
-            label="Comment"
+            placeholder=" start typing . . . "
             type="text"
             fullWidth
             onChange={e => handleStateChanges(e)}
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleComment} color="primary">
-            Cancel
+        <Tooltip title="Cancel" placement="top">
+          <Button onClick={handleComment} color="secondary">
+          <i class="fas fa-times-circle fa-3x"></i>
           </Button>
+          </Tooltip>
+          <Tooltip title="Submit" placement="top">
           <Button onClick={() => handleAddComment(state)} color="primary">
-            Submit
+          <i class="fas fa-check-circle fa-3x"></i>
           </Button>
+          </Tooltip>
         </DialogActions>
       </Dialog>
     </div>
