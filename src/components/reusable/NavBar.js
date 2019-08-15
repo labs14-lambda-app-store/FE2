@@ -3,9 +3,9 @@ import { connect } from "react-redux"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Button from "@material-ui/core/Button"
-import { AuthButton } from "./Auth"
+import { AuthButton } from "../Auth"
 import { MemoryRouter as Router, withRouter } from "react-router-dom"
-import redLambdaLogo from "../assets/Lambda_Logo.png"
+import redLambdaLogo from "../../assets/Lambda_Logo.png"
 
 
 // I've imported Material UI packages above,

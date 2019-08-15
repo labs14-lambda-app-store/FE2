@@ -1,5 +1,5 @@
 import React from "react";
-import lambdaStudent from '../assets/lambda-student.png'
+import lambdaStudent from '../../assets/lambda-student.png'
 
 export default function Header() {
   return (
