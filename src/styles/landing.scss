@@ -1,3 +1,33 @@
 .landingMockup {
+      min-height: 100%;
+      min-width: 1024px;
       width: 100%;
+      height: auto;
+      top: 0;
+      left: 0;
+}
+.comingSoon {
+      margin-top: 100px;
+      position: fixed;
+      width: 100%;
+      text-align: center;
+      background: $lambdaPink;
+      color: $lambdaGray;
+      
+}
+.comingsOon {
+      margin-top: 200px;
+      position: fixed;
+      width: 100%;
+      text-align: center;
+      background: $lambdaDarkBlue;
+      color: $lambdaLightBlue;
+}
+.comingSoOn {
+      margin-top: 0;
+      position: fixed;
+      width: 100%;
+      text-align: center;
+      background: $lambdaTeal;
+      color: $lambdaRed;
 }

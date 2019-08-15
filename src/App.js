@@ -8,10 +8,10 @@ import ProtectedRoute from "./components/Auth/ProtectedRoute"
 import PendingSearch from "./components/Admin/PendingSearch"
 import AppForm from "./components/SubmissionForm/AppForm"
 import { AppSearch } from "./components/AppCard"
-import NavBar from "./components/NavBar"
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import Home from "./components/Home"
+import NavBar from "./components/reusable/NavBar"
+import Footer from "./components/reusable/Footer"
+import Header from "./components/reusable/Header"
+import Home from "./components/LandingPage/Home"
 
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
 import "./App.scss"
@@ -37,7 +37,7 @@ const theme = createMuiTheme({
       main: "#3ab5e5" ,
       contrastText: "#efeef3",
     }
-  },
+  }
 })
 
 const App = ({ loginUser, user }) => {
