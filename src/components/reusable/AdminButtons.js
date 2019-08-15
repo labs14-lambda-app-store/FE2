@@ -19,7 +19,7 @@ import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 
 
-const style = { fontSize: "1.4rem" }
+const style = { fontSize: "1.4rem"}
 
 const AdminButtons = props => {
   const [handleDenyModal, setHandleDenyModal] = React.useState(false)
@@ -48,7 +48,6 @@ const AdminButtons = props => {
     comment: "",
     app_id: app.id,
   })
-  console.log({ comment: state.comment })
 
   const handleStateChanges = e => {
     setStateValues({ ...state, [e.target.name]: e.target.value })
