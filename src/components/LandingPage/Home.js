@@ -1,16 +1,16 @@
 import React from "react"
-import lambdaLandingUX from "../../assets/LambdaLandingUX.png"
+import LambdaLandingUX from "../../assets/LambdaLandingUX.png"
 
 const Home = () => {
   return (
-    <>
-      <h1 className="comingSoon">COMING SOON</h1>
+    <div className="landing-page">
       <img
         className="landingMockup"
-        src={lambdaLandingUX}
+        src={LambdaLandingUX}
         alt="lambda landing page mockup"
       />
-    </>
+      <div className="coming-soon">COMING SOON!</div>
+    </div>
   )
 }
 
