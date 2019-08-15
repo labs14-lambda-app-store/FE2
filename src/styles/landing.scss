@@ -1,12 +1,40 @@
 .landingMockup {
-      width: 100%;
+  width: 100%;
 }
-.comingSoon {
-      margin-top: 100px;
-      position: fixed;
-      width: 100%;
-      text-align: center;
-      background: $lambdaPink;
-      color: $lambdaGray;
 
+.landing-page {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  position: relative;
+}
+
+.coming-soon {
+  position: absolute;
+  width: 65%;
+  height: 160px;
+  top: 650px;
+  left: 15%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  -webkit-transform: rotate(-45deg); /* Safari */
+  -moz-transform: rotate(-45deg); /* Firefox */
+  -ms-transform: rotate(-45deg); /* IE */
+  -o-transform: rotate(-45deg); /* Opera */
+  transform: rotate(-45deg);
+  font-size: 6rem;
+  color: $lambdaRed;
+  background: #fff;
+  border: solid 4px $lambdaRed;
+  padding: 5px;
+  border-radius: 5px;
+  zoom: 1;
+  filter: alpha(opacity=20);
+  opacity: 0.8;
+  -webkit-text-shadow: 0 0 2px $lambdaRed;
+  text-shadow: 0 0 2px $lambdaRed;
+  box-shadow: 0 0 2px $lambdaRed;
 }
