@@ -6,18 +6,8 @@ import AppsGallery from "./AppsGallery"
 import Grid from "@material-ui/core/Grid"
 import { connect } from "react-redux"
 
-const AppSearch = props => {
-  const [searchString, setSearchString] = useState("")
-  const {
-    getApprovedApps,
-    apps,
-    approvedAppsLength,
-    getPendingApps,
-    appType,
-  } = props
-  const [offset, setOffset] = useState(0)
-
+const ApprovedAppsGallery = props => {
   return <AppsGallery />
 }
 
-export default AppSearch
+export default ApprovedAppsGallery

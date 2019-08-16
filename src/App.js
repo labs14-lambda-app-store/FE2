@@ -7,7 +7,7 @@ import { loginUser } from "./actions"
 import ProtectedRoute from "./components/Auth/ProtectedRoute"
 import PendingSearch from "./components/Admin/PendingSearch"
 import AppForm from "./components/SubmissionForm/AppForm"
-import { AppSearch } from "./components/AppCard"
+import { ApprovedAppsGallery } from "./components/AppCard"
 import Home from "./components/LandingPage/Home"
 import { NavBar, Header, Footer } from "./components/reusable"
 
@@ -56,7 +56,7 @@ const App = ({ loginUser, user }) => {
 
           <Route exact path="/" component={Home} />
           <ProtectedRoute exact path="/app-form" component={AppForm} />
-          <Route path="/apps" exact component={AppSearch} />
+          <Route path="/apps" exact component={ApprovedAppsGallery} />
           <ProtectedRoute
             path="/pending-apps"
             exact
