@@ -17,27 +17,48 @@ const AppsGallery = props => {
     searchApps,
     approvedAppsLength,
     getPendingApps,
+    pendingAppsLength,
     appType,
   } = props
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
     if (searchString) {
-      handleSearch(null, setOffset(0), searchString)
+      handleSearch(setOffset(0), searchString)
     } else {
-      getApprovedApps(1)
+      checkAppType()
     }
+
     //eslint-disable-next-line
-  }, [approvedAppsLength])
+  }, [approvedAppsLength, pendingAppsLength])
 
   useEffect(() => {
-    if (searchString.length === 0) getApprovedApps(1)
-  }, [getApprovedApps, searchString])
+    if (searchString.length === 0) checkAppType()
+    //eslint-disable-next-line
+  }, [getApprovedApps, getPendingApps, searchString])
 
-  const handleSearch = (e, offset, searchString) => {
-    if (e) e.preventDefault()
-    searchApps(offset, searchString, true)
-    console.log(apps)
+  //checks the appType prop and triggers relevant redux action
+  const checkAppType = page => {
+    //switch statement allows for further search cases in case of further gallery types
+    switch (appType) {
+      case "pending":
+        getPendingApps(page || 1)
+        break
+      //by default get only approved apps
+      default:
+        getApprovedApps(page || 1)
+    }
+  }
+
+  const handleSearch = (offset, searchString) => {
+    switch (appType) {
+      case "pending":
+        searchApps(offset, searchString, false)
+        break
+      //by default get only approved apps
+      default:
+        searchApps(offset, searchString, true)
+    }
   }
 
   return (
@@ -60,7 +81,7 @@ const AppsGallery = props => {
             //added on key press for enter and then e.which for return
             onKeyPress={e => {
               if (e.key === "Enter" || e.which === 13) {
-                handleSearch(e, 1, searchString)
+                handleSearch(1, searchString)
               }
             }}
           />
@@ -75,7 +96,7 @@ const AppsGallery = props => {
                 : { background: "#1a61b0" }
             }
             disabled={!searchString ? true : false}
-            onClick={e => handleSearch(e, 1, searchString)}
+            onClick={e => handleSearch(1, searchString)}
           >
             Search
           </Button>
@@ -96,7 +117,7 @@ const AppsGallery = props => {
             if (searchString) {
               searchApps(offset + 1, searchString, true)
             } else {
-              getApprovedApps(offset + 1)
+              checkAppType(offset + 1)
             }
           }}
         />
@@ -124,7 +145,7 @@ const AppsGallery = props => {
           if (searchString) {
             searchApps(offset + 1, searchString, true)
           } else {
-            getApprovedApps(offset + 1)
+            checkAppType(offset + 1)
           }
         }}
       />
@@ -132,9 +153,10 @@ const AppsGallery = props => {
   )
 }
 
-const mapStateToProps = ({ appsReducer }) => {
+const mapStateToProps = ({ appsReducer, usersReducer }) => {
   return {
     ...appsReducer,
+    ...usersReducer,
   }
 }
 export default connect(
