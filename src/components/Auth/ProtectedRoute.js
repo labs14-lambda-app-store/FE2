@@ -7,18 +7,23 @@ const ProtectedRoute = ({
   component: Component,
   role,
   adminRoute,
+  appType,
   ...rest
 }) => {
-  //if adminRoute is true and user role not admin - redirect user to home page
+  //if adminRoute and user role not admin - redirect user to home page
   if (adminRoute && role !== "admin") {
     return <Route {...rest} render={() => <Redirect to="/" />} />
   } else {
-    //if not adminRoute not true, hit else block and return component if logged in, else return redirect to home page
+    //if not adminRoute, hit else block and return component if logged in, else return redirect to home page
     return (
       <Route
         {...rest}
         render={props =>
-          role ? <Component {...props} /> : <Redirect to="/" />
+          role ? (
+            <Component {...props} appType={appType} />
+          ) : (
+            <Redirect to="/" />
+          )
         }
       />
     )
