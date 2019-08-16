@@ -3,6 +3,7 @@ import Pagination from "material-ui-flat-pagination"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import Grid from "@material-ui/core/Grid"
+import GalleryComponent from "GalleryComponent"
 import { connect } from "react-redux"
 
 import App from "./App.js"
@@ -10,12 +11,7 @@ import { getApprovedApps, searchApps } from "../../actions"
 
 const AppSearch = props => {
   const [searchString, setSearchString] = useState("")
-  const {
-    getApprovedApps,
-    apps,
-    searchApps,
-    approvedAppsLength,
-  } = props
+  const { getApprovedApps, apps, searchApps, approvedAppsLength } = props
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
@@ -78,53 +74,16 @@ const AppSearch = props => {
           </Button>
         </div>
         {/* pagination for top of page */}
-        <Pagination
-          // limit of 1 array per page (in this case, one array of 12 apps being sent from the BE)
-          limit={1}
-          innerButtonCount={0}
-          outerButtonCount={1}
-          reduced={true}
-          offset={offset}
-          // total number of pages we want to render; dynamic by rounding up quotient of approvedAppsLength and apps per page (12)
-          total={Math.ceil(approvedAppsLength / 12)}
-          onClick={(e, offset) => {
-            setOffset(offset)
-            // send the correct page query (i.e. /api/apps?page=2)
-            if (searchString) {
-              searchApps(offset + 1, searchString, true)
-            } else {
-              getApprovedApps(offset + 1)
-            }
-          }}
-        />
-      </div>
-      <Grid container spacing={2} style={{ padding: 24 }}>
-        {apps.map(currentApp => (
-          <Grid key={currentApp.id} item xs={12} sm={6} lg={4} xl={3}>
-            <App app={currentApp} key={currentApp.id} />
+        <GalleryComponent searchString={searchString} offset={offset}>
+          <Grid container spacing={2} style={{ padding: 24 }}>
+            {apps.map(currentApp => (
+              <Grid key={currentApp.id} item xs={12} sm={6} lg={4} xl={3}>
+                <App app={currentApp} key={currentApp.id} />
+              </Grid>
+            ))}
           </Grid>
-        ))}
-      </Grid>
-      {/* pagination for bottom of page */}
-      <Pagination
-        // limit of 1 array per page (in this case, one array of 12 apps being sent from the BE)
-        limit={1}
-        innerButtonCount={0}
-        outerButtonCount={1}
-        reduced={true}
-        offset={offset}
-        // total number of pages we want to render; dynamic by rounding up quotient of approvedAppsLength and apps per page (12)
-        total={Math.ceil(approvedAppsLength / 12)}
-        onClick={(e, offset) => {
-          setOffset(offset)
-          // send the correct page query (i.e. /api/apps?page=2)
-          if (searchString) {
-            searchApps(offset + 1, searchString, true)
-          } else {
-            getApprovedApps(offset + 1)
-          }
-        }}
-      />
+        </GalleryComponent>
+      </div>
     </div>
   )
 }

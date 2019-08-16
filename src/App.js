@@ -9,8 +9,6 @@ import PendingSearch from "./components/Admin/PendingSearch"
 import AppForm from "./components/SubmissionForm/AppForm"
 import { AppSearch } from "./components/AppCard"
 import NavBar from "./components/reusable/NavBar"
-import Footer from "./components/reusable/Footer"
-import Header from "./components/reusable/Header"
 import Home from "./components/LandingPage/Home"
 
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
@@ -34,10 +32,10 @@ const theme = createMuiTheme({
       contrastText: "#efeef3",
     },
     lambdaTeal: {
-      main: "#3ab5e5" ,
+      main: "#3ab5e5",
       contrastText: "#efeef3",
-    }
-  }
+    },
+  },
 })
 
 const App = ({ loginUser, user }) => {
