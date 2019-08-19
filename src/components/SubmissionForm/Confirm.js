@@ -101,7 +101,7 @@ const Confirm = props => {
 const mapStateToProps = ({ imagesReducer, appsReducer }) => {
   return {
     isAddingImage: imagesReducer.isAdding,
-    isAddingApp: appsReducer.isAdding,
+    isAddingApp: appsReducer.isAdding
   }
 }
 

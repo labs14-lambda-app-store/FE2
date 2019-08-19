@@ -3,20 +3,18 @@ import { withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 
 const Success = props => {
-  const { addAppMessage } = props
+  const { addAppSuccessMessage } = props
 
   useEffect(() => {
-    console.log("this is a screen", props)
-
     const timer = setTimeout(() => {
       props.history.push("/apps")
     }, 3500)
     return () => clearTimeout(timer)
-  }, [props.history])
+  }, [props.history, addAppSuccessMessage])
 
   return (
     <div className="submission">
-      {addAppMessage === "App successfully created." ? (
+      {addAppSuccessMessage ? (
         <i class="fas fa-check-circle fa-lg"></i>
       ) : (
         <i class="fas fa-times-circle fa-lg"></i>
@@ -27,7 +25,7 @@ const Success = props => {
 
 const mapStateToProps = ({ appsReducer }) => {
   return {
-    addAppMessage: appsReducer.addAppMessage,
+    addAppSuccessMessage: appsReducer.addAppSuccessMessage,
   }
 }
 
