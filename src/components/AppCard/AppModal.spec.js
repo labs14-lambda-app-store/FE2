@@ -20,9 +20,4 @@ describe("<AppModal />", () => {
   it("should render the App component without errors", async () => {
     await render(<AppModal app={app} />)
   })
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<AppModal app={app} />, div);
-    ReactDOM.unmountComponentAtNode(div);
-  });
 })
