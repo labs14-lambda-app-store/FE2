@@ -5,11 +5,7 @@ import Confirm from "./Confirm"
 import Success from "./Success"
 import ProtectedRoute from "../Auth/ProtectedRoute"
 import AppDetails from "./AppDetails"
-import {
-  addApp,
-  getApprovedApps,
-  sendImageToCloudinary,
-} from "../../actions"
+import { addApp, getApprovedApps, sendImageToCloudinary } from "../../actions"
 
 var moment = require("moment")
 
