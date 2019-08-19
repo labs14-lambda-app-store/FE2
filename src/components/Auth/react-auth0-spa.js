@@ -43,9 +43,9 @@ const Auth0Provider = ({
           username: user.nickname,
           email: user.email,
           sub_id: user.sub,
-          first_name: user.given_name,
-          last_name: user.family_name,
-          pictureURL: user.picture,
+          first_name: user.given_name || "",
+          last_name: user.family_name || "",
+          pictureURL: user.picture || "",
         }
         loginUser(retrieveUser)
 

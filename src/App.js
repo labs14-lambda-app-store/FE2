@@ -5,13 +5,10 @@ import { connect } from "react-redux"
 import { loginUser } from "./actions"
 
 import ProtectedRoute from "./components/Auth/ProtectedRoute"
-import PendingSearch from "./components/Admin/PendingSearch"
 import AppForm from "./components/SubmissionForm/AppForm"
-import { AppSearch } from "./components/AppCard"
-import NavBar from "./components/reusable/NavBar"
-import Footer from "./components/reusable/Footer"
-import Header from "./components/reusable/Header"
+import { AppsGallery } from "./components/AppCard"
 import Home from "./components/LandingPage/Home"
+import { NavBar, Header, Footer } from "./components/reusable"
 
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
 import "./App.scss"
@@ -34,10 +31,10 @@ const theme = createMuiTheme({
       contrastText: "#efeef3",
     },
     lambdaTeal: {
-      main: "#3ab5e5" ,
+      main: "#3ab5e5",
       contrastText: "#efeef3",
-    }
-  }
+    },
+  },
 })
 
 const App = ({ loginUser, user }) => {
@@ -58,12 +55,14 @@ const App = ({ loginUser, user }) => {
 
           <Route exact path="/" component={Home} />
           <ProtectedRoute exact path="/app-form" component={AppForm} />
-          <Route path="/apps" exact component={AppSearch} />
+          <Route path="/apps" exact component={AppsGallery} />
           <ProtectedRoute
             path="/pending-apps"
             exact
             adminRoute
-            component={PendingSearch}
+            //adding appType because this is a AppsGallery component
+            appType="pending"
+            component={AppsGallery}
           />
           <Footer />
         </div>
