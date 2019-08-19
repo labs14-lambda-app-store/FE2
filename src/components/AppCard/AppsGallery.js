@@ -9,17 +9,17 @@ import { connect } from "react-redux"
 import App from "./App.js"
 import { getApprovedApps, getPendingApps, searchApps } from "../../actions"
 
-const AppsGallery = props => {
+const AppsGallery = ({
+  getApprovedApps,
+  apps,
+  searchApps,
+  approvedAppsLength,
+  getPendingApps,
+  pendingAppsLength,
+  appType,
+}) => {
   const [searchString, setSearchString] = useState("")
-  const {
-    getApprovedApps,
-    apps,
-    searchApps,
-    approvedAppsLength,
-    getPendingApps,
-    pendingAppsLength,
-    appType,
-  } = props
+
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
