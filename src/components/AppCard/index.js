@@ -1,6 +1,6 @@
 import App from "./App"
-import AppSearch from "./AppSearch"
 import AppModal from "./AppModal"
 import ModalContent from "./ModalContent"
+import AppsGallery from "./AppsGallery"
 
-export { App, AppSearch, AppModal, ModalContent }
+export { App, AppsGallery, AppModal, ModalContent }

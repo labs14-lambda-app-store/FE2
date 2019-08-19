@@ -8,9 +8,7 @@ export const getApprovedApps = page => async dispatch => {
   dispatch({ type: GET_APPROVED_APPS_START })
 
   try {
-    const result = await axios.get(
-      `${baseAppsUrl}?page=${page}&approved=true`
-    )
+    const result = await axios.get(`${baseAppsUrl}?page=${page}&approved=true`)
 
     // payload = apps from backend; appLength = app length from backend for pagination total
     dispatch({
@@ -31,9 +29,7 @@ export const getPendingApps = page => async dispatch => {
   dispatch({ type: GET_PENDING_APPS_START })
 
   try {
-    const result = await axios.get(
-      `${baseAppsUrl}?page=${page}&approved=false`
-    )
+    const result = await axios.get(`${baseAppsUrl}?page=${page}&approved=false`)
 
     // payload = apps from backend; appLength = app length from backend for pagination total
     dispatch({
@@ -58,7 +54,6 @@ export const searchApps = (page, search, filter) => async dispatch => {
       `${baseAppsUrl}?page=${page}&search=${search}&approved=${filter}`
     )
     // payload = apps from backend; appLength = app length from backend for pagination total
-    console.log(result.data.length)
 
     dispatch({
       type: SEARCH_APPS_SUCCESS,
@@ -105,7 +100,7 @@ export const DELETE_APPS_START = "DELETE_APPS_START"
 export const DELETE_APPS_SUCCESS = "DELETE_APPS_SUCCESS"
 export const DELETE_APPS_FAIL = "DELETE_APPS_FAIL"
 
-export const deleteApp = ( id) => async dispatch => {
+export const deleteApp = id => async dispatch => {
   dispatch({ type: DELETE_APPS_START })
 
   try {
