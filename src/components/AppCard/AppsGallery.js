@@ -125,7 +125,7 @@ const AppsGallery = ({
       {/* if apps.length is equal to 0, search error text appears alerting the user there are no results for the query */}
       {apps.length === 0 ? (
         <div className='invalid-search'>
-       <i className="fas fa-search"></i><h2 className='invalid-text'>There are no apps matching this search.</h2> 
+       <i className="fas fa-search"></i><p className='invalid-text'>There are no apps matching this search.</p> 
        </div>
       ) : (
         <Grid container spacing={2} style={{ padding: 24 }}>
