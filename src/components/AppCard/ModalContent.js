@@ -2,16 +2,11 @@ import React from "react"
 import TagsList from "../reusable/TagsList"
 import AdminButtons from "../reusable/AdminButtons"
 
-const ModalContent = props => {
-  const { app, setIsOpen, isModalOpen } = props
+const ModalContent = ({ app, setIsOpen, isModalOpen }) => {
   return (
     <main className="modal-content">
       <div className="image-container">
-        <img
-          src={app.display_image}
-          className="image"
-          alt="App cover"
-        />
+        <img src={app.display_image} className="image" alt="App cover" />
       </div>
       <h2 className="name">{app.name}</h2>
       {/* div for in-modal close button */}

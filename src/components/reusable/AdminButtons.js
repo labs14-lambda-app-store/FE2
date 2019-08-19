@@ -18,14 +18,20 @@ import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 
+const style = { fontSize: "1.4rem" }
 
-const style = { fontSize: "1.4rem"}
-
-const AdminButtons = props => {
+const AdminButtons = ({
+  app,
+  isModalOpen,
+  setIsOpen,
+  getPendingApps,
+  addComment,
+  updateApp,
+  deleteApp,
+}) => {
   const [handleDenyModal, setHandleDenyModal] = React.useState(false)
   const [handleApproveModal, setHandleApproveModal] = React.useState(false)
   const [handleCommentModal, setHandleCommentModal] = React.useState(false)
-  const { app, isModalOpen, setIsOpen, getPendingApps } = props
 
   let updatedApp = {
     id: app.id,
@@ -66,20 +72,20 @@ const AdminButtons = props => {
   }
 
   function handleAddComment(comment) {
-    props.addComment(comment).then(res => {
+    addComment(comment).then(res => {
       setIsOpen(!isModalOpen)
     })
   }
 
   function handleUpdateApp(app, id) {
-    props.updateApp(app, id).then(res => {
+    updateApp(app, id).then(res => {
       setIsOpen(!isModalOpen)
       getPendingApps()
     })
   }
 
   function handleDeleteApp(id) {
-    props.deleteApp(id).then(res => {
+    deleteApp(id).then(res => {
       setIsOpen(!isModalOpen)
       getPendingApps()
     })
@@ -135,12 +141,12 @@ const AdminButtons = props => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Tooltip  title="No" placement="top">
+          <Tooltip title="No" placement="top">
             <Button onClick={handleConfirm} color="secondary">
-            <i class="fas fa-times-circle fa-3x"></i>
+              <i class="fas fa-times-circle fa-3x"></i>
             </Button>
           </Tooltip>
-          <Tooltip  title="Yes" placement="top">
+          <Tooltip title="Yes" placement="top">
             <Button
               onClick={() => {
                 handleUpdateApp({ ...updatedApp, is_approved: true }, app.id)
@@ -153,7 +159,6 @@ const AdminButtons = props => {
           </Tooltip>
         </DialogActions>
       </Dialog>
-      {/* updateApp({...props.app, is_approved: true }, props.app.id) */}
 
       <Dialog
         open={handleDenyModal}
@@ -171,7 +176,7 @@ const AdminButtons = props => {
         <DialogActions>
           <Tooltip title="No" placement="top">
             <Button onClick={handleDeny} color="secondary">
-            <i class="fas fa-times-circle fa-3x"></i>
+              <i class="fas fa-times-circle fa-3x"></i>
             </Button>
           </Tooltip>
           <Tooltip title="Yes" placement="top">
@@ -211,15 +216,15 @@ const AdminButtons = props => {
           />
         </DialogContent>
         <DialogActions>
-        <Tooltip title="Cancel" placement="top">
-          <Button onClick={handleComment} color="secondary">
-          <i class="fas fa-times-circle fa-3x"></i>
-          </Button>
+          <Tooltip title="Cancel" placement="top">
+            <Button onClick={handleComment} color="secondary">
+              <i class="fas fa-times-circle fa-3x"></i>
+            </Button>
           </Tooltip>
           <Tooltip title="Submit" placement="top">
-          <Button onClick={() => handleAddComment(state)} color="primary">
-          <i class="fas fa-check-circle fa-3x"></i>
-          </Button>
+            <Button onClick={() => handleAddComment(state)} color="primary">
+              <i class="fas fa-check-circle fa-3x"></i>
+            </Button>
           </Tooltip>
         </DialogActions>
       </Dialog>

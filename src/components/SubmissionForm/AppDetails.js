@@ -17,15 +17,13 @@ const style = {
   padding: "20px",
 }
 
-const AppDetails = props => {
-  const {
-    nextStep,
-    state,
-    handleStateChanges,
-    sendImageToCloudinary,
-    setStateValues,
-  } = props
-
+const AppDetails = ({
+  nextStep,
+  state,
+  handleStateChanges,
+  sendImageToCloudinary,
+  setStateValues,
+}) => {
   const {
     hosted_url,
     frontend_url,
@@ -198,8 +196,8 @@ const AppDetails = props => {
             filesLimit={1}
             acceptedFiles={["image/*"]}
             onChange={e => setStateValues({ ...state, display_image: e[0] })}
-            dropzoneText='Drag and drop or click to add a screenshot that showcases your app'
-            maxFileSize='5000000'
+            dropzoneText="Drag and drop or click to add a screenshot that showcases your app"
+            maxFileSize="5000000"
           />
         </div>
         {/* <TextField
@@ -219,7 +217,14 @@ const AppDetails = props => {
           //checks the app name, description, hosted_url: if any of those are missing, disable Button
           //will also disable button if error_message exists
           disabled={
-            !name || !description || !hosted_url || error_message_hosted || error_message_frontend || error_message_backend ? true : false
+            !name ||
+            !description ||
+            !hosted_url ||
+            error_message_hosted ||
+            error_message_frontend ||
+            error_message_backend
+              ? true
+              : false
           }
           onClick={e => {
             e.preventDefault()

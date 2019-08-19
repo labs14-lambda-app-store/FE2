@@ -7,15 +7,14 @@ import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import AppModal from "./AppModal"
 
-const App = props => {
-  const { app } = props
+const App = ({ app }) => {
   const { display_image, name, description, category, is_approved } = app
 
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div>
-      {props.app ? (
+      {app ? (
         <Card>
           <CardMedia
             // keeps the pictures all uniform size!
@@ -30,21 +29,19 @@ const App = props => {
                 {name}
               </Typography>
 
-              <Typography 
-                className='categoryName' 
-                color='secondary' 
-                component='h1'
+              <Typography
+                className="categoryName"
+                color="secondary"
+                component="h1"
               >
-                {category === undefined ? '' : category[0].category_name.toUpperCase()}
+                {category === undefined
+                  ? ""
+                  : category[0].category_name.toUpperCase()}
               </Typography>
 
               <Typography component="p">{description}</Typography>
             </div>
-            <AppModal
-              app={app}
-              isModalOpen={isOpen}
-              setIsOpen={setIsOpen}
-            />
+            <AppModal app={app} isModalOpen={isOpen} setIsOpen={setIsOpen} />
           </CardContent>
           <CardActions>
             {/* target so when you click the button, it opens the app in a new browser tab */}
@@ -55,7 +52,7 @@ const App = props => {
               color="primary"
               onClick={() => setIsOpen(true)}
             >
-              {is_approved ? "Get The App" : "Review The App"}
+              {is_approved ? "View The App" : "Review The App"}
             </Button>
           </CardActions>
         </Card>
