@@ -37,7 +37,7 @@ const theme = createMuiTheme({
   },
 })
 
-const App = ({ loginUser, user }) => {
+const App = ({ loginUser }) => {
   const { loading } = useAuth0()
 
   useEffect(() => {
@@ -71,12 +71,7 @@ const App = ({ loginUser, user }) => {
   )
 }
 
-const mapStateToProps = ({ usersReducer }) => {
-  return {
-    user: { ...usersReducer },
-  }
-}
 export default connect(
-  mapStateToProps,
+  null,
   { loginUser }
 )(App)
