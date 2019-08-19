@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import "@testing-library/jest-dom"
 import "@testing-library/react/cleanup-after-each"
 import { render } from "@testing-library/react"
-import ModalContent from "./ModalContent";
+import AppModal from "./AppModal";
 
-describe("<ModalContent />", () => {
+describe("<AppModal />", () => {
   const app = {
     "id": 6,
     "name": "FancyPlants",
@@ -18,18 +18,11 @@ describe("<ModalContent />", () => {
     "category_id": 4,
   }
   it("should render the App component without errors", async () => {
-    await render(<ModalContent app={app}/>)
+    await render(<AppModal app={app} />)
   })
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<ModalContent app={app}/>, div);
+    ReactDOM.render(<AppModal app={app} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
-  it("Should find github text", async () => {
-    // render(<ModalContent app={app}/>)
-    const { getByText } = await render(<ModalContent app={app}/>);
-      // confirm that "Github" is there
-      getByText(/Github/i);
-    
-  })
 })
