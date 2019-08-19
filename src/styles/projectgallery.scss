@@ -65,3 +65,12 @@
   .MuiTypography-root.categoryName.MuiTypography-body1 {
         font-size: 1rem;
   }
+  .invalid-search {
+        color: $lambdaPink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  }
+  .invalid-text {
+        padding-left: 2.5%;
+  }

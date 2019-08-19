@@ -122,13 +122,20 @@ const AppsGallery = ({
           }}
         />
       </div>
-      <Grid container spacing={2} style={{ padding: 24 }}>
-        {apps.map(currentApp => (
-          <Grid key={currentApp.id} item xs={12} sm={6} lg={4} xl={3}>
-            <App app={currentApp} key={currentApp.id} />
-          </Grid>
-        ))}
-      </Grid>
+      {apps.length === 0 ? (
+        <div className='invalid-search'>
+       <i className="fas fa-search"></i><h2 className='invalid-text'>There are no apps matching this search.</h2> 
+       </div>
+      ) : (
+        <Grid container spacing={2} style={{ padding: 24 }}>
+          {apps.map(currentApp => (
+            <Grid key={currentApp.id} item xs={12} sm={6} lg={4} xl={3}>
+              <App app={currentApp} key={currentApp.id} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
+
       {/* pagination for bottom of page */}
       <Pagination
         // limit of 1 array per page (in this case, one array of 12 apps being sent from the BE)
