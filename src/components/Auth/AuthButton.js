@@ -52,6 +52,7 @@ const AuthButton = ({ first_name, pictureURL }, user) => {
             aria-haspopup="true"
             onClick={handleClick}
           >
+          {/* if there is not a pictureURL, the material UI account icon appears */}
             {!pictureURL ? (
               <i id='account-box' class="material-icons">account_box</i>
             ) : (
