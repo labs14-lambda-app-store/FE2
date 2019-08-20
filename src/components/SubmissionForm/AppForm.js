@@ -97,8 +97,8 @@ const mapStateToProps = ({ appsReducer, imagesReducer }) => {
   }
 }
 
-const ProtectedComponent = () => <ProtectedRoute component={AppForm} />
+
 export default connect(
   mapStateToProps,
   { getApprovedApps, addApp, sendImageToCloudinary }
-)(ProtectedComponent)
+)(AppForm)
