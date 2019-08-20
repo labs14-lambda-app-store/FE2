@@ -3,9 +3,20 @@ import Button from "@material-ui/core/Button"
 import Cookie from "js-cookie"
 import { connect } from "react-redux"
 import { useAuth0 } from "./react-auth0-spa.js"
+import Menu from "@material-ui/core/Menu"
+import MenuItem from "@material-ui/core/MenuItem"
 
 const AuthButton = ({ first_name }) => {
   const { loginWithRedirect, logout } = useAuth0()
+  const [anchorEl, setAnchorEl] = React.useState(null)
+
+  const handleClick = e => {
+    setAnchorEl(e.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   const logoutWithRedirect = () => {
     Cookie.remove("user_id")
@@ -33,11 +44,30 @@ const AuthButton = ({ first_name }) => {
       }
       {userIDCookie && (
         <>
-          {first_name && (
-            <label style={{ color: "#0c3c78", fontSize: "1.1rem" }}>
-              Hello {first_name}!
-            </label>
-          )}
+          {" "}
+          <Button
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            <i class="material-icons">account_circle</i><i class="material-icons">
+{anchorEl === null ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}
+</i>
+          </Button>
+          <Menu
+            className="list-example"
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>Edit Profile</MenuItem>
+            <MenuItem onClick={handleClose}>My Apps</MenuItem>
+            <MenuItem color="secondary" onClick={handleClose}>
+              Sign Out
+            </MenuItem>
+          </Menu>
           <Button onClick={() => logoutWithRedirect()} color="secondary">
             Sign out
           </Button>
