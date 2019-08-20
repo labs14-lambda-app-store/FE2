@@ -54,7 +54,7 @@ const NavBar = ({ user, history }) => {
                 user.role === "student" ? (
                   <Button
                     className="studentProfile"
-                    onClick={() => history.push("/profile")}
+                    onClick={() => history.push("/dashboard")}
                   >
                     My Profile
                   </Button>

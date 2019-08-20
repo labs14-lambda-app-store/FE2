@@ -12,6 +12,7 @@ import { NavBar, Header, Footer } from "./components/reusable"
 
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
 import "./App.scss"
+import Dashboard from "./components/Dashboard/Dashboard";
 
 const theme = createMuiTheme({
   typography: {
@@ -56,6 +57,7 @@ const App = ({ loginUser }) => {
           <Route exact path="/" component={Home} />
           <ProtectedRoute exact path="/app-form" component={AppForm} />
           <Route path="/apps" exact component={AppsGallery} />
+          <ProtectedRoute path="/dashboard" exact component={Dashboard} />
           <ProtectedRoute
             path="/pending-apps"
             exact
