@@ -10,7 +10,6 @@ import { Popover } from "@material-ui/core"
 const AuthButton = ({ first_name, pictureURL }, user) => {
   const { loginWithRedirect, logout } = useAuth0()
   const [anchorEl, setAnchorEl] = React.useState(null)
-  console.log(first_name, pictureURL)
 
   const handleClick = e => {
     setAnchorEl(e.currentTarget)
