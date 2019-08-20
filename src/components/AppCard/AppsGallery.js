@@ -123,7 +123,7 @@ const AppsGallery = ({
         />
       </div>
       {/* if apps.length is equal to 0, search error text appears alerting the user there are no results for the query */}
-      {apps.length === 0 ? (
+      {apps.length === 0 && searchString ? (
         <div className='invalid-search'>
        <i className="fas fa-search"></i><p className='invalid-text'>There are no apps matching this search.</p> 
        </div>
