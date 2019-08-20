@@ -38,13 +38,13 @@ export default function Footer() {
           </a>
           <div className="sm-links-mobile">
             <a href="https://twitter.com/lambdaschool" target="#">
-              <i className="fab fa-twitter" />
+              <i className="fab fa-twitter fa-xs" />
             </a>
             <a href="https://www.facebook.com/LambdaSchoolOnline/" target="#">
-              <i className="fab fa-facebook" />
+              <i className="fab fa-facebook fa-xs" />
             </a>
             <a href="https://github.com/LambdaSchool" target="#">
-              <i className="fab fa-github" />
+              <i className="fab fa-github fa-xs" />
             </a>
           </div>
         </nav>
@@ -55,6 +55,8 @@ export default function Footer() {
             alt="white lambda logo"
           />
         </NavLink>
+
+        <p>Copyright © 2019 Lambda School - All rights reserved</p>
       </footer>
     </>
   )
