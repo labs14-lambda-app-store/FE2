@@ -5,6 +5,8 @@ import { connect } from "react-redux"
 import { useAuth0 } from "./react-auth0-spa.js"
 import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
+import { Popover } from "@material-ui/core";
+
 
 const AuthButton = ({ first_name }) => {
   const { loginWithRedirect, logout } = useAuth0()
@@ -50,27 +52,32 @@ const AuthButton = ({ first_name }) => {
             aria-haspopup="true"
             onClick={handleClick}
           >
-            <i class="material-icons">account_circle</i><i class="material-icons">
-{anchorEl === null ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}
-</i>
+            <i id='account-circle' className="material-icons">account_box</i>
+            <i id='account-arrow' className="material-icons">
+              {anchorEl === null ? "keyboard_arrow_down" : "keyboard_arrow_up"}
+            </i>
           </Button>
-          <Menu
+          <Popover
             className="list-example"
             id="simple-menu"
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
+            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+            transformOrigin={{ vertical: "top", horizontal: "left" }}
           >
             <MenuItem onClick={handleClose}>Edit Profile</MenuItem>
             <MenuItem onClick={handleClose}>My Apps</MenuItem>
-            <MenuItem color="secondary" onClick={handleClose}>
+            <MenuItem
+              color="secondary"
+              onClick={() => {
+                logoutWithRedirect()
+              }}
+            >
               Sign Out
             </MenuItem>
-          </Menu>
-          <Button onClick={() => logoutWithRedirect()} color="secondary">
-            Sign out
-          </Button>
+          </Popover>
         </>
       )}
     </>
