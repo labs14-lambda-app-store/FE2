@@ -22,21 +22,21 @@ describe("<App />", () => {
   it("should render the App component without errors", async () => {
     await render(<App app={app} />)
   })
-  it("Should find get the app text", async () => {
+  it("Should find View the app text", async () => {
     // render(<ModalContent app={app}/>)
     const { getByText } = await render(<App app={app} />);
     // confirm that "Get the App" is there
-    getByText(/Get The App/i);
+    getByText(/View The App/i);
   })
   it('setIsOpen(true)', async () => {
       const { getByText } = await render(<App app={app} />);
       const { container } = await render(<ModalContent app={app}/>); 
       // find the button
-      const button = getByText(/Get The App/i);
+      const button = getByText(/View The App/i);
       const redLED = getByTestId(container, 'view-website')
       // click it
       fireEvent.click(button);
-      // View Website text should show up if the app's setIsOpen(true)
+      // View Website <a> tag should show up if the app's setIsOpen(true)
       expect(redLED)
     });
 })
