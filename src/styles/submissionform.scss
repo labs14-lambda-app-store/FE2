@@ -16,6 +16,19 @@
             margin-bottom: 0;
             min-width: 365px;
       }    
+
+      .submitSuccess {
+            color: $lambdaTeal;
+            padding: 300px 0;
+      }
+
+      .submitFail {
+            color: $lambdaRed;
+            padding: 300px 0;
+      }
+      .submitPending {
+            padding: 300px 0;
+      }
 }
 
 .MuiList-root {

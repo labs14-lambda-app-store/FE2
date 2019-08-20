@@ -28,6 +28,8 @@ const initialState = {
   isUpdating: false,
   isDeleting: false,
   message: "",
+  addAppSuccessMessage: "",
+
 }
 
 const appsReducer = (state = initialState, action) => {
@@ -95,19 +97,18 @@ const appsReducer = (state = initialState, action) => {
       return {
         ...state,
         isAdding: true,
-        message: "",
+        addAppSuccessMessage: "",
       }
     case ADD_APPS_SUCCESS:
       return {
         ...state,
         isAdding: false,
-        message: action.payload.data.message,
+        addAppSuccessMessage: action.payload,
       }
     case ADD_APPS_FAIL:
       return {
         ...state,
         isAdding: false,
-        message: action.payload,
       }
     case UPDATE_APPS_START:
       return {
