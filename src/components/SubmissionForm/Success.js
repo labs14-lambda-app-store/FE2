@@ -15,9 +15,9 @@ const Success = props => {
   return (
     <div className="submission">
       {addAppSuccessMessage ? (
-        <i class="fas fa-check-circle fa-lg"></i>
+        <i className="fas fa-check-circle fa-lg submitSuccess"></i>
       ) : (
-        <i class="fas fa-times-circle fa-lg"></i>
+        <i className="fas fa-times-circle fa-lg submitFail"></i>
       )}
     </div>
   )
