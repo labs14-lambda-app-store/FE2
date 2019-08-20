@@ -17,8 +17,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import List from '@material-ui/core/List';
-import { mainListItems, secondaryListItems } from './ItemList';
-import LambdaLogo from '../../assets/Lambda_Avatar_White.jpg';
+import MainItemList from './MainItemList';
+import SecondaryItemList from './SecondaryItemList'
 
 // function Copyright() {
 //     return (
@@ -173,11 +173,11 @@ const Dashboard = () => {
 
                 {/* List of Hamburger Navigation */}
                 <List className={classes.list}>
-                    {mainListItems}
+                    <MainItemList />
                 </List>
                 <Divider />
                 <List className={classes.list}>
-                    {secondaryListItems}
+                    <SecondaryItemList />
                 </List>
             </Drawer>
 
