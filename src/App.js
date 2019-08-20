@@ -35,6 +35,10 @@ const theme = createMuiTheme({
       main: "#3ab5e5",
       contrastText: "#efeef3",
     },
+    tetiary: {
+      main: "#f32667",
+      contrastText: "#00000",
+    },
   },
 })
 

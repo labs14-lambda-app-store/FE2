@@ -12,10 +12,13 @@ import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link'; ---UNCOMMENT IF ADDING COPYRIGHT FOR MUI
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import List from '@material-ui/core/List';
+import { mainListItems, secondaryListItems } from './ItemList';
+import LambdaLogo from '../../assets/Lambda_Avatar_White.jpg';
 
 // function Copyright() {
 //     return (
@@ -40,7 +43,8 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
     },
     toolbar: {
-        paddingRight: 24, // keep right padding when drawer closed
+        paddingRight: 24,
+        backgroundColor: "#1a61b0",
     },
     toolbarIcon: {
         display: 'flex',
@@ -72,6 +76,7 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         flexGrow: 1,
+        color: "white",
     },
     drawerPaper: {
         position: 'relative',
@@ -112,9 +117,13 @@ const useStyles = makeStyles(theme => ({
     fixedHeight: {
         height: 240,
     },
+    list: {
+        width: "100%"
+    }
 }));
 
 const Dashboard = () => {
+
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
@@ -124,7 +133,6 @@ const Dashboard = () => {
         setOpen(false);
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -139,9 +147,9 @@ const Dashboard = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Dashboard
-          </Typography>
+                    <Typography component="h1" variant="h4" noWrap className={classes.title}>
+                        Student Dashboard
+             </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={4} color="secondary">
                             <NotificationsIcon />
@@ -163,11 +171,20 @@ const Dashboard = () => {
                 </div>
                 <Divider />
 
+                {/* List of Hamburger Navigation */}
+                <List className={classes.list}>
+                    {mainListItems}
+                </List>
                 <Divider />
+                <List className={classes.list}>
+                    {secondaryListItems}
+                </List>
             </Drawer>
+
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
+                    <h1>Overview</h1>
                     <Grid container spacing={3}>
                         {/* Chart */}
                         <Grid item xs={12} md={8} lg={9}>
