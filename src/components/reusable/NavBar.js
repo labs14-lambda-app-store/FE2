@@ -42,16 +42,33 @@ const NavBar = ({ user, history }) => {
                     Pending Apps
                   </Button>
                 ) : (
+                    <Button
+                      className="appFormButton"
+                      onClick={() => history.push("/app-form")}
+                    >
+                      Submit App
+                  </Button>
+                  )
+              ) : null}
+              {user ? (
+                user.role === "student" ? (
                   <Button
-                    className="appFormButton"
-                    onClick={() => history.push("/app-form")}
+                    className="studentProfile"
+                    onClick={() => history.push("/profile")}
                   >
-                    Submit App
+                    My Profile
+                  </Button>
+                ) : user.role === "admin"(
+                  <Button
+                    className="pendingAppsButton"
+                    onClick={() => history.push("/pending-apps")}
+                  >
+                    Pending Apps
                   </Button>
                 )
               ) : null}
 
-              <AuthButton />
+              < AuthButton />
             </div>
           </Toolbar>
         </AppBar>
