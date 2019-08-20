@@ -1,9 +1,11 @@
-import React from "react"
+import React from "react";
 import ReactDOM from 'react-dom';
-import "@testing-library/jest-dom"
-import "@testing-library/react/cleanup-after-each"
-import { render } from "@testing-library/react"
+import "@testing-library/jest-dom";
+import "@testing-library/react/cleanup-after-each";
+import { render, fireEvent } from "@testing-library/react";
+import { getByTestId } from '@testing-library/dom';
 import App from "./App";
+import ModalContent from "./ModalContent";
 
 describe("<App />", () => {
   const app = {
@@ -25,6 +27,16 @@ describe("<App />", () => {
     const { getByText } = await render(<App app={app} />);
     // confirm that "Get the App" is there
     getByText(/Get The App/i);
-    getByText(/Review The App/i);
   })
+  it('setIsOpen(true)', async () => {
+      const { getByText } = await render(<App app={app} />);
+      const { container } = await render(<ModalContent app={app}/>); 
+      // find the button
+      const button = getByText(/Get The App/i);
+      const redLED = getByTestId(container, 'view-website')
+      // click it
+      fireEvent.click(button);
+      // View Website text should show up if the app's setIsOpen(true)
+      expect(redLED)
+    });
 })
