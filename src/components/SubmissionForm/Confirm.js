@@ -46,7 +46,7 @@ const Confirm = props => {
 
   return (
     <div className="submission">
-      <h1> Confirm Submission Data </h1>
+      <h1> Confirm App Data </h1>
       <List>
         <ListItem button>
           <ListItemText primary="Name" secondary={name} />
@@ -67,11 +67,9 @@ const Confirm = props => {
             <ListItemText primary="Back-End URL" secondary={backend_url} />
           </ListItem>
         )}
-
         <ListItem button>
           <ListItemText primary="Category" secondary={category.category_name} />
         </ListItem>
-        {/* <ListItem button><ListItemText primary='Tags' secondary={tags} /></ListItem> */}
       </List>
       <br />
       <Button
@@ -81,7 +79,7 @@ const Confirm = props => {
         onClick={e => (!isAddingImage && !isAddingApp ? Continue(e) : null)}
       >
         {isAddingImage || isAddingApp ? (
-          <Loader type="ThreeDots" color="#somecolor" height={80} width={80} />
+          <Loader type="ThreeDots" height={80} width={80} />
         ) : (
           "Confirm & Continue"
         )}

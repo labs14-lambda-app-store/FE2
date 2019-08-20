@@ -18,6 +18,9 @@ const AuthButton = ({ first_name }) => {
 
   return (
     <>
+      {
+        //displays sign in button if no user cookie found
+      }
       {!userIDCookie && (
         <>
           <Button onClick={() => loginWithRedirect({})} color="secondary">
@@ -25,6 +28,9 @@ const AuthButton = ({ first_name }) => {
           </Button>
         </>
       )}
+      {
+        //displays sign out button if user cookie found
+      }
       {userIDCookie && (
         <>
           {first_name && (

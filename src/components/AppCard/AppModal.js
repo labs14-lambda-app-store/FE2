@@ -4,9 +4,7 @@ import ModalContent from "./ModalContent"
 
 //will need react router for card contents
 //axios for getAppById request
-const AppModal = props => {
-  const { app, isModalOpen, setIsOpen } = props
-
+const AppModal = ({ app, isModalOpen, setIsOpen }) => {
   return (
     <main>
       <Modal

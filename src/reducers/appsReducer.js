@@ -28,9 +28,12 @@ const initialState = {
   isUpdating: false,
   isDeleting: false,
   message: "",
+  addAppSuccessMessage: "",
+
 }
 
 const appsReducer = (state = initialState, action) => {
+  //approved apps cases
   switch (action.type) {
     case GET_APPROVED_APPS_START:
       return {
@@ -49,6 +52,8 @@ const appsReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
       }
+    //pending apps cases
+
     case GET_PENDING_APPS_START:
       return {
         ...state,
@@ -66,6 +71,8 @@ const appsReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
       }
+    //searching apps cases
+
     case SEARCH_APPS_START:
       return {
         ...state,
@@ -85,23 +92,23 @@ const appsReducer = (state = initialState, action) => {
         isFetching: false,
         message: action.payload,
       }
+    //app creation, update and delete cases
     case ADD_APPS_START:
       return {
         ...state,
         isAdding: true,
-        message: "",
+        addAppSuccessMessage: "",
       }
     case ADD_APPS_SUCCESS:
       return {
         ...state,
         isAdding: false,
-        message: action.payload.data.message,
+        addAppSuccessMessage: action.payload,
       }
     case ADD_APPS_FAIL:
       return {
         ...state,
         isAdding: false,
-        message: action.payload,
       }
     case UPDATE_APPS_START:
       return {
