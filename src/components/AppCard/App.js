@@ -9,6 +9,7 @@ import AppModal from "./AppModal"
 
 const App = ({ app }) => {
   const { display_image, name, description, category, is_approved } = app
+  console.log(display_image)
 
   const [isOpen, setIsOpen] = useState(false)
 

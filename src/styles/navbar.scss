@@ -44,8 +44,13 @@
   width: 100%;
 }
 #account-arrow {
-  color: $lambdaTeal;
+  color: #c4c4c4;
 }
-#account-circle {
-  color: $lambdaTeal;
+#account-box {
+  color: #c4c4c4;
+}
+.user-image {
+  width: 2rem;
+  height: auto;
+  border-radius: 5px;
 }

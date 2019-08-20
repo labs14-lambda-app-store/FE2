@@ -5,12 +5,12 @@ import { connect } from "react-redux"
 import { useAuth0 } from "./react-auth0-spa.js"
 import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
-import { Popover } from "@material-ui/core";
+import { Popover } from "@material-ui/core"
 
-
-const AuthButton = ({ first_name }) => {
+const AuthButton = ({ first_name, pictureURL }, user) => {
   const { loginWithRedirect, logout } = useAuth0()
   const [anchorEl, setAnchorEl] = React.useState(null)
+  console.log(first_name, pictureURL)
 
   const handleClick = e => {
     setAnchorEl(e.currentTarget)
@@ -52,8 +52,17 @@ const AuthButton = ({ first_name }) => {
             aria-haspopup="true"
             onClick={handleClick}
           >
-            <i id='account-circle' className="material-icons">account_box</i>
-            <i id='account-arrow' className="material-icons">
+            {!pictureURL ? (
+              <i id='account-box' class="material-icons">account_box</i>
+            ) : (
+              <img
+                className="user-image"
+                src={pictureURL}
+                alt="user profile"
+              ></img>
+            )}
+
+            <i id="account-arrow" className="material-icons">
               {anchorEl === null ? "keyboard_arrow_down" : "keyboard_arrow_up"}
             </i>
           </Button>
