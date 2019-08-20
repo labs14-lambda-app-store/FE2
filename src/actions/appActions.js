@@ -71,13 +71,12 @@ export const ADD_APPS_FAIL = "ADD_APPS_FAIL"
 
 export const addApp = newApp => async dispatch => {
   dispatch({ type: ADD_APPS_START })
-
   try {
     const postResult = await axios.post(baseAppsUrl, newApp)
-    dispatch({ type: ADD_APPS_SUCCESS, payload: postResult })
+    dispatch({ type: ADD_APPS_SUCCESS, payload: postResult.data.message })
     dispatch(getApprovedApps())
   } catch (err) {
-    dispatch({ type: ADD_APPS_FAIL, payload: err })
+    dispatch({ type: ADD_APPS_FAIL, payload: err})
   }
 }
 
