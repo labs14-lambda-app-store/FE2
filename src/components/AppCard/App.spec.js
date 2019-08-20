@@ -20,4 +20,11 @@ describe("<App />", () => {
   it("should render the App component without errors", async () => {
     await render(<App app={app} />)
   })
+  it("Should find get the app text", async () => {
+    // render(<ModalContent app={app}/>)
+    const { getByText } = await render(<App app={app} />);
+    // confirm that "Get the App" is there
+    getByText(/Get The App/i);
+    getByText(/Review The App/i);
+  })
 })
