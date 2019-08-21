@@ -38,10 +38,10 @@ const Confirm = ({
   const createButtonContent = () => {
     if (isAddingImage || isAddingApp) {
       return <Loader type="ThreeDots" height={80} width={80} />
-    } else if (message) return message
-    else {
+    } else {
       return "Submit Project"
     }
+    if (message) return message
   }
 
   return (

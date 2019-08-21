@@ -1,15 +1,16 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
-
+import { withRouter } from "react-router"
 import Confirm from "./Confirm"
 import Success from "./Success"
 import ProtectedRoute from "../Auth/ProtectedRoute"
 import AppDetails from "./AppDetails"
+
 import { addApp, getApprovedApps, sendImageToCloudinary } from "../../actions"
 
 var moment = require("moment")
 
-const AppForm = props => {
+const AppForm = ({ project_image, history, addApp }) => {
   const [step, setStep] = useState(1)
 
   const [state, setStateValues] = useState({
@@ -40,11 +41,11 @@ const AppForm = props => {
   }
 
   //post new app to database
-  const handlePost = e => {
+  const handlePost = async e => {
     e.preventDefault()
 
     let submitted_at = moment().format("MMMM Do YYYY, h:mm:ss a")
-    let display_image = props.display_image && props.display_image
+    let display_image = project_image && project_image
     let newPost = {
       //send all of state to BE except category_name and error_message (will return a 500 if you include these)
       hosted_url: state.hosted_url,
@@ -58,9 +59,7 @@ const AppForm = props => {
       display_image,
     }
 
-    props.addApp(newPost).then(res => {
-      getApprovedApps()
-    })
+    addApp(newPost)
   }
 
   //switch and steps to confirm submission details
@@ -83,22 +82,20 @@ const AppForm = props => {
           state={state}
         />
       )
-    case 3:
-      return <Success />
     default:
       return null
   }
 }
 
-const mapStateToProps = ({ appsReducer, imagesReducer }) => {
+const mapStateToProps = ({ imagesReducer }) => {
   return {
-    ...appsReducer,
-    display_image: imagesReducer.image,
+    project_image: imagesReducer.image,
   }
 }
 
-
-export default connect(
-  mapStateToProps,
-  { getApprovedApps, addApp, sendImageToCloudinary }
-)(AppForm)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getApprovedApps, addApp, sendImageToCloudinary }
+  )(AppForm)
+)
