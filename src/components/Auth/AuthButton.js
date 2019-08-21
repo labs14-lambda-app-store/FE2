@@ -2,14 +2,15 @@ import React from "react"
 import Button from "@material-ui/core/Button"
 import Cookie from "js-cookie"
 import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
 import { useAuth0 } from "./react-auth0-spa.js"
-import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
 import { Popover } from "@material-ui/core"
 
-const AuthButton = ({ first_name, pictureURL }, user) => {
+const AuthButton = ({ first_name, pictureURL, history }) => {
   const { loginWithRedirect, logout } = useAuth0()
   const [anchorEl, setAnchorEl] = React.useState(null)
+  console.log(history)
 
   const handleClick = e => {
     setAnchorEl(e.currentTarget)
@@ -50,9 +51,11 @@ const AuthButton = ({ first_name, pictureURL }, user) => {
             aria-haspopup="true"
             onClick={handleClick}
           >
-          {/* if there is not a pictureURL, the material UI account icon appears */}
+            {/* if there is not a pictureURL, the material UI account icon appears */}
             {!pictureURL ? (
-              <i id='account-box' class="material-icons">account_box</i>
+              <i id="account-box" class="material-icons">
+                account_box
+              </i>
             ) : (
               <img
                 className="user-image"
@@ -75,8 +78,8 @@ const AuthButton = ({ first_name, pictureURL }, user) => {
             anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             transformOrigin={{ vertical: "top", horizontal: "left" }}
           >
-            <MenuItem onClick={handleClose}>Edit Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My Apps</MenuItem>
+            <MenuItem onClick={() => history.push('/profile')}>My Profile</MenuItem>
+            <MenuItem onClick={() => history.push('/dashboard')}>Dashboard</MenuItem>
             <MenuItem
               color="secondary"
               onClick={() => {
@@ -95,7 +98,10 @@ const AuthButton = ({ first_name, pictureURL }, user) => {
 const mapStateToProps = ({ usersReducer }) => {
   return { ...usersReducer.user }
 }
-export default connect(
-  mapStateToProps,
-  {}
-)(AuthButton)
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {}
+  )(AuthButton)
+)
