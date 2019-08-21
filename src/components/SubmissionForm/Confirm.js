@@ -76,9 +76,9 @@ const Confirm = props => {
         style={style}
         label="Confirm & Continue"
         color="primary"
-        onClick={e => (!isAddingImage && !isAddingApp ? Continue(e) : null)}
+        onClick={e => (!isAddingImage ? Continue(e) : null)}
       >
-        {isAddingImage || isAddingApp ? (
+        {isAddingImage ? (
           <Loader type="ThreeDots" height={80} width={80} />
         ) : (
           "Confirm & Continue"
