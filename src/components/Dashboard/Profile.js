@@ -2,10 +2,10 @@ import React from 'react';
 
 
 
-const Profile = () => {
+const Profile = ({ user }) => {
     return (
-        <div>
-            Hi
+        <div className="profile-container">
+
         </div>
     )
 }

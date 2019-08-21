@@ -85,8 +85,8 @@ const AuthButton = ({ first_name, pictureURL, history }) => {
             anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             transformOrigin={{ vertical: "top", horizontal: "left" }}
           >
-            <MenuItem component={Link} to="/dashboard/profile">My Profile</MenuItem>
-            <MenuItem component={Link} to="/dashboard">Dashboard</MenuItem>
+            <MenuItem onClick={() => history.push('/dashboard/profile')}>My Profile</MenuItem>
+            <MenuItem onClick={() => history.push('/dashboard')}>Dashboard</MenuItem>
             <MenuItem
               color="secondary"
               onClick={() => {
