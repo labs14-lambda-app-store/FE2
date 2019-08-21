@@ -7,8 +7,9 @@ import AuthButton from "../Auth/AuthButton"
 import { MemoryRouter as Router, withRouter } from "react-router-dom"
 import redLambdaLogo from "../../assets/Lambda_Logo.png"
 
-const NavBar = ({ user, history, location }) => {
-  if (location.pathname === "/dashboard") {
+const NavBar = (props) => {
+  const { user, history, location } = props
+  if (location.pathname.includes("/dashboard")) {
     return null;
   } else {
     return (
@@ -22,7 +23,7 @@ const NavBar = ({ user, history, location }) => {
                 alt="red lambda logo"
                 onClick={() => history.push("/")}
               />
-  
+
               {/* Using button onClick to avoid Link bug that prevents route changes,
                           when using material-ui */}
               <div className="buttons">
@@ -34,7 +35,7 @@ const NavBar = ({ user, history, location }) => {
                 >
                   Apps
                 </Button>
-  
+
                 {/* if there is a user, and the user's roll is admin, show pending apps nav button, else if there is a user and the user's role isn't admin, show the submit form nav button. else don't show either buttons */}
                 {user ? (
                   user.role === "admin" ? (
@@ -53,24 +54,7 @@ const NavBar = ({ user, history, location }) => {
                     </Button>
                     )
                 ) : null}
-                {user ? (
-                  user.role === "student" ? (
-                    <Button
-                      className="studentProfile"
-                      onClick={() => history.push("/dashboard")}
-                    >
-                      My Dashboard
-                    </Button>
-                  ) : user.role === "admin"(
-                    <Button
-                      className="pendingAppsButton"
-                      onClick={() => history.push("/pending-apps")}
-                    >
-                      Pending Apps
-                    </Button>
-                  )
-                ) : null}
-  
+
                 < AuthButton />
               </div>
             </Toolbar>

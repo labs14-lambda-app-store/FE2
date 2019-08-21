@@ -1,26 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router'
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import SideNavItem from '../reusable/SideNavItem';
 import HomeIcon from '@material-ui/icons/Home';
-import AddBoxIcon from '@material-ui/icons/AddBox';
+import SettingsIcon from '@material-ui/icons/Settings';
 
-const SecondaryItemList = ({ history }) => {
+const SecondaryItemList = () => {
     return (
         <div>
-            <ListItem button onClick={() => history.push("/")} >
-                <ListItemIcon>
-                    <HomeIcon />
-                </ListItemIcon>
-                <ListItemText primary="Return to Home" />
-            </ListItem>
-            <ListItem button onClick={() => history.push("/app-form")} >
-                <ListItemIcon>
-                    <AddBoxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Submit an App" />
-            </ListItem>
+            <SideNavItem route="/dashboard/settings" icon={() => <SettingsIcon />} primaryText="Settings" />
+            <SideNavItem route="/" icon={() => <HomeIcon />} primaryText="Return to Home" />
         </div>
     )
 }

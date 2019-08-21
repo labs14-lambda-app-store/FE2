@@ -1,9 +1,7 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
-
 import Confirm from "./Confirm"
 import Success from "./Success"
-import ProtectedRoute from "../Auth/ProtectedRoute"
 import AppDetails from "./AppDetails"
 import { addApp, getApprovedApps, sendImageToCloudinary } from "../../actions"
 
