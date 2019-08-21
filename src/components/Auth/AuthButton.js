@@ -45,7 +45,6 @@ const AuthButton = ({ first_name, pictureURL }, user) => {
       }
       {userIDCookie && (
         <>
-          {" "}
           <Button
             aria-controls="simple-menu"
             aria-haspopup="true"
