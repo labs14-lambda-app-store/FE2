@@ -6,9 +6,6 @@ import "@testing-library/jest-dom"
 import { render, fireEvent, cleanup } from "@testing-library/react"
 import AppDetails from "./AppDetails"
 import AppForm from "./AppForm"
-import NavBar from '../reusable/NavBar'
-import Confirm from './Confirm'
-import Success from './Success'
 
 afterEach(cleanup)
 

@@ -47,7 +47,7 @@ const Confirm = props => {
   return (
     <div className="submission">
       <h1> Confirm App Data </h1>
-      <List>
+      <List inputProps={{ "data-testid": "Confirm-List" }}>
         <ListItem button>
           <ListItemText primary="Name" secondary={name} />
         </ListItem>
