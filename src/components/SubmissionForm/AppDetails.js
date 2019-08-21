@@ -211,6 +211,7 @@ const AppDetails = ({
           onChange={e => handleStateChanges(e)}
         />  */}
         <Button
+          data-testid="continue-button"
           style={style}
           label="Continue"
           type="submit"
