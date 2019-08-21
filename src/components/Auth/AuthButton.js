@@ -2,7 +2,7 @@ import React from "react"
 import Button from "@material-ui/core/Button"
 import Cookie from "js-cookie"
 import { connect } from "react-redux"
-import { withRouter } from "react-router-dom"
+import { withRouter, Link } from "react-router-dom"
 import { useAuth0 } from "./react-auth0-spa.js"
 import MenuItem from "@material-ui/core/MenuItem"
 import { Popover } from "@material-ui/core"
@@ -11,12 +11,20 @@ const AuthButton = ({ first_name, pictureURL, history }) => {
   const { loginWithRedirect, logout } = useAuth0()
   const [anchorEl, setAnchorEl] = React.useState(null)
 
+  const { push } = history
+
   const handleClick = e => {
     setAnchorEl(e.currentTarget)
   }
 
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+  const pushToRoute = () => {
+    console.log("trigger")
+    console.log("history", history)
+    push("/dashboard")
   }
 
   const logoutWithRedirect = () => {
@@ -56,12 +64,12 @@ const AuthButton = ({ first_name, pictureURL, history }) => {
                 account_box
               </i>
             ) : (
-              <img
-                className="user-image"
-                src={pictureURL}
-                alt="user profile"
-              ></img>
-            )}
+                <img
+                  className="user-image"
+                  src={pictureURL}
+                  alt="user profile"
+                ></img>
+              )}
 
             <i id="account-arrow" className="material-icons">
               {anchorEl === null ? "keyboard_arrow_down" : "keyboard_arrow_up"}
@@ -77,8 +85,8 @@ const AuthButton = ({ first_name, pictureURL, history }) => {
             anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             transformOrigin={{ vertical: "top", horizontal: "left" }}
           >
-            <MenuItem onClick={() => history.push('/profile')}>My Profile</MenuItem>
-            <MenuItem onClick={() => history.push('/dashboard')}>Dashboard</MenuItem>
+            <MenuItem component={Link} to="/dashboard/profile">My Profile</MenuItem>
+            <MenuItem component={Link} to="/dashboard">Dashboard</MenuItem>
             <MenuItem
               color="secondary"
               onClick={() => {
