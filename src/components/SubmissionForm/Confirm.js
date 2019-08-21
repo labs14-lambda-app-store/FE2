@@ -14,16 +14,14 @@ const style = {
   padding: "20px",
 }
 
-const Confirm = props => {
-  const {
-    nextStep,
-    prevStep,
-    handlePost,
-    state,
-    isAddingImage,
-    isAddingApp,
-  } = props
-
+const Confirm = ({
+  nextStep,
+  prevStep,
+  handlePost,
+  state,
+  isAddingImage,
+  isAddingApp,
+}) => {
   const {
     description,
     name,
