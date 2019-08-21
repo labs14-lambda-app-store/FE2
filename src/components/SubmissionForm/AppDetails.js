@@ -110,6 +110,7 @@ const AppDetails = ({
           select
           variant="outlined"
           label="Categories"
+          inputProps={{ "data-testid": "categories" }}
           name="category"
           helperText="Please select one"
           margin="normal"

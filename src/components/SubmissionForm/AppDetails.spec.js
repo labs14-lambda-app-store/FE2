@@ -1,7 +1,6 @@
 import React from "react"
 import { Provider } from "react-redux"
 import { store } from "../../utils/store"
-import ReactDOM from "react-dom"
 import "@testing-library/jest-dom"
 import { render, fireEvent, cleanup } from "@testing-library/react"
 import AppDetails from "./AppDetails"
@@ -42,5 +41,24 @@ describe("<AppDetails />", () => {
             </Provider>)
       const form = container.querySelector('form')
       expect(form).toBeTruthy()
+  })
+  it("should find Button", () => {
+      const {container} = render(
+            <Provider store={store}>
+              <AppDetails state={state} />
+            </Provider>)
+      const Button = container.querySelector('Button')
+      expect(Button).toBeTruthy()
+  })
+  it("should call OnClick when Button is clicked", () => {
+      const onClick = jest.fn()
+      const {container} = render(
+            <Provider store={store}>
+              <AppDetails onClick={onClick} state={state} />
+            </Provider>)
+      
+      const Button = container.querySelector('Button')
+      fireEvent.click(Button)
+      expect(onClick).toHaveBeenCalled()
   })
 })
