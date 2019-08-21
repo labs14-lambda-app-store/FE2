@@ -2,10 +2,22 @@ import React from "react"
 import Button from "@material-ui/core/Button"
 import Cookie from "js-cookie"
 import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
 import { useAuth0 } from "./react-auth0-spa.js"
+import MenuItem from "@material-ui/core/MenuItem"
+import { Popover } from "@material-ui/core"
 
-const AuthButton = ({ first_name }) => {
+const AuthButton = ({ first_name, pictureURL, history }) => {
   const { loginWithRedirect, logout } = useAuth0()
+  const [anchorEl, setAnchorEl] = React.useState(null)
+
+  const handleClick = e => {
+    setAnchorEl(e.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   const logoutWithRedirect = () => {
     Cookie.remove("user_id")
@@ -33,14 +45,49 @@ const AuthButton = ({ first_name }) => {
       }
       {userIDCookie && (
         <>
-          {first_name && (
-            <label style={{ color: "#0c3c78", fontSize: "1.1rem" }}>
-              Hello {first_name}!
-            </label>
-          )}
-          <Button onClick={() => logoutWithRedirect()} color="secondary">
-            Sign out
+          <Button
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            {/* if there is not a pictureURL, the material UI account icon appears */}
+            {!pictureURL ? (
+              <i id="account-box" class="material-icons">
+                account_box
+              </i>
+            ) : (
+              <img
+                className="user-image"
+                src={pictureURL}
+                alt="user profile"
+              ></img>
+            )}
+
+            <i id="account-arrow" className="material-icons">
+              {anchorEl === null ? "keyboard_arrow_down" : "keyboard_arrow_up"}
+            </i>
           </Button>
+          <Popover
+            className="list-example"
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+            transformOrigin={{ vertical: "top", horizontal: "left" }}
+          >
+            <MenuItem onClick={() => history.push('/profile')}>My Profile</MenuItem>
+            <MenuItem onClick={() => history.push('/dashboard')}>Dashboard</MenuItem>
+            <MenuItem
+              color="secondary"
+              onClick={() => {
+                logoutWithRedirect()
+              }}
+            >
+              Sign Out
+            </MenuItem>
+          </Popover>
         </>
       )}
     </>
@@ -50,7 +97,10 @@ const AuthButton = ({ first_name }) => {
 const mapStateToProps = ({ usersReducer }) => {
   return { ...usersReducer.user }
 }
-export default connect(
-  mapStateToProps,
-  {}
-)(AuthButton)
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {}
+  )(AuthButton)
+)
