@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
@@ -6,8 +6,6 @@ import Button from "@material-ui/core/Button"
 import { connect } from "react-redux"
 import Loader from "react-loader-spinner"
 
-//imported Material UI packages above,
-// and implemented them in a functional component below
 //MUI button style overwrite with INLINE STYLES
 const style = {
   fontSize: "1.6rem",
@@ -21,6 +19,7 @@ const Confirm = ({
   state,
   isAddingImage,
   isAddingApp,
+  message,
 }) => {
   const {
     description,
@@ -31,15 +30,18 @@ const Confirm = ({
     category,
   } = state
 
-  const Continue = e => {
-    e.preventDefault()
-    handlePost(e)
-    nextStep()
-  }
-
   const Back = e => {
     e.preventDefault()
     prevStep()
+  }
+
+  const createButtonContent = () => {
+    if (isAddingImage || isAddingApp) {
+      return <Loader type="ThreeDots" height={80} width={80} />
+    } else if (message) return message
+    else {
+      return "Submit Project"
+    }
   }
 
   return (
@@ -74,13 +76,10 @@ const Confirm = ({
         style={style}
         label="Confirm & Continue"
         color="primary"
-        onClick={e => (!isAddingImage ? Continue(e) : null)}
+        // onClick={e => (!isAddingImage ? Continue(e) : null)}
+        onClick={e => handlePost(e)}
       >
-        {isAddingImage ? (
-          <Loader type="ThreeDots" height={80} width={80} />
-        ) : (
-          "Confirm & Continue"
-        )}
+        {createButtonContent()}
       </Button>
       <Button
         style={style}
@@ -98,6 +97,7 @@ const mapStateToProps = ({ imagesReducer, appsReducer }) => {
   return {
     isAddingImage: imagesReducer.isAdding,
     isAddingApp: appsReducer.isAdding,
+    message: appsReducer.message,
   }
 }
 
