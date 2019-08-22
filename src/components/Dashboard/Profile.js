@@ -13,11 +13,11 @@ const Profile = ({ user }) => {
         <div className="profileContainer">
             <Paper className="infoCard">
                 <div className="nameCard">
-                    <name>{first_name} {last_name}</name>
-                    <email>{email}</email>
-                    <birthday>user dot birthday</birthday>
-                    <timezone>user dot time zone</timezone>
-                    <pronoun>pronoun of preference!</pronoun>
+                    <h2>{first_name} {last_name}</h2>
+                    <p>{email}</p>
+                    <p>user dot birthday</p>
+                    <p>user dot time zone</p>
+                    <p>pronoun of preference!</p>
                 </div>
                 <div className="buttonCard">
                     <Button color="primary" className="editProfileButton">edit profile</Button>
