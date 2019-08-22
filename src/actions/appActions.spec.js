@@ -4,10 +4,10 @@ import { Provider } from "react-redux"
 import { store } from "../utils/store"
 // // this whole thing doesnt work. why do i keep it.
 
-// import configureMockStore from "redux-mock-store"
+import configureMockStore from "redux-mock-store"
 
-// import usersReducer from "../reducers"
-// import loginUser from "./userActions"
+import * as fromApps from "../reducers/appsReducer"
+import * as appActions from "./appActions"
 
 // const middlewares = [thunk]
 // const mockStore = configureMockStore(middlewares)
