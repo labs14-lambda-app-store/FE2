@@ -1,6 +1,6 @@
 import React from "react"
 
-const PaginationConfig = props => {
+const PaginationConfig = ({ offset, appsLength, searchString }) => {
   return (
     <>
       <Pagination
