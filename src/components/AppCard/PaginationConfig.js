@@ -3,6 +3,8 @@ import Pagination from "material-ui-flat-pagination"
 import { connect } from "react-redux"
 import { searchApps } from "../../actions"
 
+//abstracts pagination into single component to prevent re-use of duplicate code
+
 const PaginationConfig = ({
   offset,
   appsLength,
