@@ -3,7 +3,7 @@ import Pagination from "material-ui-flat-pagination"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import Grid from "@material-ui/core/Grid"
-
+import PaginationConfig from "./PaginationConfig"
 import { connect } from "react-redux"
 
 import App from "./App.js"
@@ -27,6 +27,7 @@ const AppsGallery = ({
       ? Math.ceil(pendingAppsLength / 12)
       : Math.ceil(approvedAppsLength / 12)
 
+  //searches for searchString if searchString, else gets projects
   useEffect(() => {
     if (searchString) {
       handleSearch(setOffset(0), searchString)
@@ -37,6 +38,7 @@ const AppsGallery = ({
     //eslint-disable-next-line
   }, [approvedAppsLength, pendingAppsLength])
 
+  //gets apps when search bar is cleared
   useEffect(() => {
     if (searchString.length === 0) checkAppType()
     //eslint-disable-next-line
@@ -102,24 +104,12 @@ const AppsGallery = ({
           </Button>
         </div>
         {/* pagination for top of page */}
-        <Pagination
-          // limit of 1 array per page (in this case, one array of 12 apps being sent from the BE)
-          limit={1}
-          innerButtonCount={0}
-          outerButtonCount={1}
-          reduced={true}
+        <PaginationConfig
           offset={offset}
-          // total number of pages we want to render; dynamic by rounding up quotient of approvedAppsLength and apps per page (12)
-          total={appsLength}
-          onClick={(e, offset) => {
-            setOffset(offset)
-            // send the correct page query (i.e. /api/apps?page=2)
-            if (searchString) {
-              searchApps(offset + 1, searchString, true)
-            } else {
-              checkAppType(offset + 1)
-            }
-          }}
+          setOffset={setOffset}
+          appsLength={appsLength}
+          searchString={searchString}
+          checkAppType={checkAppType}
         />
       </div>
 
@@ -142,24 +132,12 @@ const AppsGallery = ({
       )}
 
       {/* pagination for bottom of page */}
-      <Pagination
-        // limit of 1 array per page (in this case, one array of 12 apps being sent from the BE)
-        limit={1}
-        innerButtonCount={0}
-        outerButtonCount={1}
-        reduced={true}
+      <PaginationConfig
         offset={offset}
-        // total number of pages we want to render; dynamic by rounding up quotient of approvedAppsLength and apps per page (12)
-        total={appsLength}
-        onClick={(e, offset) => {
-          setOffset(offset)
-          // send the correct page query (i.e. /api/apps?page=2)
-          if (searchString) {
-            searchApps(offset + 1, searchString, true)
-          } else {
-            checkAppType(offset + 1)
-          }
-        }}
+        setOffset={setOffset}
+        appsLength={appsLength}
+        searchString={searchString}
+        checkAppType={checkAppType}
       />
     </div>
   )

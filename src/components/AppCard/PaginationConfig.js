@@ -1,6 +1,16 @@
 import React from "react"
+import Pagination from "material-ui-flat-pagination"
+import { connect } from "react-redux"
+import { searchApps } from "../../actions"
 
-const PaginationConfig = ({ offset, appsLength, searchString }) => {
+const PaginationConfig = ({
+  offset,
+  appsLength,
+  searchString,
+  setOffset,
+  searchApps,
+  checkAppType,
+}) => {
   return (
     <>
       <Pagination
@@ -26,4 +36,7 @@ const PaginationConfig = ({ offset, appsLength, searchString }) => {
   )
 }
 
-export default PaginationConfig
+export default connect(
+  null,
+  { searchApps }
+)(PaginationConfig)
