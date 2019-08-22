@@ -1,0 +1,23 @@
+.profileContainer{
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      margin: 20px;
+
+      .infoCard {
+            width: 50%;
+            border: 1px solid $lambdaPink;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            
+      }
+
+      .imageCard {
+            width: 30%;
+            border: 1px solid $lambdaPink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+      }
+}
