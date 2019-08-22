@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router"
 import Confirm from "./Confirm"
-import ProtectedRoute from "../Auth/ProtectedRoute"
 import AppDetails from "./AppDetails"
 
 import { addApp, getApprovedApps, sendImageToCloudinary } from "../../actions"
