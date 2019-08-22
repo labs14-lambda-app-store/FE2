@@ -2,8 +2,6 @@ import React from "react"
 import { Modal } from "@material-ui/core"
 import ModalContent from "./ModalContent"
 
-//will need react router for card contents
-//axios for getAppById request
 const AppModal = ({ app, isModalOpen, setIsOpen }) => {
   return (
     <main>

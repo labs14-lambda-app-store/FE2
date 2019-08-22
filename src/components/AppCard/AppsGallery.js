@@ -22,6 +22,11 @@ const AppsGallery = ({
 
   const [offset, setOffset] = useState(0)
 
+  const appsLength =
+    appType === "pending"
+      ? Math.ceil(pendingAppsLength / 12)
+      : Math.ceil(approvedAppsLength / 12)
+
   useEffect(() => {
     if (searchString) {
       handleSearch(setOffset(0), searchString)
@@ -110,7 +115,7 @@ const AppsGallery = ({
           reduced={true}
           offset={offset}
           // total number of pages we want to render; dynamic by rounding up quotient of approvedAppsLength and apps per page (12)
-          total={Math.ceil(approvedAppsLength / 12)}
+          total={appsLength / 12}
           onClick={(e, offset) => {
             setOffset(offset)
             // send the correct page query (i.e. /api/apps?page=2)
@@ -122,6 +127,7 @@ const AppsGallery = ({
           }}
         />
       </div>
+
       {/* if apps.length is equal to 0, search error text appears alerting the user there are no results for the query */}
       {apps.length === 0 && searchString ? (
         <div className='invalid-search'>
@@ -146,7 +152,7 @@ const AppsGallery = ({
         reduced={true}
         offset={offset}
         // total number of pages we want to render; dynamic by rounding up quotient of approvedAppsLength and apps per page (12)
-        total={Math.ceil(approvedAppsLength / 12)}
+        total={appsLength}
         onClick={(e, offset) => {
           setOffset(offset)
           // send the correct page query (i.e. /api/apps?page=2)
