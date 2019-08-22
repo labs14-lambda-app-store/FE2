@@ -20,6 +20,7 @@
     }
     .buttonCard {
       display: flex;
+      justify-content: space-around;
 
       .editProfileButton {
             font-size: 1rem;
@@ -48,7 +49,7 @@
           padding: 10px;
           display: flex;
           justify-content: center;
-          color: $lambdaDarkBlue;
+          color: $lambdaLightBlue;
           font-size: 1.8rem;
           font-weight: 1000;
     }
