@@ -1,5 +1,7 @@
 import axios from "axios"
 import { baseAppsUrl } from "../constants"
+import React from "react"
+import { Redirect } from "react-router"
 export const GET_APPROVED_APPS_START = "GET_APPROVED_APPS_START"
 export const GET_APPROVED_APPS_SUCCESS = "GET_APPROVED_APPS_SUCCESS"
 export const GET_APPROVED_APPS_FAIL = "GET_APPROVED_APPS_FAIL"
@@ -69,14 +71,14 @@ export const ADD_APPS_START = "ADD_APPS_START"
 export const ADD_APPS_SUCCESS = "ADD_APPS_SUCCESS"
 export const ADD_APPS_FAIL = "ADD_APPS_FAIL"
 
-export const addApp = newApp => async dispatch => {
+export const addApp = (newApp, history) => async dispatch => {
   dispatch({ type: ADD_APPS_START })
   try {
     const postResult = await axios.post(baseAppsUrl, newApp)
-    dispatch({ type: ADD_APPS_SUCCESS, payload: postResult.data.message })
-    dispatch(getApprovedApps())
+    dispatch({ type: ADD_APPS_SUCCESS, payload: postResult })
+    setTimeout(() => history.push("/apps"), 3000)
   } catch (err) {
-    dispatch({ type: ADD_APPS_FAIL, payload: err})
+    dispatch({ type: ADD_APPS_FAIL, payload: err })
   }
 }
 

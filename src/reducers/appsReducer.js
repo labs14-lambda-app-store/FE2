@@ -28,8 +28,7 @@ const initialState = {
   isUpdating: false,
   isDeleting: false,
   message: "",
-  addAppSuccessMessage: "",
-
+  request_status: "",
 }
 
 const appsReducer = (state = initialState, action) => {
@@ -60,6 +59,7 @@ const appsReducer = (state = initialState, action) => {
         isFetching: true,
       }
     case GET_PENDING_APPS_SUCCESS:
+      console.log(action.payload)
       return {
         ...state,
         isFetching: false,
@@ -67,6 +67,8 @@ const appsReducer = (state = initialState, action) => {
         pendingAppsLength: action.appLength,
       }
     case GET_PENDING_APPS_FAIL:
+      console.log(action.payload)
+
       return {
         ...state,
         isFetching: false,
@@ -97,18 +99,25 @@ const appsReducer = (state = initialState, action) => {
       return {
         ...state,
         isAdding: true,
-        addAppSuccessMessage: "",
+        message: "",
+        request_status: "",
       }
     case ADD_APPS_SUCCESS:
+      console.log(action.payload)
       return {
         ...state,
         isAdding: false,
-        addAppSuccessMessage: action.payload,
+        message: action.payload.data.message,
+        status_code: action.payload.status,
       }
     case ADD_APPS_FAIL:
+      console.log(action.payload)
+
       return {
         ...state,
         isAdding: false,
+        message: "Failed to create app. Please try again",
+        request_status: action.payload.status,
       }
     case UPDATE_APPS_START:
       return {
