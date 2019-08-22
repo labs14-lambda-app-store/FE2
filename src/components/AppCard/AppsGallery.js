@@ -95,12 +95,7 @@ const AppsGallery = ({
             variant="contained"
             type="submit"
             color="primary"
-            style={
-              !searchString
-                ? { background: "#c4c4c4" }
-                : { background: "#1a61b0" }
-            }
-            disabled={!searchString ? true : false}
+            disabled={!searchString && true}
             onClick={e => handleSearch(1, searchString)}
           >
             Search
@@ -115,7 +110,7 @@ const AppsGallery = ({
           reduced={true}
           offset={offset}
           // total number of pages we want to render; dynamic by rounding up quotient of approvedAppsLength and apps per page (12)
-          total={appsLength / 12}
+          total={appsLength}
           onClick={(e, offset) => {
             setOffset(offset)
             // send the correct page query (i.e. /api/apps?page=2)
@@ -130,9 +125,12 @@ const AppsGallery = ({
 
       {/* if apps.length is equal to 0, search error text appears alerting the user there are no results for the query */}
       {apps.length === 0 && searchString ? (
-        <div className='invalid-search'>
-       <i className="fas fa-search"></i><p className='invalid-text'>There are no apps matching this search.</p> 
-       </div>
+        <div className="invalid-search">
+          <i className="fas fa-search"></i>
+          <p className="invalid-text">
+            There are no apps matching this search.
+          </p>
+        </div>
       ) : (
         <Grid container spacing={2} style={{ padding: 24 }}>
           {apps.map(currentApp => (
