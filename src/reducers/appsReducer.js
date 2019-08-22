@@ -108,7 +108,7 @@ const appsReducer = (state = initialState, action) => {
         ...state,
         isAdding: false,
         message: action.payload.data.message,
-        request_status: action.payload.status,
+        status_code: action.payload.status,
       }
     case ADD_APPS_FAIL:
       console.log(action.payload)

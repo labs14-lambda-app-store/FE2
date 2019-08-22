@@ -1,10 +1,11 @@
-import React, { useEffect } from "react"
+import React, { useState } from "react"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 import Button from "@material-ui/core/Button"
 import { connect } from "react-redux"
 import Loader from "react-loader-spinner"
+import { SnackBarPopup } from "../reusable"
 
 //MUI button style overwrite with INLINE STYLES
 const style = {
@@ -20,6 +21,8 @@ const Confirm = ({
   isAddingImage,
   isAddingApp,
   message,
+  status_code,
+  isPopupOpen,
 }) => {
   const {
     description,
@@ -41,7 +44,6 @@ const Confirm = ({
     } else {
       return "Submit Project"
     }
-    if (message) return message
   }
 
   return (
@@ -76,7 +78,6 @@ const Confirm = ({
         style={style}
         label="Confirm & Continue"
         color="primary"
-        // onClick={e => (!isAddingImage ? Continue(e) : null)}
         onClick={e => handlePost(e)}
       >
         {createButtonContent()}
@@ -89,6 +90,11 @@ const Confirm = ({
       >
         Back
       </Button>
+      <SnackBarPopup
+        variant={status_code === 201 ? "success" : "error"}
+        message={message}
+        open={isPopupOpen}
+      />
     </div>
   )
 }
@@ -98,6 +104,7 @@ const mapStateToProps = ({ imagesReducer, appsReducer }) => {
     isAddingImage: imagesReducer.isAdding,
     isAddingApp: appsReducer.isAdding,
     message: appsReducer.message,
+    status_code: appsReducer.status_code,
   }
 }
 

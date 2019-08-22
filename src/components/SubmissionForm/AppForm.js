@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router"
 import Confirm from "./Confirm"
-import Success from "./Success"
 import ProtectedRoute from "../Auth/ProtectedRoute"
 import AppDetails from "./AppDetails"
 
@@ -25,6 +24,8 @@ const AppForm = ({ project_image, history, addApp }) => {
     // tags: "",
     error_message: "",
   })
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
 
   const handleStateChanges = e => {
     setStateValues({ ...state, [e.target.name]: e.target.value })
@@ -59,7 +60,7 @@ const AppForm = ({ project_image, history, addApp }) => {
       display_image,
     }
 
-    addApp(newPost)
+    addApp(newPost, history).then(res => setIsPopupOpen(true))
   }
 
   //switch and steps to confirm submission details
@@ -80,6 +81,7 @@ const AppForm = ({ project_image, history, addApp }) => {
           prevStep={prevStep}
           handlePost={handlePost}
           state={state}
+          isPopupOpen={isPopupOpen}
         />
       )
     default:
