@@ -130,13 +130,14 @@ const AppDetails = ({
         </TextField>
         <TextField
           className="submitInput"
-          variant="outlined"
           type="text"
-          value={name} /*???*/
+          value={name}
+          variant="outlined"
           required
-          name="name"
           id="standard-required"
           label="App Name"
+          inputProps={{ "data-testid": "app name" }}
+          name="name"
           onChange={e => handleStateChanges(e)}
         />
         <TextField
@@ -148,6 +149,7 @@ const AppDetails = ({
           multiline
           rows={3}
           label="Description"
+          inputProps={{ "data-testid": "description" }}
           name="description"
           helperText={`${charactersLeft} characters remaining...`}
           onChange={e => handleStateChanges(e)}
@@ -161,6 +163,7 @@ const AppDetails = ({
           variant="outlined"
           required
           id="standard-required"
+          inputProps={{ "data-testid": "hosted url" }}
           label="Hosted URL"
           name="hosted_url"
           onChange={e => handleStateChanges(e)}
@@ -174,6 +177,7 @@ const AppDetails = ({
           value={frontend_url}
           variant="outlined"
           label="Frontend URL"
+          inputProps={{ "data-testid": "frontend url" }}
           name="frontend_url"
           onChange={e => handleStateChanges(e)}
           onBlur={e => frontendUrlValid(frontend_url)}
@@ -186,6 +190,7 @@ const AppDetails = ({
           value={backend_url}
           variant="outlined"
           label="Backend URL"
+          inputProps={{ "data-testid": "backend url" }}
           name="backend_url"
           onChange={e => handleStateChanges(e)}
           onBlur={e => backendUrlValid(backend_url)}
@@ -199,6 +204,7 @@ const AppDetails = ({
             onChange={e => setStateValues({ ...state, display_image: e[0] })}
             dropzoneText="Drag and drop or click to add a screenshot that showcases your app"
             maxFileSize="5000000"
+            inputProps={{ "data-testid": "dropzone" }}
           />
         </div>
         {/* <TextField

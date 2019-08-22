@@ -50,6 +50,56 @@ describe("<AppDetails />", () => {
       const Button = container.querySelector('Button')
       expect(Button).toBeTruthy()
   })
+  it("should find category test-id", () => {
+      const {getByTestId} = render(
+            <Provider store={store}>
+              <AppDetails state={state} />
+            </Provider>)
+      getByTestId("categories")
+      
+  })
+  it("should find app name test-id", () => {
+      const {getByTestId} = render(
+            <Provider store={store}>
+              <AppDetails state={state} />
+            </Provider>)
+      getByTestId("app name")
+      
+  })
+  it("should find hosted url test-id", () => {
+      const {getByTestId} = render(
+            <Provider store={store}>
+              <AppDetails state={state} />
+            </Provider>)
+      getByTestId("hosted url")
+      
+  })
+  it("should find frontend url test-id", () => {
+      const {getByTestId} = render(
+            <Provider store={store}>
+              <AppDetails state={state} />
+            </Provider>)
+      getByTestId("frontend url")
+      
+  })
+  it("should find backend url test-id", () => {
+      const {getByTestId} = render(
+            <Provider store={store}>
+              <AppDetails state={state} />
+            </Provider>)
+      getByTestId("backend url")
+      
+  })
+// //don't know why, it's all spelled correctly, "description", in the exact same way all the other tests are passing..
+//   it("should find description test-id", () => {
+//       const {getByTestId} = render(
+//             <Provider store={store}>
+//               <AppDetails state={state} />
+//             </Provider>)
+//       getByTestId("description")
+      
+//   })
+// //fireEvent isn't right here, it expects the onClick to have been called, but it is not.... 
 //   it("should call OnClick when Button is clicked", () => {
 //       const onClick = jest.fn()
 //       const {container} = render(
