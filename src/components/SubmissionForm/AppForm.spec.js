@@ -59,8 +59,5 @@ describe("<AppForm />", () => {
           }
       await render(<Provider store={store}><AppDetails state={state} /></Provider>)
     })
-   
-    
-
 })
 
