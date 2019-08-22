@@ -11,9 +11,9 @@ const Profile = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="profileContainer">
-      <Paper className="infoCard">
-        <div className="nameCard">
+    <div className="profile-container">
+      <Paper className="info-card">
+        <div className="name-card">
           <h2>
             {first_name} {last_name}
           </h2>
@@ -23,22 +23,22 @@ const Profile = ({ user }) => {
           <p>pronoun of preference!</p>
           <p>favorite icecream flavor</p>
         </div>
-        <div className="buttonCard" onClick={() => setIsOpen(true)}>
+        <div className="button-card" onClick={() => setIsOpen(true)}>
           <Button
             size="small"
             color="primary"
-            className="editProfileButton"
+            className="edit-profile-button"
             
           >
             edit profile
           </Button>
         </div>
       </Paper>
-      <Paper className="imageCard">
-        <div className="imgDiv">
-          <img src={pictureURL} className="profileImage" alt="user's face" />
+      <Paper className="image-card">
+        <div className="image-div">
+          <img src={pictureURL} className="profile-image" alt="user's face" />
         </div>
-        <div className="usernameDiv">
+        <div className="username-div">
           <username>{username}</username>
         </div>
       </Paper>
