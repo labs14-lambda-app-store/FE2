@@ -20,7 +20,6 @@ import MainItemList from './MainItemList';
 import SecondaryItemList from './SecondaryItemList'
 
 const Dashboard = ({ user }) => {
-
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
