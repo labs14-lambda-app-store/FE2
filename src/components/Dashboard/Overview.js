@@ -9,14 +9,11 @@ const Overview = ({ user, app }) => {
     // const { display_image, name, description, category, is_approved } = app
     console.log('user', user)
     console.log('user apps is approved', user.apps[0].is_approved)
+    const approvedApps = user.apps.filter(app => app.is_approved);
+    console.log("approved yo", approvedApps);
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-const AprrovedApps = () => {
-    if(user.apps[0].is_approved === true) {
-        
-    }
-}
     return (
         
         <>
@@ -24,11 +21,10 @@ const AprrovedApps = () => {
             
             <Grid container spacing={3}>
                 <Grid item xs={12} md={8} lg={9}>
-                    {AprrovedApps}
                     Your Approved Apps
-                    {user.apps.map(approvedapps => (
+                    {approvedApps.map(app => (
                     <Paper className={fixedHeightPaper}>
-                        <h1>{approvedapps.name}</h1>
+                        <h1>{app.name}</h1>
                     </Paper>))}
                     
                 </Grid>
