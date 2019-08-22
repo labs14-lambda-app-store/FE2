@@ -5,25 +5,32 @@ import useStyles from "./styles";
 import clsx from 'clsx';
 import { connect } from "react-redux";
 
-const Overview = ({ user }) => {
+const Overview = ({ user, app }) => {
+    // const { display_image, name, description, category, is_approved } = app
     console.log('user', user)
+    console.log('user apps is approved', user.apps[0].is_approved)
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+const AprrovedApps = () => {
+    if(user.apps[0].is_approved === true) {
+        
+    }
+}
     return (
+        
         <>
             <h1>Overview</h1>
+            
             <Grid container spacing={3}>
                 <Grid item xs={12} md={8} lg={9}>
+                    {AprrovedApps}
                     Your Approved Apps
-                    {user ? (
-                        user.apps.is_approved === true ? (
-                            <Paper className={fixedHeightPaper}>
-                                {user.apps}
-                            </Paper>
-                        ) : (
-                                <h1>Hi</h1>
-                            )
-                    ) : <h1> nothing here</h1>}
+                    {user.apps.map(approvedapps => (
+                    <Paper className={fixedHeightPaper}>
+                        <h1>{approvedapps.name}</h1>
+                    </Paper>))}
+                    
                 </Grid>
                 <Grid item xs={12} md={4} lg={3}>
                     <Paper className={fixedHeightPaper}>
