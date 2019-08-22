@@ -2,18 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
+// import editUser from '../../actions'  // doesn't yet exist
 
 
 const Profile = ({ user }) => {
 
-    
+    const { first_name, last_name, email, pictureURL, username } = user
 
     return (
         <div className="profileContainer">
             <Paper className="infoCard">
                 <div className="nameCard">
-                    <name>{user.first_name} {user.last_name}</name>
-                    <email>{user.email}</email>
+                    <name>{first_name} {last_name}</name>
+                    <email>{email}</email>
                     <birthday>user dot birthday</birthday>
                     <timezone>user dot time zone</timezone>
                     <pronoun>pronoun of preference!</pronoun>
@@ -23,8 +24,8 @@ const Profile = ({ user }) => {
                 </div>
             </Paper>
             <Paper className="imageCard">
-                <div className="imgDiv"><img src={user.pictureURL} className="profileImage" alt="user's face"/></div>
-                <div className="usernameDiv"><username>{user.username}</username></div>
+                <div className="imgDiv"><img src={pictureURL} className="profileImage" alt="user's face"/></div>
+                <div className="usernameDiv"><username>{username}</username></div>
             </Paper>
         </div>
     )
