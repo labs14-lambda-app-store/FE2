@@ -12,6 +12,7 @@ const AppForm = ({ project_image, history, addApp, user_id }) => {
   const [step, setStep] = useState(1)
 
   console.log({ user_id })
+  console.log("I am a teacup, short and stout.")
   const [state, setStateValues] = useState({
     hosted_url: "",
     frontend_url: "",
