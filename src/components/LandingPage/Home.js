@@ -1,9 +1,11 @@
 import React from "react"
 import uxPlaceholderImg from "../../assets/LambdaLandingUX.png"
+import { Header } from "../reusable";
 
 const Home = () => {
   return (
     <div className="landing-page">
+      <Header />
       <img
         className="landingMockup"
         src={uxPlaceholderImg}

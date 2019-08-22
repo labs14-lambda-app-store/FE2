@@ -8,10 +8,11 @@ import ProtectedRoute from "./components/Auth/ProtectedRoute"
 import AppForm from "./components/SubmissionForm/AppForm"
 import { AppsGallery } from "./components/AppCard"
 import Home from "./components/LandingPage/Home"
-import { NavBar, Header, Footer } from "./components/reusable"
+import { NavBar, Footer } from "./components/reusable"
 
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core"
 import "./App.scss"
+import Dashboard from "./components/Dashboard/Dashboard";
 
 const theme = createMuiTheme({
   typography: {
@@ -34,6 +35,10 @@ const theme = createMuiTheme({
       main: "#3ab5e5",
       contrastText: "#efeef3",
     },
+    tetiary: {
+      main: "#f32667",
+      contrastText: "#00000",
+    },
   },
 })
 
@@ -51,11 +56,10 @@ const App = ({ loginUser }) => {
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <NavBar />
-          <Header />
-
           <Route exact path="/" component={Home} />
           <ProtectedRoute exact path="/app-form" component={AppForm} />
           <Route path="/apps" exact component={AppsGallery} />
+          <ProtectedRoute path="/dashboard" component={Dashboard} />
           <ProtectedRoute
             path="/pending-apps"
             exact
