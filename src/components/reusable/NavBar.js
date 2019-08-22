@@ -13,7 +13,6 @@ const NavBar = (props) => {
     return null;
   } else {
     return (
-      <Router>
         <div>
           <AppBar position="static">
             <Toolbar>
@@ -60,7 +59,6 @@ const NavBar = (props) => {
             </Toolbar>
           </AppBar>
         </div>
-      </Router>
     )
   }
 }
