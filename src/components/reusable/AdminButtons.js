@@ -222,7 +222,12 @@ const AdminButtons = ({
             </Button>
           </Tooltip>
           <Tooltip title="Submit" placement="top">
-            <Button onClick={() => handleAddComment(state)} color="primary">
+            <Button
+              onClick={() => handleAddComment(state)}
+              color="primary"
+              // disables submit button if comment field is empty
+              disabled={!state.comment ? true : false}
+            >
               <i class="fas fa-check-circle fa-3x"></i>
             </Button>
           </Tooltip>
