@@ -57,7 +57,7 @@ const AppForm = ({ project_image, history, addApp, user_id }) => {
       // error_message: state.error_message,
       submitted_at,
       display_image,
-      user_id,
+      user_id /* This does not save to the app object, gets extracted on the backend to allow for multiple users to be added to each app */,
     }
 
     addApp(newPost, history).then(res => setIsPopupOpen(true))
