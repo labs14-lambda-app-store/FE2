@@ -14,49 +14,43 @@ const App = ({ app }) => {
 
   return (
     <div>
-      {app ? (
-        <Card>
-          <CardMedia
-            // keeps the pictures all uniform size!
-            style={{ height: 0, paddingTop: "56.25%" }}
-            image={display_image}
-            title={name}
-            onClick={() => setIsOpen(true)}
-          />
-          <CardContent>
-            <div onClick={() => setIsOpen(true)}>
-              <Typography gutterBottom varient="heading" component="h3">
-                {name}
-              </Typography>
+      <Card>
+        <CardMedia
+          // keeps the pictures all uniform size!
+          style={{ height: 0, paddingTop: "56.25%" }}
+          image={display_image}
+          title={name}
+          onClick={() => setIsOpen(true)}
+        />
+        <CardContent>
+          <div onClick={() => setIsOpen(true)}>
+            <Typography gutterBottom varient="heading" component="h3">
+              {name}
+            </Typography>
 
-              <Typography
-                className="categoryName"
-                color="secondary"
-                component="h1"
-              >
-                {category === undefined
-                  ? ""
-                  : category[0].category_name.toUpperCase()}
-              </Typography>
-
-              <Typography component="p">{description}</Typography>
-            </div>
-            <AppModal app={app} isModalOpen={isOpen} setIsOpen={setIsOpen} />
-          </CardContent>
-          <CardActions>
-            {/* target so when you click the button, it opens the app in a new browser tab */}
-
-            <Button
-              className="getAppButton"
-              size="small"
-              color="primary"
-              onClick={() => setIsOpen(true)}
+            <Typography
+              className="categoryName"
+              color="secondary"
+              component="h1"
             >
-              {is_approved ? "View The App" : "Review The App"}
-            </Button>
-          </CardActions>
-        </Card>
-      ) : null}
+              {category && category[0].category_name.toUpperCase()}
+            </Typography>
+
+            <Typography component="p">{description}</Typography>
+          </div>
+          <AppModal app={app} isModalOpen={isOpen} setIsOpen={setIsOpen} />
+        </CardContent>
+        <CardActions>
+          <Button
+            className="getAppButton"
+            size="small"
+            color="primary"
+            onClick={() => setIsOpen(true)}
+          >
+            {is_approved ? "View The App" : "Review The App"}
+          </Button>
+        </CardActions>
+      </Card>
     </div>
   )
 }
