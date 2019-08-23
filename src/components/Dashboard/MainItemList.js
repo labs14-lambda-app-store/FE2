@@ -11,7 +11,7 @@ const MainItemList = () => {
         <div>
             <SideNavItem route="/dashboard" icon={() => <DashboardIcon />} primaryText="Overview" />
             <SideNavItem route="/dashboard/approved-apps" icon={() => <CheckBoxIcon />} primaryText="My Approved Apps" />
-            <SideNavItem route="/app-form" icon={() => <AddBoxIcon />} primaryText="Submit an App" />
+            <SideNavItem route="/dashboard/submit-app" icon={() => <AddBoxIcon />} primaryText="Submit an App" />
             <SideNavItem route="/dashboard/profile" icon={() => <PersonIcon />} primaryText="My Profile" />
         </div>
     )
