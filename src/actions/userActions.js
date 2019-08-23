@@ -1,6 +1,7 @@
 import axios from "axios"
 import Cookie from "js-cookie"
 import { baseUsersUrl } from "../constants"
+
 export const LOGIN_USER_START = "LOGIN_USER_START"
 export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS"
 export const LOGIN_USER_FAIL = "LOGIN_USER_FAIL"
@@ -37,5 +38,20 @@ export const loginUser = user => async dispatch => {
     }
   } catch (e) {
     dispatch({ type: LOGIN_USER_FAIL, payload: e.message })
+  }
+}
+
+export const UPDATE_USER_START = "UPDATE_USER_START"
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS"
+export const UPDATE_USER_FAIL = "UPDATE_USER_FAIL"
+
+export const updateUser = (change, id) => async dispatch => {
+  dispatch({ type: UPDATE_USER_START })
+
+  try {
+    const putResult = await axios.put(`${baseUsersUrl}/${id}`, change)
+    dispatch({ type: UPDATE_USER_SUCCESS, payload: putResult })
+  } catch (err) {
+    dispatch({ type: UPDATE_USER_FAIL, payload: err })
   }
 }

@@ -3,11 +3,17 @@ import { connect } from "react-redux"
 import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
 import TextField from "@material-ui/core/TextField"
+import { updateUser } from '../../actions'
 
 const ProfileEditModalContent = ({ user, setIsOpen, isModalOpen }) => {
   const { first_name, last_name, email, pictureURL, username } = user
 
-      const handleDeny = () => {
+      function handleDeny() {
+            setIsOpen(!isModalOpen)
+      }
+
+      const handleConfirm = (change, id) => {
+            updateUser(change, id)
             setIsOpen(!isModalOpen)
       }
 
@@ -56,9 +62,9 @@ const ProfileEditModalContent = ({ user, setIsOpen, isModalOpen }) => {
             className="profile-edit-button"
             size="small"
             color="primary"
-            // onClick={handleConfirm}
+            onClick={handleConfirm}
           >
-            <i class="fas fa-check-circle fa-lg"></i>
+            <i class="fas fa-check-circle fa-2x"></i>
           </Button>
         </Tooltip>
         <Tooltip title="Deny" placement="top">
@@ -68,7 +74,7 @@ const ProfileEditModalContent = ({ user, setIsOpen, isModalOpen }) => {
             color="secondary"
             onClick={handleDeny}
           >
-            <i class="fas fa-times-circle fa-lg"></i>
+            <i class="fas fa-times-circle fa-2x"></i>
           </Button>
         </Tooltip>
       </div>
@@ -84,5 +90,5 @@ const mapStateToProps = ({ usersReducer }) => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { updateUser }
 )(ProfileEditModalContent)
