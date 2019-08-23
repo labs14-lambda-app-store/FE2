@@ -1,7 +1,5 @@
 import axios from "axios"
 import { baseAppsUrl } from "../constants"
-import React from "react"
-import { Redirect } from "react-router"
 export const GET_APPROVED_APPS_START = "GET_APPROVED_APPS_START"
 export const GET_APPROVED_APPS_SUCCESS = "GET_APPROVED_APPS_SUCCESS"
 export const GET_APPROVED_APPS_FAIL = "GET_APPROVED_APPS_FAIL"

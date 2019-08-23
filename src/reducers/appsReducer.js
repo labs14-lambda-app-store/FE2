@@ -59,7 +59,6 @@ const appsReducer = (state = initialState, action) => {
         isFetching: true,
       }
     case GET_PENDING_APPS_SUCCESS:
-      console.log(action.payload)
       return {
         ...state,
         isFetching: false,
@@ -67,8 +66,6 @@ const appsReducer = (state = initialState, action) => {
         pendingAppsLength: action.appLength,
       }
     case GET_PENDING_APPS_FAIL:
-      console.log(action.payload)
-
       return {
         ...state,
         isFetching: false,
@@ -103,7 +100,6 @@ const appsReducer = (state = initialState, action) => {
         request_status: "",
       }
     case ADD_APPS_SUCCESS:
-      console.log(action.payload)
       return {
         ...state,
         isAdding: false,
@@ -111,8 +107,6 @@ const appsReducer = (state = initialState, action) => {
         status_code: action.payload.status,
       }
     case ADD_APPS_FAIL:
-      console.log(action.payload)
-
       return {
         ...state,
         isAdding: false,
