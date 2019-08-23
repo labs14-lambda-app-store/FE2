@@ -4,11 +4,11 @@
 
 ### Contributors:
 
-|                                                      [Jeff Lapp](https://github.com/lappjeff)                                                       |                                                      [David Clavijo](https://github.com/davichodavid)                                                       |                                                    [Chris Petito](https://github.com/chrispetito)                                                     |                                                    [James Starks](https://github.com/Shadowborn)                                                    |                                                    [Victor Ngyuen](https://github.com/victor082)                                                     |                                                [Joshua Disney](https://github.com/Joshua-Disney)                                                |                                                      [Kayla Crow](https://github.com/blackmacaroon)                                                       
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://github.com/lappjeff.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/lappjeff) | [<img src="https://github.com/davichodavid.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/davichodavid) | [<img src="https://github.com/chrispetito.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;"  />](https://github.com/chrispetito) | [<img src="https://github.com/Shadowborn.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/Shadowborn) | [<img src="https://github.com/victor082.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/victor082) | [<img src="https://github.com/Joshua-Disney.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/Joshua-Disney) | [<img src="https://github.com/blackmacaroon.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/blackmacaroon) |
-|                                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lappjeff)                                   |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/davichodavid)                                 |                                  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chrispetito)                                  |                               [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Shadowborn)                                |                               [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/victor082)                               |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Joshua-Disney)                                |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/blackmacaroon)                                |
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jeffrey-lapp-622298181/)                 |              [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/david-clavijo-6855a6180/)               |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/chris-petito-349499184/)     |      [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/james-starks-2547b392/)       |      [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/victor-nguyen-bb5898177/)       |              [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/joshua-disney-553325176/)              |              [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kayla-crow/)              
+|                                                      [Jeff Lapp](https://github.com/lappjeff)                                                      |                                                      [Chris Petito](https://github.com/chrispetito)                                                       |                                                     [James Starks](https://github.com/Shadowborn)                                                      |                                                    [Victor Ngyuen](https://github.com/victor082)                                                     |                                                      [Joshua Disney](https://github.com/Joshua-Disney)                                                       |                                                        [Kayla Crow](https://github.com/blackmacaroon)                                                        |
+| :------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://github.com/lappjeff.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/lappjeff) | [<img src="https://github.com/chrispetito.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;"  />](https://github.com/chrispetito) | [<img src="https://github.com/Shadowborn.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/Shadowborn) | [<img src="https://github.com/victor082.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/victor082) | [<img src="https://github.com/Joshua-Disney.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/Joshua-Disney) | [<img src="https://github.com/blackmacaroon.png" width= "100" height="auto" style="object-fit:cover; overflow:hidden;" />](https://github.com/blackmacaroon) |
+|                               [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lappjeff)                                |                                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chrispetito)                                  |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Shadowborn)                                 |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/victor082)                                |                                  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Joshua-Disney)                                  |                                  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/blackmacaroon)                                  |
+|      [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jeffrey-lapp-622298181/)       |          [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/chris-petito-349499184/)          |         [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/james-starks-2547b392/)         |       [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/victor-nguyen-bb5898177/)       |           [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/joshua-disney-553325176/)           |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kayla-crow/)                  |
 
 <br>
 <br>
@@ -21,32 +21,30 @@
 
 ## Project Overview
 
- [Trello Board](https://trello.com/b/8ek8Dqxo/labs-14-lambda-app-store)
+[Trello Board](https://trello.com/b/8ek8Dqxo/labs-14-lambda-app-store)
 
- [Vision Doc](https://www.notion.so/Lambda-App-Store-0a5cde7e511446e6af5f66dcd3d96579)
+[Vision Doc](https://www.notion.so/Lambda-App-Store-0a5cde7e511446e6af5f66dcd3d96579)
 
- [UX Design files](https://docs.google.com/presentation/d/1upSlMfvh0DpfZR6eyFzHYUU6q_TCFpPPNxIYr8qJbzU/edit?usp=sharing) 
- 
- Feature Canvases 
- [App Gallery](https://www.notion.so/App-Gallery-Feature-Canvas-7a6638a26940490f908506fee1c35fdf)
- [Admin Dashboard](https://www.notion.so/Admin-Dashboard-Feature-Canvas-1d7dff49af804a8783f47aa8f0ec4418)
- [Student Dashboard](https://www.notion.so/Student-Dashboard-Feature-Canvas-82a2b9b67be0472ea85786873b7f9b97)
- [Landing Page](https://www.notion.so/The-Landing-Page-Feature-Canvas-3f33be139cf94a799ba4440cccc4341e)
- [Subscription](https://www.notion.so/The-Subscription-Feature-Canvas-1d7bb594fade4606a3de09abbdf31ed6)
+[UX Design files](https://docs.google.com/presentation/d/1upSlMfvh0DpfZR6eyFzHYUU6q_TCFpPPNxIYr8qJbzU/edit?usp=sharing)
 
+Feature Canvases
+[App Gallery](https://www.notion.so/App-Gallery-Feature-Canvas-7a6638a26940490f908506fee1c35fdf)
+[Admin Dashboard](https://www.notion.so/Admin-Dashboard-Feature-Canvas-1d7dff49af804a8783f47aa8f0ec4418)
+[Student Dashboard](https://www.notion.so/Student-Dashboard-Feature-Canvas-82a2b9b67be0472ea85786873b7f9b97)
+[Landing Page](https://www.notion.so/The-Landing-Page-Feature-Canvas-3f33be139cf94a799ba4440cccc4341e)
+[Subscription](https://www.notion.so/The-Subscription-Feature-Canvas-1d7bb594fade4606a3de09abbdf31ed6)
 
 "Lambda App Store" is a Lambda Labs project built for Lambda School to create a central place to view and use the apps that our awesome students create.
 
 ### 5️⃣ Key Features
 
--    Students can create a profile to submit their completed/deployed apps
--    Admins can approve or deny student app submissions
--    Visitors can browse Lambda apps by featured/category/trending/new/key word
--    Visitors can access free student apps/free versions of student apps
--    Visitors can purchase a subscription for full access to premium apps
+- Students can create a profile to submit their completed/deployed apps
+- Admins can approve or deny student app submissions
+- Visitors can browse Lambda apps by featured/category/trending/new/key word
+- Visitors can access free student apps/free versions of student apps
+- Visitors can purchase a subscription for full access to premium apps
 
-
-##  Tech Stack
+## Tech Stack
 
 ### Front end built using:
 
@@ -69,7 +67,7 @@
 ## 1️⃣ Authentication API here
 
 All accounts use [Auth0](https://auth0.com) for authentication.
-Auth0 provides us with authentication & authorization services and help keeps our app secured. 
+Auth0 provides us with authentication & authorization services and help keeps our app secured.
 
 ## 2️⃣ Payment API here
 
@@ -87,15 +85,15 @@ In order for the app to function correctly, the user must set up their own envir
 
 # 4️⃣ Content Licenses
 
-|         Image Filename          | Source / Creator | License                                                                      |
-| ------------------------------- | ---------------- | ---------------------------------------------------------------------------- |
-| Lambda_Avatar_Red.jpg           | Lambda School    | [UNCERTAIN] (url) |
-| Lambda_Avatar_White.jpg         | Lambda School    | [UNCERTAIN] (url) |
-| Lambda_Logo_white.png           | Lambda School    | [UNCERTAIN] (url) |
-| Lambda_Logo.png                 | Lambda School    | [UNCERTAIN] (url) |
-| lambda-student.png              | Lambda School    | [UNCERTAIN] (url) |
-| LambdaLandingUX-Original.png    | Lambda School    | [UNCERTAIN] (url) |
-| LambdaLandingUX.png             | Lambda School    | [UNCERTAIN] (url) |
+| Image Filename               | Source / Creator | License          |
+| ---------------------------- | ---------------- | ---------------- |
+| Lambda_Avatar_Red.jpg        | Lambda School    | [UNCERTAIN](url) |
+| Lambda_Avatar_White.jpg      | Lambda School    | [UNCERTAIN](url) |
+| Lambda_Logo_white.png        | Lambda School    | [UNCERTAIN](url) |
+| Lambda_Logo.png              | Lambda School    | [UNCERTAIN](url) |
+| lambda-student.png           | Lambda School    | [UNCERTAIN](url) |
+| LambdaLandingUX-Original.png | Lambda School    | [UNCERTAIN](url) |
+| LambdaLandingUX.png          | Lambda School    | [UNCERTAIN](url) |
 
 # 5️⃣ Testing
 
@@ -110,7 +108,7 @@ Run yarn install after cloning.
     * build - creates a build of the application
     * start - starts the production server after a build is created
     * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
-    * eject - moves create-react-app’s config files and start/build/test scripts into the app directory. 
+    * eject - moves create-react-app’s config files and start/build/test scripts into the app directory.
 
 # Contributing
 
@@ -119,12 +117,13 @@ When contributing to this repository, please first discuss the change you wish t
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ## Issue/Bug Request
-   
- **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
- - Check first to see if your issue has already been reported.
- - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
- - Create a live example of the problem.
- - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
+
+**If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
+
+- Check first to see if your issue has already been reported.
+- Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+- Create a live example of the problem.
+- Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests
 
