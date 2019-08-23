@@ -18,6 +18,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import List from '@material-ui/core/List';
 import MainItemList from './MainItemList';
 import SecondaryItemList from './SecondaryItemList'
+import MyAppsView from './MyAppsView';
 
 const Dashboard = ({ user }) => {
     const classes = useStyles();
@@ -75,6 +76,7 @@ const Dashboard = ({ user }) => {
                 <Container maxWidth="lg" className={classes.container}>
                     <ProtectedRoute exact path="/dashboard" component={Overview} />
                     <ProtectedRoute path="/dashboard/profile" component={Profile} />
+                    <ProtectedRoute path="/dashboard/apps" component={MyAppsView} />
                 </Container>
             </main>
         </div>
