@@ -4,7 +4,7 @@ import MenuItem from "@material-ui/core/MenuItem"
 import Cookie from "js-cookie"
 import Button from "@material-ui/core/Button"
 import { connect } from "react-redux"
-import { withRouter, Link } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
 import { useAuth0 } from "./react-auth0-spa.js"
 

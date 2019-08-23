@@ -1,11 +1,7 @@
 import React from "react"
 import Button from "@material-ui/core/Button"
 import Cookie from "js-cookie"
-import { connect } from "react-redux"
-import { withRouter, Link } from "react-router-dom"
 import { useAuth0 } from "./react-auth0-spa.js"
-import MenuItem from "@material-ui/core/MenuItem"
-import { Popover } from "@material-ui/core"
 import Dropdown from "./Dropdown"
 
 const AuthButton = () => {
