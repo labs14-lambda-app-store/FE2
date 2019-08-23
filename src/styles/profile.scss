@@ -74,15 +74,21 @@
     width: 90%;
     display: flex;
     flex-direction: column;
+
+    .MuiFormControl-root {
+      width: 100%;
+    }
   }
 
   .profile-edit-buttons {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: space-evenly;
 
-    .admin-button {
+    .profile-edit-button {
       font-size: 1.6rem;
+      padding: 15px;
+      margin: 5px;
     }
   }
 }

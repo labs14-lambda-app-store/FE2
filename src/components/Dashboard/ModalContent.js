@@ -7,6 +7,10 @@ import TextField from "@material-ui/core/TextField"
 const ProfileEditModalContent = ({ user, setIsOpen, isModalOpen }) => {
   const { first_name, last_name, email, pictureURL, username } = user
 
+      const handleDeny = () => {
+            setIsOpen(!isModalOpen)
+      }
+
   return (
     <main className="profile-edit-modal-content">
       <div className="profile-edit-form">
@@ -49,7 +53,7 @@ const ProfileEditModalContent = ({ user, setIsOpen, isModalOpen }) => {
       <div className="profile-edit-buttons">
         <Tooltip title="Approve" placement="top">
           <Button
-            className="admin-button"
+            className="profile-edit-button"
             size="small"
             color="primary"
             // onClick={handleConfirm}
@@ -59,10 +63,10 @@ const ProfileEditModalContent = ({ user, setIsOpen, isModalOpen }) => {
         </Tooltip>
         <Tooltip title="Deny" placement="top">
           <Button
-            className="admin-button"
+            className="profile-edit-button"
             size="small"
             color="secondary"
-            // onClick={handleDeny}
+            onClick={handleDeny}
           >
             <i class="fas fa-times-circle fa-lg"></i>
           </Button>
