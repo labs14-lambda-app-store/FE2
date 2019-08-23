@@ -71,6 +71,9 @@ const ProfileEditModalContent = ({
           value={updatedUser.last_name}
           name="last_name"
           label="Last Name"
+          onChange={e => {
+            handleChanges(e)
+          }}
         />
         <TextField
           id="outlined-with-placeholder"
@@ -79,6 +82,9 @@ const ProfileEditModalContent = ({
           value={updatedUser.username}
           name="username"
           label="Username"
+          onChange={e => {
+            handleChanges(e)
+          }}
         />
         <TextField
           id="outlined-with-placeholder"
@@ -87,6 +93,9 @@ const ProfileEditModalContent = ({
           value={updatedUser.pictureURL}
           name="pictureURL"
           label="Avatar URL"
+          onChange={e => {
+            handleChanges(e)
+          }}
         />
       </div>
       <div className="profile-edit-buttons">
