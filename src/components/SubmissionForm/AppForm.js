@@ -8,7 +8,7 @@ import { addApp, getApprovedApps, sendImageToCloudinary } from "../../actions"
 
 var moment = require("moment")
 
-const AppForm = ({ project_image, history, addApp }) => {
+const AppForm = ({ project_image, history, addApp, user_id }) => {
   const [step, setStep] = useState(1)
 
   const [state, setStateValues] = useState({
@@ -57,6 +57,7 @@ const AppForm = ({ project_image, history, addApp }) => {
       // error_message: state.error_message,
       submitted_at,
       display_image,
+      user_id /* This does not save to the app object, gets extracted on the backend to allow for multiple users to be added to each app */,
     }
 
     addApp(newPost, history).then(res => setIsPopupOpen(true))
@@ -88,9 +89,10 @@ const AppForm = ({ project_image, history, addApp }) => {
   }
 }
 
-const mapStateToProps = ({ imagesReducer }) => {
+const mapStateToProps = ({ imagesReducer, usersReducer }) => {
   return {
     project_image: imagesReducer.image,
+    user_id: usersReducer.user.id,
   }
 }
 
