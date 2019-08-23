@@ -57,7 +57,6 @@ const ProfileEditModalContent = ({
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          //     defaultValue={first_name}
           value={updatedUser.first_name}
           name="first_name"
           label="First Name"
@@ -69,21 +68,24 @@ const ProfileEditModalContent = ({
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          defaultValue={last_name}
+          value={updatedUser.last_name}
+          name="last_name"
           label="Last Name"
         />
         <TextField
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          defaultValue={username}
+          value={updatedUser.username}
+          name="username"
           label="Username"
         />
         <TextField
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          defaultValue={pictureURL}
+          value={updatedUser.pictureURL}
+          name="pictureURL"
           label="Avatar URL"
         />
       </div>
