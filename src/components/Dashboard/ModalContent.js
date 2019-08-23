@@ -1,21 +1,54 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
 import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
 import TextField from "@material-ui/core/TextField"
-import { updateUser } from '../../actions'
+import { updateUser } from "../../actions"
 
-const ProfileEditModalContent = ({ user, setIsOpen, isModalOpen }) => {
-  const { first_name, last_name, email, pictureURL, username } = user
+const ProfileEditModalContent = ({
+  user,
+  setIsOpen,
+  isModalOpen,
+  updateUser,
+}) => {
+  const {
+    id,
+    role,
+    sub_id,
+    first_name,
+    last_name,
+    email,
+    pictureURL,
+    username,
+  } = user
 
-      function handleDeny() {
-            setIsOpen(!isModalOpen)
-      }
+  const [updatedUser, setUpdatedUser] = useState({
+    id,
+    role,
+    sub_id,
+    first_name,
+    last_name,
+    email,
+    pictureURL,
+    username,
+  })
+  console.log("state", updatedUser.first_name)
+  function handleDeny() {
+    setIsOpen(!isModalOpen)
+  }
 
-      const handleConfirm = (change, id) => {
-            updateUser(change, id)
-            setIsOpen(!isModalOpen)
-      }
+  function handleUpdateUser( change, id) {
+    updateUser(change, id).then(res => {
+      setIsOpen(!isModalOpen)
+      window.location.reload()
+    })
+  }
+
+  const handleChanges = e => {
+    setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value })
+    console.log("e", e.target)
+  }
 
   return (
     <main className="profile-edit-modal-content">
@@ -24,8 +57,13 @@ const ProfileEditModalContent = ({ user, setIsOpen, isModalOpen }) => {
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          defaultValue={first_name}
+          //     defaultValue={first_name}
+          value={updatedUser.first_name}
+          name="first_name"
           label="First Name"
+          onChange={e => {
+            handleChanges(e)
+          }}
         />
         <TextField
           id="outlined-with-placeholder"
@@ -33,13 +71,6 @@ const ProfileEditModalContent = ({ user, setIsOpen, isModalOpen }) => {
           variant="outlined"
           defaultValue={last_name}
           label="Last Name"
-        />
-        <TextField
-          id="outlined-with-placeholder"
-          margin="normal"
-          variant="outlined"
-          defaultValue={email}
-          label="Email"
         />
         <TextField
           id="outlined-with-placeholder"
@@ -62,7 +93,7 @@ const ProfileEditModalContent = ({ user, setIsOpen, isModalOpen }) => {
             className="profile-edit-button"
             size="small"
             color="primary"
-            onClick={handleConfirm}
+            onClick={() => handleUpdateUser(updatedUser, id)}
           >
             <i class="fas fa-check-circle fa-2x"></i>
           </Button>
@@ -88,7 +119,9 @@ const mapStateToProps = ({ usersReducer }) => {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  { updateUser }
-)(ProfileEditModalContent)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { updateUser }
+  )(ProfileEditModalContent)
+)

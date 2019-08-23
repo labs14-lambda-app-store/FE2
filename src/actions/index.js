@@ -39,6 +39,10 @@ export {
   UPDATE_USER_START,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAIL,
+  GET_USER_START,
+  GET_USER_SUCCESS,
+  GET_USER_FAIL,
+  getUser,
   loginUser,
   updateUser
 } from "./userActions"

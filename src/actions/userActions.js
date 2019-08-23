@@ -55,3 +55,21 @@ export const updateUser = (change, id) => async dispatch => {
     dispatch({ type: UPDATE_USER_FAIL, payload: err })
   }
 }
+
+export const GET_USER_START = "GET_USER_START"
+export const GET_USER_SUCCESS = "GET_USER_SUCCESS"
+export const GET_USER_FAIL = "GET_USER_FAIL"
+
+export const getUser = id => async dispatch => {
+  dispatch({ type: GET_USER_START })
+
+  try {
+    const result = await axios.get(`${baseUsersUrl}/${id}`)
+    dispatch({
+      type: GET_USER_SUCCESS,
+      payload: result.data.user,
+    })
+  } catch (err) {
+    dispatch({ type: GET_USER_FAIL, payload: err })
+  }
+}

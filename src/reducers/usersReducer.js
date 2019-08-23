@@ -5,6 +5,9 @@ import {
   UPDATE_USER_START,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAIL,
+  GET_USER_START,
+  GET_USER_SUCCESS,
+  GET_USER_FAIL,
 } from "../actions"
 
 const initialState = {
@@ -12,6 +15,7 @@ const initialState = {
   message: "",
   isLoggingIn: false,
   isUpdating: false,
+  isFetching: false,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -31,7 +35,7 @@ const usersReducer = (state = initialState, action) => {
     case LOGIN_USER_FAIL:
       return {
         ...state,
-        message: action.payload.message, 
+        message: action.payload.message,
         isLoggingIn: false,
       }
     case UPDATE_USER_START:
@@ -50,7 +54,24 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         isUpdating: false,
-        message: `it's not that easy. ${action.payload}`
+        message: `it's not that easy. ${action.payload}`,
+      }
+    case GET_USER_START:
+      return {
+        ...state,
+        isFetching: true,
+      }
+    case GET_USER_SUCCESS:
+      console.log(action.payload)
+      return {
+        ...state,
+        isFetching: false,
+        user: action.payload,
+      }
+    case GET_USER_FAIL:
+      return {
+        ...state,
+        isFetching: false,
       }
     default:
       return state
