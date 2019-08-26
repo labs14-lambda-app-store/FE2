@@ -4,9 +4,8 @@ import { useAuth0 } from "./components/Auth/react-auth0-spa"
 import { connect } from "react-redux"
 import { loginUser } from "./actions"
 import theme from "./utils/theme"
-
 import ProtectedRoute from "./components/Auth/ProtectedRoute"
-import AppForm from "./components/SubmissionForm/AppForm"
+
 import { AppsGallery } from "./components/AppCard"
 import Home from "./components/LandingPage/Home"
 import { NavBar, Footer } from "./components/reusable"

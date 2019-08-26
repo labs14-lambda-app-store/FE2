@@ -37,8 +37,8 @@ const Dropdown = ({
             account_box
           </i>
         ) : (
-          <img className="user-image" src={pictureURL} alt="user profile"></img>
-        )}
+            <img className="user-image" src={pictureURL} alt="user profile"></img>
+          )}
 
         <i id="account-arrow" className="material-icons">
           {anchorEl === null ? "keyboard_arrow_down" : "keyboard_arrow_up"}
@@ -56,9 +56,6 @@ const Dropdown = ({
       >
         <MenuItem onClick={() => history.push("/dashboard/profile")}>
           My Profile
-        </MenuItem>
-        <MenuItem onClick={() => history.push("/dashboard")}>
-          Dashboard
         </MenuItem>
         <MenuItem
           color="secondary"
