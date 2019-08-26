@@ -1,0 +1,14 @@
+.fourofourpage {
+  margin-bottom: 110px;
+  h1 {
+    font-size: 25rem;
+    margin: 0 auto;
+    color: $lambdaPink;
+  }
+  a {
+    color: $lambdaPink;
+  }
+  a:hover {
+    color: $lambdaTeal;
+  }
+}
