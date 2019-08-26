@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import Paper from "@material-ui/core/Paper"
 import Button from "@material-ui/core/Button"
 import ProfileEditModal from "./ProfileEditModal"
-// import editUser from '../../actions'  // doesn't yet exist
 
 const Profile = ({ user }) => {
   const { first_name, last_name, email, pictureURL, username } = user
