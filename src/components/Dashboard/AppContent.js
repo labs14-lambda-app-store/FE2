@@ -1,6 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import { connect } from "react-redux"
 import Button from "@material-ui/core/Button"
+import Tooltip from "@material-ui/core/Tooltip"
+import MenuItem from "@mateiral-ui/core/MenuItem"
 import TextField from "@material-ui/core/TextField"
 import { updateApp } from "../../actions"
 
@@ -131,7 +133,7 @@ const AppContent = ({ user, app }) => {
           margin="normal"
           onChange={e =>
             handleChanges({
-              ...state,
+              ...updatedApp,
               category: e.target.value,
             })
           }
