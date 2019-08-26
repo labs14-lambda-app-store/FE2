@@ -74,7 +74,7 @@ const Dropdown = ({
 }
 
 const mapStateToProps = ({ usersReducer }) => {
-  return { ...usersReducer }
+  return { ...usersReducer.user }
 }
 
 export default withRouter(
