@@ -7,7 +7,7 @@ import AppContent from './AppContent'
 import useStyles from "./styles";
 import clsx from 'clsx';
 
-const MyAppsView = ({ user, app }) => {
+const MyAppsView = ({ user }) => {
     const classes = useStyles();
     const fixedAppsHeightPaper = clsx(classes.paper, classes.fixedAppHeight);
     const [isOpen, setIsOpen] = useState(false)
@@ -34,7 +34,7 @@ const MyAppsView = ({ user, app }) => {
                     </div>
                 ))}
             </Paper>
-            <AppModal app={app} isModalOpen={isOpen} setIsOpen={setIsOpen} />
+            <AppContent isModalOpen={isOpen} setIsOpen={setIsOpen} />
         </main>
     )
 }

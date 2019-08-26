@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { connect } from "react-redux"
 import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
-import MenuItem from "@mateiral-ui/core/MenuItem"
+// import MenuItem from "@mateiral-ui/core/MenuItem"
 import TextField from "@material-ui/core/TextField"
 import { updateApp } from "../../actions"
 
@@ -119,7 +119,7 @@ const AppContent = ({ user, app }) => {
             handleChanges(e)
           }}
         />
-        <TextField
+        {/* <TextField
           className="submitInput"
           value={category}
           id="standard-select standard-required"
@@ -144,7 +144,7 @@ const AppContent = ({ user, app }) => {
                 {category.category_name}
               </MenuItem>
             ))}
-        </TextField>
+        </TextField> */}
         <p>{description}</p>
       </div>
       <div className="app-edit-buttons">
