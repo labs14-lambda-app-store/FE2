@@ -33,7 +33,6 @@ const ProfileEditModalContent = ({
     pictureURL,
     username,
   })
-  console.log("state", updatedUser.first_name)
   function handleDeny() {
     setIsOpen(!isModalOpen)
   }
