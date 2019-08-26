@@ -1,7 +1,6 @@
 import React from 'react';
 import ProtectedRoute from "../Auth/ProtectedRoute";
 import Profile from "./Profile";
-import Overview from "./Overview";
 import { connect } from "react-redux";
 import useStyles from "./styles"
 import clsx from 'clsx';
@@ -73,7 +72,6 @@ const Dashboard = ({ user }) => {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
-                    <ProtectedRoute exact path="/dashboard" component={Overview} />
                     <ProtectedRoute path="/dashboard/profile" component={Profile} />
                 </Container>
             </main>
