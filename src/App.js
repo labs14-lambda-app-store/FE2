@@ -30,7 +30,6 @@ const App = ({ loginUser }) => {
         <div className="App">
           <NavBar />
           <Route exact path="/" component={Home} />
-          <ProtectedRoute exact path="/app-form" component={AppForm} />
           <Route path="/apps" exact component={AppsGallery} />
           <ProtectedRoute path="/dashboard" component={Dashboard} />
           <ProtectedRoute

@@ -74,7 +74,7 @@ const Dropdown = ({
 }
 
 const mapStateToProps = ({ usersReducer }) => {
-  return { pictureURL: usersReducer.user.pictureURL }
+  return { ...usersReducer.user }
 }
 
 export default withRouter(
