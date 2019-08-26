@@ -2,19 +2,21 @@ import React from "react"
 import { Modal } from "@material-ui/core"
 import ModalContent from "./ModalContent"
 
-const AppModal = ({ app, isModalOpen, setIsOpen, ref }) => {
+//will need react router for card contents
+//axios for getAppById request
+const AppModal = ({ user, isModalOpen, setIsOpen }) => {
   return (
     <main>
       <Modal
-        aria-labelledby="App modal view"
-        aria-describedby="Further details on app"
+        aria-labelledby="Profile Edit modal view"
+        aria-describedby="Edit details on profile"
         open={isModalOpen}
         onClose={() => setIsOpen(!isModalOpen)}
       >
         <ModalContent
           isModalOpen={isModalOpen}
           setIsOpen={setIsOpen}
-          app={app}
+          user={user}
         />
       </Modal>
     </main>
