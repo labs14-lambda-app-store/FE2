@@ -47,7 +47,6 @@ const ProfileEditModalContent = ({
 
   const handleChanges = e => {
     setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value })
-    console.log("e", e.target)
   }
 
   return (
