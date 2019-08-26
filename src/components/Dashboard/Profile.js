@@ -17,10 +17,6 @@ const Profile = ({ user }) => {
             {first_name} {last_name}
           </h2>
           <p>{email}</p>
-          <p>user dot birthday</p>
-          <p>user dot time zone</p>
-          <p>pronoun of preference!</p>
-          <p>favorite icecream flavor</p>
         </div>
         <div className="button-card" onClick={() => setIsOpen(true)}>
           <Button
@@ -38,7 +34,7 @@ const Profile = ({ user }) => {
           <img src={pictureURL} className="profile-image" alt="user's face" />
         </div>
         <div className="username-div">
-          <username>{username}</username>
+          <p>{username}</p>
         </div>
       </Paper>
       <ProfileEditModal
