@@ -6,12 +6,12 @@ import clsx from 'clsx';
 import { connect } from "react-redux";
 
 const Overview = ({ user, app }) => {
+    const classes = useStyles();
     // const { display_image, name, description, category, is_approved } = app
     console.log('user', user)
     console.log('user apps is approved', user.apps[0].is_approved)
     const approvedApps = user.apps.filter(app => app.is_approved);
     console.log("approved yo", approvedApps);
-    const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
@@ -21,12 +21,17 @@ const Overview = ({ user, app }) => {
             
             <Grid container spacing={3}>
                 <Grid item xs={12} md={8} lg={9}>
-                    Your Approved Apps
-                    {approvedApps.map(app => (
-                    <Paper className={fixedHeightPaper}>
-                        <h1>{app.name}</h1>
-                    </Paper>))}
+                <h4>Your Approved Apps</h4>
+                <Paper className={classes.fixedHeightPaper}>
                     
+                    {approvedApps.map(app => (
+                    <div className={classes.appcard}>
+                        <h1 className="dashboard-card-h1">{app.name}</h1>
+                        <img className={classes.appcardimg} src ={app.display_image} alt="app icon"/>
+                        <p></p>
+                    
+                    </div>))}
+                    </Paper>
                 </Grid>
                 <Grid item xs={12} md={4} lg={3}>
                     <Paper className={fixedHeightPaper}>
