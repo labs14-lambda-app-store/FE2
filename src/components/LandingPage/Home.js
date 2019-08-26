@@ -1,5 +1,5 @@
 import React from "react"
-import uxPlaceholderImg from "../../assets/LambdaLandingUX.png"
+import uxPlaceholderImg from "../../assets/LambdaLandingUX.jpeg"
 import { Header } from "../reusable";
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
         src={uxPlaceholderImg}
         alt="lambda landing page mockup"
       />
-      <div className="coming-soon">COMING SOON!</div>
+      {/* <div className="coming-soon">COMING SOON!</div> */}
     </div>
   )
 }
