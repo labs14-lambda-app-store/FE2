@@ -51,6 +51,98 @@ const AppContent = ({ user, app }) => {
             handleChanges(e)
           }}
         />
+        <TextField
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedApp.display_image}
+          name="display_image"
+          label="display_image"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedApp.description}
+          name="description"
+          label="description"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedApp.frontend_url}
+          name="frontend_url"
+          label="frontend_url"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedApp.backend_url}
+          name="backend_url"
+          label="backend_url"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedApp.hosted_url}
+          name="hosted_url"
+          label="hosted_url"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedApp.hosted_url}
+          name="hosted_url"
+          label="hosted_url"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="submitInput"
+          value={category}
+          id="standard-select standard-required"
+          required
+          select
+          variant="outlined"
+          label="categories"
+          inputProps={{ "data-testid": "categories" }}
+          name="category"
+          helperText="Please select one"
+          margin="normal"
+          onChange={e =>
+            handleChanges({
+              ...state,
+              category: e.target.value,
+            })
+          }
+        >
+          {categories &&
+            categories.map(category => (
+              <MenuItem value={category} key={category.category_name}>
+                {category.category_name}
+              </MenuItem>
+            ))}
+        </TextField>
         <p>{description}</p>
       </div>
       <div className="app-edit-buttons">

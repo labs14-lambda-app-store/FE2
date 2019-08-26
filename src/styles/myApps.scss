@@ -1,0 +1,24 @@
+.my-apps-container {
+      display: flex;
+      justify-content: space-evenly; 
+      width: 100%;
+
+      h2 {
+            text-align: center;
+            color: $lambdaGray;
+            font-size: 1.5rem;
+            font-weight: 700;
+      }
+
+      .unapproved-apps-card {
+            display: flex;
+            flex-direction: column;
+            width: 42%;
+      }
+
+      .approved-apps-card {
+            display: flex;
+            flex-direction: column;
+            width: 42%;
+      }
+}
