@@ -4,7 +4,6 @@ import { useAuth0 } from "./components/Auth/react-auth0-spa"
 import { connect } from "react-redux"
 import { loginUser } from "./actions"
 import theme from "./utils/theme"
-
 import ProtectedRoute from "./components/Auth/ProtectedRoute"
 import AppForm from "./components/SubmissionForm/AppForm"
 import { AppsGallery } from "./components/AppCard"
@@ -30,7 +29,6 @@ const App = ({ loginUser }) => {
         <div className="App">
           <NavBar />
           <Route exact path="/" component={Home} />
-          <ProtectedRoute exact path="/app-form" component={AppForm} />
           <Route path="/apps" exact component={AppsGallery} />
           <ProtectedRoute path="/dashboard" component={Dashboard} />
           <ProtectedRoute
