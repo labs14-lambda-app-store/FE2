@@ -33,10 +33,6 @@ const ProfileEditModalContent = ({
     pictureURL,
     username,
   })
-  console.log("state", updatedUser.first_name)
-  function handleDeny() {
-    setIsOpen(!isModalOpen)
-  }
 
   function handleUpdateUser( change, id) {
     updateUser(change, id).then(res => {
@@ -114,7 +110,7 @@ const ProfileEditModalContent = ({
             className="profile-edit-button"
             size="small"
             color="secondary"
-            onClick={handleDeny}
+            onClick={() => setIsOpen(!isModalOpen)}
           >
             <i class="fas fa-times-circle fa-2x"></i>
           </Button>
