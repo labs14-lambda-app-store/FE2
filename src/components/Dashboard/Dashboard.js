@@ -18,10 +18,10 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import List from '@material-ui/core/List';
 import MainItemList from './MainItemList';
 import SecondaryItemList from './SecondaryItemList'
-import AppForm from '../SubmissionForm/AppForm';
+import MyAppsView from './MyAppsView';
+import AppForm from "../SubmissionForm/AppForm";
 
 const Dashboard = ({ user }) => {
-
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
@@ -77,8 +77,8 @@ const Dashboard = ({ user }) => {
                 <Container maxWidth="lg" className={classes.container}>
                     <ProtectedRoute exact path="/dashboard" component={Overview} />
                     <ProtectedRoute path="/dashboard/profile" component={Profile} />
+                    <ProtectedRoute path="/dashboard/apps" component={MyAppsView} />
                     <ProtectedRoute path="/dashboard/submit-app" component={AppForm} />
-
                 </Container>
             </main>
         </div>
