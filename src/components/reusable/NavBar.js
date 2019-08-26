@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom"
 import redLambdaLogo from "../../assets/Lambda_Logo.png"
 
 const buttonSelector = () => {
-  if (window.location.pathname === "/") {
+  if (window.location.pathname === "/" || '') {
     return "home-button"
   } else if (window.location.pathname === "/apps") {
     return "apps-button"
