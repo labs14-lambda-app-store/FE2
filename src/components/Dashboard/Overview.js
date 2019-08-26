@@ -6,7 +6,6 @@ import clsx from 'clsx';
 import { connect } from "react-redux";
 
 const Overview = ({ user }) => {
-    console.log('user', user)
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     return (
