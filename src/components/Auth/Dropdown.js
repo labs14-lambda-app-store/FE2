@@ -54,6 +54,9 @@ const Dropdown = ({
         anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
         transformOrigin={{ vertical: "top", horizontal: "left" }}
       >
+        <MenuItem onClick={() => history.push("/dashboard/apps")}>
+          My Apps
+        </MenuItem>
         <MenuItem onClick={() => history.push("/dashboard/profile")}>
           My Profile
         </MenuItem>
