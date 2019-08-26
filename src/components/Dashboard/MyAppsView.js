@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 
 import Paper from '@material-ui/core/Paper';
-import AppContent from './AppContent'
+
 
 import useStyles from "./styles";
 import clsx from 'clsx';
@@ -34,7 +34,6 @@ const MyAppsView = ({ user }) => {
                     </div>
                 ))}
             </Paper>
-            <AppContent isModalOpen={isOpen} setIsOpen={setIsOpen} />
         </main>
     )
 }
