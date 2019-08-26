@@ -14,15 +14,15 @@ const buttonSelector = () => {
     return "apps-button"
   } else if (window.location.pathname === "/pending-apps") {
     return "pending-apps-button"
-  } else if (window.location.pathname === '/submit-app') {
-    return 'submit-button'
   }
 }
 
 const NavBar = props => {
   const [activeButton, setActiveButton] = React.useState(buttonSelector())
 
-  const { user, history, location } = props
+
+  const { user, history, location, message } = props
+  console.log(message)
   if (location.pathname.includes("/dashboard")) {
     return null
   } else {
@@ -81,15 +81,7 @@ const NavBar = props => {
                     Pending Apps
                   </Button>
                 ) : (
-                  <Button
-                    className="appFormButton"
-                    onClick={() => {
-                      setActiveButton('submit-button')
-                      history.push("/dashboard/submit-app")
-                    }}
-                  >
-                    Submit App
-                  </Button>
+                  null
                 )
               ) : null}
 

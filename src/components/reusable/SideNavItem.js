@@ -13,6 +13,7 @@ const SideNavItem = ({ route, icon: Icon, primaryText, history }) => {
       <ListItem
         button
         onClick={() => history.push(route)}
+        //if pathname is the same as the route, display lambda light blue color, else black
         style={{ color: window.location.pathname === route ? "#3ab5e5" : "black" }}
       >
         <ListItemIcon  style={{ color: window.location.pathname === route ? "#3ab5e5" : "black" }}>
