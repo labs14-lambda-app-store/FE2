@@ -54,8 +54,6 @@ const NavBar = (props) => {
                   )
               ) : null}
 
-              <Button onClick={() => history.push("/dashboard")}>Dashboard</Button>
-
               < AuthButton />
             </div>
           </Toolbar>
