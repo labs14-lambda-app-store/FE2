@@ -149,11 +149,10 @@ const AppDetails = ({
           multiline
           rows={3}
           label="Description"
-          inputProps={{ "data-testid": "description" }}
           name="description"
           helperText={`${charactersLeft} characters remaining...`}
           onChange={e => handleStateChanges(e)}
-          inputProps={{ maxLength: 255 }}
+          inputProps={{ maxLength: 255, "data-testid": "description" }}
         />
         <TextField
           error={error_message_hosted ? true : false}
