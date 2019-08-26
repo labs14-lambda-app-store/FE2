@@ -1,8 +1,9 @@
 import React from "react"
 import TagsList from "../reusable/TagsList"
 import AdminButtons from "../reusable/AdminButtons"
+import { withRouter } from "react-router"
 
-const ModalContent = ({ app, setIsOpen, isModalOpen }) => {
+const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
   return (
     <main className="modal-content">
       <div className="image-container">
@@ -43,8 +44,16 @@ const ModalContent = ({ app, setIsOpen, isModalOpen }) => {
           isModalOpen={isModalOpen}
         />
       )}
+      <button
+        onClick={() =>
+          history.push({
+            pathname: `/appPage/${app.id}`,
+            state: { app_id: app.id },
+          })
+        }
+      ></button>
     </main>
   )
 }
 
-export default ModalContent
+export default withRouter(ModalContent)

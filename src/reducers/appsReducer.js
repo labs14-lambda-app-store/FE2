@@ -5,6 +5,9 @@ import {
   GET_PENDING_APPS_START,
   GET_PENDING_APPS_SUCCESS,
   GET_PENDING_APPS_FAIL,
+  GET_APP_BY_ID_START,
+  GET_APP_BY_ID_SUCCESS,
+  GET_APP_BY_ID_FAIL,
   SEARCH_APPS_START,
   SEARCH_APPS_SUCCESS,
   SEARCH_APPS_FAIL,
@@ -29,6 +32,7 @@ const initialState = {
   isDeleting: false,
   message: "",
   request_status: "",
+  app: {},
 }
 
 const appsReducer = (state = initialState, action) => {
@@ -66,6 +70,24 @@ const appsReducer = (state = initialState, action) => {
         pendingAppsLength: action.appLength,
       }
     case GET_PENDING_APPS_FAIL:
+      return {
+        ...state,
+        isFetching: false,
+      }
+    //apps by id cases
+
+    case GET_APP_BY_ID_START:
+      return {
+        ...state,
+        isFetching: true,
+      }
+    case GET_APP_BY_ID_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        app: action.payload,
+      }
+    case GET_APP_BY_ID_FAIL:
       return {
         ...state,
         isFetching: false,

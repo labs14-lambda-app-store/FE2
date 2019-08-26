@@ -1,8 +1,12 @@
 import React, { useEffect } from "react"
+import { connect } from "react-redux"
 import { Container } from "@material-ui/core"
+import { getAppById } from "../../actions"
+import { withRouter } from "react-router"
 
-const AppPage = props => {
+const AppPage = ({ getAppById, match, app }) => {
   const {
+    id,
     name,
     description,
     frontend_url,
@@ -12,49 +16,59 @@ const AppPage = props => {
     category,
     tags,
     users,
-  } = props
+  } = app
+  useEffect(() => {
+    getAppById(parseInt(match.params.id, 10))
+  }, [])
+
+  console.log("app:", app)
 
   return (
     <Container>
-      <div className="title-card">
-        <h2>App name!</h2>
-        <h2>{name}</h2>
+      <h2>{name}</h2>
+      <div>
+        <img src={display_image} alt="App screenshot" />
+      </div>
+      <h3>{category}</h3>
+      <p>{description}</p>
+      {tags ? (
         <div>
-          <p>here there be images</p>
-          <img src={display_image} alt="A[[ screenshot" />
+          {tags.map(currentTag => (
+            <p key={currentTag.id}>{currentTag.tag_name}</p>
+          ))}
         </div>
-      </div>
+      ) : (
+        <h3>Loading tags...</h3>
+      )}
 
-      <div>
-        <h3>this is a category</h3>
-        <h3>{category}</h3>
-        <br />
-        <p>This is where the description goes.</p>
-        <p>{description}</p>
-      </div>
+      <h3>{hosted_url}</h3>
+      <h3>{frontend_url}</h3>
+      <h3>{backend_url}</h3>
 
-      <div>
-        {tags.map(tag => {
-          ;<p>tag name</p>
-        })}
-      </div>
-
-      <div className="url-section">
-        <h3>hosted_url</h3>
-        <h3>{hosted_url}</h3>
-        <h3>frontend_url</h3>
-        <h3>{frontend_url}</h3>
-        <h3>backend_url</h3>
-        <h3>{backend_url}</h3>
-      </div>
-
-      <div>
-        {users.map(user => {
-          ;<div>userDiv</div>
-        })}
-      </div>
+      {users ? (
+        <div className="userDiv">
+          {users.map(user => (
+            <div key={user.id}>
+              <h4>user.name</h4>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>Loading contributors...</p>
+      )}
     </Container>
   )
 }
 
-export default AppPage
+const mapStateToProps = ({ appsReducer }) => {
+  return {
+    app: appsReducer.app,
+  }
+}
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getAppById }
+  )(AppPage)
+)

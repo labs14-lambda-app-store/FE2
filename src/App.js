@@ -13,6 +13,7 @@ import { NavBar, Footer } from "./components/reusable"
 import { MuiThemeProvider } from "@material-ui/core"
 import "./App.scss"
 import Dashboard from "./components/Dashboard/Dashboard"
+import AppPage from "./components/AppPage/AppPage"
 
 const App = ({ loginUser }) => {
   const { loading } = useAuth0()
@@ -30,6 +31,7 @@ const App = ({ loginUser }) => {
           <NavBar />
           <Route exact path="/" component={Home} />
           <Route path="/apps" exact component={AppsGallery} />
+          <Route path="/appPage/:id" component={AppPage} />
           <ProtectedRoute path="/dashboard" component={Dashboard} />
           <ProtectedRoute
             path="/pending-apps"
