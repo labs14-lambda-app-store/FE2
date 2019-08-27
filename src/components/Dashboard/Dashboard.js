@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route } from "react-router-dom"
 import ProtectedRoute from "../Auth/ProtectedRoute";
 import Profile from "./Profile";
-import Overview from "./Overview";
 import { connect } from "react-redux";
 import useStyles from "./styles"
 import clsx from 'clsx';
@@ -78,7 +77,6 @@ const Dashboard = ({ user }) => {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Switch>
-                        <ProtectedRoute exact path="/dashboard" component={Overview} />
                         <ProtectedRoute exact path="/dashboard/profile" component={Profile} />
                         <ProtectedRoute exact path="/dashboard/apps" component={MyAppsView} />
                         <ProtectedRoute exact path="/dashboard/submit-app" component={AppForm} />
