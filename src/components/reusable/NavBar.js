@@ -17,12 +17,9 @@ const buttonSelector = () => {
   }
 }
 
-const NavBar = props => {
+const NavBar = ({ user, history, location, message }) => {
   const [activeButton, setActiveButton] = React.useState(buttonSelector())
 
-
-  const { user, history, location, message } = props
-  console.log(message)
   if (location.pathname.includes("/dashboard")) {
     return null
   } else {
