@@ -17,7 +17,7 @@ const AppsGallery = ({
   getPendingApps,
   pendingAppsLength,
   appType,
-  isLoadingApps,
+  isLoadingApps
 }) => {
   const [searchString, setSearchString] = useState("")
 
@@ -113,11 +113,12 @@ const AppsGallery = ({
           checkAppType={checkAppType}
         />
       </div>
-      {console.log(isLoadingApps)}
-
-      {/* if apps.length is equal to 0, search error text appears alerting the user there are no results for the query */}
+      {/* if apps are loading, disploy dots loader, else if apps.length is equal to 0, search error text appears alerting the user there are no results for the query */}
       {isLoadingApps ? (
-        <Loader type="ThreeDots" height={80} width={80} />
+        <div className='loader-div'>
+        <Loader type="ThreeDots" height={80} width={80} color='#3ab5e5' />
+        <h3 className='loading-message'>Loading Apps...</h3>
+        </div>
       ) : apps.length === 0 && searchString ? (
         <div className="invalid-search">
           <i className="fas fa-search"></i>
@@ -151,7 +152,7 @@ const mapStateToProps = ({ appsReducer, usersReducer }) => {
   return {
     ...appsReducer,
     ...usersReducer,
-    isLoadingApps: appsReducer.isFetching
+    isLoadingApps: appsReducer.isFetching,
   }
 }
 export default connect(
