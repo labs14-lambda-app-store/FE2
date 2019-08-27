@@ -14,7 +14,6 @@ const MyAppsView = ({ user }) => {
 
     return (
         <>
-
             <h2>Pending Apps</h2>
             {unapprovedApps.map(app => (
                 <div style={{ display: "flex", flexDirection: "column" }}>
