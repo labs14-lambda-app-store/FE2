@@ -21,7 +21,7 @@ const MyAppsView = ({ user }) => {
           return array.map(item => <MyAppItem item={item} setIsOpen={setIsOpen}/>)
         }
       } else {
-      return <p className="no-show-message">nothing to show</p>
+      return <p className="no-show-message">nothing to see here</p>
       }
   }
 
