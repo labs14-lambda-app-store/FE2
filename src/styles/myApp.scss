@@ -1,20 +1,33 @@
 .my-app {
   padding: 5px;
+  :hover {
+        background-color: $onHover;
+  }
 
   .app-card{
         display: flex;
         justify-content: space-evenly;
+        align-items: center;
 
       .my-app-image {
-            display: block;
             max-width: 50%;
+            max-height: 250px;
             width: auto;
-            height: auto;
             margin: 6px;
       }
 
-      p{
-          text-align: center;  
+      .app-deets {
+            display: flex;
+            flex-direction: column;
+            h2{
+                  text-align: center;
+                  color: $lambdaTeal;  
+              }
+            Button{
+                  justify-content: baseline;
+            }
+
       }
+      
   }
 }

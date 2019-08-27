@@ -7,7 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem"
 import TextField from "@material-ui/core/TextField"
 import { updateApp } from "../../actions"
 
-const AppContent = ({ user }) => {
+const AppEditContent = ({ user }) => {
   const { id, apps } = user
   const {
     display_image,
@@ -197,4 +197,4 @@ const mapStateToProps = ({ usersReducer, appsReducer }) => {
 export default connect(
   mapStateToProps,
   {}
-)(AppContent)
+)(AppEditContent)

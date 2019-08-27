@@ -3,10 +3,9 @@ import { connect } from "react-redux"
 import MapIfGreaterThanZero from '../reusable/MapIfGreaterThanZero'
 import MyAppItem from "./MyAppItem"
 import Paper from "@material-ui/core/Paper"
-// import AppContentModal from './AppContent'
+
 
 const MyAppsView = ({ user }) => {
-  const [isOpen, setIsOpen] = useState(false)
   const [approvedApps, setApprovedApps] = useState("")
   const [unapprovedApps, setUnapprovedApps] = useState("")
 
@@ -18,13 +17,12 @@ const MyAppsView = ({ user }) => {
   const mapApps = array => {
     if (array.length > 0) {
         {
-          return array.map(item => <MyAppItem item={item} setIsOpen={setIsOpen}/>)
+          return array.map(item => <MyAppItem item={item} />)
         }
       } else {
       return <p className="no-show-message">nothing to see here</p>
       }
   }
-
 
   return (
     <main className="my-apps-container">
@@ -39,7 +37,6 @@ const MyAppsView = ({ user }) => {
         <hr />
         {mapApps(approvedApps)}
       </Paper>
-      {/* <AppContentModal user={user} isModalOpen={isOpen} setIsOpen={setIsOpen} /> */}
     </main>
   )
 }
