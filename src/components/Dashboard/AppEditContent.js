@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { connect } from "react-redux"
+import axios from "axios"
 import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
 import MenuItem from "@material-ui/core/MenuItem"
@@ -27,8 +28,24 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
     backend_url,
     hosted_url,
     category,
+    tags,
     
   })
+
+  const [categories, setCategories] = useState("")
+
+  useEffect(() => {
+    console.log('app', apps)
+    getCategories()
+  }, [])
+
+  const getCategories = async () => {
+    const result = await axios.get(
+      "https://lambdaappstore2.herokuapp.com/api/categories"
+    )
+    const categories = result.data
+    setCategories(categories)
+  }
 
   function handleUpdateApp(change, id) {
     updateApp(change, id).then(res => {
@@ -110,7 +127,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
             handleChanges(e)
           }}
         />
-        <TextField
+        {/* <TextField
           id="standard-select standard-required"
           margin="normal"
           variant="outlined"
@@ -122,8 +139,8 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
           onChange={e => {
             handleChanges(e)
           }}
-        />
-        {/* <TextField
+        /> */}
+        <TextField
           className="submitInput"
           value={category}
           id="standard-select standard-required"
@@ -136,7 +153,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
           helperText="Please select one"
           margin="normal"
           onChange={e =>
-            handleChanges({
+            setUpdatedApp({
               ...updatedApp,
               category: e.target.value,
             })
@@ -148,7 +165,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
                 {category.category_name}
               </MenuItem>
             ))}
-        </TextField> */}
+        </TextField>
         <p>{description}</p>
       </div>
       <div className="app-edit-buttons">
@@ -167,7 +184,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
             className="app-edit-button"
             size="small"
             color="secondary"
-            onClick={() => handleUpdateApp(updatedApp, id)}
+            onClick={() => setIsOpen(!isModalOpen)}
           >
             <i class="fas fa-times-circle fa-2x"></i>
           </Button>
