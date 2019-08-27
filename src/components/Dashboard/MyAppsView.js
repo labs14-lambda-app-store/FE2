@@ -26,8 +26,8 @@ const MyAppsView = ({ user }) => {
     return (
         <main className="my-apps-container">
             <Paper className="unapproved-apps-card">
-            <h2>Unapproved Apps</h2>
-            <hr/>
+                <h2>Unapproved Apps</h2>
+                <hr/>
                 {checkArrayLength(unapprovedApps) }
             </Paper>
             <Paper className="approved-apps-card">

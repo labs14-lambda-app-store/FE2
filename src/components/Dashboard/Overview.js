@@ -1,9 +1,7 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import useStyles from "./styles";
-import clsx from 'clsx';
-import { connect } from "react-redux";
+import React from 'react'
+import useStyles from "./styles"
+import clsx from 'clsx'
+import { connect } from "react-redux"
 
 const Overview = ({ user }) => {
     const classes = useStyles();
