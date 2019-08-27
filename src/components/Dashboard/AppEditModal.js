@@ -1,17 +1,17 @@
 import React from "react"
 import { Modal } from "@material-ui/core"
-import AppContent from "./AppContent"
+import AppEditContent from "./AppEditContent"
 
-const AppContentModal = ({ app, isModalOpen, setIsOpen, ref }) => {
+const AppEditModal = ({ app, isModalOpen, setIsOpen}) => {
   return (
     <main>
       <Modal
-        aria-labelledby="App modal view"
+        aria-labelledby="App edit modal view"
         aria-describedby="Further details on app"
         open={isModalOpen}
         onClose={() => setIsOpen(!isModalOpen)}
       >
-        <ModalContent
+        <AppEditContent
           isModalOpen={isModalOpen}
           setIsOpen={setIsOpen}
           app={app}
@@ -21,4 +21,4 @@ const AppContentModal = ({ app, isModalOpen, setIsOpen, ref }) => {
   )
 }
 
-export default AppContentModal
+export default AppEditModal

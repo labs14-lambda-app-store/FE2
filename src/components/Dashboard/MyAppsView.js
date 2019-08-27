@@ -8,7 +8,7 @@ import Paper from "@material-ui/core/Paper"
 const MyAppsView = ({ user }) => {
   const [approvedApps, setApprovedApps] = useState("")
   const [unapprovedApps, setUnapprovedApps] = useState("")
-
+  
   useEffect(() => {
     setApprovedApps(user.apps.filter(app => app.is_approved))
     setUnapprovedApps(user.apps.filter(app => app.is_approved === false))

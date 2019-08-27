@@ -1,29 +1,30 @@
-import React from "react"
-import Button from "@material-ui/core/Button"
+import React, { useState } from "react"
+// import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
-import AppEditContent from "./AppEditContent"
+import AppEditModal from "./AppEditModal"
 
-const MyAppItem = ({ item, isOpen, setIsOpen }) => {
+const MyAppItem = ({ item }) => {
+      const [isOpen, setIsOpen] = useState(false)
   return (
-    <Tooltip title="Click to view" placement="top">
+    
       <div
         className="my-app"
         onClick={() => setIsOpen(true)}
-        style={{ display: "flex", flexDirection: "column" }}
       >
         <div className="app-card">
           <img className="my-app-image" src={item.display_image} />
           <div className="app-deets">
             <h2>{item.name}</h2>
-            <Button color="secondary">
+            {/* <Button color="secondary">
               <i className="fas fa-pencil-alt"></i>
-            </Button>
+            </Button> */}
           </div>
         </div>
         <hr />
+        <AppEditModal item={item} isModalOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
-      <AppEditContent item={item} isModalOpen={isOpen} setIsOpen={setIsOpen} />
-    </Tooltip>
+      
+    
   )
 }
 

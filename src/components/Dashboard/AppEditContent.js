@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { connect } from "react-redux"
-import axios from "axios"
 import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
 import MenuItem from "@material-ui/core/MenuItem"
 import TextField from "@material-ui/core/TextField"
 import { updateApp } from "../../actions"
 
-const AppEditContent = ({ user }) => {
+const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
   const { id, apps } = user
   const {
     display_image,
@@ -17,7 +16,7 @@ const AppEditContent = ({ user }) => {
     backend_url,
     hosted_url,
     category,
-    is_approved,
+    tags,
   } = apps
 
   const [updatedApp, setUpdatedApp] = useState({
@@ -28,23 +27,12 @@ const AppEditContent = ({ user }) => {
     backend_url,
     hosted_url,
     category,
+    
   })
-  const [categories, setCategories] = useState("")
-
-  useEffect(() => {
-    getCategories()
-  }, [])
-
-  const getCategories = async () => {
-    const result = await axios.get(
-      "https://lambdaappstore2.herokuapp.com/api/categories"
-    )
-    const categories = result.data
-    setCategories(categories)
-  }
 
   function handleUpdateApp(change, id) {
     updateApp(change, id).then(res => {
+      setIsOpen(!isModalOpen)
       window.location.reload()
     })
   }
@@ -123,17 +111,19 @@ const AppEditContent = ({ user }) => {
           }}
         />
         <TextField
-          id="outlined-with-placeholder"
+          id="standard-select standard-required"
           margin="normal"
           variant="outlined"
-          value={updatedApp.hosted_url}
-          name="hosted_url"
-          label="hosted_url"
+          required
+          select
+          value={updatedApp.tags}
+          name="tags"
+          label="tags"
           onChange={e => {
             handleChanges(e)
           }}
         />
-        <TextField
+        {/* <TextField
           className="submitInput"
           value={category}
           id="standard-select standard-required"
@@ -158,7 +148,7 @@ const AppEditContent = ({ user }) => {
                 {category.category_name}
               </MenuItem>
             ))}
-        </TextField>
+        </TextField> */}
         <p>{description}</p>
       </div>
       <div className="app-edit-buttons">
