@@ -8,8 +8,9 @@ import { withRouter } from "react-router-dom"
 import redLambdaLogo from "../../assets/Lambda_Logo.png"
 
 const NavBar = ({ user, history, location, message }) => {
+  //location.pathname is default value for activeButton
   const [activeButton, setActiveButton] = React.useState(location.pathname)
-  
+
   if (location.pathname.includes("/dashboard")) {
     return null
   } else {
@@ -29,9 +30,11 @@ const NavBar = ({ user, history, location, message }) => {
             <div className="buttons">
               <Button
                 onClick={() => {
+                  //setActiveButton to matching route
                   setActiveButton('/')
                   history.push("/")
                 }}
+                //check to see if activeButton is current route, set style based on conditional
                 style={{
                   color: activeButton === '/' || '' ? "#3ab5e5" : "black",
                 }}
