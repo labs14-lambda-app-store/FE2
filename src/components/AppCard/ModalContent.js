@@ -4,8 +4,6 @@ import AdminButtons from "../reusable/AdminButtons"
 import { withRouter } from 'react-router'
 
 const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
-  console.log('app', app)
-  console.log('id', app.id)
 
   return (
     <main className="modal-content">
