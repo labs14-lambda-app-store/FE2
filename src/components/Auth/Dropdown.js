@@ -60,6 +60,9 @@ const Dropdown = ({
         <MenuItem onClick={() => history.push("/dashboard/profile")}>
           My Profile
         </MenuItem>
+        <MenuItem onClick={() => history.push("/dashboard/submit-app")}>
+          Submit App
+        </MenuItem>
         <MenuItem
           color="secondary"
           onClick={() => {

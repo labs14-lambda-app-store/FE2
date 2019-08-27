@@ -7,7 +7,7 @@ import AddBoxIcon from '@material-ui/icons/AddBox';
 const SecondaryItemList = () => {
     return (
         <div>
-            <SideNavItem route="/dashboard/submit-app" icon={() => <AddBoxIcon />} primaryText="Submit an App" />
+            <SideNavItem route="/dashboard/submit-app" icon={() => <AddBoxIcon />} primaryText="Submit an App"/>
             <SideNavItem route="/" icon={() => <HomeIcon />} primaryText="Return to Home" />
         </div>
     )
