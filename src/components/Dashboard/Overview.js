@@ -5,7 +5,6 @@ import { connect } from "react-redux"
 
 const Overview = ({ user }) => {
     const classes = useStyles();
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     return (
         <>
             <h1>Overview</h1>
