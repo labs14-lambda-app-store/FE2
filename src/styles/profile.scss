@@ -133,22 +133,27 @@
       grid-area: linkedIn;
     }
 
-    .saveEditButton {
-      grid-area: saveButton;
-      border: 1px solid rgb(184, 184, 184);
-    }
-    .saveEditButton:hover {
-      color: white;
-      background: $lambdaLightBlue;
-    }
+    .profile-edit-buttons {
+      margin-top: 20px;
+      .saveEditButton {
+        grid-area: saveButton;
+        border: 1px solid rgb(184, 184, 184);
+        margin: 0 5px;
+      }
+      .saveEditButton:hover {
+        color: white;
+        background: $lambdaLightBlue;
+      }
 
-    .cancelEditButton {
-      grid-area: cancelButton;
-      border: 1px solid rgb(184, 184, 184);
-    }
-    .cancelEditButton:hover {
-      color: white;
-      background: $lambdaRed;
+      .cancelEditButton {
+        grid-area: cancelButton;
+        border: 1px solid rgb(184, 184, 184);
+        margin: 0 5px;
+      }
+      .cancelEditButton:hover {
+        color: white;
+        background: $lambdaRed;
+      }
     }
   }
 }

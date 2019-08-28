@@ -21,6 +21,10 @@ const ProfileEditModalContent = ({
     email,
     pictureURL,
     username,
+    github_link,
+    linkedin_link,
+    preferred_pronoun,
+    birthday
   } = user
 
   const [updatedUser, setUpdatedUser] = useState({
@@ -32,6 +36,10 @@ const ProfileEditModalContent = ({
     email,
     pictureURL,
     username,
+    github_link,
+    linkedin_link,
+    preferred_pronoun,
+    birthday
   })
 
   function handleUpdateUser(change, id) {
@@ -44,7 +52,7 @@ const ProfileEditModalContent = ({
   const handleChanges = e => {
     setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value })
   }
-
+  console.log('user', user)
   return (
     <main className="profile-edit-modal-content">
       <div className="profile-edit-form">
@@ -89,7 +97,7 @@ const ProfileEditModalContent = ({
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          // value={updatedUser.last_name}
+          value={updatedUser.preferred_pronoun}
           name="pronoun"
           label="Preferred Pronoun"
           onChange={e => {
@@ -101,7 +109,7 @@ const ProfileEditModalContent = ({
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          // value={updatedUser.birthday}
+          value={updatedUser.birthday}
           name="DateOfBirth"
           label="Date of Birth"
           onChange={e => {
@@ -113,7 +121,7 @@ const ProfileEditModalContent = ({
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          // value={updatedUser.pictureURL}
+          value={updatedUser.pictureURL}
           name="pictureURL"
           label="Avatar URL"
           onChange={e => {
@@ -125,7 +133,7 @@ const ProfileEditModalContent = ({
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          // value={updatedUser.pictureURL}
+          value={updatedUser.github_link}
           name="github"
           label="Github URL"
           onChange={e => {
@@ -137,33 +145,35 @@ const ProfileEditModalContent = ({
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          // value={updatedUser.pictureURL}
+          value={updatedUser.linkedin_link}
           name="linkedin"
           label="LinkedIn URL"
           onChange={e => {
             handleChanges(e)
           }}
         />
-        <Tooltip title="Confirm" placement="top">
-          <Button
-            className="saveEditButton"
-            size="small"
-            color="primary"
-            onClick={() => handleUpdateUser(updatedUser, id)}
-          >
-            Save
+        <div className="profile-edit-buttons">
+          <Tooltip title="Confirm" placement="top">
+            <Button
+              className="saveEditButton"
+              size="small"
+              color="primary"
+              onClick={() => handleUpdateUser(updatedUser, id)}
+            >
+              Save
           </Button>
-        </Tooltip>
-        <Tooltip title="Canel" placement="top">
-          <Button
-            className="cancelEditButton"
-            size="small"
-            color="secondary"
-            onClick={() => setIsOpen(!isModalOpen)}
-          >
-            Cancel
+          </Tooltip>
+          <Tooltip title="Cancel" placement="top">
+            <Button
+              className="cancelEditButton"
+              size="small"
+              color="secondary"
+              onClick={() => setIsOpen(!isModalOpen)}
+            >
+              Cancel
           </Button>
-        </Tooltip>
+          </Tooltip>
+        </div>
       </div>
     </main>
   )
