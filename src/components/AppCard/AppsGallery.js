@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button"
 import Grid from "@material-ui/core/Grid"
 import PaginationConfig from "./PaginationConfig"
 import { connect } from "react-redux"
+import Loader from "react-loader-spinner"
 
 import App from "./App.js"
 import { getApprovedApps, getPendingApps, searchApps } from "../../actions"
@@ -16,6 +17,7 @@ const AppsGallery = ({
   getPendingApps,
   pendingAppsLength,
   appType,
+  isLoadingApps
 }) => {
   const [searchString, setSearchString] = useState("")
 
@@ -111,9 +113,13 @@ const AppsGallery = ({
           checkAppType={checkAppType}
         />
       </div>
-
-      {/* if apps.length is equal to 0, search error text appears alerting the user there are no results for the query */}
-      {apps.length === 0 && searchString ? (
+      {/* if apps are loading, disploy dots loader, else if apps.length is equal to 0, search error text appears alerting the user there are no results for the query */}
+      {isLoadingApps ? (
+        <div className='loader-div'>
+        <Loader type="ThreeDots" height={80} width={80} color='#3ab5e5' />
+        <h3 className='loading-message'>Loading Apps...</h3>
+        </div>
+      ) : apps.length === 0 && searchString ? (
         <div className="invalid-search">
           <i className="fas fa-search"></i>
           <p className="invalid-text">
@@ -146,6 +152,7 @@ const mapStateToProps = ({ appsReducer, usersReducer }) => {
   return {
     ...appsReducer,
     ...usersReducer,
+    isLoadingApps: appsReducer.isFetching,
   }
 }
 export default connect(

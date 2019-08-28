@@ -75,3 +75,12 @@
   .invalid-text {
         padding-left: 1.2%;
   }
+  .loader-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+  }
+  .loading-message {
+        color: $lambdaTeal
+  }

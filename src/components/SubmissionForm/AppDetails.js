@@ -61,10 +61,10 @@ const AppDetails = ({
     })
       ? setStateValues({ ...state, error_message_hosted: "" })
       : setStateValues({
-          ...state,
-          error_message_hosted:
-            "Invalid Hosted URL. Please enter a URL that includes http:// or https://",
-        })
+        ...state,
+        error_message_hosted:
+          "Invalid Hosted URL. Please enter a URL that includes http:// or https://",
+      })
   }
 
   const frontendUrlValid = url => {
@@ -74,10 +74,10 @@ const AppDetails = ({
     })
       ? setStateValues({ ...state, error_message_frontend: "" })
       : setStateValues({
-          ...state,
-          error_message_frontend:
-            "Invalid Frontend URL. Please enter a URL that includes http:// or https://",
-        })
+        ...state,
+        error_message_frontend:
+          "Invalid Frontend URL. Please enter a URL that includes http:// or https://",
+      })
   }
 
   const backendUrlValid = url => {
@@ -87,10 +87,10 @@ const AppDetails = ({
     })
       ? setStateValues({ ...state, error_message_backend: "" })
       : setStateValues({
-          ...state,
-          error_message_backend:
-            "Invalid Backend URL. Please enter a URL that includes http:// or https://",
-        })
+        ...state,
+        error_message_backend:
+          "Invalid Backend URL. Please enter a URL that includes http:// or https://",
+      })
   }
 
   const Continue = e => {
@@ -225,11 +225,11 @@ const AppDetails = ({
           //will also disable button if error_message exists
           disabled={
             !name ||
-            !description ||
-            !hosted_url ||
-            error_message_hosted ||
-            error_message_frontend ||
-            error_message_backend
+              !description ||
+              !hosted_url ||
+              error_message_hosted ||
+              error_message_frontend ||
+              error_message_backend
               ? true
               : false
           }
