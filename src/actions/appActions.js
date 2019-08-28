@@ -52,7 +52,6 @@ export const getAppById = id => async dispatch => {
     const result = await axios.get(`${baseAppsUrl}/${id}`)
     dispatch({ type: GET_APP_BY_ID_SUCCESS, payload: result.data })
   } catch (error) {
-    console.log(error)
     dispatch({ type: GET_APP_BY_ID_FAIL, payload: error })
   }
 }

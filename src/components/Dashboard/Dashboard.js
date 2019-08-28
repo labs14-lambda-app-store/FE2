@@ -1,4 +1,5 @@
 import React from 'react';
+import { Switch, Route } from "react-router-dom"
 import ProtectedRoute from "../Auth/ProtectedRoute";
 import Profile from "./Profile";
 import { connect } from "react-redux";
@@ -19,6 +20,7 @@ import MainItemList from './MainItemList';
 import SecondaryItemList from './SecondaryItemList'
 import MyAppsView from './MyAppsView';
 import AppForm from "../SubmissionForm/AppForm";
+import NotFound from "../404/NotFound"
 
 const Dashboard = ({ user }) => {
     const classes = useStyles();
@@ -74,9 +76,12 @@ const Dashboard = ({ user }) => {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
-                    <ProtectedRoute path="/dashboard/profile" component={Profile} />
-                    <ProtectedRoute path="/dashboard/apps" component={MyAppsView} />
-                    <ProtectedRoute path="/dashboard/submit-app" component={AppForm} />
+                    <Switch>
+                        <ProtectedRoute exact path="/dashboard/profile" component={Profile} />
+                        <ProtectedRoute exact path="/dashboard/apps" component={MyAppsView} />
+                        <ProtectedRoute exact path="/dashboard/submit-app" component={AppForm} />
+                        <Route path="/dashboard/*" component={NotFound} />
+                    </Switch>
                 </Container>
             </main>
         </div>

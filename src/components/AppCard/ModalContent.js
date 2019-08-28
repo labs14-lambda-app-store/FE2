@@ -44,14 +44,7 @@ const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
           isModalOpen={isModalOpen}
         />
       )}
-      <button
-        onClick={() =>
-          history.push({
-            pathname: `/appPage/${app.id}`,
-            state: { app_id: app.id },
-          })
-        }
-      ></button>
+      <button onClick={() => history.push(`/apps/${app.id}`)} />
     </main>
   )
 }

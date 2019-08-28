@@ -12,8 +12,6 @@ const AppPage = ({ getAppById, match, app }) => {
     getAppById(parseInt(match.params.id, 10))
   }, [])
 
-  console.log("app:", app)
-
   return (
     <Container>
       <div className="app-page-top">
