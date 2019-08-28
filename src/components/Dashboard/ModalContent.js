@@ -34,7 +34,7 @@ const ProfileEditModalContent = ({
     username,
   })
 
-  function handleUpdateUser( change, id) {
+  function handleUpdateUser(change, id) {
     updateUser(change, id).then(res => {
       setIsOpen(!isModalOpen)
       window.location.reload()
@@ -49,28 +49,7 @@ const ProfileEditModalContent = ({
     <main className="profile-edit-modal-content">
       <div className="profile-edit-form">
         <TextField
-          id="outlined-with-placeholder"
-          margin="normal"
-          variant="outlined"
-          value={updatedUser.first_name}
-          name="first_name"
-          label="First Name"
-          onChange={e => {
-            handleChanges(e)
-          }}
-        />
-        <TextField
-          id="outlined-with-placeholder"
-          margin="normal"
-          variant="outlined"
-          value={updatedUser.last_name}
-          name="last_name"
-          label="Last Name"
-          onChange={e => {
-            handleChanges(e)
-          }}
-        />
-        <TextField
+          className="usernameEdit"
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
@@ -82,19 +61,92 @@ const ProfileEditModalContent = ({
           }}
         />
         <TextField
+          className="firstNameEdit"
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
-          value={updatedUser.pictureURL}
+          value={updatedUser.first_name}
+          name="first_name"
+          label="First Name"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="lastNameEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedUser.last_name}
+          name="last_name"
+          label="Last Name"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="pronounEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          // value={updatedUser.last_name}
+          name="pronoun"
+          label="Preferred Pronoun"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="dateOfBirthEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          // value={updatedUser.birthday}
+          name="DateOfBirth"
+          label="Date of Birth"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="avatarURLEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          // value={updatedUser.pictureURL}
           name="pictureURL"
           label="Avatar URL"
           onChange={e => {
             handleChanges(e)
           }}
         />
+        <TextField
+          className="githubEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          // value={updatedUser.pictureURL}
+          name="github"
+          label="Github URL"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="linkedInEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          // value={updatedUser.pictureURL}
+          name="linkedin"
+          label="LinkedIn URL"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
       </div>
       <div className="profile-edit-buttons">
-        <Tooltip title="Approve" placement="top">
+        {/* <Tooltip title="Confirm" placement="top">
           <Button
             className="profile-edit-button"
             size="small"
@@ -104,7 +156,7 @@ const ProfileEditModalContent = ({
             <i class="fas fa-check-circle fa-2x"></i>
           </Button>
         </Tooltip>
-        <Tooltip title="Deny" placement="top">
+        <Tooltip title="Back" placement="top">
           <Button
             className="profile-edit-button"
             size="small"
@@ -113,7 +165,7 @@ const ProfileEditModalContent = ({
           >
             <i class="fas fa-times-circle fa-2x"></i>
           </Button>
-        </Tooltip>
+        </Tooltip> */}
       </div>
     </main>
   )

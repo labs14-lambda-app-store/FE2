@@ -4,7 +4,6 @@
   margin-left: 40px;
 }
 
-
 .profile-container {
   width: 100%;
   height: 100%;
@@ -30,14 +29,14 @@
       justify-content: space-around;
 
       .edit-profile-button {
-            font-size: 1rem;
-            padding: 20px 40px;
+        font-size: 1rem;
+        padding: 20px 40px;
       }
     }
   }
 
   .MuiPaper-root {
-        height: auto;
+    height: auto;
   }
 
   .image-card {
@@ -57,32 +56,49 @@
       }
     }
     .username-div {
-          padding: 10px;
-          display: flex;
-          justify-content: center;
-          color: $lambdaLightBlue;
-          font-size: 1.8rem;
-          font-weight: 1000;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      color: $lambdaLightBlue;
+      font-size: 1.8rem;
+      font-weight: 1000;
     }
   }
 }
 
+// Profile Edit Modal Styling
 .profile-edit-modal-content {
   margin: 10% auto;
   background: #efeef3;
   min-height: 65%;
-  width: 65%;
+  width: 40%;
   border-radius: 5px;
-  padding: 10px 0 10px 20px;
+  padding: 10px 50px;
   display: flex;
-  
+  grid-template-rows: auto;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+    " username username "
+    " firstName lastName "
+    " pronoun ";
   .profile-edit-form {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-
     .MuiFormControl-root {
       width: 100%;
+    }
+    .usernameEdit {
+      grid-area: username;
+      width: 100%;
+    }
+
+    .firstNameEdit {
+      grid-area: firstName;
+      width: 48%;
+      margin-right: 2%;
+    }
+    .lastNameEdit {
+      grid-area: lastName;
+      width: 48%;
+      margin-left: 2%;
     }
   }
 
