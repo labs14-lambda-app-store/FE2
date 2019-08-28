@@ -145,7 +145,7 @@ const appsReducer = (state = initialState, action) => {
       return {
         ...state,
         isUpdating: false,
-        message: action.payload.data.message,
+        message: action.payload.message,
       }
     case UPDATE_APPS_FAIL:
       return {

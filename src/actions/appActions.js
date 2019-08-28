@@ -88,7 +88,7 @@ export const addApp = (newApp, history) => async dispatch => {
   try {
     const postResult = await axios.post(baseAppsUrl, newApp)
     dispatch({ type: ADD_APPS_SUCCESS, payload: postResult })
-    setTimeout(() => history.push("/apps"), 3000)
+    setTimeout(() => history.push("/dashboard/apps"), 3000)
   } catch (err) {
     dispatch({ type: ADD_APPS_FAIL, payload: err })
   }
@@ -98,11 +98,11 @@ export const UPDATE_APPS_START = "UPDATE_APPS_START"
 export const UPDATE_APPS_SUCCESS = "UPDATE_APPS_SUCCESS"
 export const UPDATE_APPS_FAIL = "UPDATE_APPS_FAIL"
 
-export const updateApp = (app, id) => async dispatch => {
+export const updateApp = (change, id) => async dispatch => {
   dispatch({ type: UPDATE_APPS_START })
 
   try {
-    const putResult = await axios.put(`${baseAppsUrl}/${id}`, app)
+    const putResult = await axios.put(`${baseAppsUrl}/${id}`, change)
     dispatch({ type: UPDATE_APPS_SUCCESS, payload: putResult })
   } catch (err) {
     dispatch({ type: UPDATE_APPS_FAIL, payload: err })

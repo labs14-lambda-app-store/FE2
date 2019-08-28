@@ -1,46 +1,51 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import useStyles from "./styles";
-import clsx from 'clsx';
-import { connect } from "react-redux";
+import React, { useState, useEffect } from "react"
+import { connect } from "react-redux"
+import MyAppItem from "./MyAppItem"
+import Paper from "@material-ui/core/Paper"
 
 const MyAppsView = ({ user }) => {
-    const classes = useStyles();
-    const fixedAppsHeightPaper = clsx(classes.paper, classes.fixedAppHeight);
+  const [approvedApps, setApprovedApps] = useState("")
+  const [unapprovedApps, setUnapprovedApps] = useState("")
+  
+  useEffect(() => {
+    setApprovedApps(user.apps ? user.apps.filter(app => app.is_approved) : "")
+    setUnapprovedApps(user.apps ? user.apps.filter(app => app.is_approved === false) : "")
+  }, [user])
 
-    const approvedApps = user.apps.filter(app => app.is_approved);
-    const unapprovedApps = user.apps.filter(app => app.is_approved === false);
+  const mapApps = array => {
+    if (array.length > 0) {
+        {
+          return array.map(currentApp => <MyAppItem currentApp={currentApp} />)
+        }
+      } else {
+      return <p className="no-show-message">nothing to see here</p>
+      }
+  }
 
-    return (
-        <>
-            <h2>Pending Apps</h2>
-            {unapprovedApps.map(app => (
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    {app.name}
-                    <img src={app.display_image} style={{ width: 500, height: "auto" }} />
-                </div>
-            ))}
-            <h2>Approved Apps</h2>
-            {approvedApps.map(app => (
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    {app.name}
-                    <img src={app.display_image} style={{ width: 500, height: "auto" }} />
-                </div>
-            ))}
-        </>
-    )
+  return (
+    <main className="my-apps-container">
+      <Paper className="unapproved-apps-card">
+        <h2>Unapproved Apps</h2>
+        <hr />
+        {mapApps(unapprovedApps)}
+     
+      </Paper>
+      <Paper className="approved-apps-card">
+        <h2>Approved Apps</h2>
+        <hr />
+        {mapApps(approvedApps)}
+      </Paper>
+    </main>
+  )
 }
 
-
-
 const mapStateToProps = ({ usersReducer }) => {
-    return {
-        ...usersReducer,
-    }
+  return {
+    ...usersReducer,
+  }
 }
 
 export default connect(
-    mapStateToProps,
-    {}
+  mapStateToProps,
+  {}
 )(MyAppsView)

@@ -4,7 +4,7 @@ import ModalContent from "./ModalContent"
 
 //will need react router for card contents
 //axios for getAppById request
-const AppModal = ({ user, isModalOpen, setIsOpen }) => {
+const ProfileEditModal = ({ user, isModalOpen, setIsOpen }) => {
   return (
     <main>
       <Modal
@@ -23,4 +23,4 @@ const AppModal = ({ user, isModalOpen, setIsOpen }) => {
   )
 }
 
-export default AppModal
+export default ProfileEditModal
