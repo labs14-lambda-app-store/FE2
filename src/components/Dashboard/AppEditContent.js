@@ -29,13 +29,12 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
     frontend_url,
     backend_url,
     hosted_url,
-    category: category[0].category_name,
-    tag_name,
     error_message_hosted: "",
     error_message_frontend: "",
     error_message_backend: ""
-    
   })
+
+  const { error_message_backend, error_message_frontend, error_message_hosted, ...rest } = updatedApp
 
   const [categories, setCategories] = useState("")
 
@@ -66,10 +65,10 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
     setTags(tags)
   }
 
-  function handleUpdateApp(change, id) {
-    console.log("change", change)
-    console.log("id", id)
+  function handleUpdateApp(e, change, id) {
+    console.log("chchchchanges", change)
     console.log('updated app', updatedApp)
+    e.preventDefault(e)
     updateApp(change, id).then(res => {
       setIsOpen(!isModalOpen)
       
@@ -185,9 +184,9 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
               </MenuItem>
             ))}
         </TextField> */}
-        <TextField
+        {/* <TextField
           className="submitInput"
-          value={updatedApp.category}
+          value={updatedCategory.category_name}
           id="standard-select standard-required"
           required
           select
@@ -206,11 +205,11 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
         >
           {categories &&
             categories.map(category => (
-              <MenuItem defaultValue={updatedApp.category} value={category.category_name} key={category.category_name}>
+              <MenuItem defaultValue={updatedCategory.category_name} value={category.category_name} key={category.category_name}>
                 {category.category_name}
               </MenuItem>
             ))}
-        </TextField>
+        </TextField> */}
       </div>
       <div className="app-edit-buttons">
         <Tooltip title="Approve" placement="top">
@@ -218,7 +217,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
             className="app-edit-button"
             size="small"
             color="primary"
-            onClick={() => handleUpdateApp(updatedApp, updatedApp.id)}
+            onClick={(e) => handleUpdateApp(e, rest, updatedApp.id)}
           >
             <i class="fas fa-check-circle fa-2x"></i>
           </Button>
