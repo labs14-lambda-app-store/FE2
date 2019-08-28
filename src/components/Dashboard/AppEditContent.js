@@ -39,7 +39,6 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   const [categories, setCategories] = useState("")
 
   useEffect(() => {
-    console.log('app', updatedApp)
     getCategories()
   }, [])
 
@@ -66,8 +65,6 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   }
 
   function handleUpdateApp(e, change, id) {
-    console.log("chchchchanges", change)
-    console.log('updated app', updatedApp)
     e.preventDefault(e)
     updateApp(change, id).then(res => {
       setIsOpen(!isModalOpen)
