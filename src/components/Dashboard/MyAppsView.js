@@ -12,12 +12,13 @@ const MyAppsView = ({ user }) => {
   useEffect(() => {
     setApprovedApps(user.apps.filter(app => app.is_approved))
     setUnapprovedApps(user.apps.filter(app => app.is_approved === false))
+    console.log(user.apps)
   }, [])
 
   const mapApps = array => {
     if (array.length > 0) {
         {
-          return array.map(item => <MyAppItem item={item} />)
+          return array.map(currentApp => <MyAppItem currentApp={currentApp} />)
         }
       } else {
       return <p className="no-show-message">nothing to see here</p>

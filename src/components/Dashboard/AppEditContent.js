@@ -7,8 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem"
 import TextField from "@material-ui/core/TextField"
 import { updateApp } from "../../actions"
 
-const AppEditContent = ({ user, setIsOpen, isModalOpen, updateApp }) => {
-  const { id, apps } = user
+const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   const {
     display_image,
     name,
@@ -16,9 +15,10 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen, updateApp }) => {
     frontend_url,
     backend_url,
     hosted_url,
-    category,
-    tag_name
-  } = apps
+    tag_name,
+    category
+    
+  } = app
 
   const [updatedApp, setUpdatedApp] = useState({
     display_image,
@@ -35,7 +35,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen, updateApp }) => {
   const [categories, setCategories] = useState("")
 
   useEffect(() => {
-    console.log('app', apps)
+    console.log('updated app', updatedApp)
     getCategories()
   }, [])
 
@@ -142,7 +142,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen, updateApp }) => {
             handleChanges(e)
           }}
         />
-        <TextField
+        {/* <TextField
           className="submitInput"
           value={tags}
           id="standard-select standard-required"
@@ -167,7 +167,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen, updateApp }) => {
                 {tag.tag_name}
               </MenuItem>
             ))}
-        </TextField>
+        </TextField> */}
         <TextField
           className="submitInput"
           value={category}
@@ -175,8 +175,8 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen, updateApp }) => {
           required
           select
           variant="outlined"
-          label="category"
-          inputProps={{ "data-testid": "category" }}
+          label="categories"
+          inputProps={{ "data-testid": "categories" }}
           name="category"
           helperText="Please select one"
           margin="normal"
@@ -194,7 +194,6 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen, updateApp }) => {
               </MenuItem>
             ))}
         </TextField>
-        <p>{description}</p>
       </div>
       <div className="app-edit-buttons">
         <Tooltip title="Approve" placement="top">
@@ -202,7 +201,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen, updateApp }) => {
             className="app-edit-button"
             size="small"
             color="primary"
-            onClick={() => handleUpdateApp(updatedApp, id)}
+            onClick={() => handleUpdateApp(updatedApp, user.id)}
           >
             <i class="fas fa-check-circle fa-2x"></i>
           </Button>
