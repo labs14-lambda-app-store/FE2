@@ -52,7 +52,7 @@ const ProfileEditModalContent = ({
   const handleChanges = e => {
     setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value })
   }
-  console.log('user', user)
+
   return (
     <main className="profile-edit-modal-content">
       <div className="profile-edit-form">
@@ -98,20 +98,24 @@ const ProfileEditModalContent = ({
           margin="normal"
           variant="outlined"
           value={updatedUser.preferred_pronoun}
-          name="pronoun"
+          name="preferred_pronoun"
           label="Preferred Pronoun"
           onChange={e => {
             handleChanges(e)
           }}
         />
         <TextField
-          className="dateOfBirthEdit"
-          id="outlined-with-placeholder"
+          className="birthdayEdit"
+          id="date"
           margin="normal"
           variant="outlined"
-          value={updatedUser.birthday}
-          name="DateOfBirth"
-          label="Date of Birth"
+          label="Birthday"
+          type="date"
+          name="birthday"
+          defaultValue={updatedUser.birthday}
+          InputLabelProps={{
+            shrink: true,
+          }}
           onChange={e => {
             handleChanges(e)
           }}

@@ -81,7 +81,7 @@
   grid-template-areas:
     " username username username username"
     " firstName firstName lastName lastName "
-    " pronoun pronoun dateOfBirth dateOfBirth "
+    " pronoun pronoun birthday birthday "
     " avatar avatar avatar avatar "
     " github github github github "
     " linkedIn linkedIn linkedIn linkedIn "
@@ -115,8 +115,8 @@
       margin-right: 2%;
     }
 
-    .dateOfBirthEdit {
-      grid-area: dateOfBirth;
+    .birthdayEdit {
+      grid-area: birthday;
       width: 48%;
       margin-left: 2%;
     }
