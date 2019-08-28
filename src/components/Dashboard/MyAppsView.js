@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { connect } from "react-redux"
-import MapIfGreaterThanZero from '../reusable/MapIfGreaterThanZero'
 import MyAppItem from "./MyAppItem"
 import Paper from "@material-ui/core/Paper"
-
 
 const MyAppsView = ({ user }) => {
   const [approvedApps, setApprovedApps] = useState("")
