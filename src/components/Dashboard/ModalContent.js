@@ -21,6 +21,10 @@ const ProfileEditModalContent = ({
     email,
     pictureURL,
     username,
+    github_link,
+    linkedin_link,
+    preferred_pronoun,
+    birthday
   } = user
 
   const [updatedUser, setUpdatedUser] = useState({
@@ -32,9 +36,13 @@ const ProfileEditModalContent = ({
     email,
     pictureURL,
     username,
+    github_link,
+    linkedin_link,
+    preferred_pronoun,
+    birthday
   })
 
-  function handleUpdateUser( change, id) {
+  function handleUpdateUser(change, id) {
     updateUser(change, id).then(res => {
       setIsOpen(!isModalOpen)
       window.location.reload()
@@ -49,28 +57,7 @@ const ProfileEditModalContent = ({
     <main className="profile-edit-modal-content">
       <div className="profile-edit-form">
         <TextField
-          id="outlined-with-placeholder"
-          margin="normal"
-          variant="outlined"
-          value={updatedUser.first_name}
-          name="first_name"
-          label="First Name"
-          onChange={e => {
-            handleChanges(e)
-          }}
-        />
-        <TextField
-          id="outlined-with-placeholder"
-          margin="normal"
-          variant="outlined"
-          value={updatedUser.last_name}
-          name="last_name"
-          label="Last Name"
-          onChange={e => {
-            handleChanges(e)
-          }}
-        />
-        <TextField
+          className="usernameEdit"
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
@@ -82,6 +69,72 @@ const ProfileEditModalContent = ({
           }}
         />
         <TextField
+          className="firstNameEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedUser.first_name}
+          name="first_name"
+          label="First Name"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="lastNameEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedUser.last_name}
+          name="last_name"
+          label="Last Name"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="pronounEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedUser.preferred_pronoun}
+          name="preferred_pronoun"
+          label="Preferred Pronoun"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="birthdayEdit"
+          id="date"
+          margin="normal"
+          variant="outlined"
+          label="Birthday"
+          type="date"
+          name="birthday"
+          defaultValue={updatedUser.birthday}
+          InputLabelProps={{
+            shrink: true,
+          }}
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="emailEdit"
+          id="outlined-email-input"
+          margin="normal"
+          variant="outlined"
+          value={updatedUser.email}
+          name="email"
+          label="Email"
+          type="email"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="avatarURLEdit"
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
@@ -92,28 +145,52 @@ const ProfileEditModalContent = ({
             handleChanges(e)
           }}
         />
-      </div>
-      <div className="profile-edit-buttons">
-        <Tooltip title="Approve" placement="top">
-          <Button
-            className="profile-edit-button"
-            size="small"
-            color="primary"
-            onClick={() => handleUpdateUser(updatedUser, id)}
-          >
-            <i class="fas fa-check-circle fa-2x"></i>
+        <TextField
+          className="githubEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedUser.github_link}
+          name="github"
+          label="Github URL"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
+          className="linkedInEdit"
+          id="outlined-with-placeholder"
+          margin="normal"
+          variant="outlined"
+          value={updatedUser.linkedin_link}
+          name="linkedin"
+          label="LinkedIn URL"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <div className="profile-edit-buttons">
+          <Tooltip title="Confirm" placement="top">
+            <Button
+              className="saveEditButton"
+              size="small"
+              color="primary"
+              onClick={() => handleUpdateUser(updatedUser, id)}
+            >
+              Save
           </Button>
-        </Tooltip>
-        <Tooltip title="Deny" placement="top">
-          <Button
-            className="profile-edit-button"
-            size="small"
-            color="secondary"
-            onClick={() => setIsOpen(!isModalOpen)}
-          >
-            <i class="fas fa-times-circle fa-2x"></i>
+          </Tooltip>
+          <Tooltip title="Cancel" placement="top">
+            <Button
+              className="cancelEditButton"
+              size="small"
+              color="secondary"
+              onClick={() => setIsOpen(!isModalOpen)}
+            >
+              Cancel
           </Button>
-        </Tooltip>
+          </Tooltip>
+        </div>
       </div>
     </main>
   )

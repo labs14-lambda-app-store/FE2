@@ -4,7 +4,6 @@
   margin-left: 40px;
 }
 
-
 .profile-container {
   width: 100%;
   height: 100%;
@@ -30,14 +29,14 @@
       justify-content: space-around;
 
       .edit-profile-button {
-            font-size: 1rem;
-            padding: 20px 40px;
+        font-size: 1rem;
+        padding: 20px 40px;
       }
     }
   }
 
   .MuiPaper-root {
-        height: auto;
+    height: auto;
   }
 
   .image-card {
@@ -57,44 +56,109 @@
       }
     }
     .username-div {
-          padding: 10px;
-          display: flex;
-          justify-content: center;
-          color: $lambdaLightBlue;
-          font-size: 1.8rem;
-          font-weight: 1000;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      color: $lambdaLightBlue;
+      font-size: 1.8rem;
+      font-weight: 1000;
     }
   }
 }
 
+// Profile Edit Modal Styling
 .profile-edit-modal-content {
   margin: 10% auto;
   background: #efeef3;
   min-height: 65%;
-  width: 65%;
+  min-width: 600px;
+  width: 40%;
   border-radius: 5px;
-  padding: 10px 0 10px 20px;
+  padding: 10px 50px;
   display: flex;
-  
-  .profile-edit-form {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
+  grid-template-rows: auto;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-areas:
+    " username username username username"
+    " firstName firstName lastName lastName "
+    " pronoun pronoun birthday birthday "
+    " email email email email "
+    " avatar avatar avatar avatar "
+    " github github github github "
+    " linkedIn linkedIn linkedIn linkedIn "
+    " . . saveButton cancelButton";
 
+  .profile-edit-form {
     .MuiFormControl-root {
       width: 100%;
     }
-  }
 
-  .profile-edit-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    .usernameEdit {
+      grid-area: username;
+      width: 100%;
+    }
 
-    .profile-edit-button {
-      font-size: 1.6rem;
-      padding: 15px;
-      margin: 5px;
+    .firstNameEdit {
+      grid-area: firstName;
+      width: 48%;
+      margin-right: 2%;
+    }
+
+    .lastNameEdit {
+      grid-area: lastName;
+      width: 48%;
+      margin-left: 2%;
+    }
+
+    .pronounEdit {
+      grid-area: pronoun;
+      width: 48%;
+      margin-right: 2%;
+    }
+
+    .birthdayEdit {
+      grid-area: birthday;
+      width: 48%;
+      margin-left: 2%;
+    }
+
+    .emailEdit {
+      grid-area: email;
+    }
+
+    .avatarEdit {
+      grid-area: avatar;
+    }
+
+    .githubEdit {
+      grid-area: github;
+    }
+
+    .linkedInEdit {
+      grid-area: linkedIn;
+    }
+
+    .profile-edit-buttons {
+      margin-top: 20px;
+      .saveEditButton {
+        grid-area: saveButton;
+        border: 1px solid rgb(184, 184, 184);
+        margin: 0 5px;
+      }
+      .saveEditButton:hover {
+        color: white;
+        background: $lambdaLightBlue;
+      }
+
+      .cancelEditButton {
+        grid-area: cancelButton;
+        border: 1px solid rgb(184, 184, 184);
+        margin: 0 5px;
+      }
+      .cancelEditButton:hover {
+        color: white;
+        background: $lambdaRed;
+      }
     }
   }
 }
