@@ -99,7 +99,7 @@ const AppDetails = ({
   }
 
   return (
-    <divx>
+    <div>
       <form className="submission">
         <h1>Submit Your App</h1>
         <TextField
@@ -242,7 +242,7 @@ const AppDetails = ({
           Continue
         </Button>
       </form>
-    </divx>
+    </div>
   )
 }
 
