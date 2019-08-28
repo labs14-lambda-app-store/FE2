@@ -1,3 +1,4 @@
+//app card modal
 .modal-content {
   margin: 10% auto;
   background: #efeef3;
@@ -108,13 +109,27 @@
   }
 }
 
+// dashboard app edit modal
 .app-edit-content {
   margin: 10% auto;
   background: #efeef3;
   min-height: 75%;
   width: 75%;
-  display: grid;
-  justify-items: left;
+  display: flex;
+  flex-direction: column;
   font-size: 1.4rem;
+  border-radius: 5px;
+
+
+  .app-edit-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .app-edit-buttons {
+    display: flex;
+    justify-content: center;
+  }
 }
 

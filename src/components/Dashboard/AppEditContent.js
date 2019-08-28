@@ -7,7 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem"
 import TextField from "@material-ui/core/TextField"
 import { updateApp } from "../../actions"
 
-const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
+const AppEditContent = ({ user, setIsOpen, isModalOpen, updateApp }) => {
   const { id, apps } = user
   const {
     display_image,
@@ -17,7 +17,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
     backend_url,
     hosted_url,
     category,
-    tags,
+    tag_name
   } = apps
 
   const [updatedApp, setUpdatedApp] = useState({
@@ -28,7 +28,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
     backend_url,
     hosted_url,
     category,
-    tags,
+    tag_name
     
   })
 
@@ -47,6 +47,20 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
     setCategories(categories)
   }
 
+  const [tags, setTags] = useState("")
+
+  useEffect(() => {
+    getTags()
+  }, [])
+
+  const getTags = async () => {
+    const result = await axios.get(
+      "https://lambdaappstore2.herokuapp.com/api/tags"
+    )
+    const tags = result.data
+    setTags(tags)
+  }
+
   function handleUpdateApp(change, id) {
     updateApp(change, id).then(res => {
       setIsOpen(!isModalOpen)
@@ -60,6 +74,7 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
 
   return (
     <main className="app-edit-content">
+      <h2>Every change must be approved by admin</h2>
       <div className="app-edit-form">
         <TextField
           id="outlined-with-placeholder"
@@ -127,19 +142,32 @@ const AppEditContent = ({ user, setIsOpen, isModalOpen }) => {
             handleChanges(e)
           }}
         />
-        {/* <TextField
+        <TextField
+          className="submitInput"
+          value={tags}
           id="standard-select standard-required"
-          margin="normal"
-          variant="outlined"
           required
           select
-          value={updatedApp.tags}
-          name="tags"
+          variant="outlined"
           label="tags"
-          onChange={e => {
-            handleChanges(e)
-          }}
-        /> */}
+          inputProps={{ "data-testid": "tags" }}
+          name="tags"
+          helperText="Please select one"
+          margin="normal"
+          onChange={e =>
+            setUpdatedApp({
+              ...updatedApp,
+              tags: e.target.value,
+            })
+          }
+        >
+          {tags &&
+            tags.map(tag => (
+              <MenuItem value={tag} key={tag.tag_name}>
+                {tag.tag_name}
+              </MenuItem>
+            ))}
+        </TextField>
         <TextField
           className="submitInput"
           value={category}
@@ -203,5 +231,5 @@ const mapStateToProps = ({ usersReducer, appsReducer }) => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { updateApp }
 )(AppEditContent)
