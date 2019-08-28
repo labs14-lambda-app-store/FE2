@@ -6,7 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem"
 import Button from "@material-ui/core/Button"
 import validator from "validator"
 import axios from "axios"
-
+import {isUrlValid } from "../../utils/helpers"
 import { sendImageToCloudinary } from "../../actions"
 //imported Material UI packages above,
 // and implemented them in a functional component below
@@ -37,12 +37,13 @@ const AppDetails = ({
     error_message_backend,
   } = state
 
+
   const [categories, setCategories] = useState("")
 
   useEffect(() => {
     getCategories()
   }, [])
-
+  
   const getCategories = async () => {
     const result = await axios.get(
       "https://lambdaappstore2.herokuapp.com/api/categories"
@@ -52,46 +53,6 @@ const AppDetails = ({
   }
 
   const charactersLeft = 255 - description.length
-
-  //checks a url against the validator isUrl regex to check if url is a valid https or www location
-  const hostedUrlValid = url => {
-    validator.isURL(url, {
-      protocols: ["http", "https"],
-      require_protocol: true,
-    })
-      ? setStateValues({ ...state, error_message_hosted: "" })
-      : setStateValues({
-        ...state,
-        error_message_hosted:
-          "Invalid Hosted URL. Please enter a URL that includes http:// or https://",
-      })
-  }
-
-  const frontendUrlValid = url => {
-    validator.isURL(url, {
-      protocols: ["http", "https"],
-      require_protocol: true,
-    })
-      ? setStateValues({ ...state, error_message_frontend: "" })
-      : setStateValues({
-        ...state,
-        error_message_frontend:
-          "Invalid Frontend URL. Please enter a URL that includes http:// or https://",
-      })
-  }
-
-  const backendUrlValid = url => {
-    validator.isURL(url, {
-      protocols: ["http", "https"],
-      require_protocol: true,
-    })
-      ? setStateValues({ ...state, error_message_backend: "" })
-      : setStateValues({
-        ...state,
-        error_message_backend:
-          "Invalid Backend URL. Please enter a URL that includes http:// or https://",
-      })
-  }
 
   const Continue = e => {
     e.preventDefault()
@@ -166,7 +127,7 @@ const AppDetails = ({
           label="Hosted URL"
           name="hosted_url"
           onChange={e => handleStateChanges(e)}
-          onBlur={e => hostedUrlValid(hosted_url)}
+          onBlur={e => isUrlValid(hosted_url, state, setStateValues, "error_message_hosted")}
           helperText={error_message_hosted && error_message_hosted}
         />
         <TextField
@@ -179,7 +140,7 @@ const AppDetails = ({
           inputProps={{ "data-testid": "frontend url" }}
           name="frontend_url"
           onChange={e => handleStateChanges(e)}
-          onBlur={e => frontendUrlValid(frontend_url)}
+          onBlur={e => isUrlValid(frontend_url, state, setStateValues, "error_message_frontend")}
           helperText={error_message_frontend && error_message_frontend}
         />
         <TextField
@@ -192,7 +153,7 @@ const AppDetails = ({
           inputProps={{ "data-testid": "backend url" }}
           name="backend_url"
           onChange={e => handleStateChanges(e)}
-          onBlur={e => backendUrlValid(backend_url)}
+          onBlur={e => isUrlValid(backend_url, state, setStateValues, "error_message_backend")}
           helperText={error_message_backend && error_message_backend}
         />
         {/* <br /> */}
