@@ -12,7 +12,6 @@ const MyAppsView = ({ user }) => {
   useEffect(() => {
     setApprovedApps(user.apps ? user.apps.filter(app => app.is_approved) : "")
     setUnapprovedApps(user.apps ? user.apps.filter(app => app.is_approved === false) : "")
-    console.log(user.apps)
   }, [user])
 
   const mapApps = array => {

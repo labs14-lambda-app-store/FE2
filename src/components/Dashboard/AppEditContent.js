@@ -28,7 +28,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
     frontend_url,
     backend_url,
     hosted_url,
-    category,
+    category: category[0].category_name,
     tag_name,
     error_message_hosted: "",
     error_message_frontend: "",
@@ -39,7 +39,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   const [categories, setCategories] = useState("")
 
   useEffect(() => {
-    console.log('updated app', updatedApp)
+    console.log('app', updatedApp)
     getCategories()
   }, [])
 
@@ -68,6 +68,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   function handleUpdateApp(change, id) {
     updateApp(change, id).then(res => {
       setIsOpen(!isModalOpen)
+      
     })
   }
 
@@ -182,7 +183,9 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
         </TextField> */}
         <TextField
           className="submitInput"
-          value={category}
+          value={updatedApp.category}
+          defaultValue="strting"
+          placeholder="string"
           id="standard-select standard-required"
           required
           select
@@ -201,7 +204,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
         >
           {categories &&
             categories.map(category => (
-              <MenuItem value={category} key={category.category_name}>
+              <MenuItem defaultValue={updatedApp.category} value={updatedApp.category} key={category.category_name}>
                 {category.category_name}
               </MenuItem>
             ))}

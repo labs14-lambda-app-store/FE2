@@ -23,6 +23,7 @@ import AppForm from "../SubmissionForm/AppForm";
 import NotFound from "../404/NotFound"
 
 const Dashboard = ({ user }) => {
+    
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
