@@ -1,0 +1,60 @@
+.app-page-top {
+  display: flex;
+  justify-content: space-between;
+  max-width: 80rem;
+}
+
+.display-info {
+  width: 50%;
+
+  .app-screenshot {
+    height: auto;
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
+.app-description {
+  margin-top: 133px;
+  padding-left: 5px;
+  width: 40%;
+}
+
+.category-card {
+  display: flex;
+  align-items: baseline;
+
+  .app-category {
+    padding-left: 2%;
+    color: $lambdaPink;
+  }
+}
+
+.app-tags {
+  display: flex;
+
+  .app-tag {
+    padding-right: 2%;
+    color: $lambdaDarkBlue;
+  }
+}
+
+.users-heading {
+  font-size: 1.6rem;
+}
+
+.app-users {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .user-card {
+    width: 30%;
+  }
+
+  .profile-img {
+    height: auto;
+    width: 100%;
+    border-radius: 5px;
+  }
+}

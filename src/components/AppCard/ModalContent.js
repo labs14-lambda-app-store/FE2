@@ -1,10 +1,9 @@
 import React from "react"
 import TagsList from "../reusable/TagsList"
 import AdminButtons from "../reusable/AdminButtons"
-import { withRouter } from 'react-router'
+import { withRouter } from "react-router"
 
 const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
-
   return (
     <main className="modal-content">
       <div className="image-container">
@@ -39,12 +38,12 @@ const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
       {app.is_approved ? (
         <TagsList app={app} />
       ) : (
-          <AdminButtons
-            app={app}
-            setIsOpen={setIsOpen}
-            isModalOpen={isModalOpen}
-          />
-        )}
+        <AdminButtons
+          app={app}
+          setIsOpen={setIsOpen}
+          isModalOpen={isModalOpen}
+        />
+      )}
       <button onClick={() => history.push(`/apps/${app.id}`)} />
     </main>
   )
