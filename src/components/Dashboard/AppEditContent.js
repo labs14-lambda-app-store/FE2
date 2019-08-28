@@ -6,6 +6,7 @@ import Tooltip from "@material-ui/core/Tooltip"
 import MenuItem from "@material-ui/core/MenuItem"
 import TextField from "@material-ui/core/TextField"
 import { updateApp } from "../../actions"
+import { isUrlValid } from "../../utils/helpers"
 
 const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   const {
@@ -28,7 +29,10 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
     backend_url,
     hosted_url,
     category,
-    tag_name
+    tag_name,
+    error_message_hosted: "",
+    error_message_frontend: "",
+    error_message_backend: ""
     
   })
 
@@ -64,7 +68,6 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   function handleUpdateApp(change, id) {
     updateApp(change, id).then(res => {
       setIsOpen(!isModalOpen)
-      window.location.reload()
     })
   }
 
@@ -110,6 +113,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
           }}
         />
         <TextField
+        error={updatedApp.error_message_frontend ? true : false}
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
@@ -119,8 +123,11 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
           onChange={e => {
             handleChanges(e)
           }}
+          onBlur={e => isUrlValid(updatedApp.frontend_url, updatedApp, setUpdatedApp, "error_message_frontend")}
+          helperText={updatedApp.error_message_frontend && updatedApp.error_message_frontend}
         />
         <TextField
+        error={updatedApp.error_message_backend ? true : false}
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
@@ -130,8 +137,11 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
           onChange={e => {
             handleChanges(e)
           }}
+          onBlur={e => isUrlValid(updatedApp.backend_url, updatedApp, setUpdatedApp, "error_message_backend")}
+          helperText={updatedApp.error_message_backend && updatedApp.error_message_backend}
         />
         <TextField
+          error={updatedApp.error_message_hosted ? true : false}
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
@@ -141,6 +151,8 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
           onChange={e => {
             handleChanges(e)
           }}
+          onBlur={e => isUrlValid(updatedApp.hosted_url, updatedApp, setUpdatedApp, "error_message_hosted")}
+          helperText={updatedApp.error_message_hosted && updatedApp.error_message_hosted}
         />
         {/* <TextField
           className="submitInput"

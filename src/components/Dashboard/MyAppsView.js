@@ -10,10 +10,10 @@ const MyAppsView = ({ user }) => {
   const [unapprovedApps, setUnapprovedApps] = useState("")
   
   useEffect(() => {
-    setApprovedApps(user.apps.filter(app => app.is_approved))
-    setUnapprovedApps(user.apps.filter(app => app.is_approved === false))
+    setApprovedApps(user.apps ? user.apps.filter(app => app.is_approved) : "")
+    setUnapprovedApps(user.apps ? user.apps.filter(app => app.is_approved === false) : "")
     console.log(user.apps)
-  }, [])
+  }, [user])
 
   const mapApps = array => {
     if (array.length > 0) {
