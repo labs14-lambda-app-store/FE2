@@ -27,16 +27,16 @@
 
 [UX Design files](https://docs.google.com/presentation/d/1upSlMfvh0DpfZR6eyFzHYUU6q_TCFpPPNxIYr8qJbzU/edit?usp=sharing)
 
-Feature Canvases
-[App Gallery](https://www.notion.so/App-Gallery-Feature-Canvas-7a6638a26940490f908506fee1c35fdf)
-[Admin Dashboard](https://www.notion.so/Admin-Dashboard-Feature-Canvas-1d7dff49af804a8783f47aa8f0ec4418)
-[Student Dashboard](https://www.notion.so/Student-Dashboard-Feature-Canvas-82a2b9b67be0472ea85786873b7f9b97)
-[Landing Page](https://www.notion.so/The-Landing-Page-Feature-Canvas-3f33be139cf94a799ba4440cccc4341e)
-[Subscription](https://www.notion.so/The-Subscription-Feature-Canvas-1d7bb594fade4606a3de09abbdf31ed6)
+Feature Canvases | 
+[App Gallery](https://www.notion.so/App-Gallery-Feature-Canvas-7a6638a26940490f908506fee1c35fdf) | 
+[Admin Dashboard](https://www.notion.so/Admin-Dashboard-Feature-Canvas-1d7dff49af804a8783f47aa8f0ec4418) | 
+[Student Dashboard](https://www.notion.so/Student-Dashboard-Feature-Canvas-82a2b9b67be0472ea85786873b7f9b97) | 
+[Landing Page](https://www.notion.so/The-Landing-Page-Feature-Canvas-3f33be139cf94a799ba4440cccc4341e) | 
+[Subscription](https://www.notion.so/The-Subscription-Feature-Canvas-1d7bb594fade4606a3de09abbdf31ed6) | 
 
 "Lambda App Store" is a Lambda Labs project built for Lambda School to create a central place to view and use the apps that our awesome students create.
 
-### 5️⃣ Key Features
+### Key Features
 
 - Students can create a profile to submit their completed/deployed apps
 - Admins can approve or deny student app submissions
@@ -64,17 +64,17 @@ Feature Canvases
 
 # APIs
 
-## 1️⃣ Authentication API here
+## Authentication API here
 
 All accounts use [Auth0](https://auth0.com) for authentication.
 Auth0 provides us with authentication & authorization services and help keeps our app secured.
 
-## 2️⃣ Payment API here
+## Payment API here
 
 Stripe API
 We intend to implement Stripe into our app in a future product cycle. This will allow us to include the ability to subscribe and pay for access to premium apps.
 
-# 3️⃣ Environment Variables
+# Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
@@ -83,7 +83,7 @@ In order for the app to function correctly, the user must set up their own envir
     * REACT_APP_OAUTH_CLIENT_ID - Is assigned to you by Auth0 upon account creation.
     * REACT_APP_OAUTH_DOMAIN - Is assigned to you by Auth0 upon account creation.
 
-# 4️⃣ Content Licenses
+# Content Licenses
 
 | Image Filename               | Source / Creator | License          |
 | ---------------------------- | ---------------- | ---------------- |
@@ -99,7 +99,7 @@ In order for the app to function correctly, the user must set up their own envir
 
 For testing, we are using Cypress.io. Cypress.io responds and reloads in real time, automatically waits for the DOM to load before testing, the errors are easy to debug, and the documentation is clear.
 
-# 6️⃣ Installation Instructions
+# Installation Instructions
 
 Run yarn install after cloning.
 
