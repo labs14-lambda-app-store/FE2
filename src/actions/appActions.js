@@ -74,7 +74,7 @@ export const addApp = (newApp, history) => async dispatch => {
   try {
     const postResult = await axios.post(baseAppsUrl, newApp)
     dispatch({ type: ADD_APPS_SUCCESS, payload: postResult })
-    setTimeout(() => history.push("/apps"), 3000)
+    setTimeout(() => history.push("/dashboard/apps"), 3000)
   } catch (err) {
     dispatch({ type: ADD_APPS_FAIL, payload: err })
   }
