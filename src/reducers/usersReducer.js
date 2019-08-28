@@ -62,7 +62,6 @@ const usersReducer = (state = initialState, action) => {
         isFetching: true,
       }
     case GET_USER_SUCCESS:
-      console.log(action.payload)
       return {
         ...state,
         isFetching: false,
