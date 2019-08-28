@@ -7,18 +7,9 @@ import AuthButton from "../Auth/AuthButton"
 import { withRouter } from "react-router-dom"
 import redLambdaLogo from "../../assets/Lambda_Logo.png"
 
-const buttonSelector = () => {
-  if (window.location.pathname === "/" || '') {
-    return "home-button"
-  } else if (window.location.pathname === "/apps") {
-    return "apps-button"
-  } else if (window.location.pathname === "/pending-apps") {
-    return "pending-apps-button"
-  }
-}
-
 const NavBar = ({ user, history, location, message }) => {
-  const [activeButton, setActiveButton] = React.useState(buttonSelector())
+  //location.pathname is default value for activeButton
+  const [activeButton, setActiveButton] = React.useState(location.pathname)
 
   if (location.pathname.includes("/dashboard")) {
     return null
@@ -39,22 +30,24 @@ const NavBar = ({ user, history, location, message }) => {
             <div className="buttons">
               <Button
                 onClick={() => {
-                  setActiveButton("home-button")
+                  //setActiveButton to matching route
+                  setActiveButton('/')
                   history.push("/")
                 }}
+                //check to see if activeButton is current route, set style based on conditional
                 style={{
-                  color: activeButton === "home-button" ? "#3ab5e5" : "black",
+                  color: activeButton === '/' || '' ? "#3ab5e5" : "black",
                 }}
               >
                 Home
               </Button>
               <Button
                 onClick={() => {
-                  setActiveButton("apps-button")
+                  setActiveButton('/apps')
                   history.push("/apps")
                 }}
                 style={{
-                  color: activeButton === "apps-button" ? "#3ab5e5" : "black",
+                  color: activeButton === '/apps' ? "#3ab5e5" : "black",
                 }}
               >
                 Apps
@@ -65,12 +58,12 @@ const NavBar = ({ user, history, location, message }) => {
                 user.role === "admin" ? (
                   <Button
                     onClick={() => {
-                      setActiveButton("pending-apps-button")
+                      setActiveButton('/pending-apps')
                       history.push("/pending-apps")
                     }}
                     style={{
                       color:
-                        activeButton === "pending-apps-button"
+                        activeButton === '/pending-apps'
                           ? "#3ab5e5"
                           : "black",
                     }}
