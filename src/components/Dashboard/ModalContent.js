@@ -121,6 +121,19 @@ const ProfileEditModalContent = ({
           }}
         />
         <TextField
+          className="emailEdit"
+          id="outlined-email-input"
+          margin="normal"
+          variant="outlined"
+          value={updatedUser.email}
+          name="email"
+          label="Email"
+          type="email"
+          onChange={e => {
+            handleChanges(e)
+          }}
+        />
+        <TextField
           className="avatarURLEdit"
           id="outlined-with-placeholder"
           margin="normal"

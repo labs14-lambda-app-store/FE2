@@ -82,6 +82,7 @@
     " username username username username"
     " firstName firstName lastName lastName "
     " pronoun pronoun birthday birthday "
+    " email email email email "
     " avatar avatar avatar avatar "
     " github github github github "
     " linkedIn linkedIn linkedIn linkedIn "
@@ -119,6 +120,10 @@
       grid-area: birthday;
       width: 48%;
       margin-left: 2%;
+    }
+
+    .emailEdit {
+      grid-area: email;
     }
 
     .avatarEdit {
