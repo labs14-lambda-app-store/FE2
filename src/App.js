@@ -11,7 +11,9 @@ import { NavBar, Footer } from "./components/reusable"
 import { MuiThemeProvider } from "@material-ui/core"
 import "./App.scss"
 import Dashboard from "./components/Dashboard/Dashboard"
-import NotFound from './components/404/NotFound'
+import AppPage from "./components/AppPage/AppPage"
+
+import NotFound from "./components/404/NotFound"
 const App = ({ loginUser }) => {
   const { loading } = useAuth0()
 
@@ -26,6 +28,18 @@ const App = ({ loginUser }) => {
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <NavBar />
+          <Route exact path="/" component={Home} />
+          <Route path="/apps" exact component={AppsGallery} />
+          <Route path="/appPage/:id" component={AppPage} />
+          <ProtectedRoute path="/dashboard" component={Dashboard} />
+          <ProtectedRoute
+            path="/pending-apps"
+            exact
+            adminRoute
+            //adding appType because this is a AppsGallery component
+            appType="pending"
+            component={AppsGallery}
+          />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/apps" exact component={AppsGallery} />

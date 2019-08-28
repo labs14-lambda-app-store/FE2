@@ -42,6 +42,20 @@ export const getPendingApps = page => async dispatch => {
   }
 }
 
+export const GET_APP_BY_ID_START = "GET_APP_BY_ID_START"
+export const GET_APP_BY_ID_SUCCESS = "GET_APP_BY_ID_SUCCESS"
+export const GET_APP_BY_ID_FAIL = "GET_APP_BY_ID_FAIL"
+
+export const getAppById = id => async dispatch => {
+  dispatch({ type: GET_APP_BY_ID_START })
+  try {
+    const result = await axios.get(`${baseAppsUrl}/${id}`)
+    dispatch({ type: GET_APP_BY_ID_SUCCESS, payload: result.data })
+  } catch (error) {
+    dispatch({ type: GET_APP_BY_ID_FAIL, payload: error })
+  }
+}
+
 export const SEARCH_APPS_START = "SEARCH_APPS_START"
 export const SEARCH_APPS_SUCCESS = "SEARCH_APPS_SUCCESS"
 export const SEARCH_APPS_FAIL = "SEARCH_APPS_FAIL"
