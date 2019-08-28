@@ -71,20 +71,27 @@
   margin: 10% auto;
   background: #efeef3;
   min-height: 65%;
+  min-width: 600px;
   width: 40%;
   border-radius: 5px;
   padding: 10px 50px;
   display: flex;
   grid-template-rows: auto;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 25% 25% 25% 25%;
   grid-template-areas:
-    " username username "
-    " firstName lastName "
-    " pronoun ";
+    " username username username username"
+    " firstName firstName lastName lastName "
+    " pronoun pronoun dateOfBirth dateOfBirth "
+    " avatar avatar avatar avatar "
+    " github github github github "
+    " linkedIn linkedIn linkedIn linkedIn "
+    " . . saveButton cancelButton";
+
   .profile-edit-form {
     .MuiFormControl-root {
       width: 100%;
     }
+
     .usernameEdit {
       grid-area: username;
       width: 100%;
@@ -95,22 +102,53 @@
       width: 48%;
       margin-right: 2%;
     }
+
     .lastNameEdit {
       grid-area: lastName;
       width: 48%;
       margin-left: 2%;
     }
-  }
 
-  .profile-edit-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    .pronounEdit {
+      grid-area: pronoun;
+      width: 48%;
+      margin-right: 2%;
+    }
 
-    .profile-edit-button {
-      font-size: 1.6rem;
-      padding: 15px;
-      margin: 5px;
+    .dateOfBirthEdit {
+      grid-area: dateOfBirth;
+      width: 48%;
+      margin-left: 2%;
+    }
+
+    .avatarEdit {
+      grid-area: avatar;
+    }
+
+    .githubEdit {
+      grid-area: github;
+    }
+
+    .linkedInEdit {
+      grid-area: linkedIn;
+    }
+
+    .saveEditButton {
+      grid-area: saveButton;
+      border: 1px solid rgb(184, 184, 184);
+    }
+    .saveEditButton:hover {
+      color: white;
+      background: $lambdaLightBlue;
+    }
+
+    .cancelEditButton {
+      grid-area: cancelButton;
+      border: 1px solid rgb(184, 184, 184);
+    }
+    .cancelEditButton:hover {
+      color: white;
+      background: $lambdaRed;
     }
   }
 }

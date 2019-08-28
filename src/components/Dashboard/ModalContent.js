@@ -144,28 +144,26 @@ const ProfileEditModalContent = ({
             handleChanges(e)
           }}
         />
-      </div>
-      <div className="profile-edit-buttons">
-        {/* <Tooltip title="Confirm" placement="top">
+        <Tooltip title="Confirm" placement="top">
           <Button
-            className="profile-edit-button"
+            className="saveEditButton"
             size="small"
             color="primary"
             onClick={() => handleUpdateUser(updatedUser, id)}
           >
-            <i class="fas fa-check-circle fa-2x"></i>
+            Save
           </Button>
         </Tooltip>
-        <Tooltip title="Back" placement="top">
+        <Tooltip title="Canel" placement="top">
           <Button
-            className="profile-edit-button"
+            className="cancelEditButton"
             size="small"
             color="secondary"
             onClick={() => setIsOpen(!isModalOpen)}
           >
-            <i class="fas fa-times-circle fa-2x"></i>
+            Cancel
           </Button>
-        </Tooltip> */}
+        </Tooltip>
       </div>
     </main>
   )
