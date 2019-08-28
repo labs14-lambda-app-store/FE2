@@ -17,13 +17,14 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
     backend_url,
     hosted_url,
     tag_name,
-    category
-    
+    category,
+    id
   } = app
 
   const [updatedApp, setUpdatedApp] = useState({
     display_image,
     name,
+    id,
     description,
     frontend_url,
     backend_url,
@@ -66,6 +67,9 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   }
 
   function handleUpdateApp(change, id) {
+    console.log("change", change)
+    console.log("id", id)
+    console.log('updated app', updatedApp)
     updateApp(change, id).then(res => {
       setIsOpen(!isModalOpen)
       
@@ -184,8 +188,6 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
         <TextField
           className="submitInput"
           value={updatedApp.category}
-          defaultValue="strting"
-          placeholder="string"
           id="standard-select standard-required"
           required
           select
@@ -204,7 +206,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
         >
           {categories &&
             categories.map(category => (
-              <MenuItem defaultValue={updatedApp.category} value={updatedApp.category} key={category.category_name}>
+              <MenuItem defaultValue={updatedApp.category} value={category.category_name} key={category.category_name}>
                 {category.category_name}
               </MenuItem>
             ))}
@@ -216,7 +218,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
             className="app-edit-button"
             size="small"
             color="primary"
-            onClick={() => handleUpdateApp(updatedApp, user.id)}
+            onClick={() => handleUpdateApp(updatedApp, updatedApp.id)}
           >
             <i class="fas fa-check-circle fa-2x"></i>
           </Button>
