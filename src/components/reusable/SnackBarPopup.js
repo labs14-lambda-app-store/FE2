@@ -1,10 +1,11 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
+
 import clsx from "clsx"
-import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 import ErrorIcon from "@material-ui/icons/Error"
 import { green } from "@material-ui/core/colors"
 import Snackbar from "@material-ui/core/Snackbar"
+import { makeStyles } from "@material-ui/core/styles"
+import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 import SnackbarContent from "@material-ui/core/SnackbarContent"
 
 const snackBarStyles = makeStyles(theme => ({

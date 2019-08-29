@@ -1,7 +1,8 @@
 import React from "react"
+import { withRouter } from "react-router"
+
 import TagsList from "../reusable/TagsList"
 import AdminButtons from "../reusable/AdminButtons"
-import { withRouter } from "react-router"
 
 const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
   return (
@@ -44,7 +45,7 @@ const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
           isModalOpen={isModalOpen}
         />
       )}
-      <button onClick={() => history.push(`/apps/${app.id}`)} />
+      <button onClick={() => history.push(`/appPage/${app.id}`)} />
     </main>
   )
 }

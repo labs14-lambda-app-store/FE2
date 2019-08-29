@@ -1,9 +1,11 @@
 import React from "react"
 import { Provider } from "react-redux"
-import { store } from "../../utils/store"
+
 import "@testing-library/jest-dom"
 import { render, fireEvent, cleanup } from "@testing-library/react"
+
 import AppDetails from "./AppDetails"
+import { store } from "../../utils/store"
 
 afterEach(cleanup)
 

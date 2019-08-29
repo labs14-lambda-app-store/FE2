@@ -1,10 +1,11 @@
 import React from "react"
-import { Popover } from "@material-ui/core"
-import MenuItem from "@material-ui/core/MenuItem"
 import Cookie from "js-cookie"
-import Button from "@material-ui/core/Button"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
+
+import { Popover } from "@material-ui/core"
+import Button from "@material-ui/core/Button"
+import MenuItem from "@material-ui/core/MenuItem"
 
 import { useAuth0 } from "./react-auth0-spa.js"
 
@@ -37,8 +38,8 @@ const Dropdown = ({
             account_box
           </i>
         ) : (
-            <img className="user-image" src={pictureURL} alt="user profile"></img>
-          )}
+          <img className="user-image" src={pictureURL} alt="user profile"></img>
+        )}
 
         <i id="account-arrow" className="material-icons">
           {anchorEl === null ? "keyboard_arrow_down" : "keyboard_arrow_up"}

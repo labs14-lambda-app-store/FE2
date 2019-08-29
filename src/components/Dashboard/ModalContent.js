@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
+
 import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
 import TextField from "@material-ui/core/TextField"
+
 import { updateUser } from "../../actions"
 
 const ProfileEditModalContent = ({
@@ -24,7 +26,7 @@ const ProfileEditModalContent = ({
     github_link,
     linkedin_link,
     preferred_pronoun,
-    birthday
+    birthday,
   } = user
 
   const [updatedUser, setUpdatedUser] = useState({
@@ -39,7 +41,7 @@ const ProfileEditModalContent = ({
     github_link,
     linkedin_link,
     preferred_pronoun,
-    birthday
+    birthday,
   })
 
   function handleUpdateUser(change, id) {
@@ -178,7 +180,7 @@ const ProfileEditModalContent = ({
               onClick={() => handleUpdateUser(updatedUser, id)}
             >
               Save
-          </Button>
+            </Button>
           </Tooltip>
           <Tooltip title="Cancel" placement="top">
             <Button
@@ -188,7 +190,7 @@ const ProfileEditModalContent = ({
               onClick={() => setIsOpen(!isModalOpen)}
             >
               Cancel
-          </Button>
+            </Button>
           </Tooltip>
         </div>
       </div>

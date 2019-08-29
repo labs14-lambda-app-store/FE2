@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
+
 import Paper from "@material-ui/core/Paper"
 import Button from "@material-ui/core/Button"
+
 import ProfileEditModal from "./ProfileEditModal"
 
 const Profile = ({ user }) => {
   const { first_name, last_name, email, pictureURL, username } = user
-  
+
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -19,12 +21,7 @@ const Profile = ({ user }) => {
           <p>{email}</p>
         </div>
         <div className="button-card" onClick={() => setIsOpen(true)}>
-          <Button
-            size="small"
-            color="primary"
-            className="edit-profile-button"
-            
-          >
+          <Button size="small" color="primary" className="edit-profile-button">
             edit profile
           </Button>
         </div>

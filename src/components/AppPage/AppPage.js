@@ -1,10 +1,11 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
-import { getAppById } from "../../actions"
 import { withRouter } from "react-router"
 
-import { Container } from "@material-ui/core"
+import { getAppById } from "../../actions"
+
 import Paper from "@material-ui/core/Paper"
+import { Container } from "@material-ui/core"
 
 const AppPage = ({ getAppById, match, app }) => {
   const { name, description, display_image, category, tags, users } = app

@@ -1,6 +1,7 @@
 import React from "react"
-import lambdaStudentPic from "../../assets/lambda-student.png"
 import { withRouter } from 'react-router'
+
+import lambdaStudentPic from "../../assets/lambda-student.png"
 
 const Header = ({ location }) => {
   if (location.pathname === "/dashboard") {

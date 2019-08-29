@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react"
-import { connect } from "react-redux"
 import axios from "axios"
+import { connect } from "react-redux"
+
+import { updateApp } from "../../actions"
+import { isUrlValid } from "../../utils/helpers"
+
 import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
 import MenuItem from "@material-ui/core/MenuItem"
 import TextField from "@material-ui/core/TextField"
-import { updateApp } from "../../actions"
-import { isUrlValid } from "../../utils/helpers"
 
 const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   const {
@@ -18,7 +20,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
     hosted_url,
     tag_name,
     category,
-    id
+    id,
   } = app
 
   const [updatedApp, setUpdatedApp] = useState({
@@ -31,12 +33,19 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
     hosted_url,
     error_message_hosted: "",
     error_message_frontend: "",
-    error_message_backend: ""
+    error_message_backend: "",
   })
 
-  const { error_message_backend, error_message_frontend, error_message_hosted, ...rest } = updatedApp
+  const {
+    error_message_backend,
+    error_message_frontend,
+    error_message_hosted,
+    ...rest
+  } = updatedApp
 
   const [categories, setCategories] = useState("")
+
+  console.log("app in content", app)
 
   useEffect(() => {
     getCategories()
@@ -68,7 +77,6 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
     e.preventDefault(e)
     updateApp(change, id).then(res => {
       setIsOpen(!isModalOpen)
-      
     })
   }
 
@@ -114,7 +122,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
           }}
         />
         <TextField
-        error={updatedApp.error_message_frontend ? true : false}
+          error={updatedApp.error_message_frontend ? true : false}
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
@@ -124,11 +132,21 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
           onChange={e => {
             handleChanges(e)
           }}
-          onBlur={e => isUrlValid(updatedApp.frontend_url, updatedApp, setUpdatedApp, "error_message_frontend")}
-          helperText={updatedApp.error_message_frontend && updatedApp.error_message_frontend}
+          onBlur={e =>
+            isUrlValid(
+              updatedApp.frontend_url,
+              updatedApp,
+              setUpdatedApp,
+              "error_message_frontend"
+            )
+          }
+          helperText={
+            updatedApp.error_message_frontend &&
+            updatedApp.error_message_frontend
+          }
         />
         <TextField
-        error={updatedApp.error_message_backend ? true : false}
+          error={updatedApp.error_message_backend ? true : false}
           id="outlined-with-placeholder"
           margin="normal"
           variant="outlined"
@@ -138,8 +156,17 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
           onChange={e => {
             handleChanges(e)
           }}
-          onBlur={e => isUrlValid(updatedApp.backend_url, updatedApp, setUpdatedApp, "error_message_backend")}
-          helperText={updatedApp.error_message_backend && updatedApp.error_message_backend}
+          onBlur={e =>
+            isUrlValid(
+              updatedApp.backend_url,
+              updatedApp,
+              setUpdatedApp,
+              "error_message_backend"
+            )
+          }
+          helperText={
+            updatedApp.error_message_backend && updatedApp.error_message_backend
+          }
         />
         <TextField
           error={updatedApp.error_message_hosted ? true : false}
@@ -152,8 +179,17 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
           onChange={e => {
             handleChanges(e)
           }}
-          onBlur={e => isUrlValid(updatedApp.hosted_url, updatedApp, setUpdatedApp, "error_message_hosted")}
-          helperText={updatedApp.error_message_hosted && updatedApp.error_message_hosted}
+          onBlur={e =>
+            isUrlValid(
+              updatedApp.hosted_url,
+              updatedApp,
+              setUpdatedApp,
+              "error_message_hosted"
+            )
+          }
+          helperText={
+            updatedApp.error_message_hosted && updatedApp.error_message_hosted
+          }
         />
         {/* <TextField
           className="submitInput"
@@ -214,7 +250,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
             className="app-edit-button"
             size="small"
             color="primary"
-            onClick={(e) => handleUpdateApp(e, rest, updatedApp.id)}
+            onClick={e => handleUpdateApp(e, rest, updatedApp.id)}
           >
             <i class="fas fa-check-circle fa-2x"></i>
           </Button>
@@ -234,10 +270,9 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   )
 }
 
-const mapStateToProps = ({ usersReducer, appsReducer }) => {
+const mapStateToProps = ({ usersReducer }) => {
   return {
     ...usersReducer,
-    ...appsReducer,
   }
 }
 

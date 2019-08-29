@@ -1,8 +1,10 @@
 import React from "react"
 import { connect } from "react-redux"
+
 import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
 import Button from "@material-ui/core/Button"
+import Toolbar from "@material-ui/core/Toolbar"
+
 import AuthButton from "../Auth/AuthButton"
 import { withRouter } from "react-router-dom"
 import redLambdaLogo from "../../assets/Lambda_Logo.png"
