@@ -9,9 +9,10 @@ import { Container } from "@material-ui/core"
 
 const AppPage = ({ getAppById, match, app }) => {
   const { name, description, display_image, category, tags, users } = app
+
   useEffect(() => {
     getAppById(parseInt(match.params.id, 10))
-  }, [])
+  }, [getAppById, match.params.id])
 
   return (
     <Container>

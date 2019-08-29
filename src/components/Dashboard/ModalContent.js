@@ -140,7 +140,7 @@ const ProfileEditModalContent = ({
           margin="normal"
           variant="outlined"
           value={updatedUser.github_link}
-          name="github"
+          name="github_link"
           label="Github URL"
           onChange={e => {
             handleChanges(e)
@@ -152,7 +152,7 @@ const ProfileEditModalContent = ({
           margin="normal"
           variant="outlined"
           value={updatedUser.linkedin_link}
-          name="linkedin"
+          name="linkedin_link"
           label="LinkedIn URL"
           onChange={e => {
             handleChanges(e)
