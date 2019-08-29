@@ -18,7 +18,6 @@ const Profile = ({ user }) => {
     github_link,
     linkedin_link,
   } = user
-  console.log(user)
 
   const [isOpen, setIsOpen] = useState(false)
 
