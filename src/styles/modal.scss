@@ -1,7 +1,7 @@
 // AppCard/ModalContent.js
 .modal-content {
   margin: 10% auto;
-  background: #efeef3;
+  background: $lambdaSmoke;
   min-height: 75%;
   width: 75%;
   display: grid;
@@ -92,7 +92,7 @@
 
   .chip {
     background-color: $lambdaLightBlue;
-    color: $newBorder;
+    color: $lambdaSmoke;
   }
   .exit {
     grid-area: exit;
@@ -104,7 +104,7 @@
 
     :hover {
       cursor: pointer;
-      color: #c4c4c4;
+      color: $lambdaSmoke;
     }
   }
   .admin-buttons {

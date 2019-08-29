@@ -49,12 +49,14 @@ const AppPage = ({ getAppById, match, app }) => {
       </div>
 
       <div className="tags-wrap">
+        
         {tags ? (
           <div className="app-tags">
+            <h3> Tech Stack: </h3>
             {tags.map(currentTag => (
-              <p className="app-tag" key={currentTag.id}>
-                {currentTag.tag_name}
-              </p>
+                <p className="app-tag" key={currentTag.id}>
+                 {currentTag.tag_name} 
+                </p>
             ))}
           </div>
         ) : (
@@ -65,7 +67,7 @@ const AppPage = ({ getAppById, match, app }) => {
       <div className="team-wrap">
         {users ? (
           <div className="users-section">
-            <p className="users-heading">Meet the team</p>
+            <h3 className="users-heading">Meet the team</h3>
             <div className="app-users">
               {users.map(user => (
                 <div className="user-card" key={user.id}>
