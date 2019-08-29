@@ -59,7 +59,7 @@
     display: flex;
     align-items: center;
     margin: 0;
-  
+
     .app-category {
       width: 100%;
       margin-left: 6%;
@@ -68,6 +68,10 @@
       text-align: center;
       background-color: $lambdaPink;
       color: $lambdaSmoke;
+    }
+
+    p {
+      font-size: 1.5rem;
     }
   }
 }
@@ -78,13 +82,15 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  color: $darkcolor;
   background-color: $lambdaRed;
-  
-  .app-tags{
+  border-radius: 5px;
+
+  .app-tags {
     display: flex;
     justify-content: center;
     align-items: baseline;
-    h3{
+    h3 {
       margin-right: 15px;
     }
   }
@@ -98,22 +104,32 @@
   }
 }
 
-.users-heading {
-  font-size: 2rem;
-}
+.team-wrap {
+  width: 100%;
 
-.app-users {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-  .user-card {
-    width: 30%;
+  .users-heading {
+    font-size: 1.17em;
   }
 
-  .profile-img {
-    height: auto;
-    width: 100%;
-    border-radius: 5px;
+  .app-users {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    
+
+    .user-card {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+    }
+
+    .profile-img {
+      height: auto;
+      width: 70%;
+      border-radius: 5px;
+    }
   }
 }
