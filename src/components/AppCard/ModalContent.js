@@ -1,6 +1,7 @@
 import React from "react"
 import TagsList from "../reusable/TagsList"
 import AdminButtons from "../reusable/AdminButtons"
+import Button from "@material-ui/core/Button"
 import { withRouter } from "react-router"
 
 const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
@@ -14,9 +15,14 @@ const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
       <div className="exit" onClick={() => setIsOpen(!isModalOpen)}>
         <i className="material-icons">clear</i>
       </div>
-      <a className="link" href={app.hosted_url} target={"_blank"}>
-        View Website
-      </a>
+      <div className="link">
+        <Button className="app-button" color="primary">
+          <a href={app.hosted_url} target={"_blank"}>
+            View Website
+          </a>
+        </Button>
+        <Button className="app-button" color="secondary" onClick={() => history.push(`/apps/${app.id}`)}>Tell me more</Button>
+      </div>
       <p className="description">{app.description}</p>
       <div className="github">
         <h4>
@@ -44,7 +50,6 @@ const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
           isModalOpen={isModalOpen}
         />
       )}
-      <button onClick={() => history.push(`/apps/${app.id}`)} />
     </main>
   )
 }
