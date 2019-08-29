@@ -10,7 +10,11 @@ const MyAppItem = ({ currentApp }) => {
   return (
     <div className="my-app">
       <div className="app-card">
-        <img className="my-app-image" src={currentApp.display_image} />
+        <img
+          className="my-app-image"
+          alt="app image"
+          src={currentApp.display_image}
+        />
         <div className="app-deets">
           <h2>{currentApp.name}</h2>
           <Tooltip title="edit this app" placement="top">

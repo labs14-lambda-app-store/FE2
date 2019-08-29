@@ -18,9 +18,7 @@ const MyAppsView = ({ user }) => {
 
   const mapApps = array => {
     if (array.length > 0) {
-      {
-        return array.map(currentApp => <MyAppItem currentApp={currentApp} />)
-      }
+      return array.map(currentApp => <MyAppItem currentApp={currentApp} />)
     } else {
       return <p className="no-show-message">nothing to see here</p>
     }
