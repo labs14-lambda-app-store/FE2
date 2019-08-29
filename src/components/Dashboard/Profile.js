@@ -33,31 +33,46 @@ const Profile = ({ user }) => {
             <i class="fas fa-genderless" aria-hidden="true"></i>Preferred
             Pronoun
           </p>
-          <p className='info-text'>{preferred_pronoun}</p>
+          <p className="info-text">
+            {!preferred_pronoun
+              ? "Edit Profile to add your Preferred Pronoun"
+              : preferred_pronoun}
+          </p>
           <p className="info-label">
             <i class="fas fa-envelope" aria-hidden="true"></i>Email
           </p>
-          <p className='info-text'>
-            {email}
-          </p>
+          <p className="info-text">{email}</p>
           <p className="info-label">
             <i class="fas fa-birthday-cake" aria-hidden="true"></i>Birthday
           </p>
-          <p className='info-text'> {birthday}</p>
+          <p className="info-text">
+            {!birthday ? "Edit Profile to add your Birthday" : birthday}
+          </p>
           <p className="info-label">
             <i class="fab fa-github" aria-hidden="true"></i>GitHub
           </p>
-          <p className='info-text'>{github_link}</p>
-          <a href={`${github_link}`} target="_onblank">
-          <i class="fas fa-external-link-alt"></i>View GitHub
-          </a>
+          <p className="info-text">
+            {!github_link ? "Edit Profile to add a GitHub Link" : github_link}
+          </p>
+          {!github_link ? null : (
+            <a href={`${github_link}`} target="_onblank">
+              <i class="fas fa-external-link-alt"></i>View GitHub
+            </a>
+          )}
+
           <p className="info-label">
             <i class="fab fa-linkedin-in" aria-hidden="true"></i>LinkedIn
           </p>
-          <p className='info-text'>{linkedin_link}</p>
-          <a href={`${linkedin_link}`} target="_onblank">
-          <i class="fas fa-external-link-alt"></i>View LinkedIn
-          </a>
+          <p className="info-text">
+            {!linkedin_link
+              ? "Edit Profile to add a LinkedIn Link"
+              : linkedin_link}
+          </p>
+          {!linkedin_link ? null : (
+            <a href={`${linkedin_link}`} target="_onblank">
+              <i class="fas fa-external-link-alt"></i>View LinkedIn
+            </a>
+          )}
         </div>
         <div className="button-card" onClick={() => setIsOpen(true)}>
           <Button size="small" color="primary" className="edit-profile-button">
