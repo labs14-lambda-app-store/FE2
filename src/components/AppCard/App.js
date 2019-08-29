@@ -13,7 +13,7 @@ const App = ({ app }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div>
+    <div className="app-">
       <Card>
         <CardMedia
           // keeps the pictures all uniform size!
@@ -29,7 +29,7 @@ const App = ({ app }) => {
             </Typography>
 
             <Typography
-              className="categoryName"
+              className="category-name"
               color="secondary"
               component="h1"
             >
