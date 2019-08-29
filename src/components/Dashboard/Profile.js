@@ -7,7 +7,8 @@ import Button from "@material-ui/core/Button"
 import ProfileEditModal from "./ProfileEditModal"
 
 const Profile = ({ user }) => {
-  const { first_name, last_name, email, pictureURL, username } = user
+  const { first_name, last_name, email, pictureURL, username, preferred_pronoun, birthday, github_link, linkedin_link } = user
+  console.log(user)
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -18,7 +19,12 @@ const Profile = ({ user }) => {
           <h2>
             {first_name} {last_name}
           </h2>
-          <p>{email}</p>
+          <p><i class="fas fa-genderless" aria-hidden='true'></i>{preferred_pronoun}</p>
+          <p><i class="fas fa-envelope" aria-hidden='true'></i>{email}</p>
+          <p><i class="fas fa-birthday-cake" aria-hidden='true'></i>{birthday}</p>
+          <a href={`${github_link}`} target='_onblank'>View GitHub</a>
+          <p><i class="fab fa-github" aria-hidden='true'></i>{github_link}</p>
+          <p><i class="fab fa-linkedin-in" aria-hidden='true'></i>{linkedin_link}</p>
         </div>
         <div className="button-card" onClick={() => setIsOpen(true)}>
           <Button size="small" color="primary" className="edit-profile-button">
