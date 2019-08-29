@@ -45,9 +45,10 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
 
   const [categories, setCategories] = useState("")
 
+  console.log("app in content", app)
+
   useEffect(() => {
     getCategories()
-    console.log({ app })
   }, [])
 
   const getCategories = async () => {
@@ -269,10 +270,9 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
   )
 }
 
-const mapStateToProps = ({ usersReducer, appsReducer }) => {
+const mapStateToProps = ({ usersReducer }) => {
   return {
     ...usersReducer,
-    ...appsReducer,
   }
 }
 
