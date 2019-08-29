@@ -1,19 +1,21 @@
 import React, { useEffect } from "react"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import { useAuth0 } from "./components/Auth/react-auth0-spa"
 import { connect } from "react-redux"
-import { loginUser } from "./actions"
-import theme from "./utils/theme"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+
 import ProtectedRoute from "./components/Auth/ProtectedRoute"
+import { useAuth0 } from "./components/Auth/react-auth0-spa"
+import Dashboard from "./components/Dashboard/Dashboard"
+import { NavBar, Footer } from "./components/reusable"
+import AppPage from "./components/AppPage/AppPage"
 import { AppsGallery } from "./components/AppCard"
 import Home from "./components/LandingPage/Home"
-import { NavBar, Footer } from "./components/reusable"
+import NotFound from "./components/404/NotFound"
+import { loginUser } from "./actions"
+import theme from "./utils/theme"
+
 import { MuiThemeProvider } from "@material-ui/core"
 import "./App.scss"
-import Dashboard from "./components/Dashboard/Dashboard"
-import AppPage from "./components/AppPage/AppPage"
 
-import NotFound from "./components/404/NotFound"
 const App = ({ loginUser }) => {
   const { loading } = useAuth0()
 
