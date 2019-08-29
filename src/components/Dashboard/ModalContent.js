@@ -6,13 +6,14 @@ import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
 import TextField from "@material-ui/core/TextField"
 
-import { updateUser } from "../../actions"
+import { updateUser, getUser } from "../../actions"
 
 const ProfileEditModalContent = ({
   user,
   setIsOpen,
   isModalOpen,
   updateUser,
+  getUser
 }) => {
   const {
     id,
@@ -20,7 +21,6 @@ const ProfileEditModalContent = ({
     sub_id,
     first_name,
     last_name,
-    email,
     pictureURL,
     username,
     github_link,
@@ -35,7 +35,6 @@ const ProfileEditModalContent = ({
     sub_id,
     first_name,
     last_name,
-    email,
     pictureURL,
     username,
     github_link,
@@ -47,7 +46,8 @@ const ProfileEditModalContent = ({
   function handleUpdateUser(change, id) {
     updateUser(change, id).then(res => {
       setIsOpen(!isModalOpen)
-      window.location.reload()
+    }).then(res => {
+      getUser(id)
     })
   }
 
@@ -118,19 +118,6 @@ const ProfileEditModalContent = ({
           InputLabelProps={{
             shrink: true,
           }}
-          onChange={e => {
-            handleChanges(e)
-          }}
-        />
-        <TextField
-          className="emailEdit"
-          id="outlined-email-input"
-          margin="normal"
-          variant="outlined"
-          value={updatedUser.email}
-          name="email"
-          label="Email"
-          type="email"
           onChange={e => {
             handleChanges(e)
           }}
@@ -207,6 +194,6 @@ const mapStateToProps = ({ usersReducer }) => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { updateUser }
+    { updateUser, getUser }
   )(ProfileEditModalContent)
 )
