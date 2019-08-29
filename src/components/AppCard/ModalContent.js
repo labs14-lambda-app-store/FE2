@@ -1,8 +1,10 @@
 import React from "react"
+import { withRouter } from "react-router"
+
 import TagsList from "../reusable/TagsList"
 import AdminButtons from "../reusable/AdminButtons"
+
 import Button from "@material-ui/core/Button"
-import { withRouter } from "react-router"
 
 const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
   return (
@@ -24,7 +26,7 @@ const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
         <Button
           className="app-button"
           color="secondary"
-          onClick={() => history.push(`/apps/${app.id}`)}
+          onClick={() => history.push(`/appPage/${app.id}`)}
         >
           Tell me more
         </Button>

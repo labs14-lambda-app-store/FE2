@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext } from "react"
-import createAuth0Client from "@auth0/auth0-spa-js"
-import { loginUser } from "../../actions"
 import { connect } from "react-redux"
+
+import createAuth0Client from "@auth0/auth0-spa-js"
+
+import { loginUser } from "../../actions"
 
 //https://github.com/auth0/auth0-spa-js - refer for further details on auth usage
 

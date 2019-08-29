@@ -2,13 +2,6 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 
-import {
-  updateApp,
-  deleteApp,
-  getPendingApps,
-  addComment,
-} from "../../actions/"
-
 import Dialog from "@material-ui/core/Dialog"
 import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
@@ -17,6 +10,13 @@ import DialogTitle from "@material-ui/core/DialogTitle"
 import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
+
+import {
+  updateApp,
+  deleteApp,
+  getPendingApps,
+  addComment,
+} from "../../actions/"
 
 const style = { fontSize: "1.4rem" }
 

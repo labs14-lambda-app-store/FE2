@@ -1,6 +1,8 @@
 import React from "react"
-import Pagination from "material-ui-flat-pagination"
 import { connect } from "react-redux"
+
+import Pagination from "material-ui-flat-pagination"
+
 import { searchApps } from "../../actions"
 
 //abstracts pagination into single component to prevent re-use of duplicate code

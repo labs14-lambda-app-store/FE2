@@ -1,8 +1,10 @@
 import React from "react"
+
 import { Modal } from "@material-ui/core"
+
 import AppEditContent from "./AppEditContent"
 
-const AppEditModal = ({ app, isModalOpen, setIsOpen}) => {
+const AppEditModal = ({ app, isModalOpen, setIsOpen }) => {
   return (
     <main>
       <Modal

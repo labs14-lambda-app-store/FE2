@@ -30,22 +30,11 @@ const App = ({ loginUser }) => {
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <NavBar />
-          <Route exact path="/" component={Home} />
-          <Route path="/appPage/:id" component={AppPage} />
-          <Route path="/apps" exact component={AppsGallery} />
-          <ProtectedRoute path="/dashboard" component={Dashboard} />
-          <ProtectedRoute
-            path="/pending-apps"
-            exact
-            adminRoute
-            //adding appType because this is a AppsGallery component
-            appType="pending"
-            component={AppsGallery}
-          />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/appPage/:id" component={AppPage} />
             <Route path="/apps" exact component={AppsGallery} />
+            <Route path="/appPage/:id" component={AppPage} />
             <ProtectedRoute path="/dashboard" component={Dashboard} />
             <ProtectedRoute
               path="/pending-apps"

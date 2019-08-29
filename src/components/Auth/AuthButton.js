@@ -1,8 +1,10 @@
 import React from "react"
-import Button from "@material-ui/core/Button"
 import Cookie from "js-cookie"
-import { useAuth0 } from "./react-auth0-spa.js"
+
+import Button from "@material-ui/core/Button"
+
 import Dropdown from "./Dropdown"
+import { useAuth0 } from "./react-auth0-spa.js"
 
 const AuthButton = () => {
   const { loginWithRedirect } = useAuth0()

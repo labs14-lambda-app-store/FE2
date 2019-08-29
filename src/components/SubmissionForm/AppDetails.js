@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
-import { connect } from "react-redux"
-import { DropzoneArea } from "material-ui-dropzone"
-import TextField from "@material-ui/core/TextField"
-import MenuItem from "@material-ui/core/MenuItem"
-import Button from "@material-ui/core/Button"
-import validator from "validator"
 import axios from "axios"
+import { connect } from "react-redux"
+
+import Button from "@material-ui/core/Button"
+import MenuItem from "@material-ui/core/MenuItem"
+import TextField from "@material-ui/core/TextField"
+import { DropzoneArea } from "material-ui-dropzone"
+
 import {isUrlValid } from "../../utils/helpers"
 import { sendImageToCloudinary } from "../../actions"
 //imported Material UI packages above,

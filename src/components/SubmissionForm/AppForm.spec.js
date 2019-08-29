@@ -1,11 +1,13 @@
 import React from "react"
-import { Provider } from "react-redux"
-import { store } from "../../utils/store"
 import ReactDOM from "react-dom"
+import { Provider } from "react-redux"
+
 import "@testing-library/jest-dom"
 import { render, fireEvent, cleanup } from "@testing-library/react"
-import AppDetails from "./AppDetails"
+
 import AppForm from "./AppForm"
+import AppDetails from "./AppDetails"
+import { store } from "../../utils/store"
 
 afterEach(cleanup)
 
