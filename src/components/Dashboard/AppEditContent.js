@@ -44,8 +44,6 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
 
   const [categories, setCategories] = useState("")
 
-  console.log("app in content", app)
-
   useEffect(() => {
     getCategories()
   }, [])
@@ -251,7 +249,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
             color="primary"
             onClick={e => handleUpdateApp(e, rest, updatedApp.id)}
           >
-            <i class="fas fa-check-circle fa-2x"></i>
+            <i className="fas fa-check-circle fa-2x"></i>
           </Button>
         </Tooltip>
         <Tooltip title="Deny" placement="top">
@@ -261,7 +259,7 @@ const AppEditContent = ({ app, user, setIsOpen, isModalOpen, updateApp }) => {
             color="secondary"
             onClick={() => setIsOpen(!isModalOpen)}
           >
-            <i class="fas fa-times-circle fa-2x"></i>
+            <i className="fas fa-times-circle fa-2x"></i>
           </Button>
         </Tooltip>
       </div>

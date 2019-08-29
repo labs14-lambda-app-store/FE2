@@ -7,7 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem"
 import TextField from "@material-ui/core/TextField"
 import { DropzoneArea } from "material-ui-dropzone"
 
-import {isUrlValid } from "../../utils/helpers"
+import { isUrlValid } from "../../utils/helpers"
 import { sendImageToCloudinary } from "../../actions"
 //imported Material UI packages above,
 // and implemented them in a functional component below
@@ -38,13 +38,12 @@ const AppDetails = ({
     error_message_backend,
   } = state
 
-
   const [categories, setCategories] = useState("")
 
   useEffect(() => {
     getCategories()
   }, [])
-  
+
   const getCategories = async () => {
     const result = await axios.get(
       "https://lambdaappstore2.herokuapp.com/api/categories"
@@ -128,7 +127,14 @@ const AppDetails = ({
           label="Hosted URL"
           name="hosted_url"
           onChange={e => handleStateChanges(e)}
-          onBlur={e => isUrlValid(hosted_url, state, setStateValues, "error_message_hosted")}
+          onBlur={e =>
+            isUrlValid(
+              hosted_url,
+              state,
+              setStateValues,
+              "error_message_hosted"
+            )
+          }
           helperText={error_message_hosted && error_message_hosted}
         />
         <TextField
@@ -141,7 +147,14 @@ const AppDetails = ({
           inputProps={{ "data-testid": "frontend url" }}
           name="frontend_url"
           onChange={e => handleStateChanges(e)}
-          onBlur={e => isUrlValid(frontend_url, state, setStateValues, "error_message_frontend")}
+          onBlur={e =>
+            isUrlValid(
+              frontend_url,
+              state,
+              setStateValues,
+              "error_message_frontend"
+            )
+          }
           helperText={error_message_frontend && error_message_frontend}
         />
         <TextField
@@ -154,7 +167,14 @@ const AppDetails = ({
           inputProps={{ "data-testid": "backend url" }}
           name="backend_url"
           onChange={e => handleStateChanges(e)}
-          onBlur={e => isUrlValid(backend_url, state, setStateValues, "error_message_backend")}
+          onBlur={e =>
+            isUrlValid(
+              backend_url,
+              state,
+              setStateValues,
+              "error_message_backend"
+            )
+          }
           helperText={error_message_backend && error_message_backend}
         />
         {/* <br /> */}
@@ -164,7 +184,7 @@ const AppDetails = ({
             acceptedFiles={["image/*"]}
             onChange={e => setStateValues({ ...state, display_image: e[0] })}
             dropzoneText="Drag and drop or click to add a screenshot that showcases your app"
-            maxFileSize="5000000"
+            maxFileSize={5000000}
             inputProps={{ "data-testid": "dropzone" }}
           />
         </div>
@@ -187,11 +207,11 @@ const AppDetails = ({
           //will also disable button if error_message exists
           disabled={
             !name ||
-              !description ||
-              !hosted_url ||
-              error_message_hosted ||
-              error_message_frontend ||
-              error_message_backend
+            !description ||
+            !hosted_url ||
+            error_message_hosted ||
+            error_message_frontend ||
+            error_message_backend
               ? true
               : false
           }

@@ -12,7 +12,7 @@ const MyAppItem = ({ currentApp }) => {
       <div className="app-card">
         <img
           className="my-app-image"
-          alt="app image"
+          alt="app display"
           src={currentApp.display_image}
         />
         <div className="app-deets">
