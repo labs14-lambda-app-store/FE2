@@ -1,6 +1,7 @@
 import React from "react"
+
+import { Header } from "../reusable"
 import uxPlaceholderImg from "../../assets/LambdaLandingUX.jpeg"
-import { Header } from "../reusable";
 
 const Home = () => {
   return (

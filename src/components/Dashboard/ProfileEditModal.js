@@ -1,5 +1,7 @@
 import React from "react"
+
 import { Modal } from "@material-ui/core"
+
 import ModalContent from "./ModalContent"
 
 //will need react router for card contents
