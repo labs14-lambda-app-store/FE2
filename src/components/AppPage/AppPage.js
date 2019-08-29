@@ -68,7 +68,7 @@ const AppPage = ({ getAppById, match, app }) => {
         {users ? (
           <div className="users-section">
             <h3 className="users-heading">Meet the team</h3>
-            <p>we have the finest team members in all the land</p>
+            <p className="users-cta">we have the finest team members in all the land</p>
             <div className="app-users">
               {users.map(user => (
                 <div className="user-card" key={user.id}>
