@@ -15,7 +15,7 @@ const App = ({ app }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="app-">
+    <div className="app-wrap">
       <Card>
         <CardMedia
           // keeps the pictures all uniform size!
@@ -25,31 +25,33 @@ const App = ({ app }) => {
           onClick={() => setIsOpen(true)}
         />
         <CardContent>
-          <div onClick={() => setIsOpen(true)}>
-            <Typography gutterBottom varient="heading" component="h3">
-              {name}
-            </Typography>
+          <div className="card-text" onClick={() => setIsOpen(true)}>
+            <div className="card-header">
+              <Typography gutterBottom varient="heading" component="h3">
+                {name}
+              </Typography>
+  
+              <Typography
+                className="category-name"
+                color="secondary"
+                component="h1"
+              >
+                {category && category[0].category_name.toUpperCase()}
+              </Typography>
+            </div>
 
-            <Typography
-              className="category-name"
-              color="secondary"
-              component="h1"
-            >
-              {category && category[0].category_name.toUpperCase()}
-            </Typography>
-
-            <Typography component="p">{description}</Typography>
+            <Typography className="card-description" component="p">{description}</Typography>
           </div>
           <AppModal app={app} isModalOpen={isOpen} setIsOpen={setIsOpen} />
         </CardContent>
-        <CardActions>
+        <CardActions className="card-buttons">
           <Button
-            className="getAppButton"
+            className="get-app-button"
             size="small"
             color="primary"
             onClick={() => setIsOpen(true)}
           >
-            {is_approved ? "View The App" : "Review The App"}
+            {is_approved ? "Details" : "Review The App"}
           </Button>
         </CardActions>
       </Card>
