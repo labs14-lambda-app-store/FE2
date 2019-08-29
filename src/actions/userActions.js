@@ -67,7 +67,7 @@ export const getUser = id => async dispatch => {
     const result = await axios.get(`${baseUsersUrl}/${id}`)
     dispatch({
       type: GET_USER_SUCCESS,
-      payload: result.data.user,
+      payload: result.data,
     })
   } catch (err) {
     dispatch({ type: GET_USER_FAIL, payload: err })

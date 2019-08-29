@@ -17,8 +17,24 @@ const AppPage = ({ getAppById, match, app }) => {
   return (
     <Container>
       <div className="app-page-top">
-        <div className="display-info">
+        <div className="app-page-header">
           <h2>{name}</h2>
+          <div className="category-wrap">
+            {category ? (
+              <div className="category-card">
+                <p>Category: </p>
+                {category.map(currentCategory => (
+                  <h3 className="app-category" key={currentCategory.id}>
+                    {currentCategory.category_name}
+                  </h3>
+                ))}
+              </div>
+            ) : (
+              <h3>Loading category...</h3>
+            )}
+          </div>
+        </div>
+        <div className="display-info">
           <div>
             <img
               className="app-screenshot"
@@ -26,31 +42,22 @@ const AppPage = ({ getAppById, match, app }) => {
               alt="App screenshot"
             />
           </div>
+          <div className="app-description">
+            <p>{description}</p>
+            <div className="description-border"></div>
+          </div>
         </div>
-        <Paper className="app-description">
-          <p>{description}</p>
-        </Paper>
       </div>
 
-      <div className="category-tags">
-        {category ? (
-          <div className="category-card">
-            <p>Category: </p>
-            {category.map(currentCategory => (
-              <h3 className="app-category" key={currentCategory.id}>
-                {currentCategory.category_name}
-              </h3>
-            ))}
-          </div>
-        ) : (
-          <h3>Loading category...</h3>
-        )}
+      <div className="tags-wrap">
+        
         {tags ? (
           <div className="app-tags">
+            <h3> Tech Stack: </h3>
             {tags.map(currentTag => (
-              <p className="app-tag" key={currentTag.id}>
-                {currentTag.tag_name}
-              </p>
+                <p className="app-tag" key={currentTag.id}>
+                 {currentTag.tag_name} 
+                </p>
             ))}
           </div>
         ) : (
@@ -58,30 +65,33 @@ const AppPage = ({ getAppById, match, app }) => {
         )}
       </div>
 
-      {users ? (
-        <div className="users-section">
-          <p className="users-heading">Meet the team</p>
-          <div className="app-users">
-            {users.map(user => (
-              <div className="user-card" key={user.id}>
-                <p>
-                  {user.first_name} {user.last_name}
-                </p>
-                <div>
-                  <img
-                    className="profile-img"
-                    src={user.pictureURL}
-                    alt="profile"
-                  />
+      <div className="team-wrap">
+        {users ? (
+          <div className="users-section">
+            <h3 className="users-heading">Meet the team</h3>
+            <p>we have the finest team members in all the land</p>
+            <div className="app-users">
+              {users.map(user => (
+                <div className="user-card" key={user.id}>
+                  <p>
+                    {user.first_name} {user.last_name}
+                  </p>
+                  <div>
+                    <img
+                      className="profile-img"
+                      src={user.pictureURL}
+                      alt="profile"
+                    />
+                  </div>
+                  <p>{user.username}</p>
                 </div>
-                <p>{user.username}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ) : (
-        <p>Loading contributors...</p>
-      )}
+        ) : (
+          <p>Loading contributors...</p>
+        )}
+      </div>
     </Container>
   )
 }
