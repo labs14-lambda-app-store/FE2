@@ -21,25 +21,29 @@ const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
             View Website
           </a>
         </Button>
-        <Button className="app-button" color="secondary" onClick={() => history.push(`/apps/${app.id}`)}>Tell me more</Button>
+        <Button
+          className="app-button"
+          color="secondary"
+          onClick={() => history.push(`/apps/${app.id}`)}
+        >
+          Tell me more
+        </Button>
       </div>
       <p className="description">{app.description}</p>
       <div className="github">
         <h4>
           Github <i className="fab fa-github"></i>
         </h4>
-        <ul>
-          <li>
-            <a href={app.frontend_url} target={"_blank"}>
-              Frontend
-            </a>
-          </li>
-          <li>
-            <a href={app.backend_url} target={"_blank"}>
-              Backend
-            </a>
-          </li>
-        </ul>
+        <Button className="app-button" color="primary">
+          <a href={app.frontend_url} target={"_blank"}>
+            Frontend
+          </a>
+        </Button>
+        <Button className="app-button" color="primary">
+          <a href={app.backend_url} target={"_blank"}>
+            Backend
+          </a>
+        </Button>
       </div>
       {app.is_approved ? (
         <TagsList app={app} />

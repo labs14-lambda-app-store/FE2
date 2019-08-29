@@ -31,8 +31,8 @@ const App = ({ loginUser }) => {
         <div className="App">
           <NavBar />
           <Route exact path="/" component={Home} />
-          <Route path="/apps" exact component={AppsGallery} />
           <Route path="/appPage/:id" component={AppPage} />
+          <Route path="/apps" exact component={AppsGallery} />
           <ProtectedRoute path="/dashboard" component={Dashboard} />
           <ProtectedRoute
             path="/pending-apps"
@@ -44,6 +44,7 @@ const App = ({ loginUser }) => {
           />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/appPage/:id" component={AppPage} />
             <Route path="/apps" exact component={AppsGallery} />
             <ProtectedRoute path="/dashboard" component={Dashboard} />
             <ProtectedRoute
