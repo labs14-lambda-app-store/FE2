@@ -122,7 +122,6 @@
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: flex-end;
-    
 
     .user-card {
       width: 100%;
@@ -130,12 +129,24 @@
       display: flex;
       flex-direction: column;
       width: 30%;
-    }
 
-    .profile-img {
-      height: auto;
-      width: 70%;
-      border-radius: 5px;
+      .team-container {
+        margin: 15px;
+        min-height: 350px;
+
+        .profile-img {
+          margin-top: 15px;
+          height: auto;
+          width: 45%;
+          border-radius: 50%;
+        }
+        .names {
+          margin-bottom: 0;
+        }
+        .username {
+          font-size: 1rem;
+        }
+      }
     }
   }
 }
