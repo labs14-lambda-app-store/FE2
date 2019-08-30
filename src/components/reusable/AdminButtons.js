@@ -32,7 +32,7 @@ const AdminButtons = ({
   const [handleDenyModal, setHandleDenyModal] = React.useState(false)
   const [handleApproveModal, setHandleApproveModal] = React.useState(false)
   const [handleCommentModal, setHandleCommentModal] = React.useState(false)
-
+  
   let updatedApp = {
     id: app.id,
     name: app.name,
@@ -237,10 +237,9 @@ const AdminButtons = ({
   )
 }
 
-const mapStateToProps = ({ appsReducer, commentsReducer }) => {
+const mapStateToProps = ({ commentsReducer }) => {
   return {
-    ...appsReducer,
-    commentsReducer,
+    commentsReducer
   }
 }
 

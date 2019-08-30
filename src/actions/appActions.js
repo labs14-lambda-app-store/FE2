@@ -1,5 +1,10 @@
 import axios from "axios"
+import Cookie from "js-cookie"
+import { getUser } from "./userActions"
 import { baseAppsUrl } from "../constants"
+
+const userID = Cookie.get("user_id")
+
 export const GET_APPROVED_APPS_START = "GET_APPROVED_APPS_START"
 export const GET_APPROVED_APPS_SUCCESS = "GET_APPROVED_APPS_SUCCESS"
 export const GET_APPROVED_APPS_FAIL = "GET_APPROVED_APPS_FAIL"
@@ -88,6 +93,7 @@ export const addApp = (newApp, history) => async dispatch => {
   try {
     const postResult = await axios.post(baseAppsUrl, newApp)
     dispatch({ type: ADD_APPS_SUCCESS, payload: postResult })
+    dispatch(getUser(userID))
     setTimeout(() => history.push("/dashboard/apps"), 3000)
   } catch (err) {
     dispatch({ type: ADD_APPS_FAIL, payload: err })

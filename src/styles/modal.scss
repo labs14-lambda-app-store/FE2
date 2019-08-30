@@ -1,7 +1,7 @@
-//app card modal
+// AppCard/ModalContent.js
 .modal-content {
-  margin: 10% auto;
-  background: #efeef3;
+  margin: 5% auto;
+  background: $lambdaSmoke;
   min-height: 75%;
   width: 75%;
   display: grid;
@@ -16,7 +16,7 @@
     " image image image image link link link link"
     " image image image image description description description description"
     " image image image image description description description description"
-    " image image image image github github . ."
+    " image image image image github github github github"
     " image image image image tags tags tags tags"
     " image image image image . buttons buttons buttons";
 
@@ -24,6 +24,14 @@
     text-decoration: none;
     color: $lambdaLightBlue;
     padding-right: 1.5rem;
+  }
+
+  a {
+    color: $lambdaLightBlue;
+  }
+  .app-button {
+    font-size: 1rem;
+    padding: 30px;
   }
 
   .image-container {
@@ -39,35 +47,37 @@
     border-radius: 5px 0 0 5px;
   }
   .github {
+    width: 90%;
     grid-area: github;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
-  }
+    border-top: 1px solid $lambdaGray;
+    border-bottom: 1px solid $lambdaGray;
 
-  .github h4 {
-    display: flex;
-    align-items: center;
-    padding-right: 1.5rem;
-  }
-
-  .github ul {
-    list-style: none;
-    list-style-position: outside;
-    display: flex;
-  }
-
-  .fa-github {
-    padding-left: 0.5rem;
+    h4 {
+      padding-right: 10px;
+    }
   }
 
   .link {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
     grid-area: link;
-    color: $lambdaLightBlue;
+    border-top: 1px solid $lambdaGray;
+    border-bottom: 1px solid $lambdaGray;
+    // padding: 25px 0;
+    color: $lambdaPink;
   }
 
   .description {
     grid-area: description;
     font-size: 1.2rem;
+    text-align: center;
+    padding: 20px 0 70px 0;
+    width: 90%;
   }
 
   .name {
@@ -77,11 +87,12 @@
   .tags {
     grid-area: tags;
     font-weight: bold;
+    margin-top: 20px;
   }
 
   .chip {
     background-color: $lambdaLightBlue;
-    color: $newBorder;
+    color: $lambdaSmoke;
   }
   .exit {
     grid-area: exit;
@@ -93,7 +104,7 @@
 
     :hover {
       cursor: pointer;
-      color: #c4c4c4;
+      color: $lambdaSmoke;
     }
   }
   .admin-buttons {
