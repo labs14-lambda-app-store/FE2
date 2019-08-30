@@ -1,11 +1,9 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router"
-
 import { getAppById } from "../../actions"
-
-import Paper from "@material-ui/core/Paper"
 import { Container } from "@material-ui/core"
+import Paper from "@material-ui/core/Paper"
 
 const AppPage = ({ getAppById, match, app }) => {
   const { name, description, display_image, category, tags, users } = app
@@ -30,8 +28,8 @@ const AppPage = ({ getAppById, match, app }) => {
                 ))}
               </div>
             ) : (
-              <h3>Loading category...</h3>
-            )}
+                <h3>Loading category...</h3>
+              )}
           </div>
         </div>
         <div className="display-info">
@@ -50,47 +48,46 @@ const AppPage = ({ getAppById, match, app }) => {
       </div>
 
       <div className="tags-wrap">
-        
+
         {tags ? (
           <div className="app-tags">
             <h3> Tech Stack: </h3>
             {tags.map(currentTag => (
-                <p className="app-tag" key={currentTag.id}>
-                 {currentTag.tag_name} 
-                </p>
+              <p className="app-tag" key={currentTag.id}>
+                {currentTag.tag_name}
+              </p>
             ))}
           </div>
         ) : (
-          <h3>Loading tags...</h3>
-        )}
+            <h3>Loading tags...</h3>
+          )}
       </div>
 
       <div className="team-wrap">
         {users ? (
           <div className="users-section">
             <h3 className="users-heading">Meet the team</h3>
-            <p className="users-cta">we have the finest team members in all the land</p>
             <div className="app-users">
               {users.map(user => (
                 <div className="user-card" key={user.id}>
-                  <p>
-                    {user.first_name} {user.last_name}
-                  </p>
-                  <div>
-                    <img
-                      className="profile-img"
-                      src={user.pictureURL}
-                      alt="profile"
-                    />
-                  </div>
-                  <p>{user.username}</p>
+                  <Paper className="team-container">
+                    <div>
+                      <img
+                        className="profile-img"
+                        src={user.pictureURL}
+                        alt="profile"
+                      />
+                    </div>
+                    <p className="names">{user.first_name} {user.last_name}</p>
+                    <span className="username">{user.username}</span>
+                  </Paper>
                 </div>
               ))}
             </div>
           </div>
         ) : (
-          <p>Loading contributors...</p>
-        )}
+            <p>Loading contributors...</p>
+          )}
       </div>
     </Container>
   )
