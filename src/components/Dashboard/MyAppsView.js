@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { connect } from "react-redux"
-
 import Paper from "@material-ui/core/Paper"
 
 import MyAppItem from "./MyAppItem"
+import { getUser } from "../../actions"
 
 const MyAppsView = ({ user }) => {
   const [approvedApps, setApprovedApps] = useState("")
@@ -14,6 +14,7 @@ const MyAppsView = ({ user }) => {
     setUnapprovedApps(
       user.apps ? user.apps.filter(app => app.is_approved === false) : ""
     )
+    //eslint-disable-next-line
   }, [user])
 
   const mapApps = array => {
@@ -50,5 +51,5 @@ const mapStateToProps = ({ usersReducer }) => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { getUser }
 )(MyAppsView)

@@ -3,8 +3,6 @@ import Cookie from "js-cookie"
 import { getUser } from "./userActions"
 import { baseAppsUrl } from "../constants"
 
-const userID = Cookie.get("user_id")
-
 export const GET_APPROVED_APPS_START = "GET_APPROVED_APPS_START"
 export const GET_APPROVED_APPS_SUCCESS = "GET_APPROVED_APPS_SUCCESS"
 export const GET_APPROVED_APPS_FAIL = "GET_APPROVED_APPS_FAIL"
@@ -89,6 +87,8 @@ export const ADD_APPS_SUCCESS = "ADD_APPS_SUCCESS"
 export const ADD_APPS_FAIL = "ADD_APPS_FAIL"
 
 export const addApp = (newApp, history) => async dispatch => {
+  const userID = Cookie.get("user_id")
+
   dispatch({ type: ADD_APPS_START })
   try {
     const postResult = await axios.post(baseAppsUrl, newApp)
