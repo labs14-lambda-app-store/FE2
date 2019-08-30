@@ -32,7 +32,7 @@ const AdminButtons = ({
   const [handleDenyModal, setHandleDenyModal] = React.useState(false)
   const [handleApproveModal, setHandleApproveModal] = React.useState(false)
   const [handleCommentModal, setHandleCommentModal] = React.useState(false)
-
+  console.log("app ", app)
   let updatedApp = {
     id: app.id,
     name: app.name,
@@ -182,6 +182,7 @@ const AdminButtons = ({
           <Tooltip title="Yes" placement="top">
             <Button
               onClick={() => {
+                console.log(app.id)
                 handleDeleteApp(app.id)
               }}
               color="primary"
@@ -237,10 +238,9 @@ const AdminButtons = ({
   )
 }
 
-const mapStateToProps = ({ appsReducer, commentsReducer }) => {
+const mapStateToProps = ({ commentsReducer }) => {
   return {
-    ...appsReducer,
-    commentsReducer,
+    commentsReducer
   }
 }
 
