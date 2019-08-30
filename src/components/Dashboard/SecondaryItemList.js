@@ -3,7 +3,7 @@ import { withRouter } from "react-router"
 
 import HomeIcon from "@material-ui/icons/Home"
 import AddBoxIcon from "@material-ui/icons/AddBox"
-
+import Clear from "@material-ui/icons/Clear"
 import SideNavItem from "../reusable/SideNavItem"
 
 const SecondaryItemList = () => {
@@ -19,6 +19,7 @@ const SecondaryItemList = () => {
         icon={() => <HomeIcon />}
         primaryText="Return to Home"
       />
+      <SideNavItem isAuthButton icon={() => <Clear />} primaryText="Sign Out" />
     </div>
   )
 }
