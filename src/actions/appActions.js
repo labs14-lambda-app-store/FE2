@@ -88,7 +88,6 @@ export const ADD_APPS_FAIL = "ADD_APPS_FAIL"
 
 export const addApp = (newApp, history) => async dispatch => {
   const userID = Cookie.get("user_id")
-  console.log(userID)
 
   dispatch({ type: ADD_APPS_START })
   try {

@@ -14,8 +14,6 @@ const MyAppsView = ({ user }) => {
     setUnapprovedApps(
       user.apps ? user.apps.filter(app => app.is_approved === false) : ""
     )
-    console.log(approvedApps)
-    console.log(unapprovedApps)
     //eslint-disable-next-line
   }, [user])
 
