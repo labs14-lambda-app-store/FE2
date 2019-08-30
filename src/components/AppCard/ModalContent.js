@@ -7,6 +7,7 @@ import AdminButtons from "../reusable/AdminButtons"
 import Button from "@material-ui/core/Button"
 
 const ModalContent = ({ app, setIsOpen, isModalOpen, history }) => {
+  
   return (
     <main className="modal-content">
       <div className="image-container">
