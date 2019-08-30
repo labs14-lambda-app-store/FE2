@@ -182,7 +182,6 @@ const AdminButtons = ({
           <Tooltip title="Yes" placement="top">
             <Button
               onClick={() => {
-                console.log(app.id)
                 handleDeleteApp(app.id)
               }}
               color="primary"
