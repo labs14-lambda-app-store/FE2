@@ -10,11 +10,23 @@ const MyAppsView = ({ user }) => {
   const [unapprovedApps, setUnapprovedApps] = useState("")
 
   useEffect(() => {
+    console.log("UISDFSDHGF")
     setApprovedApps(user.apps ? user.apps.filter(app => app.is_approved) : "")
     setUnapprovedApps(
       user.apps ? user.apps.filter(app => app.is_approved === false) : ""
     )
+    console.log(approvedApps)
+    console.log(unapprovedApps)
+    //eslint-disable-next-line
   }, [user])
+
+  useEffect(() => {
+    setApprovedApps(user.apps ? user.apps.filter(app => app.is_approved) : "")
+    setUnapprovedApps(
+      user.apps ? user.apps.filter(app => app.is_approved === false) : ""
+    )
+    //eslint-disable-next-line
+  }, [])
 
   const mapApps = array => {
     if (array.length > 0) {
