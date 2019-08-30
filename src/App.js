@@ -10,7 +10,7 @@ import AppPage from "./components/AppPage/AppPage"
 import { AppsGallery } from "./components/AppCard"
 import Home from "./components/LandingPage/Home"
 import NotFound from "./components/404/NotFound"
-import { loginUser } from "./actions"
+import { loginUser, getUser } from "./actions"
 import theme from "./utils/theme"
 
 import { MuiThemeProvider } from "@material-ui/core"
@@ -55,5 +55,5 @@ const App = ({ loginUser }) => {
 
 export default connect(
   null,
-  { loginUser }
+  { loginUser, getUser }
 )(App)
