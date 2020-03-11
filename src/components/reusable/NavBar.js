@@ -30,7 +30,7 @@ const NavBar = ({ user, history, location, message }) => {
             {/* Using button onClick to avoid Link bug that prevents route changes,
                           when using material-ui */}
             <div className="buttons">
-              <Button
+              {/* <Button
                 onClick={() => {
                   //setActiveButton to matching route
                   setActiveButton('/')
@@ -42,14 +42,14 @@ const NavBar = ({ user, history, location, message }) => {
                 }}
               >
                 Home
-              </Button>
+              </Button> */}
               <Button
                 onClick={() => {
-                  setActiveButton('/apps')
-                  history.push("/apps")
+                  setActiveButton("/")
+                  history.push("/")
                 }}
                 style={{
-                  color: activeButton === '/apps' ? "#3ab5e5" : "black",
+                  color: activeButton === "/" ? "#3ab5e5" : "black",
                 }}
               >
                 Apps
@@ -60,21 +60,17 @@ const NavBar = ({ user, history, location, message }) => {
                 user.role === "admin" ? (
                   <Button
                     onClick={() => {
-                      setActiveButton('/pending-apps')
+                      setActiveButton("/pending-apps")
                       history.push("/pending-apps")
                     }}
                     style={{
                       color:
-                        activeButton === '/pending-apps'
-                          ? "#3ab5e5"
-                          : "black",
+                        activeButton === "/pending-apps" ? "#3ab5e5" : "black",
                     }}
                   >
                     Pending Apps
                   </Button>
-                ) : (
-                  null
-                )
+                ) : null
               ) : null}
 
               <AuthButton />
