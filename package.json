@@ -14,7 +14,7 @@
     "js-cookie": "^2.2.1",
     "material-ui-dropzone": "^2.4.0",
     "material-ui-flat-pagination": "^3.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
